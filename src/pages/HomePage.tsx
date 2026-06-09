@@ -140,44 +140,6 @@ export default function HomePage({ onNavigate }: HomePageProps) {
         </div>
       </section>
 
-      {/* DIRECTIONS */}
-      <section className="py-24 bg-background">
-        <div className="max-w-7xl mx-auto px-4 md:px-8">
-          <div className="mb-14">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-8 h-px bg-brand-red" />
-              <span className="font-body text-white/40 text-xs tracking-[0.25em] uppercase">Что мы поставляем</span>
-            </div>
-            <h2 className="font-display text-4xl md:text-5xl text-white tracking-wide">
-              Основные направления
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {DIRECTIONS.map((dir) => (
-              <button
-                key={dir.title}
-                onClick={() => onNavigate(dir.page)}
-                className="card-hover bg-card border border-white/8 p-6 text-left group rounded-sm"
-              >
-                <div className="w-12 h-12 bg-brand-red/15 border border-brand-red/30 flex items-center justify-center mb-5 group-hover:bg-brand-red/25 transition-colors">
-                  <Icon name={dir.icon as never} size={22} className="text-brand-red" />
-                </div>
-                <h3 className="font-display text-white text-lg tracking-wide mb-3 group-hover:text-white">
-                  {dir.title}
-                </h3>
-                <p className="font-body text-white/50 text-sm leading-relaxed">
-                  {dir.desc}
-                </p>
-                <div className="flex items-center gap-2 mt-5 text-brand-red text-xs font-body tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity">
-                  <span>Подробнее</span>
-                  <Icon name="ArrowRight" size={12} />
-                </div>
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* SPLIT SECTION — TECH */}
       <section className="py-0 bg-brand-dark-2 overflow-hidden">
         <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[500px]">
@@ -236,34 +198,6 @@ export default function HomePage({ onNavigate }: HomePageProps) {
           <div className="relative min-h-[320px] lg:min-h-auto order-1 lg:order-2">
             <img src={EQUIP_IMG} alt="Оборудование" className="absolute inset-0 w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-l from-transparent to-background/70" />
-          </div>
-        </div>
-      </section>
-
-      {/* CLIENTS */}
-      <section className="py-20 bg-brand-dark-2 border-t border-white/8">
-        <div className="max-w-7xl mx-auto px-4 md:px-8">
-          <div className="mb-12">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-8 h-px bg-brand-red" />
-              <span className="font-body text-white/40 text-xs tracking-[0.25em] uppercase">Доверяют нам</span>
-            </div>
-            <h2 className="font-display text-4xl md:text-5xl text-white tracking-wide">
-              Наши клиенты
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {CLIENTS.map((client) => (
-              <div
-                key={client}
-                className="border border-white/10 bg-card px-6 py-8 text-center card-hover rounded-sm"
-              >
-                <div className="w-8 h-8 bg-brand-red/20 border border-brand-red/30 flex items-center justify-center mx-auto mb-4">
-                  <Icon name="Building2" size={16} className="text-brand-red" />
-                </div>
-                <p className="font-body text-white/70 text-sm leading-snug">{client}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>

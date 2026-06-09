@@ -12,21 +12,43 @@ const DIRECTIONS = [
     title: "Гидравлика",
     desc: "Гидравлические станции, цилиндры, распределители, маслостанции, рукава высокого давления (РВД), фитинги.",
     icon: "Droplets",
+    page: "catalog-equipment",
   },
   {
     title: "Насосное оборудование",
     desc: "Центробежные, шестерённые, винтовые, вакуумные, дозировочные насосы; насосные станции для воды, масла, агрессивных сред.",
     icon: "Gauge",
+    page: "catalog-equipment",
   },
   {
     title: "Спецтехника",
     desc: "Поставка экскаваторов, погрузчиков, самосвалов, автокранов, дорожно-строительной техники (новая и поддержанная с гарантией).",
     icon: "Truck",
+    page: "catalog-tech",
   },
   {
     title: "Грузоподъёмное оборудование",
     desc: "Кран-балки, тали, тельферы, подъёмные столы, крановые тележки, запасные части к кранам и грузоподъёмным механизмам.",
     icon: "Anchor",
+    page: "catalog-equipment",
+  },
+  {
+    title: "Оборудование для металлообработки",
+    desc: "Газопламенные станки, Плазменные станки, Лазерные станки для листового и профильного проката, Труборезы, Балкорезы.",
+    icon: "Cog",
+    page: "catalog-equipment",
+  },
+  {
+    title: "Сварочное оборудование",
+    desc: "Аппараты для сварки MMA, MIG, TIG, Сварочные колонны, системы автоматизированной сварки.",
+    icon: "Zap",
+    page: "catalog-equipment",
+  },
+  {
+    title: "Роботы и роботизированные решения",
+    desc: "Роботизация в сварочных процессах, гибочных процессах, упаковке и логистике.",
+    icon: "Bot",
+    page: "catalog-equipment",
   },
 ];
 
@@ -118,20 +140,23 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
             </div>
             <h2 className="font-display text-4xl text-white tracking-wide">Основные направления деятельности</h2>
           </div>
-          <div className="space-y-4">
-            {DIRECTIONS.map((dir, i) => (
-              <div key={dir.title} className="flex items-start gap-6 bg-card border border-white/8 p-6 md:p-8 rounded-sm">
-                <div className="w-12 h-12 bg-brand-red flex items-center justify-center shrink-0">
-                  <Icon name={dir.icon as never} size={20} className="text-white" />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {DIRECTIONS.map((dir) => (
+              <button
+                key={dir.title}
+                onClick={() => onNavigate(dir.page)}
+                className="card-hover bg-card border border-white/8 p-6 text-left group rounded-sm"
+              >
+                <div className="w-12 h-12 bg-brand-red/15 border border-brand-red/30 flex items-center justify-center mb-5 group-hover:bg-brand-red/25 transition-colors">
+                  <Icon name={dir.icon as never} size={22} className="text-brand-red" />
                 </div>
-                <div className="flex-1">
-                  <div className="flex items-center gap-3 mb-2">
-                    <span className="font-body text-white/20 text-sm">0{i + 1}</span>
-                    <h3 className="font-display text-white text-xl tracking-wide">{dir.title}</h3>
-                  </div>
-                  <p className="font-body text-white/55 text-sm leading-relaxed">{dir.desc}</p>
+                <h3 className="font-display text-white text-lg tracking-wide mb-3">{dir.title}</h3>
+                <p className="font-body text-white/50 text-sm leading-relaxed">{dir.desc}</p>
+                <div className="flex items-center gap-2 mt-5 text-brand-red text-xs font-body tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity">
+                  <span>Подробнее</span>
+                  <Icon name="ArrowRight" size={12} />
                 </div>
-              </div>
+              </button>
             ))}
           </div>
         </div>
