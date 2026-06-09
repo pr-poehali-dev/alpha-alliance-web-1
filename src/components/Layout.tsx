@@ -41,14 +41,25 @@ export default function Layout({ children, activePage, onNavigate }: LayoutProps
           scrolled ? "bg-background/95 backdrop-blur-md shadow-lg shadow-black/30" : "bg-transparent"
         }`}
       >
+        {/* Top contact bar */}
+        <div className="hidden md:flex items-center justify-end gap-6 border-b border-white/8 py-2 px-4 md:px-8">
+          <a href="tel:+79131992934" className="flex items-center gap-1.5 text-white/50 hover:text-white transition-colors">
+            <Icon name="Phone" size={12} />
+            <span className="font-body text-xs">+7 913 199 29 34</span>
+          </a>
+          <a href="mailto:alfaallianse-info@mail.ru" className="flex items-center gap-1.5 text-white/50 hover:text-white transition-colors">
+            <Icon name="Mail" size={12} />
+            <span className="font-body text-xs">alfaallianse-info@mail.ru</span>
+          </a>
+        </div>
         <div className="max-w-7xl mx-auto px-4 md:px-8">
-          <div className="flex items-center justify-between h-16 md:h-20">
+          <div className="flex items-center justify-between h-14 md:h-16">
             {/* Logo */}
             <button onClick={() => handleNav("home")} className="flex items-center gap-3 group">
               <img
                 src="https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/023b9024-08d5-45ef-bfac-f37cf776087a.png"
                 alt="Альфа Альянс"
-                className="w-10 h-10 object-contain"
+                className="w-9 h-9 object-contain"
               />
               <div className="text-left">
                 <div className="font-display text-white text-lg font-semibold tracking-widest uppercase leading-none">
@@ -61,12 +72,12 @@ export default function Layout({ children, activePage, onNavigate }: LayoutProps
             </button>
 
             {/* Desktop Nav */}
-            <nav className="hidden lg:flex items-center gap-6">
+            <nav className="hidden lg:flex items-center gap-5">
               {NAV_ITEMS.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => handleNav(item.id)}
-                  className={`nav-link font-body text-xs tracking-[0.12em] uppercase pb-1 transition-colors whitespace-nowrap ${
+                  className={`nav-link font-body text-xs tracking-[0.1em] uppercase pb-1 transition-colors whitespace-nowrap ${
                     activePage === item.id
                       ? "text-white active"
                       : "text-white/60 hover:text-white"
@@ -77,36 +88,13 @@ export default function Layout({ children, activePage, onNavigate }: LayoutProps
               ))}
             </nav>
 
-            {/* CTA + Burger */}
-            <div className="flex items-center gap-4">
-              <a
-                href="mailto:alfaallianse-info@mail.ru"
-                className="hidden lg:flex items-center gap-2 text-white/70 hover:text-white transition-colors"
-              >
-                <Icon name="Mail" size={14} />
-                <span className="font-body text-sm">alfaallianse-info@mail.ru</span>
-              </a>
-              <a
-                href="tel:+79131992934"
-                className="hidden md:flex items-center gap-2 text-white/70 hover:text-white transition-colors"
-              >
-                <Icon name="Phone" size={14} />
-                <span className="font-body text-sm">+7 913 199 29 34</span>
-              </a>
-              <button
-                onClick={() => handleNav("contacts")}
-                className="btn-primary hidden md:block px-5 py-2 text-xs rounded-sm"
-              >
-                Запрос
-              </button>
-              {/* Burger */}
-              <button
-                className="lg:hidden text-white p-1"
-                onClick={() => setMenuOpen(!menuOpen)}
-              >
-                <Icon name={menuOpen ? "X" : "Menu"} size={22} />
-              </button>
-            </div>
+            {/* Burger */}
+            <button
+              className="lg:hidden text-white p-1"
+              onClick={() => setMenuOpen(!menuOpen)}
+            >
+              <Icon name={menuOpen ? "X" : "Menu"} size={22} />
+            </button>
           </div>
         </div>
 
