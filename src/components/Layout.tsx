@@ -45,9 +45,11 @@ export default function Layout({ children, activePage, onNavigate }: LayoutProps
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
             <button onClick={() => handleNav("home")} className="flex items-center gap-3 group">
-              <div className="w-8 h-8 bg-brand-red flex items-center justify-center">
-                <span className="font-display text-white text-sm font-bold tracking-wider">АА</span>
-              </div>
+              <img
+                src="https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/023b9024-08d5-45ef-bfac-f37cf776087a.png"
+                alt="Альфа Альянс"
+                className="w-10 h-10 object-contain"
+              />
               <div className="text-left">
                 <div className="font-display text-white text-lg font-semibold tracking-widest uppercase leading-none">
                   Альфа Альянс
@@ -132,9 +134,11 @@ export default function Layout({ children, activePage, onNavigate }: LayoutProps
           <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
             <div className="md:col-span-2">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-8 h-8 bg-brand-red flex items-center justify-center">
-                  <span className="font-display text-white text-sm font-bold">АА</span>
-                </div>
+                <img
+                  src="https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/023b9024-08d5-45ef-bfac-f37cf776087a.png"
+                  alt="Альфа Альянс"
+                  className="w-10 h-10 object-contain"
+                />
                 <span className="font-display text-white text-lg tracking-widest uppercase">Альфа Альянс</span>
               </div>
               <p className="font-body text-white/50 text-sm leading-relaxed max-w-xs">
