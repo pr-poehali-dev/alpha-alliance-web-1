@@ -131,23 +131,7 @@ export default function Layout({ children, activePage, onNavigate }: LayoutProps
       {/* Footer */}
       <footer className="bg-brand-dark-2 border-t border-white/10 pt-16 pb-8">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
-            <div className="md:col-span-2">
-              <div className="flex items-center gap-3 mb-4">
-                <img
-                  src="https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/023b9024-08d5-45ef-bfac-f37cf776087a.png"
-                  alt="Альфа Альянс"
-                  className="w-10 h-10 object-contain"
-                />
-                <span className="font-display text-white text-lg tracking-widest uppercase">Альфа Альянс</span>
-              </div>
-              <p className="font-body text-white/50 text-sm leading-relaxed max-w-xs">
-                Поставка промышленного оборудования и спецтехники. Более 200 реализованных проектов с 2013 года.
-              </p>
-            </div>
-
-          </div>
-          <div className="border-t border-white/5 mt-6 pt-6">
+          <div className="pt-4">
             <p className="font-body text-white/20 text-[11px] leading-relaxed">
               © «Альфа Альянс», 2013–2026. Настоящий сайт является объектом авторского права, исключительные права на использование которого принадлежат ООО «Альфа Альянс». Копирование, размножение, распространение, перепечатка (целиком или частично), или иное использование материала без письменного разрешения автора не допускается. Любое нарушение прав автора будет преследоваться на основе российского и международного законодательства. Свободное и безвозмездное использование произведений, входящих в состав настоящего сайта, ограничено использованием в личных целях и использованием в случаях, прямо указанных в законодательстве РФ. Использование произведений, входящих в состав настоящего сайта, на основании законодательства РФ не допускается. Нарушение вышеуказанных положений является нарушением авторских прав и влечет наступление гражданской, административной и уголовной ответственности в соответствии с действующим законодательством (статья 1299 ГК РФ).
             </p>
