@@ -145,41 +145,7 @@ export default function Layout({ children, activePage, onNavigate }: LayoutProps
                 Поставка промышленного оборудования и спецтехники. Более 200 реализованных проектов с 2013 года.
               </p>
             </div>
-            <div>
-              <h4 className="font-display text-white text-sm tracking-[0.15em] uppercase mb-4">Направления</h4>
-              <ul className="space-y-2">
-                {["Гидравлика", "Насосное оборудование", "Спецтехника", "Грузоподъёмное оборудование"].map((item) => (
-                  <li key={item}>
-                    <span className="font-body text-white/50 text-sm hover:text-white/80 transition-colors cursor-pointer">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-display text-white text-sm tracking-[0.15em] uppercase mb-4">Контакты</h4>
-              <ul className="space-y-3">
-                <li className="flex items-center gap-2 text-white/50 text-sm font-body">
-                  <Icon name="Phone" size={13} />
-                  +7 (XXX) XXX-XX-XX
-                </li>
-                <li className="flex items-center gap-2 text-white/50 text-sm font-body">
-                  <Icon name="Mail" size={13} />
-                  info@alfa-alliance.ru
-                </li>
-                <li className="flex items-start gap-2 text-white/50 text-sm font-body">
-                  <Icon name="MapPin" size={13} className="mt-0.5 shrink-0" />
-                  Россия
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-white/8 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="font-body text-white/30 text-xs tracking-wide">
-              © 2013–2026 ООО «Альфа Альянс». Все права защищены.
-            </p>
-            <p className="font-body text-white/20 text-xs">
-              ИНН / ОГРН — по запросу
-            </p>
+
           </div>
           <div className="border-t border-white/5 mt-6 pt-6">
             <p className="font-body text-white/20 text-[11px] leading-relaxed">
