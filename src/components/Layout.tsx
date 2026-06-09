@@ -80,11 +80,18 @@ export default function Layout({ children, activePage, onNavigate }: LayoutProps
             {/* CTA + Burger */}
             <div className="flex items-center gap-4">
               <a
-                href="tel:+7XXXXXXXXXX"
+                href="mailto:alfaallianse-info@mail.ru"
+                className="hidden lg:flex items-center gap-2 text-white/70 hover:text-white transition-colors"
+              >
+                <Icon name="Mail" size={14} />
+                <span className="font-body text-sm">alfaallianse-info@mail.ru</span>
+              </a>
+              <a
+                href="tel:+79131992934"
                 className="hidden md:flex items-center gap-2 text-white/70 hover:text-white transition-colors"
               >
                 <Icon name="Phone" size={14} />
-                <span className="font-body text-sm">+7 (XXX) XXX-XX-XX</span>
+                <span className="font-body text-sm">+7 913 199 29 34</span>
               </a>
               <button
                 onClick={() => handleNav("contacts")}
