@@ -3,8 +3,8 @@ import Icon from "@/components/ui/icon";
 const HERO_IMG = "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/files/6d1e745a-50bf-4647-ae03-3b755e4ae85a.jpg";
 const EQUIP_IMG = "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/files/39cb964f-b88b-47b1-b891-3fd32f0d40f6.jpg";
 const TECH_IMG = "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/files/db76b761-b73c-4d89-b50f-7744cedf0178.jpg";
-const METAL_IMG = "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/files/dfb15893-79b2-4be6-8da4-522251bc117f.jpg";
-const ROBOT_IMG = "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/files/244f39f4-9013-4d00-b46e-168f083fadbb.jpg";
+const METAL_IMG = "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/files/e16bd7df-99e6-457b-b8b4-8cca602937b0.jpg";
+const ROBOT_IMG = "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/files/3ac9c6f3-ceae-4824-bfff-a47f9a334e51.jpg";
 
 const STATS = [
   { value: "13", label: "лет на рынке", icon: "CalendarDays" },
