@@ -55,8 +55,8 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-end">
             <div>
-              <h1 className="font-display text-5xl md:text-6xl text-white tracking-wide leading-none mb-0">
-                ООО<br />«Альфа<br />Альянс»
+              <h1 className="font-display text-3xl md:text-4xl lg:text-5xl text-white tracking-wide leading-none mb-0 whitespace-nowrap">
+                ООО «Альфа Альянс»
               </h1>
             </div>
             <div>
