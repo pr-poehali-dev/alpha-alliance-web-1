@@ -144,12 +144,12 @@ export default function HomePage({ onNavigate }: HomePageProps) {
 
       {/* SPLIT SECTION — TECH */}
       <section className="py-0 bg-brand-dark-2 overflow-hidden">
-        <div className="grid grid-cols-2 h-[340px]">
-          <div className="relative overflow-hidden w-full h-full">
-            <img src={TECH_IMG} alt="Спецтехника" className="w-full h-full object-cover object-center" />
+        <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[500px]">
+          <div className="relative min-h-[320px] lg:min-h-auto">
+            <img src={TECH_IMG} alt="Спецтехника" className="absolute inset-0 w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-r from-transparent to-brand-dark-2/80" />
           </div>
-          <div className="flex items-center px-8 md:px-12 py-10">
+          <div className="flex items-center px-8 md:px-16 py-16">
             <div className="max-w-md">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-6 h-px bg-brand-red" />
@@ -175,8 +175,8 @@ export default function HomePage({ onNavigate }: HomePageProps) {
 
       {/* SPLIT SECTION — EQUIPMENT */}
       <section className="py-0 bg-background overflow-hidden">
-        <div className="grid grid-cols-2 h-[340px]">
-          <div className="flex items-center px-8 md:px-12 py-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[500px]">
+          <div className="flex items-center px-8 md:px-16 py-16 order-2 lg:order-1">
             <div className="max-w-md">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-6 h-px bg-brand-red" />
@@ -197,8 +197,8 @@ export default function HomePage({ onNavigate }: HomePageProps) {
               </button>
             </div>
           </div>
-          <div className="relative overflow-hidden w-full h-full">
-            <img src={EQUIP_IMG} alt="Оборудование" className="w-full h-full object-cover object-center" />
+          <div className="relative min-h-[320px] lg:min-h-auto order-1 lg:order-2">
+            <img src={EQUIP_IMG} alt="Оборудование" className="absolute inset-0 w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-l from-transparent to-background/70" />
           </div>
         </div>
@@ -206,12 +206,12 @@ export default function HomePage({ onNavigate }: HomePageProps) {
 
       {/* SPLIT SECTION — METALWORK */}
       <section className="py-0 bg-brand-dark-2 overflow-hidden">
-        <div className="grid grid-cols-2 h-[340px]">
-          <div className="relative overflow-hidden w-full h-full">
-            <img src={METAL_IMG} alt="Металлообработка" className="w-full h-full object-cover object-center" />
+        <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[500px]">
+          <div className="relative min-h-[320px] lg:min-h-auto">
+            <img src={METAL_IMG} alt="Металлообработка" className="absolute inset-0 w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-r from-transparent to-brand-dark-2/80" />
           </div>
-          <div className="flex items-center px-8 md:px-12 py-10">
+          <div className="flex items-center px-8 md:px-16 py-16">
             <div className="max-w-md">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-6 h-px bg-brand-red" />
@@ -237,8 +237,8 @@ export default function HomePage({ onNavigate }: HomePageProps) {
 
       {/* SPLIT SECTION — ROBOTS */}
       <section className="py-0 bg-background overflow-hidden">
-        <div className="grid grid-cols-2 h-[340px]">
-          <div className="flex items-center px-8 md:px-12 py-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[500px]">
+          <div className="flex items-center px-8 md:px-16 py-16 order-2 lg:order-1">
             <div className="max-w-md">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-6 h-px bg-brand-red" />
@@ -259,8 +259,8 @@ export default function HomePage({ onNavigate }: HomePageProps) {
               </button>
             </div>
           </div>
-          <div className="relative overflow-hidden w-full h-full">
-            <img src={ROBOT_IMG} alt="Роботизация" className="w-full h-full object-cover object-center" />
+          <div className="relative min-h-[320px] lg:min-h-auto order-1 lg:order-2">
+            <img src={ROBOT_IMG} alt="Роботизация" className="absolute inset-0 w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-l from-transparent to-background/70" />
           </div>
         </div>
