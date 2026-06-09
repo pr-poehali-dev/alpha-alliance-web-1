@@ -53,15 +53,15 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
             <div className="w-8 h-px bg-brand-red" />
             <span className="font-body text-white/40 text-xs tracking-[0.25em] uppercase">О компании</span>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-end">
-            <div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="flex items-center">
               <h1 className="font-display text-3xl md:text-4xl lg:text-5xl text-white tracking-wide leading-none mb-0 whitespace-nowrap">
                 ООО «Альфа Альянс»
               </h1>
             </div>
             <div>
               <p className="font-body text-white/65 text-base leading-relaxed mb-6">
-                Компания ООО «Альфа Альянс» работает на рынке промышленного оборудования с 2013 года. За это время мы реализовали более 200 проектов по оснащению предприятий разных отраслей.
+                Компания работает на рынке промышленного оборудования с 2013 года. За это время мы реализовали более 200 проектов по оснащению предприятий разных отраслей.
               </p>
               <div className="flex items-center gap-6">
                 <div>
