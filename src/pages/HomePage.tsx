@@ -3,6 +3,8 @@ import Icon from "@/components/ui/icon";
 const HERO_IMG = "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/files/6d1e745a-50bf-4647-ae03-3b755e4ae85a.jpg";
 const EQUIP_IMG = "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/files/39cb964f-b88b-47b1-b891-3fd32f0d40f6.jpg";
 const TECH_IMG = "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/files/db76b761-b73c-4d89-b50f-7744cedf0178.jpg";
+const METAL_IMG = "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/files/dfb15893-79b2-4be6-8da4-522251bc117f.jpg";
+const ROBOT_IMG = "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/files/244f39f4-9013-4d00-b46e-168f083fadbb.jpg";
 
 const STATS = [
   { value: "13", label: "лет на рынке", icon: "CalendarDays" },
@@ -197,6 +199,68 @@ export default function HomePage({ onNavigate }: HomePageProps) {
           </div>
           <div className="relative min-h-[320px] lg:min-h-auto order-1 lg:order-2">
             <img src={EQUIP_IMG} alt="Оборудование" className="absolute inset-0 w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-l from-transparent to-background/70" />
+          </div>
+        </div>
+      </section>
+
+      {/* SPLIT SECTION — METALWORK */}
+      <section className="py-0 bg-brand-dark-2 overflow-hidden">
+        <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[500px]">
+          <div className="relative min-h-[320px] lg:min-h-auto">
+            <img src={METAL_IMG} alt="Металлообработка" className="absolute inset-0 w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent to-brand-dark-2/80" />
+          </div>
+          <div className="flex items-center px-8 md:px-16 py-16">
+            <div className="max-w-md">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-6 h-px bg-brand-red" />
+                <span className="font-body text-white/40 text-xs tracking-[0.25em] uppercase">Оборудование</span>
+              </div>
+              <h2 className="font-display text-4xl md:text-5xl text-white tracking-wide mb-6 leading-tight">
+                Оборудование для<br />металлообработки
+              </h2>
+              <p className="font-body text-white/55 text-sm leading-relaxed mb-8">
+                Газопламенные, плазменные и лазерные станки для листового и профильного проката. Труборезы и балкорезы для промышленных предприятий.
+              </p>
+              <button
+                onClick={() => onNavigate("catalog-equipment")}
+                className="btn-primary px-7 py-3 text-xs rounded-sm inline-flex items-center gap-2"
+              >
+                Каталог оборудования
+                <Icon name="ArrowRight" size={14} />
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SPLIT SECTION — ROBOTS */}
+      <section className="py-0 bg-background overflow-hidden">
+        <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[500px]">
+          <div className="flex items-center px-8 md:px-16 py-16 order-2 lg:order-1">
+            <div className="max-w-md">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-6 h-px bg-brand-red" />
+                <span className="font-body text-white/40 text-xs tracking-[0.25em] uppercase">Роботизация</span>
+              </div>
+              <h2 className="font-display text-4xl md:text-5xl text-white tracking-wide mb-6 leading-tight">
+                Роботы и<br />роботизированные<br />решения
+              </h2>
+              <p className="font-body text-white/55 text-sm leading-relaxed mb-8">
+                Роботизация сварочных, гибочных, упаковочных и логистических процессов. Комплексная автоматизация производства под ключ.
+              </p>
+              <button
+                onClick={() => onNavigate("catalog-equipment")}
+                className="btn-primary px-7 py-3 text-xs rounded-sm inline-flex items-center gap-2"
+              >
+                Узнать подробнее
+                <Icon name="ArrowRight" size={14} />
+              </button>
+            </div>
+          </div>
+          <div className="relative min-h-[320px] lg:min-h-auto order-1 lg:order-2">
+            <img src={ROBOT_IMG} alt="Роботизация" className="absolute inset-0 w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-l from-transparent to-background/70" />
           </div>
         </div>
