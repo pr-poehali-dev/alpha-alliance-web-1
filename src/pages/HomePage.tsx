@@ -7,7 +7,7 @@ const TECH_IMG = "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559
 const STATS = [
   { value: "13", label: "лет на рынке", icon: "CalendarDays" },
   { value: "200+", label: "реализованных проектов", icon: "Briefcase" },
-  { value: "5", label: "направлений деятельности", icon: "Layers" },
+  { value: "7", label: "направлений деятельности", icon: "Layers" },
   { value: "100%", label: "гарантия на технику", icon: "ShieldCheck" },
 ];
 
@@ -39,7 +39,19 @@ const DIRECTIONS = [
   {
     icon: "Cog",
     title: "Оборудование для металлообработки",
-    desc: "Токарные, фрезерные, сверлильные станки, прессы, листогибы, плазменная резка",
+    desc: "Газопламенные станки, Плазменные станки, Лазерные станки для листового и профильного проката, Труборезы, Балкорезы",
+    page: "catalog-equipment",
+  },
+  {
+    icon: "Zap",
+    title: "Сварочное оборудование",
+    desc: "Аппараты для сварки MMA, MIG, TIG, Сварочные колонны, системы автоматизированной сварки",
+    page: "catalog-equipment",
+  },
+  {
+    icon: "Bot",
+    title: "Роботы и роботизированные решения",
+    desc: "Роботизация в сварочных процессах, гибочных процессах, упаковке и логистике",
     page: "catalog-equipment",
   },
 ];
