@@ -4,7 +4,7 @@ const HERO_IMG = "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559
 const EQUIP_IMG = "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/files/39cb964f-b88b-47b1-b891-3fd32f0d40f6.jpg";
 const TECH_IMG = "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/files/db76b761-b73c-4d89-b50f-7744cedf0178.jpg";
 const METAL_IMG = "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/files/93b8ea95-5eb3-4c29-ba1a-cf3cad6c5a83.jpg";
-const ROBOT_IMG = "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/files/9d83d5d8-757c-4bda-aff5-e1de135ceef9.jpg";
+const ROBOT_IMG = "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/7214c4b5-398c-4ca6-970a-a48f5f4a8d58.jpg";
 
 const STATS = [
   { value: "13", label: "лет на рынке", icon: "CalendarDays" },
