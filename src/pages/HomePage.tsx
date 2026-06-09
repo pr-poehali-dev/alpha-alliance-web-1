@@ -142,129 +142,88 @@ export default function HomePage({ onNavigate }: HomePageProps) {
         </div>
       </section>
 
-      {/* SPLIT SECTION — TECH */}
-      <section className="py-0 bg-brand-dark-2 overflow-hidden">
-        <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[500px]">
-          <div className="relative min-h-[320px] lg:min-h-auto">
-            <img src={TECH_IMG} alt="Спецтехника" className="absolute inset-0 w-full h-full object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent to-brand-dark-2/80" />
-          </div>
-          <div className="flex items-center px-8 md:px-16 py-16">
-            <div className="max-w-md">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-6 h-px bg-brand-red" />
-                <span className="font-body text-white/40 text-xs tracking-[0.25em] uppercase">Каталог</span>
+      {/* SPLIT SECTIONS */}
+      {[
+        {
+          img: TECH_IMG,
+          label: "Каталог",
+          title: <><span>Спецтехника</span><br /><span>с гарантией</span></>,
+          desc: "Поставляем экскаваторы, погрузчики, самосвалы, автокраны и дорожно-строительную технику — как новую, так и поддержанную с гарантией.",
+          btnText: "Смотреть каталог",
+          btnPage: "catalog-tech",
+          imgLeft: true,
+        },
+        {
+          img: EQUIP_IMG,
+          label: "Оборудование",
+          title: <><span>Гидравлика</span><br /><span>и насосы</span></>,
+          desc: "Полный спектр гидравлического и насосного оборудования для предприятий добывающей, строительной и перерабатывающей промышленности.",
+          btnText: "Каталог оборудования",
+          btnPage: "catalog-equipment",
+          imgLeft: false,
+        },
+        {
+          img: METAL_IMG,
+          label: "Оборудование",
+          title: <><span>Оборудование для</span><br /><span>металлообработки</span></>,
+          desc: "Газопламенные, плазменные и лазерные станки для листового и профильного проката. Труборезы и балкорезы для промышленных предприятий.",
+          btnText: "Каталог оборудования",
+          btnPage: "catalog-equipment",
+          imgLeft: true,
+        },
+        {
+          img: ROBOT_IMG,
+          label: "Роботизация",
+          title: <><span>Роботы и</span><br /><span>роботизированные</span><br /><span>решения</span></>,
+          desc: "Роботизация сварочных, гибочных, упаковочных и логистических процессов. Комплексная автоматизация производства под ключ.",
+          btnText: "Узнать подробнее",
+          btnPage: "catalog-equipment",
+          imgLeft: false,
+        },
+      ].map((block, idx) => (
+        <section
+          key={idx}
+          className="py-16 relative overflow-hidden"
+          style={{
+            backgroundImage: `url(${HERO_IMG})`,
+            backgroundAttachment: "fixed",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        >
+          <div className="absolute inset-0 bg-black/75" />
+          <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8">
+            <div className={`flex flex-col md:flex-row gap-8 items-center ${!block.imgLeft ? "md:flex-row-reverse" : ""}`}>
+              {/* Image card — fixed size */}
+              <div className="shrink-0 w-full md:w-[480px] h-[300px] rounded-sm overflow-hidden shadow-2xl shadow-black/50">
+                <img
+                  src={block.img}
+                  alt=""
+                  className="w-full h-full object-cover"
+                />
               </div>
-              <h2 className="font-display text-4xl md:text-5xl text-white tracking-wide mb-6 leading-tight">
-                Спецтехника<br />с гарантией
-              </h2>
-              <p className="font-body text-white/55 text-sm leading-relaxed mb-8">
-                Поставляем экскаваторы, погрузчики, самосвалы, автокраны и дорожно-строительную технику — как новую, так и поддержанную с гарантией.
-              </p>
-              <button
-                onClick={() => onNavigate("catalog-tech")}
-                className="btn-primary px-7 py-3 text-xs rounded-sm inline-flex items-center gap-2"
-              >
-                Смотреть каталог
-                <Icon name="ArrowRight" size={14} />
-              </button>
+              {/* Text */}
+              <div className="flex-1 max-w-md">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-6 h-px bg-brand-red" />
+                  <span className="font-body text-white/50 text-xs tracking-[0.25em] uppercase">{block.label}</span>
+                </div>
+                <h2 className="font-display text-3xl md:text-4xl text-white tracking-wide mb-5 leading-tight">
+                  {block.title}
+                </h2>
+                <p className="font-body text-white/60 text-sm leading-relaxed mb-8">{block.desc}</p>
+                <button
+                  onClick={() => onNavigate(block.btnPage)}
+                  className="btn-primary px-7 py-3 text-xs rounded-sm inline-flex items-center gap-2"
+                >
+                  {block.btnText}
+                  <Icon name="ArrowRight" size={14} />
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* SPLIT SECTION — EQUIPMENT */}
-      <section className="py-0 bg-background overflow-hidden">
-        <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[500px]">
-          <div className="flex items-center px-8 md:px-16 py-16 order-2 lg:order-1">
-            <div className="max-w-md">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-6 h-px bg-brand-red" />
-                <span className="font-body text-white/40 text-xs tracking-[0.25em] uppercase">Оборудование</span>
-              </div>
-              <h2 className="font-display text-4xl md:text-5xl text-white tracking-wide mb-6 leading-tight">
-                Гидравлика<br />и насосы
-              </h2>
-              <p className="font-body text-white/55 text-sm leading-relaxed mb-8">
-                Полный спектр гидравлического и насосного оборудования для предприятий добывающей, строительной и перерабатывающей промышленности.
-              </p>
-              <button
-                onClick={() => onNavigate("catalog-equipment")}
-                className="btn-primary px-7 py-3 text-xs rounded-sm inline-flex items-center gap-2"
-              >
-                Каталог оборудования
-                <Icon name="ArrowRight" size={14} />
-              </button>
-            </div>
-          </div>
-          <div className="relative min-h-[320px] lg:min-h-auto order-1 lg:order-2">
-            <img src={EQUIP_IMG} alt="Оборудование" className="absolute inset-0 w-full h-full object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-l from-transparent to-background/70" />
-          </div>
-        </div>
-      </section>
-
-      {/* SPLIT SECTION — METALWORK */}
-      <section className="py-0 bg-brand-dark-2 overflow-hidden">
-        <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[500px]">
-          <div className="relative min-h-[320px] lg:min-h-auto">
-            <img src={METAL_IMG} alt="Металлообработка" className="absolute inset-0 w-full h-full object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent to-brand-dark-2/80" />
-          </div>
-          <div className="flex items-center px-8 md:px-16 py-16">
-            <div className="max-w-md">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-6 h-px bg-brand-red" />
-                <span className="font-body text-white/40 text-xs tracking-[0.25em] uppercase">Оборудование</span>
-              </div>
-              <h2 className="font-display text-4xl md:text-5xl text-white tracking-wide mb-6 leading-tight">
-                Оборудование для<br />металлообработки
-              </h2>
-              <p className="font-body text-white/55 text-sm leading-relaxed mb-8">
-                Газопламенные, плазменные и лазерные станки для листового и профильного проката. Труборезы и балкорезы для промышленных предприятий.
-              </p>
-              <button
-                onClick={() => onNavigate("catalog-equipment")}
-                className="btn-primary px-7 py-3 text-xs rounded-sm inline-flex items-center gap-2"
-              >
-                Каталог оборудования
-                <Icon name="ArrowRight" size={14} />
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SPLIT SECTION — ROBOTS */}
-      <section className="py-0 bg-background overflow-hidden">
-        <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[500px]">
-          <div className="flex items-center px-8 md:px-16 py-16 order-2 lg:order-1">
-            <div className="max-w-md">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-6 h-px bg-brand-red" />
-                <span className="font-body text-white/40 text-xs tracking-[0.25em] uppercase">Роботизация</span>
-              </div>
-              <h2 className="font-display text-4xl md:text-5xl text-white tracking-wide mb-6 leading-tight">
-                Роботы и<br />роботизированные<br />решения
-              </h2>
-              <p className="font-body text-white/55 text-sm leading-relaxed mb-8">
-                Роботизация сварочных, гибочных, упаковочных и логистических процессов. Комплексная автоматизация производства под ключ.
-              </p>
-              <button
-                onClick={() => onNavigate("catalog-equipment")}
-                className="btn-primary px-7 py-3 text-xs rounded-sm inline-flex items-center gap-2"
-              >
-                Узнать подробнее
-                <Icon name="ArrowRight" size={14} />
-              </button>
-            </div>
-          </div>
-          <div className="relative min-h-[320px] lg:min-h-auto order-1 lg:order-2">
-            <img src={ROBOT_IMG} alt="Роботизация" className="absolute inset-0 w-full h-full object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-l from-transparent to-background/70" />
-          </div>
-        </div>
-      </section>
+        </section>
+      ))}
 
       {/* CTA BANNER */}
       <section className="py-20 bg-brand-red relative overflow-hidden">
