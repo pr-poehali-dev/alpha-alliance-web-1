@@ -66,7 +66,7 @@ export default function Layout({ children, activePage, onNavigate }: LayoutProps
                 <button
                   key={item.id}
                   onClick={() => handleNav(item.id)}
-                  className={`nav-link font-body text-xs tracking-[0.12em] uppercase pb-1 transition-colors ${
+                  className={`nav-link font-body text-xs tracking-[0.12em] uppercase pb-1 transition-colors whitespace-nowrap ${
                     activePage === item.id
                       ? "text-white active"
                       : "text-white/60 hover:text-white"
