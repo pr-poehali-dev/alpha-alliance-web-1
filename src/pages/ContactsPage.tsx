@@ -223,7 +223,7 @@ export default function ContactsPage({ onNavigate }: ContactsPageProps) {
             </div>
 
             {/* Address + Hours */}
-            <div className="flex flex-col gap-4 justify-between">
+            <div className="flex flex-col gap-4 h-full">
               <div className="bg-card border border-white/8 p-6 rounded-sm flex items-start gap-4">
                 <div className="w-10 h-10 bg-brand-red/15 border border-brand-red/30 flex items-center justify-center shrink-0">
                   <Icon name="MapPin" size={16} className="text-brand-red" />
@@ -234,7 +234,7 @@ export default function ContactsPage({ onNavigate }: ContactsPageProps) {
                 </div>
               </div>
 
-              <div className="bg-card border border-white/8 p-6 rounded-sm">
+              <div className="bg-card border border-white/8 p-6 rounded-sm flex-1 flex flex-col justify-center">
                 <h3 className="font-display text-white text-lg tracking-wide mb-5">Режим работы</h3>
                 <div className="space-y-3">
                   <div className="flex justify-between items-center">
