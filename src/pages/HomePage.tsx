@@ -9,7 +9,7 @@ const ROBOT_IMG = "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-3655
 const STATS = [
   { value: "13", label: "лет на рынке", icon: "CalendarDays" },
   { value: "200+", label: "реализованных проектов", icon: "Briefcase" },
-  { value: "7", label: "направлений деятельности", icon: "Layers" },
+  { value: "10", label: "направлений деятельности", icon: "Layers" },
   { value: "100%", label: "гарантия на технику", icon: "ShieldCheck" },
 ];
 
