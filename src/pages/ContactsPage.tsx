@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Icon from "@/components/ui/icon";
+import func2url from "../../backend/func2url.json";
 
 interface ContactsPageProps {
   onNavigate: (page: string) => void;
@@ -35,7 +36,23 @@ export default function ContactsPage({ onNavigate }: ContactsPageProps) {
     const digits = form.phone.replace(/\D/g, "");
     if (digits.length !== 11) { setSubmitStatus("error"); return; }
     setIsSubmitting(true);
-    setTimeout(() => { setSubmitStatus("success"); setIsSubmitting(false); setForm({ name: "", phone: "+7 " }); }, 800);
+    try {
+      const res = await fetch(func2url["contact-form"], {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (res.ok) {
+        setSubmitStatus("success");
+        setForm({ name: "", phone: "+7 " });
+      } else {
+        setSubmitStatus("error");
+      }
+    } catch {
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleCopy = (text: string, e: React.MouseEvent) => {
