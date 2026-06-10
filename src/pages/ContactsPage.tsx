@@ -6,13 +6,85 @@ interface ContactsPageProps {
 }
 
 export default function ContactsPage({ onNavigate }: ContactsPageProps) {
-  const [form, setForm] = useState({ name: "", company: "", phone: "", message: "" });
-  const [sent, setSent] = useState(false);
+  const [form, setForm] = useState({ name: "", phone: "+7 " });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+  const [copiedContact, setCopiedContact] = useState<string | null>(null);
+  const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSent(true);
+  const formatPhone = (value: string) => {
+    const digits = value.replace(/\D/g, "");
+    if (digits.length <= 1) return "+7 ";
+    let f = "+7";
+    if (digits.length > 1) f += " " + digits.slice(1, 4);
+    if (digits.length > 4) f += " " + digits.slice(4, 7);
+    if (digits.length > 7) f += " " + digits.slice(7, 9);
+    if (digits.length > 9) f += " " + digits.slice(9, 11);
+    return f;
   };
+
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const input = e.target.value;
+    if (input.length < 3) { setForm({ ...form, phone: "+7 " }); return; }
+    const digits = input.replace(/\D/g, "");
+    if (digits.length <= 11) setForm({ ...form, phone: formatPhone(input) });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const digits = form.phone.replace(/\D/g, "");
+    if (digits.length !== 11) { setSubmitStatus("error"); return; }
+    setIsSubmitting(true);
+    setTimeout(() => { setSubmitStatus("success"); setIsSubmitting(false); setForm({ name: "", phone: "+7 " }); }, 800);
+  };
+
+  const handleCopy = (text: string, e: React.MouseEvent) => {
+    navigator.clipboard.writeText(text).then(() => {
+      setTooltipPosition({ x: e.clientX, y: e.clientY });
+      setCopiedContact(text);
+      setTimeout(() => setCopiedContact(null), 3000);
+    });
+  };
+
+  const contactCards = [
+    {
+      icon: "Mail",
+      title: "Email",
+      details: ["alfaallianse-info@mail.ru"],
+      type: "email" as const,
+    },
+    {
+      icon: "Phone",
+      title: "Телефон",
+      details: ["+7 913 199 29 34"],
+      type: "phone" as const,
+    },
+    {
+      icon: "MessageCircle",
+      title: "Мессенджеры",
+      links: [
+        { name: "Telegram", url: "https://t.me/" },
+        { name: "WhatsApp", url: "https://wa.me/" },
+        { name: "ВКонтакте", url: "https://vk.com/" },
+      ],
+      type: null,
+    },
+  ];
+
+  const companyInfo = [
+    { label: "Полное наименование", value: "Общество с ограниченной ответственностью «Альфа Альянс»" },
+    { label: "Сокращённое наименование", value: "ООО «Альфа Альянс»" },
+    { label: "ИНН / КПП", value: "— / —" },
+    { label: "ОГРН", value: "—" },
+    { label: "Юридический адрес", value: "г. Красноярск" },
+  ];
+
+  const bankInfo = [
+    { label: "Наименование банка", value: "—" },
+    { label: "БИК", value: "—" },
+    { label: "Расчётный счёт", value: "—" },
+    { label: "Корреспондентский счёт", value: "—" },
+  ];
 
   return (
     <div>
@@ -33,88 +105,116 @@ export default function ContactsPage({ onNavigate }: ContactsPageProps) {
         </div>
       </section>
 
-      {/* Content */}
-      <section className="py-20 bg-brand-dark-2">
+      {/* Tooltip */}
+      {copiedContact && (
+        <div
+          className="fixed z-50 pointer-events-none"
+          style={{ left: tooltipPosition.x, top: tooltipPosition.y - 60, transform: "translateX(-50%)" }}
+        >
+          <div className="bg-brand-red text-white px-4 py-2 rounded-sm shadow-lg flex items-center gap-2 whitespace-nowrap text-xs font-body">
+            <Icon name="Check" size={13} />
+            Скопировано: {copiedContact}
+          </div>
+        </div>
+      )}
+
+      {/* Contact cards */}
+      <section className="py-16 bg-brand-dark-2 border-b border-white/8">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {contactCards.map((card, idx) => (
+              <div key={idx} className="bg-card border border-white/8 p-8 rounded-sm flex flex-col items-center text-center">
+                <div className="w-14 h-14 bg-brand-red/15 border border-brand-red/30 flex items-center justify-center mb-4">
+                  <Icon name={card.icon as never} size={24} className="text-brand-red" />
+                </div>
+                <h3 className="font-display text-white text-lg tracking-wide mb-3">{card.title}</h3>
+                <div className="space-y-1">
+                  {card.details?.map((detail, i) => (
+                    <p
+                      key={i}
+                      className={card.type ? "font-body text-white/60 text-sm cursor-pointer hover:text-brand-red transition-colors" : "font-body text-white/60 text-sm"}
+                      onClick={(e) => card.type && handleCopy(detail, e)}
+                      title={card.type ? "Нажмите, чтобы скопировать" : undefined}
+                    >
+                      {detail}
+                    </p>
+                  ))}
+                  {card.links?.map((link, i) => (
+                    <a
+                      key={i}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block font-body text-white/60 text-sm hover:text-brand-red transition-colors"
+                    >
+                      {link.name}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Form + Address */}
+      <section className="py-16 bg-background border-b border-white/8">
+        <div className="max-w-7xl mx-auto px-4 md:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
 
             {/* Form */}
-            <div className="lg:col-span-3">
-              <div className="bg-card border border-white/8 p-8 md:p-10 rounded-sm">
-                <h2 className="font-display text-2xl text-white tracking-wide mb-6">Отправить запрос</h2>
-                {sent ? (
-                  <div className="flex flex-col items-center justify-center py-16 text-center">
+            <div>
+              <div className="mb-6">
+                <h2 className="font-display text-3xl text-white tracking-wide mb-2">Оставьте заявку</h2>
+                <p className="font-body text-white/50 text-sm">Наш специалист свяжется с вами в ближайшее время</p>
+              </div>
+              <div className="bg-card border border-white/8 p-8 rounded-sm">
+                {submitStatus === "success" ? (
+                  <div className="flex flex-col items-center justify-center py-12 text-center">
                     <div className="w-16 h-16 bg-brand-red/20 border border-brand-red/40 flex items-center justify-center mb-5 rounded-sm">
                       <Icon name="CheckCircle" size={28} className="text-brand-red" />
                     </div>
-                    <h3 className="font-display text-white text-xl tracking-wide mb-2">Запрос отправлен!</h3>
-                    <p className="font-body text-white/50 text-sm max-w-xs">
-                      Мы получили вашу заявку и свяжемся с вами в течение одного рабочего дня.
-                    </p>
+                    <h3 className="font-display text-white text-xl tracking-wide mb-2">Заявка отправлена!</h3>
+                    <p className="font-body text-white/50 text-sm">Свяжемся с вами в течение одного рабочего дня.</p>
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-5">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                      <div>
-                        <label className="font-body text-white/50 text-xs tracking-[0.15em] uppercase block mb-2">
-                          Ваше имя *
-                        </label>
-                        <input
-                          required
-                          type="text"
-                          value={form.name}
-                          onChange={(e) => setForm({ ...form, name: e.target.value })}
-                          placeholder="Иван Петров"
-                          className="w-full bg-background border border-white/15 text-white font-body text-sm px-4 py-3 rounded-sm focus:outline-none focus:border-brand-red transition-colors placeholder:text-white/25"
-                        />
+                    {submitStatus === "error" && (
+                      <div className="p-3 bg-brand-red/10 border border-brand-red/30 rounded-sm text-brand-red text-xs font-body flex items-center gap-2">
+                        <Icon name="AlertCircle" size={13} />
+                        Введите корректный номер телефона
                       </div>
-                      <div>
-                        <label className="font-body text-white/50 text-xs tracking-[0.15em] uppercase block mb-2">
-                          Компания
-                        </label>
-                        <input
-                          type="text"
-                          value={form.company}
-                          onChange={(e) => setForm({ ...form, company: e.target.value })}
-                          placeholder="ООО «Название»"
-                          className="w-full bg-background border border-white/15 text-white font-body text-sm px-4 py-3 rounded-sm focus:outline-none focus:border-brand-red transition-colors placeholder:text-white/25"
-                        />
-                      </div>
-                    </div>
+                    )}
                     <div>
-                      <label className="font-body text-white/50 text-xs tracking-[0.15em] uppercase block mb-2">
-                        Телефон *
-                      </label>
+                      <label className="font-body text-white/50 text-xs tracking-[0.15em] uppercase block mb-2">Ваше имя *</label>
                       <input
                         required
-                        type="tel"
-                        value={form.phone}
-                        onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                        placeholder="+7 (999) 000-00-00"
+                        type="text"
+                        value={form.name}
+                        onChange={(e) => setForm({ ...form, name: e.target.value })}
+                        placeholder="Иван Петров"
                         className="w-full bg-background border border-white/15 text-white font-body text-sm px-4 py-3 rounded-sm focus:outline-none focus:border-brand-red transition-colors placeholder:text-white/25"
                       />
                     </div>
                     <div>
-                      <label className="font-body text-white/50 text-xs tracking-[0.15em] uppercase block mb-2">
-                        Опишите задачу
-                      </label>
-                      <textarea
-                        rows={5}
-                        value={form.message}
-                        onChange={(e) => setForm({ ...form, message: e.target.value })}
-                        placeholder="Укажите вид оборудования, количество, технические требования, сроки..."
-                        className="w-full bg-background border border-white/15 text-white font-body text-sm px-4 py-3 rounded-sm focus:outline-none focus:border-brand-red transition-colors placeholder:text-white/25 resize-none"
+                      <label className="font-body text-white/50 text-xs tracking-[0.15em] uppercase block mb-2">Телефон *</label>
+                      <input
+                        required
+                        type="tel"
+                        value={form.phone}
+                        onChange={handlePhoneChange}
+                        placeholder="+7 XXX XXX XX XX"
+                        className="w-full bg-background border border-white/15 text-white font-body text-sm px-4 py-3 rounded-sm focus:outline-none focus:border-brand-red transition-colors placeholder:text-white/25"
                       />
                     </div>
-                    <div className="pt-2">
-                      <button
-                        type="submit"
-                        className="btn-primary w-full py-4 text-sm rounded-sm flex items-center justify-center gap-2"
-                      >
-                        <Icon name="Send" size={15} />
-                        Отправить запрос
-                      </button>
-                    </div>
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="btn-primary w-full py-4 text-sm rounded-sm flex items-center justify-center gap-2"
+                    >
+                      <Icon name="Send" size={15} />
+                      {isSubmitting ? "Отправка..." : "Отправить заявку"}
+                    </button>
                     <p className="font-body text-white/25 text-xs text-center">
                       Нажимая кнопку, вы соглашаетесь на обработку персональных данных
                     </p>
@@ -123,65 +223,37 @@ export default function ContactsPage({ onNavigate }: ContactsPageProps) {
               </div>
             </div>
 
-            {/* Info */}
-            <div className="lg:col-span-2 space-y-4">
-              {/* Contact details */}
+            {/* Address + Hours */}
+            <div className="flex flex-col gap-4">
+              <div className="bg-card border border-white/8 p-6 rounded-sm flex items-start gap-4">
+                <div className="w-10 h-10 bg-brand-red/15 border border-brand-red/30 flex items-center justify-center shrink-0">
+                  <Icon name="MapPin" size={16} className="text-brand-red" />
+                </div>
+                <div>
+                  <div className="font-body text-white/40 text-xs tracking-wide uppercase mb-1">Адрес</div>
+                  <div className="font-body text-white text-sm">г. Красноярск</div>
+                </div>
+              </div>
+
               <div className="bg-card border border-white/8 p-6 rounded-sm">
-                <h3 className="font-display text-white text-lg tracking-wide mb-5">Реквизиты</h3>
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 bg-brand-red/15 border border-brand-red/30 flex items-center justify-center shrink-0">
-                      <Icon name="Building2" size={13} className="text-brand-red" />
-                    </div>
-                    <div>
-                      <div className="font-body text-white/40 text-xs tracking-wide uppercase mb-0.5">Компания</div>
-                      <div className="font-body text-white text-sm">ООО «Альфа Альянс»</div>
-                    </div>
+                <h3 className="font-display text-white text-lg tracking-wide mb-5">Режим работы</h3>
+                <div className="space-y-3">
+                  <div className="flex justify-between items-center">
+                    <span className="font-body text-white/55 text-sm">Понедельник – Пятница</span>
+                    <span className="font-body text-white text-sm font-medium">9:00 – 18:00</span>
                   </div>
-                  <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 bg-brand-red/15 border border-brand-red/30 flex items-center justify-center shrink-0">
-                      <Icon name="Phone" size={13} className="text-brand-red" />
-                    </div>
-                    <div>
-                      <div className="font-body text-white/40 text-xs tracking-wide uppercase mb-0.5">Телефон</div>
-                      <a href="tel:+7XXXXXXXXXX" className="font-body text-white text-sm hover:text-brand-red transition-colors">
-                        +7 (XXX) XXX-XX-XX
-                      </a>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 bg-brand-red/15 border border-brand-red/30 flex items-center justify-center shrink-0">
-                      <Icon name="Mail" size={13} className="text-brand-red" />
-                    </div>
-                    <div>
-                      <div className="font-body text-white/40 text-xs tracking-wide uppercase mb-0.5">E-mail</div>
-                      <a href="mailto:info@alfa-alliance.ru" className="font-body text-white text-sm hover:text-brand-red transition-colors">
-                        info@alfa-alliance.ru
-                      </a>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 bg-brand-red/15 border border-brand-red/30 flex items-center justify-center shrink-0">
-                      <Icon name="Clock" size={13} className="text-brand-red" />
-                    </div>
-                    <div>
-                      <div className="font-body text-white/40 text-xs tracking-wide uppercase mb-0.5">Режим работы</div>
-                      <div className="font-body text-white text-sm">Пн–Пт: 9:00 – 18:00</div>
-                    </div>
+                  <div className="w-full h-px bg-white/8" />
+                  <div className="flex justify-between items-center">
+                    <span className="font-body text-white/55 text-sm">Суббота – Воскресенье</span>
+                    <span className="font-body text-white/40 text-sm">Выходной</span>
                   </div>
                 </div>
               </div>
 
-              {/* Why contact */}
               <div className="bg-brand-red/10 border border-brand-red/25 p-6 rounded-sm">
                 <h3 className="font-display text-white text-base tracking-wide mb-4">Что мы сделаем</h3>
                 <ul className="space-y-2">
-                  {[
-                    "Изучим ваши требования",
-                    "Подберём оптимальное оборудование",
-                    "Подготовим КП в течение дня",
-                    "Обеспечим сопровождение сделки",
-                  ].map((item) => (
+                  {["Изучим ваши требования", "Подберём оптимальное оборудование", "Подготовим КП в течение дня", "Обеспечим сопровождение сделки"].map((item) => (
                     <li key={item} className="flex items-center gap-2">
                       <Icon name="Check" size={12} className="text-brand-red shrink-0" />
                       <span className="font-body text-white/65 text-sm">{item}</span>
@@ -189,16 +261,66 @@ export default function ContactsPage({ onNavigate }: ContactsPageProps) {
                   ))}
                 </ul>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-              {/* Founded */}
-              <div className="bg-card border border-white/8 p-6 rounded-sm flex items-center gap-4">
-                <div className="font-display text-brand-red text-4xl font-bold">2013</div>
-                <div>
-                  <div className="font-body text-white text-sm font-medium">Год основания</div>
-                  <div className="font-body text-white/40 text-xs mt-0.5">Более 13 лет на рынке</div>
-                </div>
+      {/* Requisites */}
+      <section className="py-16 bg-brand-dark-2 border-b border-white/8">
+        <div className="max-w-7xl mx-auto px-4 md:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+
+            <div>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-6 h-px bg-brand-red" />
+                <h3 className="font-display text-2xl text-white tracking-wide">Реквизиты компании</h3>
+              </div>
+              <div className="bg-card border border-white/8 rounded-sm overflow-hidden">
+                {companyInfo.map((item, idx) => (
+                  <div key={idx} className={`grid grid-cols-2 gap-4 px-6 py-4 ${idx !== companyInfo.length - 1 ? "border-b border-white/6" : ""}`}>
+                    <span className="font-body text-white/40 text-xs">{item.label}</span>
+                    <span className="font-body text-white text-xs">{item.value}</span>
+                  </div>
+                ))}
               </div>
             </div>
+
+            <div>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-6 h-px bg-brand-red" />
+                <h3 className="font-display text-2xl text-white tracking-wide">Банковские реквизиты</h3>
+              </div>
+              <div className="bg-card border border-white/8 rounded-sm overflow-hidden">
+                {bankInfo.map((item, idx) => (
+                  <div key={idx} className={`grid grid-cols-2 gap-4 px-6 py-4 ${idx !== bankInfo.length - 1 ? "border-b border-white/6" : ""}`}>
+                    <span className="font-body text-white/40 text-xs">{item.label}</span>
+                    <span className="font-body text-white text-xs">{item.value}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* Map */}
+      <section className="py-16 bg-background">
+        <div className="max-w-7xl mx-auto px-4 md:px-8">
+          <div className="flex items-center gap-3 mb-8">
+            <div className="w-6 h-px bg-brand-red" />
+            <h2 className="font-display text-2xl text-white tracking-wide">Как нас найти</h2>
+          </div>
+          <div className="rounded-sm overflow-hidden border border-white/8">
+            <iframe
+              src="https://yandex.ru/map-widget/v1/?ll=92.852572%2C56.010563&z=12&pt=92.852572,56.010563,pm2rdm"
+              width="100%"
+              height="500"
+              frameBorder="0"
+              allowFullScreen
+              title="Карта офиса Альфа Альянс"
+            />
           </div>
         </div>
       </section>
