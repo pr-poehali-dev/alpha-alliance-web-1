@@ -144,7 +144,7 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
             </div>
             <div>
               <p className="font-body text-white/65 text-base leading-relaxed mb-6">
-                Компания работает на рынке промышленного оборудования с 2013 года. За это время мы реализовали более 200 проектов по оснащению предприятий разных отраслей.
+                Компания работает на рынке промышленного оборудования с 2013 года. За это время мы реализовали более 200 проектов по оснащению предприятий разных отраслей. Головной офис компании располагается на территории города Красноярск.
               </p>
               <div className="flex items-center gap-6">
                 <div>
@@ -158,8 +158,8 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
                 </div>
                 <div className="w-px h-12 bg-white/15" />
                 <div>
-                  <div className="font-display text-brand-red text-4xl font-bold">4</div>
-                  <div className="font-body text-white/40 text-xs tracking-widest uppercase mt-1">направления</div>
+                  <div className="font-display text-brand-red text-4xl font-bold">10</div>
+                  <div className="font-body text-white/40 text-xs tracking-widest uppercase mt-1">направлений</div>
                 </div>
               </div>
             </div>
