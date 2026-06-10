@@ -92,7 +92,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
               и спецтехника
             </h1>
             <p className="font-body text-white/65 text-base md:text-lg leading-relaxed mb-10 max-w-xl animate-fade-up opacity-0-init delay-200">
-              Поставка гидравлики, насосного оборудования, спецтехники и грузоподъёмных механизмов для промышленных предприятий России
+              Поставка гидравлики, насосного оборудования, спецтехники и грузоподъёмных механизмов, станков термической резки, роботизированных комплексов для промышленных предприятий России
             </p>
             <div className="flex flex-col sm:flex-row gap-4 animate-fade-up opacity-0-init delay-300">
               <button
