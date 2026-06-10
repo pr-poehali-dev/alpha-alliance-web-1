@@ -61,7 +61,7 @@ export default function Layout({ children, activePage, onNavigate }: LayoutProps
                 alt="Альфа Альянс"
                 className="w-9 h-9 object-contain"
               />
-              <div className="font-display text-white leading-none font-semibold tracking-widest uppercase" style={{fontSize: "36px", lineHeight: "36px"}}>
+              <div className="font-display text-white leading-none font-semibold tracking-widest uppercase" style={{fontSize: "22px", lineHeight: "22px"}}>
                 Альфа Альянс
               </div>
             </button>
