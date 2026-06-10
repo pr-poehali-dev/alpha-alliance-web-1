@@ -223,7 +223,12 @@ export default function ContactsPage({ onNavigate }: ContactsPageProps) {
             </div>
 
             {/* Address + Hours combined */}
-            <div className="bg-card border border-white/8 p-8 rounded-sm h-full flex flex-col gap-6">
+            <div className="flex flex-col">
+            <div className="mb-6 opacity-0 pointer-events-none select-none">
+              <h2 className="font-display text-3xl text-white tracking-wide mb-2">Оставьте заявку</h2>
+              <p className="font-body text-white/50 text-sm">Наш специалист свяжется с вами в ближайшее время</p>
+            </div>
+            <div className="bg-card border border-white/8 p-8 rounded-sm flex-1 flex flex-col gap-6">
               <div className="flex items-start gap-3">
                 <div className="w-8 h-8 bg-brand-red/15 border border-brand-red/30 flex items-center justify-center shrink-0">
                   <Icon name="MapPin" size={13} className="text-brand-red" />
@@ -255,6 +260,7 @@ export default function ContactsPage({ onNavigate }: ContactsPageProps) {
                   </div>
                 </div>
               </div>
+            </div>
             </div>
           </div>
         </div>
