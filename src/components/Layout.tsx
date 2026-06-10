@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Icon from "@/components/ui/icon";
+import FloatingContact from "@/components/FloatingContact";
 
 const NAV_ITEMS = [
   { id: "home", label: "Главная" },
@@ -117,6 +118,9 @@ export default function Layout({ children, activePage, onNavigate }: LayoutProps
 
       {/* Main */}
       <main>{children}</main>
+
+      {/* Floating contact button — hidden on contacts page */}
+      {activePage !== "contacts" && <FloatingContact />}
 
       {/* Footer */}
       <footer className="bg-brand-dark-2 border-t border-white/10 py-8">
