@@ -74,16 +74,15 @@ export default function ContactsPage({ onNavigate }: ContactsPageProps) {
   const companyInfo = [
     { label: "Полное наименование", value: "Общество с ограниченной ответственностью «Альфа Альянс»" },
     { label: "Сокращённое наименование", value: "ООО «Альфа Альянс»" },
-    { label: "ИНН / КПП", value: "— / —" },
-    { label: "ОГРН", value: "—" },
-    { label: "Юридический адрес", value: "г. Красноярск" },
+    { label: "ИНН / КПП", value: "2465302921 / 246501001" },
+    { label: "ОГРН", value: "1132468063331" },
   ];
 
   const bankInfo = [
-    { label: "Наименование банка", value: "—" },
-    { label: "БИК", value: "—" },
-    { label: "Расчётный счёт", value: "—" },
-    { label: "Корреспондентский счёт", value: "—" },
+    { label: "Наименование банка", value: "ФИЛИАЛ «ЦЕНТРАЛЬНЫЙ» БАНКА ВТБ (ПАО)" },
+    { label: "БИК", value: "044 525 411" },
+    { label: "Расчётный счёт", value: "407 028 108 254 600 019 85" },
+    { label: "Корреспондентский счёт", value: "301 018 101 452 500 004 11" },
   ];
 
   return (
@@ -160,10 +159,10 @@ export default function ContactsPage({ onNavigate }: ContactsPageProps) {
       {/* Form + Address */}
       <section className="py-16 bg-background border-b border-white/8">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-stretch">
 
             {/* Form */}
-            <div>
+            <div className="flex flex-col">
               <div className="mb-6">
                 <h2 className="font-display text-3xl text-white tracking-wide mb-2">Оставьте заявку</h2>
                 <p className="font-body text-white/50 text-sm">Наш специалист свяжется с вами в ближайшее время</p>
@@ -224,14 +223,14 @@ export default function ContactsPage({ onNavigate }: ContactsPageProps) {
             </div>
 
             {/* Address + Hours */}
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-4 justify-between">
               <div className="bg-card border border-white/8 p-6 rounded-sm flex items-start gap-4">
                 <div className="w-10 h-10 bg-brand-red/15 border border-brand-red/30 flex items-center justify-center shrink-0">
                   <Icon name="MapPin" size={16} className="text-brand-red" />
                 </div>
                 <div>
                   <div className="font-body text-white/40 text-xs tracking-wide uppercase mb-1">Адрес</div>
-                  <div className="font-body text-white text-sm">г. Красноярск</div>
+                  <div className="font-body text-white text-sm">660020, Красноярский край, г. Красноярск, ул. Дудинская, д. 5</div>
                 </div>
               </div>
 
@@ -250,17 +249,6 @@ export default function ContactsPage({ onNavigate }: ContactsPageProps) {
                 </div>
               </div>
 
-              <div className="bg-brand-red/10 border border-brand-red/25 p-6 rounded-sm">
-                <h3 className="font-display text-white text-base tracking-wide mb-4">Что мы сделаем</h3>
-                <ul className="space-y-2">
-                  {["Изучим ваши требования", "Подберём оптимальное оборудование", "Подготовим КП в течение дня", "Обеспечим сопровождение сделки"].map((item) => (
-                    <li key={item} className="flex items-center gap-2">
-                      <Icon name="Check" size={12} className="text-brand-red shrink-0" />
-                      <span className="font-body text-white/65 text-sm">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
             </div>
           </div>
         </div>
