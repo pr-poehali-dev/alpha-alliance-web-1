@@ -228,60 +228,36 @@ export default function ContactsPage({ onNavigate }: ContactsPageProps) {
               <h2 className="font-display text-3xl text-white tracking-wide mb-2">Оставьте заявку</h2>
               <p className="font-body text-white/50 text-sm">Наш специалист свяжется с вами в ближайшее время</p>
             </div>
-            <div className="bg-card border border-white/8 p-8 rounded-sm flex-1 flex flex-col justify-between">
-              <div className="flex items-start gap-3">
-                <div className="w-8 h-8 bg-brand-red/15 border border-brand-red/30 flex items-center justify-center shrink-0">
-                  <Icon name="MapPin" size={13} className="text-brand-red" />
+            <div className="bg-card border border-white/8 p-8 rounded-sm flex-1 flex flex-col justify-center gap-8">
+              <div className="flex items-center gap-4">
+                <div className="w-10 h-10 bg-brand-red/15 border border-brand-red/30 flex items-center justify-center shrink-0">
+                  <Icon name="MapPin" size={16} className="text-brand-red" />
                 </div>
                 <div>
                   <div className="font-body text-white/40 text-xs tracking-wide uppercase mb-1">Адрес</div>
-                  <div className="font-body text-white text-sm">660020, Красноярский край, г. Красноярск, ул. Дудинская, д. 5</div>
+                  <div className="font-body text-white text-base">660020, Красноярский край,<br />г. Красноярск, ул. Дудинская, д. 5</div>
                 </div>
               </div>
 
               <div className="w-full h-px bg-white/8" />
 
-              <div className="flex items-start gap-3">
-                <div className="w-8 h-8 bg-brand-red/15 border border-brand-red/30 flex items-center justify-center shrink-0">
-                  <Icon name="Clock" size={13} className="text-brand-red" />
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 bg-brand-red/15 border border-brand-red/30 flex items-center justify-center shrink-0 mt-0.5">
+                  <Icon name="Clock" size={16} className="text-brand-red" />
                 </div>
                 <div className="w-full">
                   <div className="font-body text-white/40 text-xs tracking-wide uppercase mb-3">Режим работы</div>
-                  <div className="space-y-3">
+                  <div className="space-y-2">
                     <div className="flex justify-between items-center">
-                      <span className="font-body text-white/55 text-sm">Понедельник – Пятница</span>
-                      <span className="font-body text-white text-sm font-medium">9:00 – 18:00</span>
+                      <span className="font-body text-white/70 text-base">Понедельник – Пятница</span>
+                      <span className="font-display text-white text-lg tracking-wide">9:00 – 18:00</span>
                     </div>
                     <div className="w-full h-px bg-white/8" />
                     <div className="flex justify-between items-center">
-                      <span className="font-body text-white/55 text-sm">Суббота – Воскресенье</span>
-                      <span className="font-body text-white/40 text-sm">Выходной</span>
+                      <span className="font-body text-white/70 text-base">Суббота – Воскресенье</span>
+                      <span className="font-body text-white/40 text-base">Выходной</span>
                     </div>
                   </div>
-                </div>
-              </div>
-
-              <div className="w-full h-px bg-white/8" />
-
-              <div className="flex items-start gap-3">
-                <div className="w-8 h-8 bg-brand-red/15 border border-brand-red/30 flex items-center justify-center shrink-0">
-                  <Icon name="Phone" size={13} className="text-brand-red" />
-                </div>
-                <div>
-                  <div className="font-body text-white/40 text-xs tracking-wide uppercase mb-1">Телефон</div>
-                  <a href="tel:+79131992934" className="font-body text-white text-sm hover:text-brand-red transition-colors">+7 913 199 29 34</a>
-                </div>
-              </div>
-
-              <div className="w-full h-px bg-white/8" />
-
-              <div className="flex items-start gap-3">
-                <div className="w-8 h-8 bg-brand-red/15 border border-brand-red/30 flex items-center justify-center shrink-0">
-                  <Icon name="Mail" size={13} className="text-brand-red" />
-                </div>
-                <div>
-                  <div className="font-body text-white/40 text-xs tracking-wide uppercase mb-1">Email</div>
-                  <a href="mailto:alfaallianse-info@mail.ru" className="font-body text-white text-sm hover:text-brand-red transition-colors">alfaallianse-info@mail.ru</a>
                 </div>
               </div>
             </div>
