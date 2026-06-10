@@ -198,7 +198,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
                     </span>
                   </button>
                   <p className="font-body text-white/25 text-[10px] text-center mt-1">
-                    {copied ? "Скопировано!" : "нажмите — скопируется в буфер"}
+                    {copied ? "Скопировано!" : "при нажатии копируется"}
                   </p>
                 </div>
               </form>
