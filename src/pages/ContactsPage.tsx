@@ -56,7 +56,7 @@ export default function ContactsPage({ onNavigate }: ContactsPageProps) {
     {
       icon: "Phone",
       title: "Телефон",
-      details: ["+7 913 199 29 34"],
+      details: ["+7 913 199 29 34", "+7 902 961 99 18"],
       type: "phone" as const,
     },
     {
