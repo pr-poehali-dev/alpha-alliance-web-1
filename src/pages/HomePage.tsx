@@ -224,19 +224,16 @@ export default function HomePage({ onNavigate }: HomePageProps) {
 
       {/* HERO */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
-        {/* Background slideshow with Ken Burns */}
+        {/* Background slideshow */}
         {HERO_SLIDES.map((src, i) => (
           <div
             key={src}
-            className="absolute inset-0 overflow-hidden transition-opacity duration-1000"
-            style={{ opacity: i === slideIndex ? 1 : 0 }}
-          >
-            <div
-              key={`${src}-${slideIndex}`}
-              className={`absolute inset-0 bg-cover bg-center bg-no-repeat ${i === slideIndex ? `ken-burns-${(slideIndex % 4) + 1}` : ""}`}
-              style={{ backgroundImage: `url(${src})` }}
-            />
-          </div>
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000"
+            style={{
+              backgroundImage: `url(${src})`,
+              opacity: i === slideIndex ? 1 : 0,
+            }}
+          />
         ))}
         <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/30" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
