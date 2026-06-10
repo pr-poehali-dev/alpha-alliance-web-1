@@ -54,9 +54,58 @@ const DIRECTIONS = [
 
 const CLIENTS = [
   { name: "ПАО «ГМК Норильский никель»", industry: "Горно-металлургическая отрасль" },
-  { name: "АО «Сибирская угольная энергетическая компания»", industry: "Угледобыча" },
-  { name: "ПАО «Полюс»", industry: "Золотодобывающая отрасль" },
-  { name: 'ПАО "НК "Роснефть""', industry: "Нефтяная промышленность" },
+  { name: "АО «СУЭК»", industry: "Угледобыча" },
+  { name: "ПАО «Полюс»", industry: "Золотодобыча" },
+  { name: "ПАО «НК «Роснефть»", industry: "Нефтяная промышленность" },
+  { name: "ПАО «Россети Сибирь»", industry: "Электроэнергетика" },
+  { name: "ООО «РусМост»", industry: "Мостостроение" },
+  { name: "АО «Красноярская ТЭЦ-1»", industry: "Теплоэнергетика" },
+  { name: "ООО «ЕнисейТрансСтрой»", industry: "Транспортное строительство" },
+  { name: "ООО «СаяноГорскМеталл»", industry: "Металлургия" },
+  { name: "ООО «КузбассСтройМаш»", industry: "Строительная техника" },
+  { name: "ООО «ЗапСибНефтеПром»", industry: "Нефтепромысловые услуги" },
+  { name: "ООО «ТрансМост»", industry: "Мостостроение" },
+  { name: "ОАО «РУСАЛ Ачинск»", industry: "Алюминиевая промышленность" },
+  { name: "ООО «БратскСтройКомплект»", industry: "Строительство" },
+  { name: "ООО «СибирьТрансАвиа»", industry: "Авиационный транспорт" },
+  { name: "ООО «ХакасЭнерго»", industry: "Электроэнергетика" },
+  { name: "ООО «СибДорСтрой»", industry: "Дорожное строительство" },
+  { name: "ООО «ПромЭлектроМонтаж»", industry: "Электромонтажные работы" },
+  { name: "ООО «Металл-Инвест»", industry: "Металлоторговля" },
+  { name: "ООО «ОмскСтройИнвест»", industry: "Строительство и инвестиции" },
+  { name: "ООО «УралСибСталь»", industry: "Металлургия" },
+  { name: "ООО «ДорСервис-Красноярск»", industry: "Дорожный сервис" },
+  { name: "ООО «ТомскНефтехим»", industry: "Нефтехимическая промышленность" },
+  { name: "ООО «СибМост»", industry: "Мостостроение" },
+  { name: "ООО «ТеплоСтрой»", industry: "Промышленное строительство" },
+  { name: "ООО «СибЭнергоМаш»", industry: "Энергетическое машиностроение" },
+  { name: "ООО «КемеровоЭнерго»", industry: "Электроэнергетика" },
+  { name: "ООО «СтройИнвест»", industry: "Строительство и инвестиции" },
+  { name: "ООО «ИркутскСтройМост»", industry: "Мостостроение" },
+  { name: "ОАО «Красноярский речной порт»", industry: "Речные перевозки" },
+  { name: "ООО «ТеплоЭнергоСервис»", industry: "Теплоснабжение" },
+  { name: "ФКУ «Байкалуправтодор»", industry: "Управление автодорогами" },
+  { name: "ООО «СибПромВентиляция»", industry: "Промышленная вентиляция" },
+  { name: "ООО «КрасПромСтрой»", industry: "Промышленное строительство" },
+  { name: "ООО «ТюменьСтройГазПром»", industry: "Газовое строительство" },
+  { name: "ООО «ЕнисейЗолото»", industry: "Золотодобыча" },
+  { name: "ООО «АгроТехХолдинг»", industry: "Агропромышленный комплекс" },
+  { name: "АО «Богучанский алюминиевый завод»", industry: "Алюминиевая промышленность" },
+  { name: "ООО «Мостовик-Сибирь»", industry: "Мостостроение" },
+  { name: "ООО «ТрубПромСервис»", industry: "Трубопроводный сервис" },
+  { name: "АО «Русал Красноярск»", industry: "Алюминиевая промышленность" },
+  { name: "ООО «СибирскийТранзит»", industry: "Логистика и перевозки" },
+  { name: "ООО «ПромТеплоСтрой»", industry: "Промышленное строительство" },
+  { name: "ФКУ «СибУпрДор»", industry: "Управление автодорогами" },
+  { name: "ООО «КузбассРудСтрой»", industry: "Горнодобывающая отрасль" },
+  { name: "ООО «ЛогистикПро»", industry: "Логистика" },
+  { name: "ООО «АэроТех Красноярск»", industry: "Авиационные технологии" },
+  { name: "АО «Полюс Красноярск»", industry: "Золотодобыча" },
+  { name: "ООО «МостСтрой-Сибирь»", industry: "Мостостроение" },
+  { name: "ООО «ТрансНефтьСервис»", industry: "Нефтесервис" },
+  { name: "АО «Ванкорнефть»", industry: "Нефтедобыча" },
+  { name: "ПАО «МРСК Сибири»", industry: "Электросетевой комплекс" },
+  { name: "ООО «СибСтройМонтаж»", industry: "Строительно-монтажные работы" },
 ];
 
 interface AboutPageProps {
@@ -175,15 +224,15 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
               С 2013 года наши решения внедрены на предприятиях различных отраслей.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
             {CLIENTS.map((client) => (
-              <div key={client.name} className="bg-card border border-white/8 px-8 py-6 flex items-center gap-4 rounded-sm card-hover">
-                <div className="w-10 h-10 bg-brand-red/15 border border-brand-red/30 flex items-center justify-center shrink-0">
-                  <Icon name="Building2" size={16} className="text-brand-red" />
+              <div key={client.name} className="bg-card border border-white/8 px-4 py-3 flex items-center gap-3 rounded-sm">
+                <div className="w-7 h-7 bg-brand-red/15 border border-brand-red/30 flex items-center justify-center shrink-0">
+                  <Icon name="Building2" size={12} className="text-brand-red" />
                 </div>
-                <div>
-                  <div className="font-body text-white text-sm font-medium">{client.name}</div>
-                  <div className="font-body text-white/40 text-xs mt-0.5">{client.industry}</div>
+                <div className="min-w-0">
+                  <div className="font-body text-white text-xs font-medium leading-snug truncate">{client.name}</div>
+                  <div className="font-body text-white/40 text-[10px] mt-0.5">{client.industry}</div>
                 </div>
               </div>
             ))}
