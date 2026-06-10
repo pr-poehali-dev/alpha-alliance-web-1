@@ -86,12 +86,6 @@ export default function HomePage({ onNavigate }: HomePageProps) {
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 pt-24 pb-16">
           <div className="max-w-3xl">
-            <div className="flex items-center gap-3 mb-6 animate-fade-up opacity-0-init">
-              <div className="w-10 h-px bg-brand-red" />
-              <span className="font-body text-white/60 text-xs tracking-[0.25em] uppercase">
-                ООО «Альфа Альянс» · с 2013 года
-              </span>
-            </div>
             <h1 className="font-display text-5xl md:text-7xl xl:text-8xl text-white leading-none tracking-wide mb-6 animate-fade-up opacity-0-init delay-100">
               Промышленное<br />
               <span className="text-brand-red">оборудование</span><br />
