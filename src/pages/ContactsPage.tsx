@@ -64,8 +64,7 @@ export default function ContactsPage({ onNavigate }: ContactsPageProps) {
       title: "Мессенджеры",
       links: [
         { name: "Telegram", url: "https://t.me/" },
-        { name: "WhatsApp", url: "https://wa.me/" },
-        { name: "ВКонтакте", url: "https://vk.com/" },
+        { name: "MAX", url: "https://max.ru/" },
       ],
       type: null,
     },
