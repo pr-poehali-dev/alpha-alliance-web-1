@@ -389,7 +389,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
             Опишите вашу задачу — подберём оборудование, подготовим коммерческое предложение
           </p>
           <button
-            onClick={() => onNavigate("contacts")}
+            onClick={() => setModalOpen(true)}
             className="inline-flex items-center gap-2 bg-white text-brand-red font-display text-sm tracking-[0.1em] uppercase px-10 py-4 hover:bg-white/90 transition-colors rounded-sm"
           >
             <Icon name="MessageSquare" size={16} />
