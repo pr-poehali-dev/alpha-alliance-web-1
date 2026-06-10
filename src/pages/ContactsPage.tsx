@@ -228,7 +228,7 @@ export default function ContactsPage({ onNavigate }: ContactsPageProps) {
               <h2 className="font-display text-3xl text-white tracking-wide mb-2">Оставьте заявку</h2>
               <p className="font-body text-white/50 text-sm">Наш специалист свяжется с вами в ближайшее время</p>
             </div>
-            <div className="bg-card border border-white/8 p-8 rounded-sm flex-1 flex flex-col gap-6">
+            <div className="bg-card border border-white/8 p-8 rounded-sm flex-1 flex flex-col justify-between">
               <div className="flex items-start gap-3">
                 <div className="w-8 h-8 bg-brand-red/15 border border-brand-red/30 flex items-center justify-center shrink-0">
                   <Icon name="MapPin" size={13} className="text-brand-red" />
@@ -258,6 +258,30 @@ export default function ContactsPage({ onNavigate }: ContactsPageProps) {
                       <span className="font-body text-white/40 text-sm">Выходной</span>
                     </div>
                   </div>
+                </div>
+              </div>
+
+              <div className="w-full h-px bg-white/8" />
+
+              <div className="flex items-start gap-3">
+                <div className="w-8 h-8 bg-brand-red/15 border border-brand-red/30 flex items-center justify-center shrink-0">
+                  <Icon name="Phone" size={13} className="text-brand-red" />
+                </div>
+                <div>
+                  <div className="font-body text-white/40 text-xs tracking-wide uppercase mb-1">Телефон</div>
+                  <a href="tel:+79131992934" className="font-body text-white text-sm hover:text-brand-red transition-colors">+7 913 199 29 34</a>
+                </div>
+              </div>
+
+              <div className="w-full h-px bg-white/8" />
+
+              <div className="flex items-start gap-3">
+                <div className="w-8 h-8 bg-brand-red/15 border border-brand-red/30 flex items-center justify-center shrink-0">
+                  <Icon name="Mail" size={13} className="text-brand-red" />
+                </div>
+                <div>
+                  <div className="font-body text-white/40 text-xs tracking-wide uppercase mb-1">Email</div>
+                  <a href="mailto:alfaallianse-info@mail.ru" className="font-body text-white text-sm hover:text-brand-red transition-colors">alfaallianse-info@mail.ru</a>
                 </div>
               </div>
             </div>
