@@ -61,13 +61,8 @@ export default function Layout({ children, activePage, onNavigate }: LayoutProps
                 alt="Альфа Альянс"
                 className="w-9 h-9 object-contain"
               />
-              <div className="text-left">
-                <div className="font-display text-white text-lg font-semibold tracking-widest uppercase leading-none">
-                  Альфа Альянс
-                </div>
-                <div className="text-[10px] text-white/40 tracking-[0.2em] uppercase font-body">
-                  с 2013 года
-                </div>
+              <div className="font-display text-white leading-none font-semibold tracking-widest uppercase" style={{fontSize: "36px", lineHeight: "36px"}}>
+                Альфа Альянс
               </div>
             </button>
 
