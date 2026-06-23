@@ -26,12 +26,10 @@ export default function EquipmentDirectionPage({ directionId, onNavigate }: Prop
       <div className="max-w-7xl mx-auto px-4 md:px-8 py-10">
         <div className="flex gap-8 items-start">
           {/* Sidebar */}
-          <div className="hidden lg:block">
-            <EquipmentSidebar
-              activeDirectionId={directionId}
-              onNavigate={onNavigate}
-            />
-          </div>
+          <EquipmentSidebar
+            activeDirectionId={directionId}
+            onNavigate={onNavigate}
+          />
 
           {/* Main */}
           <div className="flex-1 min-w-0">
