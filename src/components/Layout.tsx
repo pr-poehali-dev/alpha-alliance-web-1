@@ -6,7 +6,7 @@ const NAV_ITEMS = [
   { id: "home", label: "Главная" },
   { id: "about", label: "О компании" },
   { id: "catalog-tech", label: "Спецтехника" },
-  { id: "catalog-equipment", label: "Оборудование" },
+  { id: "equipment-groups", label: "Оборудование" },
   { id: "metalwork", label: "Металлоконструкции" },
   { id: "engineering", label: "Инжиниринг" },
   { id: "contacts", label: "Контакты" },

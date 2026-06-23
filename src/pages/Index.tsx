@@ -4,18 +4,40 @@ import HomePage from "@/pages/HomePage";
 import AboutPage from "@/pages/AboutPage";
 import CatalogTechPage from "@/pages/CatalogTechPage";
 import CatalogEquipmentPage from "@/pages/CatalogEquipmentPage";
+import EquipmentGroupsPage from "@/pages/EquipmentGroupsPage";
+import EquipmentGroupDetailPage from "@/pages/EquipmentGroupDetailPage";
 import MetalworkPage from "@/pages/MetalworkPage";
 import EngineeringPage from "@/pages/EngineeringPage";
 import ContactsPage from "@/pages/ContactsPage";
 import AdminImportPage from "@/pages/AdminImportPage";
 
-type Page = "home" | "about" | "catalog-tech" | "catalog-equipment" | "metalwork" | "engineering" | "contacts" | "admin-import";
+const EQUIPMENT_GROUP_IDS = [
+  "jacks", "pumps", "pullers", "presses", "cutting",
+  "threading", "benders", "rescue", "special", "riklin",
+];
 
-const PAGE_MAP: Record<Page, (props: { onNavigate: (p: string) => void }) => JSX.Element> = {
+type Page =
+  | "home"
+  | "about"
+  | "catalog-tech"
+  | "catalog-equipment"
+  | "equipment-groups"
+  | "metalwork"
+  | "engineering"
+  | "contacts"
+  | "admin-import"
+  | `equipment-group-${string}`;
+
+interface PageProps {
+  onNavigate: (p: string) => void;
+}
+
+const PAGE_MAP: Record<string, (props: PageProps) => JSX.Element> = {
   home: HomePage,
   about: AboutPage,
   "catalog-tech": CatalogTechPage,
   "catalog-equipment": CatalogEquipmentPage,
+  "equipment-groups": EquipmentGroupsPage,
   metalwork: MetalworkPage,
   engineering: EngineeringPage,
   contacts: ContactsPage,
@@ -29,6 +51,18 @@ const Index = () => {
     setActivePage(page as Page);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
+
+  const isGroupDetail = activePage.startsWith("equipment-group-");
+  const groupId = isGroupDetail ? activePage.replace("equipment-group-", "") : "";
+  const isValidGroup = EQUIPMENT_GROUP_IDS.includes(groupId);
+
+  if (isGroupDetail && isValidGroup) {
+    return (
+      <Layout activePage="equipment-groups" onNavigate={handleNavigate}>
+        <EquipmentGroupDetailPage groupId={groupId} onNavigate={handleNavigate} />
+      </Layout>
+    );
+  }
 
   const PageComponent = PAGE_MAP[activePage] ?? PAGE_MAP["home"];
 
