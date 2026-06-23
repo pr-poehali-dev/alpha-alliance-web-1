@@ -186,7 +186,7 @@ function GroupCard({ g, index, onNavigate }: GroupCardProps) {
         <img
           src={g.img}
           alt={g.title}
-          className="w-full h-full object-contain object-center p-3 group-hover:scale-105 transition-transform duration-500"
+          className="w-[90%] h-[90%] object-contain object-center group-hover:scale-105 transition-transform duration-500"
         />
         <div className="absolute top-3 left-3 w-6 h-6 bg-brand-red flex items-center justify-center">
           <span className="font-display text-white text-[10px] font-bold">
