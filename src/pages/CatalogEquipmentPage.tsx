@@ -1,110 +1,69 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Icon from "@/components/ui/icon";
 
-const CATEGORIES = ["Все", "Гидравлика", "Насосное оборудование", "Грузоподъёмное"];
+const CATALOG_URL = "https://functions.poehali.dev/f4ad2a1e-e623-48dd-8d81-c418d8b625c3";
 
-const ITEMS = [
-  {
-    category: "Гидравлика",
-    title: "Гидравлические станции",
-    desc: "Маслостанции для питания гидравлических систем промышленного оборудования. Объём бака от 20 до 2000 л.",
-    params: "Давление до 350 бар",
-    icon: "Droplets",
-  },
-  {
-    category: "Гидравлика",
-    title: "Гидравлические цилиндры",
-    desc: "Одно- и двустороннего действия. Ход поршня до 6000 мм. Рабочее давление до 250 бар.",
-    params: "Усилие до 3000 кН",
-    icon: "Droplets",
-  },
-  {
-    category: "Гидравлика",
-    title: "Гидрораспределители",
-    desc: "Моноблочные и секционные распределители для управления гидроприводами. Производители Parker, Bosch Rexroth, Vickers.",
-    params: "Расход до 400 л/мин",
-    icon: "Droplets",
-  },
-  {
-    category: "Гидравлика",
-    title: "Рукава высокого давления (РВД)",
-    desc: "РВД в сборе с фитингами на давление до 700 бар. Диаметры от DN06 до DN51. Быстрое изготовление.",
-    params: "Давление до 700 бар",
-    icon: "Droplets",
-  },
-  {
-    category: "Гидравлика",
-    title: "Фитинги и трубопроводная арматура",
-    desc: "Прямые, угловые, тройниковые фитинги. Резьбы BSP, NPT, Metric. Нержавеющая сталь и углеродистая сталь.",
-    params: "Типоразмеры DN06–DN51",
-    icon: "Settings",
-  },
-  {
-    category: "Насосное оборудование",
-    title: "Центробежные насосы",
-    desc: "Горизонтальные и вертикальные центробежные насосы для воды, нефтепродуктов, химических сред.",
-    params: "Подача до 5000 м³/ч",
-    icon: "Gauge",
-  },
-  {
-    category: "Насосное оборудование",
-    title: "Шестерённые насосы",
-    desc: "Шестерённые насосы для перекачки масел, топлива, смазочных материалов и вязких жидкостей.",
-    params: "Вязкость до 100 000 сСт",
-    icon: "Gauge",
-  },
-  {
-    category: "Насосное оборудование",
-    title: "Винтовые насосы",
-    desc: "Одновинтовые и многовинтовые насосы для нефти, мазута, высоковязких и абразивных сред.",
-    params: "Подача до 500 м³/ч",
-    icon: "Gauge",
-  },
-  {
-    category: "Насосное оборудование",
-    title: "Вакуумные насосы",
-    desc: "Пластинчато-роторные, жидкостно-кольцевые и спиральные вакуумные насосы для промышленных применений.",
-    params: "Остаточное давление до 0,1 мбар",
-    icon: "Gauge",
-  },
-  {
-    category: "Насосное оборудование",
-    title: "Дозировочные насосы",
-    desc: "Мембранные и поршневые дозировочные насосы для точного дозирования химических реагентов.",
-    params: "Точность дозирования ±1%",
-    icon: "Gauge",
-  },
-  {
-    category: "Грузоподъёмное",
-    title: "Кран-балки",
-    desc: "Однобалочные и двухбалочные кран-балки г/п от 1 до 50 тонн. Пролёт до 28 м. Управление кнопочным постом или радиопультом.",
-    params: "Г/п до 50 т",
-    icon: "Anchor",
-  },
-  {
-    category: "Грузоподъёмное",
-    title: "Тали и тельферы",
-    desc: "Электрические и ручные цепные тали. Г/п от 0,5 до 20 тонн. Высота подъёма до 36 м.",
-    params: "Г/п до 20 т",
-    icon: "Anchor",
-  },
-  {
-    category: "Грузоподъёмное",
-    title: "Подъёмные столы",
-    desc: "Гидравлические подъёмные столы стационарные и передвижные. Г/п от 500 кг до 10 тонн.",
-    params: "Г/п до 10 т",
-    icon: "Anchor",
-  },
-];
+interface Product {
+  id: number;
+  title: string;
+  specs: Record<string, string>;
+  category: string | null;
+}
+
+interface Group {
+  id: number;
+  name: string;
+  slug: string;
+}
 
 interface CatalogEquipmentPageProps {
   onNavigate: (page: string) => void;
 }
 
 export default function CatalogEquipmentPage({ onNavigate }: CatalogEquipmentPageProps) {
+  const [groups, setGroups] = useState<Group[]>([]);
+  const [activeGroup, setActiveGroup] = useState<Group | null>(null);
+  const [categories, setCategories] = useState<string[]>([]);
+  const [products, setProducts] = useState<Product[]>([]);
   const [activeCategory, setActiveCategory] = useState("Все");
+  const [loading, setLoading] = useState(true);
+  const [groupLoading, setGroupLoading] = useState(false);
 
-  const filtered = activeCategory === "Все" ? ITEMS : ITEMS.filter((i) => i.category === activeCategory);
+  useEffect(() => {
+    fetch(CATALOG_URL)
+      .then((r) => r.json())
+      .then((data) => {
+        setGroups(data.groups || []);
+        if (data.groups?.length > 0) {
+          loadGroup(data.groups[0]);
+        } else {
+          setLoading(false);
+        }
+      })
+      .catch(() => setLoading(false));
+  }, []);
+
+  const loadGroup = (group: Group) => {
+    setActiveGroup(group);
+    setActiveCategory("Все");
+    setGroupLoading(true);
+    fetch(`${CATALOG_URL}?group=${group.slug}`)
+      .then((r) => r.json())
+      .then((data) => {
+        const cats: string[] = ["Все", ...((data.categories as { name: string }[]) || []).map((c) => c.name)];
+        setCategories(cats);
+        setProducts(data.products || []);
+      })
+      .finally(() => {
+        setGroupLoading(false);
+        setLoading(false);
+      });
+  };
+
+  const filtered =
+    activeCategory === "Все" ? products : products.filter((p) => p.category === activeCategory);
+
+  const specEntries = (specs: Record<string, string>) => Object.entries(specs).slice(0, 3);
 
   return (
     <div>
@@ -125,66 +84,124 @@ export default function CatalogEquipmentPage({ onNavigate }: CatalogEquipmentPag
                 Гидравлическое оборудование, насосные системы и грузоподъёмная техника для промышленных предприятий. Индивидуальный подбор и поставка.
               </p>
             </div>
-            <button
-              onClick={() => onNavigate("contacts")}
-              className="btn-primary px-6 py-3 text-xs rounded-sm inline-flex items-center gap-2 shrink-0"
-            >
-              <Icon name="FileText" size={14} />
-              Запросить КП
-            </button>
+            <div className="flex gap-3">
+              <button
+                onClick={() => onNavigate("admin-import")}
+                className="px-4 py-3 text-xs border border-white/20 text-white/40 hover:text-white/70 hover:border-white/40 rounded-sm inline-flex items-center gap-2 transition-colors"
+              >
+                <Icon name="Upload" size={14} />
+                Импорт
+              </button>
+              <button
+                onClick={() => onNavigate("contacts")}
+                className="btn-primary px-6 py-3 text-xs rounded-sm inline-flex items-center gap-2 shrink-0"
+              >
+                <Icon name="FileText" size={14} />
+                Запросить КП
+              </button>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Filter */}
-      <section className="bg-brand-dark-2 border-b border-white/8 sticky top-16 md:top-20 z-40">
-        <div className="max-w-7xl mx-auto px-4 md:px-8">
-          <div className="flex items-center gap-2 overflow-x-auto py-4 scrollbar-none">
-            {CATEGORIES.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setActiveCategory(cat)}
-                className={`shrink-0 font-body text-xs tracking-[0.12em] uppercase px-4 py-2 border transition-all rounded-sm ${
-                  activeCategory === cat
-                    ? "bg-brand-red border-brand-red text-white"
-                    : "border-white/15 text-white/50 hover:border-white/40 hover:text-white"
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
+      {/* Group tabs */}
+      {groups.length > 0 && (
+        <section className="bg-background border-b border-white/8">
+          <div className="max-w-7xl mx-auto px-4 md:px-8">
+            <div className="flex items-center gap-1 overflow-x-auto py-4 scrollbar-none">
+              {groups.map((g) => (
+                <button
+                  key={g.slug}
+                  onClick={() => loadGroup(g)}
+                  className={`shrink-0 font-body text-xs tracking-[0.1em] uppercase px-5 py-2.5 border transition-all rounded-sm ${
+                    activeGroup?.slug === g.slug
+                      ? "bg-brand-red border-brand-red text-white"
+                      : "border-white/15 text-white/50 hover:border-white/40 hover:text-white"
+                  }`}
+                >
+                  {g.name}
+                </button>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
+
+      {/* Category filter */}
+      {categories.length > 1 && (
+        <section className="bg-brand-dark-2 border-b border-white/8 sticky top-16 md:top-20 z-40">
+          <div className="max-w-7xl mx-auto px-4 md:px-8">
+            <div className="flex items-center gap-2 overflow-x-auto py-3 scrollbar-none">
+              {categories.map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => setActiveCategory(cat)}
+                  className={`shrink-0 font-body text-xs tracking-[0.12em] uppercase px-4 py-2 border transition-all rounded-sm ${
+                    activeCategory === cat
+                      ? "bg-brand-red border-brand-red text-white"
+                      : "border-white/15 text-white/50 hover:border-white/40 hover:text-white"
+                  }`}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Grid */}
       <section className="py-16 bg-background">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {filtered.map((item) => (
-              <div
-                key={item.title}
-                className="bg-card border border-white/8 rounded-sm overflow-hidden card-hover group"
-              >
-                <div className="bg-brand-dark-2 h-36 flex items-center justify-center border-b border-white/8">
-                  <Icon name={item.icon as never} size={48} className="text-white/10" />
-                </div>
-                <div className="p-6">
-                  <div className="mb-1">
-                    <span className="font-body text-brand-red text-[10px] tracking-widest uppercase">{item.params}</span>
+          {loading || groupLoading ? (
+            <div className="flex items-center justify-center py-24 gap-3 text-white/30">
+              <Icon name="Loader2" size={24} className="animate-spin" />
+              <span className="text-sm">Загружаю каталог...</span>
+            </div>
+          ) : filtered.length === 0 ? (
+            <div className="text-center py-24">
+              <Icon name="PackageOpen" size={48} className="text-white/10 mx-auto mb-4" />
+              <p className="text-white/40 text-sm">Товары не найдены</p>
+              <p className="text-white/25 text-xs mt-2">Загрузи Excel-файл через кнопку «Импорт»</p>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {filtered.map((item) => (
+                <div
+                  key={item.id}
+                  className="bg-card border border-white/8 rounded-sm overflow-hidden card-hover group"
+                >
+                  <div className="bg-brand-dark-2 h-28 flex items-center justify-center border-b border-white/8">
+                    <Icon name="Package" size={40} className="text-white/10" />
                   </div>
-                  <h3 className="font-display text-white text-lg tracking-wide mb-3">{item.title}</h3>
-                  <p className="font-body text-white/50 text-sm leading-relaxed mb-5">{item.desc}</p>
-                  <button
-                    onClick={() => onNavigate("contacts")}
-                    className="w-full btn-outline-white py-2.5 text-xs rounded-sm opacity-60 group-hover:opacity-100 transition-opacity"
-                  >
-                    Запросить цену
-                  </button>
+                  <div className="p-6">
+                    {item.category && (
+                      <span className="font-body text-brand-red text-[10px] tracking-widest uppercase block mb-1">
+                        {item.category}
+                      </span>
+                    )}
+                    <h3 className="font-display text-white text-lg tracking-wide mb-3">{item.title}</h3>
+                    {specEntries(item.specs).length > 0 && (
+                      <div className="space-y-1.5 mb-5">
+                        {specEntries(item.specs).map(([key, val]) => (
+                          <div key={key} className="flex justify-between text-xs gap-2">
+                            <span className="text-white/35 truncate">{key}</span>
+                            <span className="text-white/70 shrink-0">{val}</span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                    <button
+                      onClick={() => onNavigate("contacts")}
+                      className="w-full btn-outline-white py-2.5 text-xs rounded-sm opacity-60 group-hover:opacity-100 transition-opacity"
+                    >
+                      Запросить цену
+                    </button>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 

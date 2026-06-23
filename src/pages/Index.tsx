@@ -7,8 +7,9 @@ import CatalogEquipmentPage from "@/pages/CatalogEquipmentPage";
 import MetalworkPage from "@/pages/MetalworkPage";
 import EngineeringPage from "@/pages/EngineeringPage";
 import ContactsPage from "@/pages/ContactsPage";
+import AdminImportPage from "@/pages/AdminImportPage";
 
-type Page = "home" | "about" | "catalog-tech" | "catalog-equipment" | "metalwork" | "engineering" | "contacts";
+type Page = "home" | "about" | "catalog-tech" | "catalog-equipment" | "metalwork" | "engineering" | "contacts" | "admin-import";
 
 const PAGE_MAP: Record<Page, (props: { onNavigate: (p: string) => void }) => JSX.Element> = {
   home: HomePage,
@@ -18,6 +19,7 @@ const PAGE_MAP: Record<Page, (props: { onNavigate: (p: string) => void }) => JSX
   metalwork: MetalworkPage,
   engineering: EngineeringPage,
   contacts: ContactsPage,
+  "admin-import": AdminImportPage,
 };
 
 const Index = () => {
