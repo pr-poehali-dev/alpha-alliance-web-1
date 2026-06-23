@@ -84,7 +84,7 @@ export default function EquipmentDirectionPage({ directionId, onNavigate }: Prop
                     <button
                       key={g.id}
                       onClick={() => onNavigate(`equipment-group-${g.id}`)}
-                      className="group text-left bg-card border border-white/8 rounded-sm overflow-hidden hover:border-brand-red/60 transition-all duration-300 hover:-translate-y-0.5"
+                      className="group text-left bg-card border border-white/8 rounded-sm overflow-hidden hover:border-brand-red/60 transition-all duration-300 hover:-translate-y-0.5 flex flex-col"
                     >
                       <div className="relative h-48 bg-white overflow-hidden flex items-center justify-center p-3">
                         <img
