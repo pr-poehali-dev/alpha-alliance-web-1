@@ -84,22 +84,13 @@ export default function CatalogEquipmentPage({ onNavigate }: CatalogEquipmentPag
                 Гидравлическое оборудование, насосные системы и грузоподъёмная техника для промышленных предприятий. Индивидуальный подбор и поставка.
               </p>
             </div>
-            <div className="flex gap-3">
-              <button
-                onClick={() => onNavigate("admin-import")}
-                className="px-4 py-3 text-xs border border-white/20 text-white/40 hover:text-white/70 hover:border-white/40 rounded-sm inline-flex items-center gap-2 transition-colors"
-              >
-                <Icon name="Upload" size={14} />
-                Импорт
-              </button>
-              <button
-                onClick={() => onNavigate("contacts")}
-                className="btn-primary px-6 py-3 text-xs rounded-sm inline-flex items-center gap-2 shrink-0"
-              >
-                <Icon name="FileText" size={14} />
-                Запросить КП
-              </button>
-            </div>
+            <button
+              onClick={() => onNavigate("contacts")}
+              className="btn-primary px-6 py-3 text-xs rounded-sm inline-flex items-center gap-2 shrink-0"
+            >
+              <Icon name="FileText" size={14} />
+              Запросить КП
+            </button>
           </div>
         </div>
       </section>
