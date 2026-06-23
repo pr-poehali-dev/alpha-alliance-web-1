@@ -90,7 +90,10 @@ export default function EquipmentDirectionPage({ directionId, onNavigate }: Prop
                         <img
                           src={g.img}
                           alt={g.title}
-                          className="max-w-full max-h-full w-auto h-auto object-contain group-hover:scale-105 transition-transform duration-500"
+                          className="max-w-full max-h-full w-auto h-auto object-contain transition-transform duration-500"
+                          style={{ transform: `scale(${g.imgScale ?? 1})` }}
+                          onMouseEnter={e => (e.currentTarget.style.transform = `scale(${(g.imgScale ?? 1) * 1.05})`)}
+                          onMouseLeave={e => (e.currentTarget.style.transform = `scale(${g.imgScale ?? 1})`)}
                         />
                         <div className="absolute top-3 left-3 w-6 h-6 bg-brand-red flex items-center justify-center">
                           <span className="font-display text-white text-[10px] font-bold">

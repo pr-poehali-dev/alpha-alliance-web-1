@@ -6,6 +6,7 @@ export interface EquipmentGroup {
   img: string;
   imgFit?: "contain" | "cover";
   imgPosition?: string;
+  imgScale?: number;
 }
 
 export interface EquipmentDirection {
@@ -73,7 +74,7 @@ export const HYDRAULIC_GROUPS: EquipmentGroup[] = [
     desc: "Комплекты КРУГ (АСР), АВСО (ЖД), рихтовщики, разгонщики, рельсогибы, путевые домкраты.",
     sub: "",
     img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/dd50f630-0a44-4e83-a26a-7b06887e83c2.png",
-    imgPosition: "top",
+    imgScale: 1.4,
   },
   {
     id: "special",
@@ -81,7 +82,7 @@ export const HYDRAULIC_GROUPS: EquipmentGroup[] = [
     desc: "Натяжители арматуры, горизонтальное бурение, перемещение тяжеловесов, стропы, выпрессовщики, разгонщики фланцев, пружинные балансиры.",
     sub: "",
     img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/bf9e6c6b-0aa9-4ea6-87f1-8a1833d7165b.png",
-    imgPosition: "top",
+    imgScale: 1.3,
   },
   {
     id: "riklin",
