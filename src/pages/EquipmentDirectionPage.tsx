@@ -90,7 +90,8 @@ export default function EquipmentDirectionPage({ directionId, onNavigate }: Prop
                         <img
                           src={g.img}
                           alt={g.title}
-                          className="absolute inset-2 w-[calc(100%-1rem)] h-[calc(100%-1rem)] object-contain object-center group-hover:scale-105 transition-transform duration-500"
+                          className="absolute inset-2 w-[calc(100%-1rem)] h-[calc(100%-1rem)] object-contain group-hover:scale-105 transition-transform duration-500"
+                          style={{ objectPosition: g.imgPosition ?? "center" }}
                         />
                         <div className="absolute top-3 left-3 w-6 h-6 bg-brand-red flex items-center justify-center">
                           <span className="font-display text-white text-[10px] font-bold">
