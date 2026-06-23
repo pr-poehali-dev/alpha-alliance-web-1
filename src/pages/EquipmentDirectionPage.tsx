@@ -90,7 +90,11 @@ export default function EquipmentDirectionPage({ directionId, onNavigate }: Prop
                         <img
                           src={g.img}
                           alt={g.title}
-                          className="w-[90%] h-[90%] object-contain object-center group-hover:scale-105 transition-transform duration-500"
+                          className={`group-hover:scale-105 transition-transform duration-500 ${
+                            g.imgFit === "cover"
+                              ? "w-full h-full object-cover object-center"
+                              : "w-[90%] h-[90%] object-contain object-center"
+                          }`}
                         />
                         <div className="absolute top-3 left-3 w-6 h-6 bg-brand-red flex items-center justify-center">
                           <span className="font-display text-white text-[10px] font-bold">
