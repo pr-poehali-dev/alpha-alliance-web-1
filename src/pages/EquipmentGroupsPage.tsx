@@ -182,12 +182,11 @@ function GroupCard({ g, index, onNavigate }: GroupCardProps) {
       onClick={() => onNavigate(`equipment-group-${g.id}`)}
       className="group text-left bg-card border border-white/8 rounded-sm overflow-hidden hover:border-brand-red/60 transition-all duration-300 hover:-translate-y-0.5"
     >
-      <div className="relative h-48 bg-white overflow-hidden">
+      <div className="relative h-48 bg-white overflow-hidden flex items-center justify-center p-3">
         <img
           src={g.img}
           alt={g.title}
-          className="absolute inset-2 w-[calc(100%-1rem)] h-[calc(100%-1rem)] object-contain group-hover:scale-105 transition-transform duration-500"
-          style={{ objectPosition: g.imgPosition ?? "center" }}
+          className="max-w-full max-h-full w-auto h-auto object-contain group-hover:scale-105 transition-transform duration-500"
         />
         <div className="absolute top-3 left-3 w-6 h-6 bg-brand-red flex items-center justify-center">
           <span className="font-display text-white text-[10px] font-bold">
