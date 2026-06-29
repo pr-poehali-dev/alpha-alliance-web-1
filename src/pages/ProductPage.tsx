@@ -385,14 +385,14 @@ export default function ProductPage({ productId, onNavigate }: Props) {
                   <p className="font-body text-brand-red text-xs">{importError}</p>
                 </div>
               )}
-              <div className="overflow-x-auto rounded-sm border border-white/8">
-                <table className="w-full text-sm font-body">
+              <div className="rounded-sm border border-white/8">
+                <table className="w-full text-sm font-body table-fixed">
                   <thead>
                     <tr className="bg-brand-red/10 border-b border-white/8">
                       {activeCols.map((col) => (
                         <th
                           key={col.key}
-                          className="text-left px-4 py-3 text-white/50 text-xs tracking-wide font-normal whitespace-nowrap"
+                          className="text-left px-2 py-2 text-white/50 text-[11px] tracking-wide font-normal leading-tight"
                         >
                           {col.label}
                         </th>
@@ -408,7 +408,7 @@ export default function ProductPage({ productId, onNavigate }: Props) {
                         {activeCols.map((col) => (
                           <td
                             key={col.key}
-                            className={`px-4 py-3 whitespace-nowrap ${col.key === "model" || col.key === "col0" ? "text-white font-medium" : "text-white/65"}`}
+                            className={`px-2 py-2 text-[12px] leading-snug break-words ${col.key === "model" || col.key === "col0" ? "text-white font-medium" : "text-white/65"}`}
                           >
                             {row[col.key] ?? "—"}
                           </td>
