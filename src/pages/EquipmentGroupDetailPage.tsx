@@ -26,7 +26,7 @@ const GROUP_DATA: Record<string, GroupData> = {
     title: "Домкраты и цилиндры",
     longDesc:
       "Широкая линейка гидравлических домкратов и силовых цилиндров для промышленного применения. Усилие от 5 до 1000 тонн. Рабочее давление до 70 МПа. Все изделия проходят выходной контроль и испытания давлением. Поставляем как стандартные модели из наличия, так и цилиндры, изготовленные по индивидуальному техзаданию.",
-    img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/9ca7d7e6-faca-45c4-b432-afbdd911487c.png",
+    img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/8800c4b2-b6ca-421c-86be-3796f70ea8a5.png",
     subgroups: [
       { id: "jacks-universal-single", title: "Домкраты универсальные односторонние" },
       { id: "jacks-universal-double", title: "Домкраты универсальные двусторонние" },
@@ -258,20 +258,12 @@ export default function EquipmentGroupDetailPage({ groupId, onNavigate }: Props)
                 <h1 className="font-display text-4xl md:text-5xl text-white tracking-wide leading-none mb-5">
                   {data.title}
                 </h1>
-                <p className="font-body text-white/60 text-sm leading-relaxed mb-7">
+                <p className="font-body text-white/60 text-sm leading-relaxed">
                   {data.longDesc}
                 </p>
-                <div className="flex flex-wrap gap-2">
-                  {data.features.map((f) => (
-                    <div key={f.label} className="flex items-center gap-2 border border-white/15 px-3 py-2 rounded-sm">
-                      <Icon name={f.icon} size={13} className="text-brand-red" />
-                      <span className="font-body text-white/55 text-xs">{f.label}</span>
-                    </div>
-                  ))}
-                </div>
               </div>
-              <div className="bg-white rounded-sm overflow-hidden flex items-center justify-center h-64">
-                <img src={data.img} alt={data.title} className="w-full h-full object-contain p-6" />
+              <div className="bg-white rounded-sm overflow-hidden flex items-center justify-center h-72">
+                <img src={data.img} alt={data.title} className="w-full h-full object-contain p-4" />
               </div>
             </div>
 
