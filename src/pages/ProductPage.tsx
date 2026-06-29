@@ -1,3 +1,5 @@
+import { useState, useRef } from "react";
+import * as XLSX from "xlsx";
 import Icon from "@/components/ui/icon";
 import EquipmentSidebar from "@/components/EquipmentSidebar";
 
@@ -137,6 +139,66 @@ export default function ProductPage({ productId, onNavigate }: Props) {
   const data = PRODUCT_DATA[productId];
   const groupId = data?.groupId ?? getParentGroupId(productId);
 
+  const storageKey = `excel-models-${productId}`;
+  const [importedModels, setImportedModels] = useState<ModelRow[]>(() => {
+    try {
+      const saved = localStorage.getItem(storageKey);
+      return saved ? JSON.parse(saved) : [];
+    } catch { return []; }
+  });
+  const [importedCols, setImportedCols] = useState<ModelTableCol[]>(() => {
+    try {
+      const saved = localStorage.getItem(`${storageKey}-cols`);
+      return saved ? JSON.parse(saved) : [];
+    } catch { return []; }
+  });
+  const [importing, setImporting] = useState(false);
+  const [importError, setImportError] = useState("");
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const handleExcelUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setImporting(true);
+    setImportError("");
+    const reader = new FileReader();
+    reader.onload = (ev) => {
+      try {
+        const wb = XLSX.read(ev.target?.result, { type: "array" });
+        const ws = wb.Sheets[wb.SheetNames[0]];
+        const rows: string[][] = XLSX.utils.sheet_to_json(ws, { header: 1, defval: "" });
+        if (rows.length < 2) { setImportError("Файл пустой или не содержит данных"); setImporting(false); return; }
+        const headers = rows[0].map((h) => String(h).trim());
+        const cols: ModelTableCol[] = headers.map((h, i) => ({ key: `col${i}`, label: h }));
+        const models: ModelRow[] = rows.slice(1).filter(r => r.some(c => c !== "")).map((row) => {
+          const obj: ModelRow = { model: "" };
+          headers.forEach((_, i) => { obj[`col${i}`] = String(row[i] ?? "").trim(); });
+          obj.model = String(row[0] ?? "").trim();
+          return obj;
+        });
+        setImportedCols(cols);
+        setImportedModels(models);
+        localStorage.setItem(storageKey, JSON.stringify(models));
+        localStorage.setItem(`${storageKey}-cols`, JSON.stringify(cols));
+      } catch {
+        setImportError("Не удалось прочитать файл. Убедитесь, что это корректный .xlsx файл.");
+      }
+      setImporting(false);
+    };
+    reader.readAsArrayBuffer(file);
+    e.target.value = "";
+  };
+
+  const clearImported = () => {
+    setImportedModels([]);
+    setImportedCols([]);
+    localStorage.removeItem(storageKey);
+    localStorage.removeItem(`${storageKey}-cols`);
+  };
+
+  const activeModels = importedModels.length > 0 ? importedModels : (data?.models ?? []);
+  const activeCols = importedCols.length > 0 ? importedCols : (data?.modelTableCols ?? []);
+
   if (!data) {
     return (
       <div className="pt-32 pb-16 text-center">
@@ -232,15 +294,55 @@ export default function ProductPage({ productId, onNavigate }: Props) {
 
             {/* Model table */}
             <div className="mb-10">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-6 h-px bg-brand-red" />
-                <span className="font-body text-white/35 text-xs tracking-[0.25em] uppercase">Модельный ряд</span>
+              <div className="flex items-center justify-between gap-3 mb-4 flex-wrap">
+                <div className="flex items-center gap-3">
+                  <div className="w-6 h-px bg-brand-red" />
+                  <span className="font-body text-white/35 text-xs tracking-[0.25em] uppercase">Модельный ряд</span>
+                  {importedModels.length > 0 && (
+                    <span className="font-body text-brand-red text-[10px] border border-brand-red/30 px-2 py-0.5 rounded-sm">
+                      Данные из Excel
+                    </span>
+                  )}
+                </div>
+                <div className="flex items-center gap-2">
+                  {importedModels.length > 0 && (
+                    <button
+                      onClick={clearImported}
+                      className="font-body text-white/30 text-xs hover:text-white/60 transition-colors flex items-center gap-1"
+                    >
+                      <Icon name="RotateCcw" size={11} />
+                      Сбросить
+                    </button>
+                  )}
+                  <label className="inline-flex items-center gap-2 cursor-pointer border border-white/15 hover:border-white/35 px-3 py-1.5 rounded-sm transition-colors group">
+                    {importing ? (
+                      <Icon name="Loader" size={12} className="text-white/40 animate-spin" />
+                    ) : (
+                      <Icon name="Upload" size={12} className="text-white/40 group-hover:text-white transition-colors" />
+                    )}
+                    <span className="font-body text-white/40 group-hover:text-white text-xs transition-colors">
+                      {importing ? "Загружаю..." : "Загрузить Excel"}
+                    </span>
+                    <input
+                      ref={fileInputRef}
+                      type="file"
+                      accept=".xlsx,.xls"
+                      className="hidden"
+                      onChange={handleExcelUpload}
+                    />
+                  </label>
+                </div>
               </div>
+              {importError && (
+                <div className="mb-3 px-3 py-2 bg-brand-red/10 border border-brand-red/20 rounded-sm">
+                  <p className="font-body text-brand-red text-xs">{importError}</p>
+                </div>
+              )}
               <div className="overflow-x-auto rounded-sm border border-white/8">
                 <table className="w-full text-sm font-body">
                   <thead>
                     <tr className="bg-brand-red/10 border-b border-white/8">
-                      {data.modelTableCols.map((col) => (
+                      {activeCols.map((col) => (
                         <th
                           key={col.key}
                           className="text-left px-4 py-3 text-white/50 text-xs tracking-wide font-normal whitespace-nowrap"
@@ -251,15 +353,15 @@ export default function ProductPage({ productId, onNavigate }: Props) {
                     </tr>
                   </thead>
                   <tbody>
-                    {data.models.map((row, i) => (
+                    {activeModels.map((row, i) => (
                       <tr
-                        key={row.model}
+                        key={i}
                         className={`border-b border-white/5 hover:bg-white/3 transition-colors ${i % 2 === 0 ? "bg-card" : "bg-card/50"}`}
                       >
-                        {data.modelTableCols.map((col) => (
+                        {activeCols.map((col) => (
                           <td
                             key={col.key}
-                            className={`px-4 py-3 whitespace-nowrap ${col.key === "model" ? "text-white font-medium" : "text-white/65"}`}
+                            className={`px-4 py-3 whitespace-nowrap ${col.key === "model" || col.key === "col0" ? "text-white font-medium" : "text-white/65"}`}
                           >
                             {row[col.key] ?? "—"}
                           </td>
