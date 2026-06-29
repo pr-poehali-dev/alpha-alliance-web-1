@@ -301,12 +301,12 @@ export default function ProductPage({ productId, onNavigate }: Props) {
                     <p key={i} className={line === "" ? "mt-3" : "mb-1"}>{line}</p>
                   ))}
                 </div>
-                <div className="shrink-0 w-full md:w-72 h-52 bg-white rounded-sm flex items-center justify-center overflow-hidden">
+                <div className="shrink-0 w-full md:w-[580px] h-[420px] bg-white rounded-sm flex items-center justify-center overflow-hidden">
                   {data.img ? (
                     <img
                       src={data.img}
                       alt={data.title}
-                      className="max-w-full max-h-full w-auto h-auto object-contain p-4"
+                      className="w-full h-full object-contain p-4"
                     />
                   ) : (
                     <div className="flex flex-col items-center gap-2 text-black/20">
@@ -392,7 +392,7 @@ export default function ProductPage({ productId, onNavigate }: Props) {
                       {activeCols.map((col) => (
                         <th
                           key={col.key}
-                          className="text-left px-2 py-2 text-white/50 text-[11px] tracking-wide font-normal leading-tight"
+                          className="text-center px-2 py-2 text-white/50 text-[11px] tracking-wide font-normal leading-tight"
                         >
                           {col.label}
                         </th>
@@ -408,7 +408,7 @@ export default function ProductPage({ productId, onNavigate }: Props) {
                         {activeCols.map((col) => (
                           <td
                             key={col.key}
-                            className={`px-2 py-2 text-[12px] leading-snug break-words ${col.key === "model" || col.key === "col0" ? "text-white font-medium" : "text-white/65"}`}
+                            className={`px-2 py-2 text-[12px] leading-snug break-words text-center ${col.key === "model" || col.key === "col0" ? "text-white font-medium" : "text-white/65"}`}
                           >
                             {row[col.key] ?? "—"}
                           </td>
