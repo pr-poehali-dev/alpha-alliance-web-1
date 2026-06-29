@@ -196,6 +196,16 @@ export default function ProductPage({ productId, onNavigate }: Props) {
     e.target.value = "";
   };
 
+  const clearImported = async () => {
+    await fetch(API_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ product_id: productId, cols: [], models: [] }),
+    }).catch(() => {});
+    setImportedModels([]);
+    setImportedCols([]);
+  };
+
   const activeModels = importedModels.length > 0 ? importedModels : (data?.models ?? []);
   const activeCols = importedCols.length > 0 ? importedCols : (data?.modelTableCols ?? []);
 
