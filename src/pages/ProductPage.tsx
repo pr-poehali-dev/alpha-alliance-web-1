@@ -44,73 +44,40 @@ const PRODUCT_DATA: Record<string, ProductData> = {
     title: "Домкраты универсальные односторонние",
     groupId: "jacks",
     groupTitle: "Домкраты и цилиндры",
-    img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/af0d36e0-0ac1-400a-bafa-d8ff7f4cd9b8.png",
-    description: "Предназначены для подъема и перемещения грузов, проведения сложных строительных и ремонтных работ;\n— Резьбовые отверстия на основании и резьба на корпусе обеспечивают широкое применение в качестве силовых элементов в прессах, трубогибах, съемниках и т.д.;\n— Износостойкое покрытие корпуса, наносимое методом порошковой окраски, защищает от коррозии и внешних воздействий;\n— Возможность работы в любом пространственном положении;\n— Изготовлены из высокопрочной легированной стали;\n— Грязесъемное кольцо защищает шток от загрязнений, повышая срок службы изделия;\n— Соединительные полумуфты оснащены пылезащитными колпачками;\n— Штоковая втулка предотвращает выход штока более допустимой длины;\n— Высокопрочная возвратная пружина с межвитковым давлением обеспечивает быстрый возврат штока.\n\nДомкраты грузоподъемностью свыше 50 тс рекомендуется оснащать предохранительным краном и плавающей опорой.\n\nДля обеспечения устойчивости домкратов при их эксплуатации рекомендуется использование поддомкратных опор.",
-    specs: [],
+    description:
+      "Гидравлические домкраты одностороннего действия общепромышленного применения. Подъём осуществляется давлением масла, возврат штока — пружинный. Стальной корпус с хромированным штоком обеспечивает высокую износостойкость и коррозионную стойкость. Применяются в машиностроении, строительстве, энергетике и при монтажных работах. Рабочее давление до 70 МПа.",
+    specs: [
+      { label: "Тип действия", value: "Одностороннее" },
+      { label: "Возврат штока", value: "Пружинный" },
+      { label: "Рабочее давление", value: "До 70 МПа" },
+      { label: "Усилие", value: "5 – 200 тонн" },
+      { label: "Материал корпуса", value: "Сталь" },
+      { label: "Шток", value: "Хромированная сталь" },
+      { label: "Резьба подключения", value: "BSP 3/8\"" },
+      { label: "Рабочая жидкость", value: "Гидравлическое масло" },
+    ],
     modelTableCols: [
-      { key: "col0", label: "Модель" },
-      { key: "col1", label: "Грузоподъёмность, тс" },
-      { key: "col2", label: "Ход штока, мм" },
-      { key: "col3", label: "Внешний диаметр D, мм" },
-      { key: "col4", label: "Рабочий объём масла, см³" },
-      { key: "col5", label: "d1, мм" },
-      { key: "col6", label: "n, шт" },
-      { key: "col7", label: "D1, мм" },
-      { key: "col8", label: "Резьба наружная d2, мм" },
-      { key: "col9", label: "Габариты (ВхLхН), мм" },
-      { key: "col10", label: "Масса, кг" },
-      { key: "col11", label: "Вид опоры" },
+      { key: "model", label: "Модель" },
+      { key: "capacity", label: "Грузоподъёмность, т" },
+      { key: "stroke", label: "Ход штока, мм" },
+      { key: "height", label: "Высота закрытая, мм" },
+      { key: "pressure", label: "Давление, МПа" },
+      { key: "weight", label: "Масса, кг" },
     ],
     models: [
-      { model: "ДУ5П50",  col0: "ДУ5П50",  col1: "5,6",  col2: "50",  col3: "42",  col4: "40",   col5: "-",   col6: "-", col7: "-",   col8: "М42х1,5", col9: "42х122х126", col10: "1,3",  col11: "ПД5" },
-      { model: "ДУ5П100", col0: "ДУ5П100", col1: "5,6",  col2: "100", col3: "42",  col4: "80",   col5: "-",   col6: "-", col7: "-",   col8: "М42х1,5", col9: "42х122х176", col10: "1,7",  col11: "ПД5" },
-      { model: "ДУ5П150", col0: "ДУ5П150", col1: "5,6",  col2: "150", col3: "42",  col4: "120",  col5: "-",   col6: "-", col7: "-",   col8: "М42х1,5", col9: "42х122х258", col10: "2,4",  col11: "ПД5" },
-      { model: "ДУ5П200", col0: "ДУ5П200", col1: "5,6",  col2: "200", col3: "42",  col4: "142",  col5: "-",   col6: "-", col7: "-",   col8: "М40х1,5", col9: "40х120х308", col10: "2,5",  col11: "ПД5" },
-      { model: "ДУ10П50",  col0: "ДУ10П50",  col1: "11,3", col2: "50",  col3: "60",  col4: "80",   col5: "М8",  col6: "2", col7: "42",  col8: "М60х2",   col9: "60х140х136", col10: "2,8",  col11: "ПД10" },
-      { model: "ДУ10П100", col0: "ДУ10П100", col1: "11,3", col2: "100", col3: "60",  col4: "160",  col5: "М8",  col6: "2", col7: "42",  col8: "М60х2",   col9: "60х140х186", col10: "3,6",  col11: "ПД10" },
-      { model: "ДУ10П150", col0: "ДУ10П150", col1: "11,3", col2: "150", col3: "60",  col4: "240",  col5: "М8",  col6: "2", col7: "42",  col8: "М60х2",   col9: "60х140х236", col10: "4,4",  col11: "ПД10" },
-      { model: "ДУ10П200", col0: "ДУ10П200", col1: "11,3", col2: "200", col3: "60",  col4: "318",  col5: "М8",  col6: "2", col7: "42",  col8: "М60х2",   col9: "60х140х314", col10: "5,8",  col11: "ПД10" },
-      { model: "ДУ10П300", col0: "ДУ10П300", col1: "11,3", col2: "300", col3: "60",  col4: "477",  col5: "М8",  col6: "2", col7: "42",  col8: "М60х2",   col9: "60х140х414", col10: "7,5",  col11: "ПД10" },
-      { model: "ДУ15П150", col0: "ДУ15П150", col1: "14,1", col2: "150", col3: "70",  col4: "295",  col5: "М8",  col6: "2", col7: "38",  col8: "М70х2",   col9: "70х150х272", col10: "7",    col11: "ПД15" },
-      { model: "ДУ15П250", col0: "ДУ15П250", col1: "14,1", col2: "250", col3: "70",  col4: "490",  col5: "М8",  col6: "2", col7: "38",  col8: "М70х2",   col9: "70х150х364", col10: "9,2",  col11: "ПД15" },
-      { model: "ДУ15П500", col0: "ДУ15П500", col1: "14,1", col2: "500", col3: "70",  col4: "982",  col5: "М8",  col6: "2", col7: "38",  col8: "М70х2",   col9: "70х150х649", col10: "16",   col11: "ПД15" },
-      { model: "ДУ20П50",  col0: "ДУ20П50",  col1: "22,2", col2: "50",  col3: "83",  col4: "156",  col5: "М10", col6: "2", col7: "45",  col8: "М82х2",   col9: "83х163х198", col10: "7,4",  col11: "ПД35" },
-      { model: "ДУ20П100", col0: "ДУ20П100", col1: "22,2", col2: "100", col3: "83",  col4: "312",  col5: "М10", col6: "2", col7: "45",  col8: "М82х2",   col9: "83х163х248", col10: "8,9",  col11: "ПД35" },
-      { model: "ДУ20П150", col0: "ДУ20П150", col1: "22,2", col2: "150", col3: "83",  col4: "468",  col5: "М10", col6: "2", col7: "45",  col8: "М82х2",   col9: "83х163х298", col10: "10",   col11: "ПД35" },
-      { model: "ДУ20П200", col0: "ДУ20П200", col1: "22,2", col2: "200", col3: "83",  col4: "623",  col5: "М10", col6: "2", col7: "45",  col8: "М82х2",   col9: "83х163х348", col10: "12",   col11: "ПД35" },
-      { model: "ДУ20П250", col0: "ДУ20П250", col1: "22,2", col2: "250", col3: "95",  col4: "779",  col5: "-",   col6: "-", col7: "-",   col8: "М82х2",   col9: "95х174х359", col10: "13,2", col11: "ПД35" },
-      { model: "ДУ20П300", col0: "ДУ20П300", col1: "22,2", col2: "300", col3: "83",  col4: "935",  col5: "М10", col6: "2", col7: "45",  col8: "М82х2",   col9: "83х163х448", col10: "15,2", col11: "ПД35" },
-      { model: "ДУ20П360", col0: "ДУ20П360", col1: "22,2", col2: "360", col3: "83",  col4: "1122", col5: "М10", col6: "2", col7: "45",  col8: "М82х2",   col9: "83х163х508", col10: "17",   col11: "ПД35" },
-      { model: "ДУ35П50",  col0: "ДУ35П50",  col1: "35,8", col2: "50",  col3: "110", col4: "252",  col5: "М12", col6: "2", col7: "63",  col8: "М105х2",  col9: "110х190х198",col10: "12",   col11: "ПД35" },
-      { model: "ДУ35П100", col0: "ДУ35П100", col1: "35,8", col2: "100", col3: "110", col4: "503",  col5: "М12", col6: "2", col7: "63",  col8: "М105х2",  col9: "167х205х248",col10: "16",   col11: "ПД35" },
-      { model: "ДУ35П150", col0: "ДУ35П150", col1: "35,8", col2: "150", col3: "110", col4: "754",  col5: "М12", col6: "2", col7: "63",  col8: "М105х2",  col9: "167х205х298",col10: "18,1", col11: "ПД35" },
-      { model: "ДУ35П200", col0: "ДУ35П200", col1: "35,8", col2: "200", col3: "110", col4: "1005", col5: "М12", col6: "2", col7: "63",  col8: "М105х2",  col9: "167х205х348",col10: "21",   col11: "ПД35" },
-      { model: "ДУ35П250", col0: "ДУ35П250", col1: "35,8", col2: "250", col3: "110", col4: "1257", col5: "М12", col6: "2", col7: "63",  col8: "М105х2",  col9: "167х205х398",col10: "24",   col11: "ПД35" },
-      { model: "ДУ35П300", col0: "ДУ35П300", col1: "35,8", col2: "300", col3: "110", col4: "1508", col5: "М12", col6: "2", col7: "63",  col8: "М105х2",  col9: "167х205х448",col10: "26",   col11: "ПД35" },
-      { model: "ДУ50П50",  col0: "ДУ50П50",  col1: "56",   col2: "50",  col3: "130", col4: "392",  col5: "М12", col6: "3", col7: "80",  col8: "М130х2",  col9: "130х210х189",col10: "17",   col11: "ПД100" },
-      { model: "ДУ50П100", col0: "ДУ50П100", col1: "56",   col2: "100", col3: "130", col4: "785",  col5: "М12", col6: "3", col7: "80",  col8: "М130х2",  col9: "186х215х239",col10: "21",   col11: "ПД100" },
-      { model: "ДУ50П150", col0: "ДУ50П150", col1: "56",   col2: "150", col3: "130", col4: "1177", col5: "М12", col6: "3", col7: "80",  col8: "М130х2",  col9: "186х215х289",col10: "25",   col11: "ПД100" },
-      { model: "ДУ50П200", col0: "ДУ50П200", col1: "56",   col2: "200", col3: "130", col4: "1570", col5: "М12", col6: "3", col7: "80",  col8: "М130х2",  col9: "186х215х339",col10: "28",   col11: "ПД100" },
-      { model: "ДУ50П250", col0: "ДУ50П250", col1: "56",   col2: "250", col3: "130", col4: "1964", col5: "М12", col6: "3", col7: "80",  col8: "М130х2",  col9: "186х215х389",col10: "32",   col11: "ПД100" },
-      { model: "ДУ50П300", col0: "ДУ50П300", col1: "56",   col2: "300", col3: "130", col4: "2356", col5: "М12", col6: "3", col7: "80",  col8: "М130х2",  col9: "186х215х439",col10: "36",   col11: "ПД100" },
-      { model: "ДУ100П50",  col0: "ДУ100П50",  col1: "109",  col2: "50",  col3: "180", col4: "770",  col5: "М16", col6: "4", col7: "110", col8: "М175х3",  col9: "237х260х228",col10: "39",   col11: "ПД100" },
-      { model: "ДУ100П100", col0: "ДУ100П100", col1: "109",  col2: "100", col3: "180", col4: "1540", col5: "М16", col6: "4", col7: "110", col8: "М175х3",  col9: "237х260х278",col10: "45",   col11: "ПД100" },
-      { model: "ДУ100П150", col0: "ДУ100П150", col1: "109",  col2: "150", col3: "180", col4: "2309", col5: "М16", col6: "4", col7: "110", col8: "М175х3",  col9: "237х260х328",col10: "51",   col11: "ПД100" },
-      { model: "ДУ100П200", col0: "ДУ100П200", col1: "109",  col2: "200", col3: "180", col4: "3079", col5: "М16", col6: "4", col7: "110", col8: "М175х3",  col9: "237х260х385",col10: "60",   col11: "ПД100" },
-      { model: "ДУ100П250", col0: "ДУ100П250", col1: "109",  col2: "250", col3: "180", col4: "3848", col5: "М16", col6: "4", col7: "110", col8: "М175х3",  col9: "229х260х435",col10: "65",   col11: "ПД100" },
-      { model: "ДУ100П300", col0: "ДУ100П300", col1: "109",  col2: "300", col3: "180", col4: "4618", col5: "М16", col6: "4", col7: "110", col8: "М175х3",  col9: "229х260х485",col10: "71",   col11: "ПД100" },
-      { model: "ДУ150П50",  col0: "ДУ150П50",  col1: "162",  col2: "50",  col3: "210", col4: "1135", col5: "М12", col6: "3", col7: "110", col8: "М210х3",  col9: "258х290х183",col10: "44",   col11: "ПД200" },
-      { model: "ДУ150П100", col0: "ДУ150П100", col1: "162",  col2: "100", col3: "210", col4: "2270", col5: "М12", col6: "3", col7: "110", col8: "М210х3",  col9: "268х290х233",col10: "54",   col11: "ПД200" },
-      { model: "ДУ150П150", col0: "ДУ150П150", col1: "162",  col2: "150", col3: "210", col4: "3405", col5: "М12", col6: "3", col7: "110", col8: "М210х3",  col9: "258х290х305",col10: "69",   col11: "ПД200" },
-      { model: "ДУ150П200", col0: "ДУ150П200", col1: "162",  col2: "200", col3: "210", col4: "4540", col5: "М12", col6: "3", col7: "110", col8: "М210х3",  col9: "258х290х355",col10: "79",   col11: "ПД200" },
-      { model: "ДУ150П250", col0: "ДУ150П250", col1: "162",  col2: "250", col3: "210", col4: "5675", col5: "М12", col6: "3", col7: "110", col8: "М210х3",  col9: "258х290х405",col10: "89",   col11: "ПД200" },
-      { model: "ДУ150П300", col0: "ДУ150П300", col1: "162",  col2: "300", col3: "210", col4: "6809", col5: "М12", col6: "3", col7: "110", col8: "М210х3",  col9: "258х290х455",col10: "99",   col11: "ПД200" },
-      { model: "ДУ200П50*",  col0: "ДУ200П50*",  col1: "202",  col2: "50",  col3: "245", col4: "1570", col5: "М16", col6: "4", col7: "160", col8: "М240х3",  col9: "323х325х283",col10: "94",   col11: "ПД200" },
-      { model: "ДУ200П100*", col0: "ДУ200П100*", col1: "202",  col2: "100", col3: "245", col4: "3142", col5: "М16", col6: "4", col7: "160", col8: "М240х3",  col9: "323х325х333",col10: "109",  col11: "ПД200" },
-      { model: "ДУ200П150*", col0: "ДУ200П150*", col1: "202",  col2: "150", col3: "245", col4: "4712", col5: "М16", col6: "4", col7: "160", col8: "М240х3",  col9: "323х325х383",col10: "118",  col11: "ПД200" },
-      { model: "ДУ200П200*", col0: "ДУ200П200*", col1: "202",  col2: "200", col3: "245", col4: "6283", col5: "М16", col6: "4", col7: "160", col8: "М240х3",  col9: "323х325х433",col10: "131",  col11: "ПД200" },
-      { model: "ДУ200П250*", col0: "ДУ200П250*", col1: "202",  col2: "250", col3: "245", col4: "7854", col5: "М16", col6: "4", col7: "160", col8: "М240х3",  col9: "323х325х483",col10: "143",  col11: "ПД200" },
-      { model: "ДУ200П300*", col0: "ДУ200П300*", col1: "202",  col2: "300", col3: "245", col4: "9425", col5: "М16", col6: "4", col7: "160", col8: "М240х3",  col9: "323х325х533",col10: "155",  col11: "ПД200" },
+      { model: "ДУО-5-50", capacity: "5", stroke: "50", height: "160", pressure: "70", weight: "1,8" },
+      { model: "ДУО-10-50", capacity: "10", stroke: "50", height: "185", pressure: "70", weight: "2,9" },
+      { model: "ДУО-10-100", capacity: "10", stroke: "100", height: "235", pressure: "70", weight: "3,4" },
+      { model: "ДУО-20-50", capacity: "20", stroke: "50", height: "210", pressure: "70", weight: "4,8" },
+      { model: "ДУО-20-100", capacity: "20", stroke: "100", height: "260", pressure: "70", weight: "5,6" },
+      { model: "ДУО-30-50", capacity: "30", stroke: "50", height: "230", pressure: "70", weight: "7,2" },
+      { model: "ДУО-30-150", capacity: "30", stroke: "150", height: "380", pressure: "70", weight: "9,1" },
+      { model: "ДУО-50-100", capacity: "50", stroke: "100", height: "285", pressure: "70", weight: "12,4" },
+      { model: "ДУО-50-200", capacity: "50", stroke: "200", height: "430", pressure: "70", weight: "16,2" },
+      { model: "ДУО-100-100", capacity: "100", stroke: "100", height: "340", pressure: "70", weight: "26,5" },
+      { model: "ДУО-100-200", capacity: "100", stroke: "200", height: "490", pressure: "70", weight: "33,8" },
+      { model: "ДУО-150-150", capacity: "150", stroke: "150", height: "420", pressure: "70", weight: "48,0" },
+      { model: "ДУО-200-150", capacity: "200", stroke: "150", height: "460", pressure: "70", weight: "67,0" },
     ],
   },
   "jacks-universal-double": {
@@ -296,11 +263,9 @@ export default function ProductPage({ productId, onNavigate }: Props) {
                 <span className="font-body text-white/35 text-xs tracking-[0.25em] uppercase">Описание</span>
               </div>
               <div className="flex flex-col md:flex-row gap-6">
-                <div className="font-body text-white/65 text-sm leading-relaxed flex-1">
-                  {data.description.split("\n").map((line, i) => (
-                    <p key={i} className={line === "" ? "mt-3" : "mb-1"}>{line}</p>
-                  ))}
-                </div>
+                <p className="font-body text-white/65 text-sm leading-relaxed flex-1">
+                  {data.description}
+                </p>
                 <div className="shrink-0 w-full md:w-72 h-52 bg-white rounded-sm flex items-center justify-center overflow-hidden">
                   {data.img ? (
                     <img
@@ -319,25 +284,23 @@ export default function ProductPage({ productId, onNavigate }: Props) {
             </div>
 
             {/* Tech specs */}
-            {data.specs.length > 0 && (
-              <div className="mb-10">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-6 h-px bg-brand-red" />
-                  <span className="font-body text-white/35 text-xs tracking-[0.25em] uppercase">Технические характеристики</span>
-                </div>
-                <div className="border border-white/8 rounded-sm overflow-hidden">
-                  {data.specs.map((spec, i) => (
-                    <div
-                      key={spec.label}
-                      className={`flex items-center gap-4 px-4 py-3 ${i % 2 === 0 ? "bg-card" : "bg-card/50"}`}
-                    >
-                      <span className="font-body text-white/40 text-sm w-56 shrink-0">{spec.label}</span>
-                      <span className="font-body text-white/80 text-sm">{spec.value}</span>
-                    </div>
-                  ))}
-                </div>
+            <div className="mb-10">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-6 h-px bg-brand-red" />
+                <span className="font-body text-white/35 text-xs tracking-[0.25em] uppercase">Технические характеристики</span>
               </div>
-            )}
+              <div className="border border-white/8 rounded-sm overflow-hidden">
+                {data.specs.map((spec, i) => (
+                  <div
+                    key={spec.label}
+                    className={`flex items-center gap-4 px-4 py-3 ${i % 2 === 0 ? "bg-card" : "bg-card/50"}`}
+                  >
+                    <span className="font-body text-white/40 text-sm w-56 shrink-0">{spec.label}</span>
+                    <span className="font-body text-white/80 text-sm">{spec.value}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
 
             {/* Model table */}
             <div className="mb-10">
