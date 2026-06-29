@@ -30,6 +30,7 @@ interface ProductData {
   title: string;
   groupId: string;
   groupTitle: string;
+  img?: string;
   description: string;
   specs: TechSpec[];
   modelTableCols: ModelTableCol[];
@@ -183,15 +184,31 @@ export default function ProductPage({ productId, onNavigate }: Props) {
               {data.title}
             </h1>
 
-            {/* Description */}
+            {/* Description + Image */}
             <div className="mb-10">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-6 h-px bg-brand-red" />
                 <span className="font-body text-white/35 text-xs tracking-[0.25em] uppercase">Описание</span>
               </div>
-              <p className="font-body text-white/65 text-sm leading-relaxed">
-                {data.description}
-              </p>
+              <div className="flex flex-col md:flex-row gap-6">
+                <p className="font-body text-white/65 text-sm leading-relaxed flex-1">
+                  {data.description}
+                </p>
+                <div className="shrink-0 w-full md:w-72 h-52 bg-white rounded-sm flex items-center justify-center overflow-hidden">
+                  {data.img ? (
+                    <img
+                      src={data.img}
+                      alt={data.title}
+                      className="max-w-full max-h-full w-auto h-auto object-contain p-4"
+                    />
+                  ) : (
+                    <div className="flex flex-col items-center gap-2 text-black/20">
+                      <Icon name="ImageOff" size={32} />
+                      <span className="text-[11px] font-body">Фото появится позже</span>
+                    </div>
+                  )}
+                </div>
+              </div>
             </div>
 
             {/* Tech specs */}

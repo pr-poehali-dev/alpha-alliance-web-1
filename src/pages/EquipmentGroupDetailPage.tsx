@@ -10,6 +10,7 @@ interface Props {
 interface Subgroup {
   id: string;
   title: string;
+  img?: string;
 }
 
 interface GroupData {
@@ -275,24 +276,60 @@ export default function EquipmentGroupDetailPage({ groupId, onNavigate }: Props)
             </div>
 
             {/* Subgroups */}
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-6 h-px bg-brand-red" />
-              <span className="font-body text-white/35 text-xs tracking-[0.25em] uppercase">Подгруппы</span>
+            <div className="flex items-center justify-between gap-3 mb-6 flex-wrap">
+              <div className="flex items-center gap-3">
+                <div className="w-6 h-px bg-brand-red" />
+                <span className="font-body text-white/35 text-xs tracking-[0.25em] uppercase">Подгруппы</span>
+              </div>
+              {groupId === "jacks" && (
+                <label className="inline-flex items-center gap-2 cursor-pointer border border-white/15 hover:border-white/35 px-4 py-2 rounded-sm transition-colors group">
+                  <Icon name="Upload" size={13} className="text-white/40 group-hover:text-white transition-colors" />
+                  <span className="font-body text-white/40 group-hover:text-white text-xs transition-colors">Загрузить данные Excel</span>
+                  <input
+                    type="file"
+                    accept=".xlsx,.xls"
+                    className="hidden"
+                    onChange={(e) => {
+                      const file = e.target.files?.[0];
+                      if (file) alert(`Файл «${file.name}» выбран. Обработка будет добавлена.`);
+                      e.target.value = "";
+                    }}
+                  />
+                </label>
+              )}
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-12">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-8">
               {data.subgroups.map((sub, i) => (
                 <button
                   key={sub.id}
                   onClick={() => onNavigate(`product-${sub.id}`)}
-                  className="flex items-center gap-4 bg-card border border-white/8 p-4 rounded-sm hover:border-white/25 transition-colors group text-left"
+                  className="flex flex-col bg-card border border-white/8 rounded-sm hover:border-white/25 transition-colors group text-left overflow-hidden"
                 >
-                  <div className="w-7 h-7 bg-brand-red/15 border border-brand-red/30 flex items-center justify-center shrink-0 rounded-sm">
-                    <span className="font-display text-brand-red text-[10px]">{String(i + 1).padStart(2, "0")}</span>
+                  {/* Image area */}
+                  <div className="relative h-36 bg-white w-full flex items-center justify-center overflow-hidden">
+                    {sub.img ? (
+                      <img
+                        src={sub.img}
+                        alt={sub.title}
+                        className="max-w-full max-h-full w-auto h-auto object-contain p-3 group-hover:scale-105 transition-transform duration-500"
+                      />
+                    ) : (
+                      <div className="flex flex-col items-center gap-2 text-black/15">
+                        <Icon name="ImageOff" size={28} />
+                        <span className="text-[10px] font-body">Фото появится позже</span>
+                      </div>
+                    )}
+                    <div className="absolute top-2 left-2 w-6 h-6 bg-brand-red flex items-center justify-center">
+                      <span className="font-display text-white text-[10px] font-bold">{String(i + 1).padStart(2, "0")}</span>
+                    </div>
                   </div>
-                  <span className="font-body text-white/65 text-sm group-hover:text-white transition-colors flex-1">
-                    {sub.title}
-                  </span>
-                  <Icon name="ChevronRight" size={13} className="text-white/20 shrink-0 group-hover:text-brand-red transition-colors" />
+                  {/* Title row */}
+                  <div className="flex items-center gap-3 px-3 py-3">
+                    <span className="font-body text-white/65 text-xs group-hover:text-white transition-colors flex-1 leading-snug">
+                      {sub.title}
+                    </span>
+                    <Icon name="ChevronRight" size={13} className="text-white/20 shrink-0 group-hover:text-brand-red transition-colors" />
+                  </div>
                 </button>
               ))}
             </div>
