@@ -298,12 +298,12 @@ export default function EquipmentGroupDetailPage({ groupId, onNavigate }: Props)
                   className="flex flex-col bg-card border border-white/8 rounded-sm hover:border-white/25 transition-colors group text-left overflow-hidden"
                 >
                   {/* Image area */}
-                  <div className="relative h-48 bg-white w-full flex items-center justify-center overflow-hidden">
+                  <div className="relative h-52 bg-white w-full flex items-center justify-center overflow-hidden">
                     {sub.img ? (
                       <img
                         src={sub.img}
                         alt={sub.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        className="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-500"
                       />
                     ) : (
                       <div className="flex flex-col items-center gap-2 text-black/15">
