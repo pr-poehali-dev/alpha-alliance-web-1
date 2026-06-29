@@ -1,6 +1,9 @@
+import { useState } from "react";
 import Icon from "@/components/ui/icon";
 import EquipmentSidebar from "@/components/EquipmentSidebar";
 import { getGroupDirection } from "@/data/equipment";
+
+const IMPORT_URL = "https://functions.poehali.dev/74d51823-3430-4e7b-993d-298643f66a5f";
 
 interface Props {
   groupId: string;
@@ -204,6 +207,41 @@ const GROUP_DATA: Record<string, GroupData> = {
 export default function EquipmentGroupDetailPage({ groupId, onNavigate }: Props) {
   const data = GROUP_DATA[groupId];
   const direction = getGroupDirection(groupId);
+  const [uploading, setUploading] = useState(false);
+  const [uploadResult, setUploadResult] = useState<string>("");
+
+  const handleExcelUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setUploading(true);
+    setUploadResult("");
+    const reader = new FileReader();
+    reader.onload = async (ev) => {
+      try {
+        const base64 = btoa(
+          new Uint8Array(ev.target?.result as ArrayBuffer)
+            .reduce((acc, byte) => acc + String.fromCharCode(byte), "")
+        );
+        const res = await fetch(IMPORT_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ file: base64 }),
+        });
+        const json = await res.json();
+        if (json.ok) {
+          const total = json.saved?.reduce((s: number, x: { rows: number }) => s + x.rows, 0) ?? 0;
+          setUploadResult(`Загружено ${json.saved?.length ?? 0} листов, ${total} строк`);
+        } else {
+          setUploadResult("Ошибка при загрузке");
+        }
+      } catch {
+        setUploadResult("Ошибка соединения");
+      }
+      setUploading(false);
+    };
+    reader.readAsArrayBuffer(file);
+    e.target.value = "";
+  };
 
   if (!data) {
     return (
@@ -274,20 +312,29 @@ export default function EquipmentGroupDetailPage({ groupId, onNavigate }: Props)
                 <span className="font-body text-white/35 text-xs tracking-[0.25em] uppercase">Подгруппы</span>
               </div>
               {groupId === "jacks" && (
-                <label className="inline-flex items-center gap-2 cursor-pointer border border-white/15 hover:border-white/35 px-4 py-2 rounded-sm transition-colors group">
-                  <Icon name="Upload" size={13} className="text-white/40 group-hover:text-white transition-colors" />
-                  <span className="font-body text-white/40 group-hover:text-white text-xs transition-colors">Загрузить данные Excel</span>
-                  <input
-                    type="file"
-                    accept=".xlsx,.xls"
-                    className="hidden"
-                    onChange={(e) => {
-                      const file = e.target.files?.[0];
-                      if (file) alert(`Файл «${file.name}» выбран. Обработка будет добавлена.`);
-                      e.target.value = "";
-                    }}
-                  />
-                </label>
+                <div className="flex items-center gap-3 flex-wrap">
+                  {uploadResult && (
+                    <span className="font-body text-xs text-brand-red border border-brand-red/30 px-2 py-1 rounded-sm">
+                      {uploadResult}
+                    </span>
+                  )}
+                  <label className="inline-flex items-center gap-2 cursor-pointer border border-white/15 hover:border-white/35 px-4 py-2 rounded-sm transition-colors group">
+                    {uploading
+                      ? <Icon name="Loader" size={13} className="text-white/40 animate-spin" />
+                      : <Icon name="Upload" size={13} className="text-white/40 group-hover:text-white transition-colors" />
+                    }
+                    <span className="font-body text-white/40 group-hover:text-white text-xs transition-colors">
+                      {uploading ? "Загружаю..." : "Загрузить данные Excel"}
+                    </span>
+                    <input
+                      type="file"
+                      accept=".xlsx,.xls"
+                      className="hidden"
+                      disabled={uploading}
+                      onChange={handleExcelUpload}
+                    />
+                  </label>
+                </div>
               )}
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-8">

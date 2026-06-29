@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import * as XLSX from "xlsx";
 import Icon from "@/components/ui/icon";
 import EquipmentSidebar from "@/components/EquipmentSidebar";
@@ -135,26 +135,30 @@ function getParentGroupId(productId: string): string {
   return map[prefix] ?? "jacks";
 }
 
+const API_URL = "https://functions.poehali.dev/74d51823-3430-4e7b-993d-298643f66a5f";
+
 export default function ProductPage({ productId, onNavigate }: Props) {
   const data = PRODUCT_DATA[productId];
   const groupId = data?.groupId ?? getParentGroupId(productId);
 
-  const storageKey = `excel-models-${productId}`;
-  const [importedModels, setImportedModels] = useState<ModelRow[]>(() => {
-    try {
-      const saved = localStorage.getItem(storageKey);
-      return saved ? JSON.parse(saved) : [];
-    } catch { return []; }
-  });
-  const [importedCols, setImportedCols] = useState<ModelTableCol[]>(() => {
-    try {
-      const saved = localStorage.getItem(`${storageKey}-cols`);
-      return saved ? JSON.parse(saved) : [];
-    } catch { return []; }
-  });
+  const [importedModels, setImportedModels] = useState<ModelRow[]>([]);
+  const [importedCols, setImportedCols] = useState<ModelTableCol[]>([]);
+  const [loading, setLoading] = useState(true);
   const [importing, setImporting] = useState(false);
   const [importError, setImportError] = useState("");
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  // Загружаем данные с сервера при открытии страницы
+  useEffect(() => {
+    setLoading(true);
+    fetch(`${API_URL}?product_id=${productId}`)
+      .then(r => r.json())
+      .then(d => {
+        if (d.cols?.length) { setImportedCols(d.cols); setImportedModels(d.models); }
+      })
+      .catch(() => {})
+      .finally(() => setLoading(false));
+  }, [productId]);
 
   const handleExcelUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -162,38 +166,34 @@ export default function ProductPage({ productId, onNavigate }: Props) {
     setImporting(true);
     setImportError("");
     const reader = new FileReader();
-    reader.onload = (ev) => {
+    reader.onload = async (ev) => {
       try {
         const wb = XLSX.read(ev.target?.result, { type: "array" });
         const ws = wb.Sheets[wb.SheetNames[0]];
         const rows: string[][] = XLSX.utils.sheet_to_json(ws, { header: 1, defval: "" });
         if (rows.length < 2) { setImportError("Файл пустой или не содержит данных"); setImporting(false); return; }
-        const headers = rows[0].map((h) => String(h).trim());
+        const headers = rows[0].map((h) => String(h).trim()).filter(Boolean);
         const cols: ModelTableCol[] = headers.map((h, i) => ({ key: `col${i}`, label: h }));
         const models: ModelRow[] = rows.slice(1).filter(r => r.some(c => c !== "")).map((row) => {
-          const obj: ModelRow = { model: "" };
+          const obj: ModelRow = { model: String(row[0] ?? "").trim() };
           headers.forEach((_, i) => { obj[`col${i}`] = String(row[i] ?? "").trim(); });
-          obj.model = String(row[0] ?? "").trim();
           return obj;
         });
+        const res = await fetch(API_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ product_id: productId, cols, models }),
+        });
+        if (!res.ok) throw new Error("server error");
         setImportedCols(cols);
         setImportedModels(models);
-        localStorage.setItem(storageKey, JSON.stringify(models));
-        localStorage.setItem(`${storageKey}-cols`, JSON.stringify(cols));
       } catch {
-        setImportError("Не удалось прочитать файл. Убедитесь, что это корректный .xlsx файл.");
+        setImportError("Не удалось загрузить данные. Попробуйте ещё раз.");
       }
       setImporting(false);
     };
     reader.readAsArrayBuffer(file);
     e.target.value = "";
-  };
-
-  const clearImported = () => {
-    setImportedModels([]);
-    setImportedCols([]);
-    localStorage.removeItem(storageKey);
-    localStorage.removeItem(`${storageKey}-cols`);
   };
 
   const activeModels = importedModels.length > 0 ? importedModels : (data?.models ?? []);

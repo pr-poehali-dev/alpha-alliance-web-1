@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS product_models (
+  product_id VARCHAR(128) PRIMARY KEY,
+  cols JSONB NOT NULL DEFAULT '[]',
+  models JSONB NOT NULL DEFAULT '[]',
+  updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
