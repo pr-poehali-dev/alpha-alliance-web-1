@@ -7,6 +7,7 @@ import CatalogEquipmentPage from "@/pages/CatalogEquipmentPage";
 import EquipmentGroupsPage from "@/pages/EquipmentGroupsPage";
 import EquipmentDirectionPage from "@/pages/EquipmentDirectionPage";
 import EquipmentGroupDetailPage from "@/pages/EquipmentGroupDetailPage";
+import ProductPage from "@/pages/ProductPage";
 import MetalworkPage from "@/pages/MetalworkPage";
 import EngineeringPage from "@/pages/EngineeringPage";
 import ContactsPage from "@/pages/ContactsPage";
@@ -50,6 +51,16 @@ const Index = () => {
         </Layout>
       );
     }
+  }
+
+  // Product page: product-{id}
+  if (activePage.startsWith("product-")) {
+    const productId = activePage.replace("product-", "");
+    return (
+      <Layout activePage="equipment-groups" onNavigate={handleNavigate}>
+        <ProductPage productId={productId} onNavigate={handleNavigate} />
+      </Layout>
+    );
   }
 
   // Equipment group detail page: equipment-group-{id}
