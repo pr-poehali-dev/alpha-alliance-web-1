@@ -78,9 +78,30 @@ def handler(event: dict, context) -> dict:
 
         return {'statusCode': 200, 'headers': CORS, 'body': json.dumps({'cols': row[0], 'models': row[1]})}
 
-    # POST: загрузка Excel файла
+    # POST: сохранение данных одного товара или загрузка Excel файла
     body = json.loads(event.get('body') or '{}')
     file_b64 = body.get('file')
+
+    # Если передан product_id + cols + models — сохраняем напрямую
+    if not file_b64 and 'product_id' in body:
+        product_id = body.get('product_id', '')
+        cols = body.get('cols', [])
+        models = body.get('models', [])
+        if not product_id:
+            return {'statusCode': 400, 'headers': CORS, 'body': json.dumps({'error': 'product_id required'})}
+        conn = get_conn()
+        cur = conn.cursor()
+        cur.execute(
+            """INSERT INTO product_models (product_id, cols, models, updated_at)
+               VALUES (%s, %s, %s, NOW())
+               ON CONFLICT (product_id) DO UPDATE
+               SET cols = EXCLUDED.cols, models = EXCLUDED.models, updated_at = NOW()""",
+            (product_id, json.dumps(cols, ensure_ascii=False), json.dumps(models, ensure_ascii=False)),
+        )
+        conn.commit()
+        cur.close()
+        conn.close()
+        return {'statusCode': 200, 'headers': CORS, 'body': json.dumps({'ok': True})}
 
     if not file_b64:
         return {'statusCode': 400, 'headers': CORS, 'body': json.dumps({'error': 'file required'})}
