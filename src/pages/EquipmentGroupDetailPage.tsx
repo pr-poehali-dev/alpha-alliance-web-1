@@ -301,7 +301,7 @@ export default function EquipmentGroupDetailPage({ groupId, onNavigate }: Props)
                 </p>
               </div>
               <div className="bg-white rounded-sm overflow-hidden flex items-center justify-center h-72">
-                <img src={data.img} alt={data.title} className="w-full h-full object-contain p-1 scale-125" />
+                <img src={data.img} alt={data.title} className="w-full h-full object-contain p-1 scale-[1.19]" />
               </div>
             </div>
 
