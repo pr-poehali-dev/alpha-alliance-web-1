@@ -13,7 +13,10 @@ interface Props {
 export interface Subgroup {
   id: string;
   title: string;
+  /** Фото для карточки подгруппы на странице группы */
   img?: string;
+  /** Основное фото для страницы товара */
+  img2?: string;
 }
 
 export interface GroupData {
@@ -34,12 +37,12 @@ export const GROUP_DATA: Record<string, GroupData> = {
       { id: "jacks-universal-single", title: "Домкраты универсальные односторонние", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/485e29e5-5249-47ac-a417-40816c5f7406.jpg" },
       { id: "jacks-universal-double", title: "Домкраты универсальные двусторонние", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/02f22e0a-c381-4557-8a93-95e7ef3f7d62.jpg" },
       { id: "jacks-cargo-single", title: "Домкраты грузовые односторонние", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/a7c1a1ae-6fa8-4f6d-83cc-6e45ba0b4aca.jpg" },
-      { id: "jacks-cargo-double", title: "Домкраты грузовые двусторонние", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/60553648-6bca-4c8e-8513-cd0482abf394.png" },
-      { id: "jacks-universal-lock", title: "Домкраты универсальные с фиксирующей гайкой и гидрозамком" },
-      { id: "jacks-crusher", title: "Домкраты для конусных дробилок среднего и мелкого дробления" },
-      { id: "jacks-transformer", title: "Система для подпрессовки обмоток силовых трансформаторов" },
-      { id: "jacks-steprise", title: "Домкраты ступенчатого подъема" },
-      { id: "jacks-cargo-lock", title: "Домкраты грузовые с фиксирующей гайкой" },
+      { id: "jacks-cargo-double", title: "Домкраты грузовые двусторонние", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/66dac95d-9f00-4f89-91dd-dd75e2b93356.jpg", img2: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/50e614f5-b62c-4789-8db1-375f8db366ab.png" },
+      { id: "jacks-universal-lock", title: "Домкраты универсальные с фиксирующей гайкой и гидрозамком", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/299d9a22-8e82-4ed9-b890-afdb0357d110.jpg", img2: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/bcac71e0-3fac-425b-b1d5-0b47a7786cd6.jpg" },
+      { id: "jacks-crusher", title: "Домкраты для конусных дробилок среднего и мелкого дробления", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/fd9e3c88-e950-4649-8d19-1e4ef646a011.jpg", img2: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/c7861be9-7fe9-4376-ace4-78de538a0f27.jpg" },
+      { id: "jacks-transformer", title: "Система для подпрессовки обмоток силовых трансформаторов", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/7461ad2e-e1bd-471f-8eeb-97d8241f93ad.jpg", img2: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/c6c3132c-356d-499f-8b41-b122122ccfeb.jpg" },
+      { id: "jacks-steprise", title: "Домкраты ступенчатого подъема", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/79383e2e-a2d8-44be-91d4-734f226d2a85.jpg", img2: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/f1301e0f-1499-4472-8c03-ab5b02ffc74a.jpg" },
+      { id: "jacks-cargo-lock", title: "Домкраты грузовые с фиксирующей гайкой", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/f4117a2c-82db-409b-8f1c-c562952b4805.jpg", img2: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/4671d59d-a4fd-4df9-992f-d719fa2f7d55.jpg" },
       { id: "jacks-alu-spring", title: "Домкраты гидравлические алюминиевые с пружинным возвратом" },
       { id: "jacks-alu-cargo-lock", title: "Домкраты грузовые алюминиевые с фиксирующей гайкой" },
       { id: "jacks-alu-hydro", title: "Домкраты гидравлические алюминиевые с гидравлическим возвратом" },

@@ -289,10 +289,10 @@ export default function ProductPage({ productId, onNavigate }: Props) {
               {/* Image */}
               <div className="mb-10">
                 <div className="w-full max-w-[50%] mx-auto bg-white rounded-sm flex items-center justify-center overflow-hidden mb-6">
-                  {subgroup?.img ? (
+                  {(subgroup?.img2 ?? subgroup?.img) ? (
                     <img
-                      src={subgroup.img}
-                      alt={subgroup.title}
+                      src={subgroup?.img2 ?? subgroup?.img}
+                      alt={subgroup?.title}
                       className="w-full h-auto object-contain p-4"
                     />
                   ) : (
