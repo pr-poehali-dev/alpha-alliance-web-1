@@ -33,7 +33,7 @@ const GROUP_DATA: Record<string, GroupData> = {
     subgroups: [
       { id: "jacks-universal-single", title: "Домкраты универсальные односторонние", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/485e29e5-5249-47ac-a417-40816c5f7406.jpg" },
       { id: "jacks-universal-double", title: "Домкраты универсальные двусторонние", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/02f22e0a-c381-4557-8a93-95e7ef3f7d62.jpg" },
-      { id: "jacks-cargo-single", title: "Домкраты грузовые односторонние", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/430a7b08-5e64-479a-a866-73c737756668.png" },
+      { id: "jacks-cargo-single", title: "Домкраты грузовые односторонние", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/a7c1a1ae-6fa8-4f6d-83cc-6e45ba0b4aca.jpg" },
       { id: "jacks-cargo-double", title: "Домкраты грузовые двусторонние", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/60553648-6bca-4c8e-8513-cd0482abf394.png" },
       { id: "jacks-universal-lock", title: "Домкраты универсальные с фиксирующей гайкой и гидрозамком" },
       { id: "jacks-crusher", title: "Домкраты для конусных дробилок среднего и мелкого дробления" },
