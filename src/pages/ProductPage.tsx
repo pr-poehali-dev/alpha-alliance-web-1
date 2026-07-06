@@ -44,7 +44,7 @@ const PRODUCT_DATA: Record<string, ProductData> = {
     title: "Домкраты универсальные односторонние",
     groupId: "jacks",
     groupTitle: "Домкраты и цилиндры",
-    img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/af0d36e0-0ac1-400a-bafa-d8ff7f4cd9b8.png",
+    img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/899a30e7-8e4c-40bc-9852-fc39649048ce.jpg",
     description: "Предназначены для подъема и перемещения грузов, проведения сложных строительных и ремонтных работ;\n— Резьбовые отверстия на основании и резьба на корпусе обеспечивают широкое применение в качестве силовых элементов в прессах, трубогибах, съемниках и т.д.;\n— Износостойкое покрытие корпуса, наносимое методом порошковой окраски, защищает от коррозии и внешних воздействий;\n— Возможность работы в любом пространственном положении;\n— Изготовлены из высокопрочной легированной стали;\n— Грязесъемное кольцо защищает шток от загрязнений, повышая срок службы изделия;\n— Соединительные полумуфты оснащены пылезащитными колпачками;\n— Штоковая втулка предотвращает выход штока более допустимой длины;\n— Высокопрочная возвратная пружина с межвитковым давлением обеспечивает быстрый возврат штока.\n\nДомкраты грузоподъемностью свыше 50 тс рекомендуется оснащать предохранительным краном и плавающей опорой.\n\nДля обеспечения устойчивости домкратов при их эксплуатации рекомендуется использование поддомкратных опор.",
     specs: [],
     modelTableCols: [
@@ -289,32 +289,30 @@ export default function ProductPage({ productId, onNavigate }: Props) {
               {data.title}
             </h1>
 
-            {/* Description + Image */}
+            {/* Image + Description */}
             <div className="mb-10">
+              <div className="w-full bg-white rounded-sm flex items-center justify-center overflow-hidden mb-6">
+                {data.img ? (
+                  <img
+                    src={data.img}
+                    alt={data.title}
+                    className="w-full h-auto object-contain p-4"
+                  />
+                ) : (
+                  <div className="flex flex-col items-center gap-2 text-black/20 py-16">
+                    <Icon name="ImageOff" size={32} />
+                    <span className="text-[11px] font-body">Фото появится позже</span>
+                  </div>
+                )}
+              </div>
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-6 h-px bg-brand-red" />
                 <span className="font-body text-white/35 text-xs tracking-[0.25em] uppercase">Описание</span>
               </div>
-              <div className="flex flex-col md:flex-row gap-6">
-                <div className="font-body text-white/65 text-sm leading-relaxed flex-1">
-                  {data.description.split("\n").map((line, i) => (
-                    <p key={i} className={line === "" ? "mt-3" : "mb-1"}>{line}</p>
-                  ))}
-                </div>
-                <div className="shrink-0 w-full md:w-[580px] h-[420px] bg-white rounded-sm flex items-center justify-center overflow-hidden">
-                  {data.img ? (
-                    <img
-                      src={data.img}
-                      alt={data.title}
-                      className="w-full h-full object-contain p-4"
-                    />
-                  ) : (
-                    <div className="flex flex-col items-center gap-2 text-black/20">
-                      <Icon name="ImageOff" size={32} />
-                      <span className="text-[11px] font-body">Фото появится позже</span>
-                    </div>
-                  )}
-                </div>
+              <div className="font-body text-white/65 text-sm leading-relaxed">
+                {data.description.split("\n").map((line, i) => (
+                  <p key={i} className={line === "" ? "mt-3" : "mb-1"}>{line}</p>
+                ))}
               </div>
             </div>
 
