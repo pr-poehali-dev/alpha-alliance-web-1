@@ -205,11 +205,14 @@ export default function ProductPage({ productId, onNavigate }: Props) {
         const ws = wb.Sheets[wb.SheetNames[0]];
         const rows: string[][] = XLSX.utils.sheet_to_json(ws, { header: 1, defval: "" });
         if (rows.length < 2) { setImportError("Файл пустой или не содержит данных"); setImporting(false); return; }
-        const headers = rows[0].map((h) => String(h).trim()).filter(Boolean);
+        // Правило: названия моделей и характеристики всегда в одну строку —
+        // убираем переносы строк, которые могли попасть из ячеек Excel
+        const oneLine = (v: unknown) => String(v ?? "").replace(/[\r\n]+/g, " ").trim();
+        const headers = rows[0].map((h) => oneLine(h)).filter(Boolean);
         const cols: ModelTableCol[] = headers.map((h, i) => ({ key: `col${i}`, label: h }));
         const models: ModelRow[] = rows.slice(1).filter(r => r.some(c => c !== "")).map((row) => {
-          const obj: ModelRow = { model: String(row[0] ?? "").trim() };
-          headers.forEach((_, i) => { obj[`col${i}`] = String(row[i] ?? "").trim(); });
+          const obj: ModelRow = { model: oneLine(row[0]) };
+          headers.forEach((_, i) => { obj[`col${i}`] = oneLine(row[i]); });
           return obj;
         });
         const res = await fetch(API_URL, {
@@ -383,14 +386,14 @@ export default function ProductPage({ productId, onNavigate }: Props) {
                   <p className="font-body text-brand-red text-xs">{importError}</p>
                 </div>
               )}
-              <div className="rounded-sm border border-white/8">
-                <table className="w-full text-sm font-body table-fixed">
+              <div className="rounded-sm border border-white/8 overflow-x-auto">
+                <table className="w-full text-sm font-body">
                   <thead>
                     <tr className="bg-brand-red/10 border-b border-white/8">
                       {activeCols.map((col) => (
                         <th
                           key={col.key}
-                          className="text-center px-2 py-2 text-white/50 text-[11px] tracking-wide font-normal leading-tight"
+                          className="text-center px-3 py-2 text-white/50 text-[11px] tracking-wide font-normal leading-tight whitespace-nowrap"
                         >
                           {col.label}
                         </th>
@@ -406,7 +409,7 @@ export default function ProductPage({ productId, onNavigate }: Props) {
                         {activeCols.map((col) => (
                           <td
                             key={col.key}
-                            className={`px-2 py-2 text-[12px] leading-snug break-words text-center ${col.key === "model" || col.key === "col0" ? "text-white font-medium" : "text-white/65"}`}
+                            className={`px-3 py-2 text-[12px] leading-snug whitespace-nowrap text-center ${col.key === "model" || col.key === "col0" ? "text-white font-medium" : "text-white/65"}`}
                           >
                             {row[col.key] ?? "—"}
                           </td>
