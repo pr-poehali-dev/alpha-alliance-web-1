@@ -10,13 +10,13 @@ interface Props {
   onNavigate: (page: string) => void;
 }
 
-interface Subgroup {
+export interface Subgroup {
   id: string;
   title: string;
   img?: string;
 }
 
-interface GroupData {
+export interface GroupData {
   title: string;
   longDesc: string;
   img: string;
@@ -24,7 +24,7 @@ interface GroupData {
   features: { icon: string; label: string }[];
 }
 
-const GROUP_DATA: Record<string, GroupData> = {
+export const GROUP_DATA: Record<string, GroupData> = {
   jacks: {
     title: "Домкраты и цилиндры",
     longDesc:

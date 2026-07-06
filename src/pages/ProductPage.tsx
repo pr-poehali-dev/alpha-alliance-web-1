@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import * as XLSX from "xlsx";
 import Icon from "@/components/ui/icon";
 import EquipmentSidebar from "@/components/EquipmentSidebar";
+import { GROUP_DATA } from "@/pages/EquipmentGroupDetailPage";
 
 interface Props {
   productId: string;
@@ -238,15 +239,78 @@ export default function ProductPage({ productId, onNavigate }: Props) {
   const activeCols = importedCols.length > 0 ? importedCols : (data?.modelTableCols ?? []);
 
   if (!data) {
+    const group = GROUP_DATA[groupId];
+    const subgroup = group?.subgroups.find((s) => s.id === productId);
+
     return (
-      <div className="pt-32 pb-16 text-center">
-        <p className="text-white/50 mb-4">Страница товара в разработке</p>
-        <button
-          onClick={() => onNavigate(`equipment-group-${groupId}`)}
-          className="text-brand-red text-sm hover:underline"
-        >
-          ← Назад к группе
-        </button>
+      <div className="pt-24 min-h-screen bg-background">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 py-10">
+          <div className="flex gap-8 items-start">
+
+            <div className="hidden lg:block">
+              <EquipmentSidebar
+                activeDirectionId="hydraulics"
+                activeGroupId={groupId}
+                onNavigate={onNavigate}
+              />
+            </div>
+
+            <div className="flex-1 min-w-0">
+
+              {/* Breadcrumb */}
+              <div className="flex items-center gap-2 text-xs font-body text-white/30 mb-8 flex-wrap">
+                <button onClick={() => onNavigate("equipment-groups")} className="hover:text-white/60 transition-colors">
+                  Оборудование
+                </button>
+                <span>/</span>
+                <button onClick={() => onNavigate(`equipment-group-${groupId}`)} className="hover:text-white/60 transition-colors">
+                  {group?.title ?? "Группа оборудования"}
+                </button>
+                <span>/</span>
+                <span className="text-white/55">{subgroup?.title ?? "Товар"}</span>
+              </div>
+
+              {/* Title */}
+              <h1 className="font-display text-white text-2xl md:text-3xl tracking-wide mb-8">
+                {subgroup?.title ?? "Страница товара в разработке"}
+              </h1>
+
+              {/* Image */}
+              <div className="mb-10">
+                <div className="w-full max-w-[50%] mx-auto bg-white rounded-sm flex items-center justify-center overflow-hidden mb-6">
+                  {subgroup?.img ? (
+                    <img
+                      src={subgroup.img}
+                      alt={subgroup.title}
+                      className="w-full h-auto object-contain p-4"
+                    />
+                  ) : (
+                    <div className="flex flex-col items-center gap-2 text-black/20 py-16">
+                      <Icon name="ImageOff" size={32} />
+                      <span className="text-[11px] font-body">Фото появится позже</span>
+                    </div>
+                  )}
+                </div>
+
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-6 h-px bg-brand-red" />
+                  <span className="font-body text-white/35 text-xs tracking-[0.25em] uppercase">Описание</span>
+                </div>
+                <p className="font-body text-white/65 text-sm leading-relaxed">
+                  Подробное описание, технические характеристики и модельный ряд для этой позиции скоро появятся на сайте.
+                  Актуальную информацию и наличие уточняйте у наших менеджеров.
+                </p>
+              </div>
+
+              <button
+                onClick={() => onNavigate(`equipment-group-${groupId}`)}
+                className="text-brand-red text-sm hover:underline"
+              >
+                ← Назад к группе
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
