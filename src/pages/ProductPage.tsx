@@ -297,9 +297,98 @@ export default function ProductPage({ productId, onNavigate }: Props) {
                   <span className="font-body text-white/35 text-xs tracking-[0.25em] uppercase">Описание</span>
                 </div>
                 <p className="font-body text-white/65 text-sm leading-relaxed">
-                  Подробное описание, технические характеристики и модельный ряд для этой позиции скоро появятся на сайте.
+                  Подробное описание и технические характеристики для этой позиции скоро появятся на сайте.
                   Актуальную информацию и наличие уточняйте у наших менеджеров.
                 </p>
+              </div>
+
+              {/* Model table */}
+              <div className="mb-10">
+                <div className="flex items-center justify-between gap-3 mb-4 flex-wrap">
+                  <div className="flex items-center gap-3">
+                    <div className="w-6 h-px bg-brand-red" />
+                    <span className="font-body text-white/35 text-xs tracking-[0.25em] uppercase">Модельный ряд</span>
+                    {importedModels.length > 0 && (
+                      <span className="font-body text-brand-red text-[10px] border border-brand-red/30 px-2 py-0.5 rounded-sm">
+                        Данные из Excel
+                      </span>
+                    )}
+                  </div>
+                  <div className="flex items-center gap-2">
+                    {importedModels.length > 0 && (
+                      <button
+                        onClick={clearImported}
+                        className="font-body text-white/30 text-xs hover:text-white/60 transition-colors flex items-center gap-1"
+                      >
+                        <Icon name="RotateCcw" size={11} />
+                        Сбросить
+                      </button>
+                    )}
+                    <label className="inline-flex items-center gap-2 cursor-pointer border border-white/15 hover:border-white/35 px-3 py-1.5 rounded-sm transition-colors group">
+                      {importing ? (
+                        <Icon name="Loader" size={12} className="text-white/40 animate-spin" />
+                      ) : (
+                        <Icon name="Upload" size={12} className="text-white/40 group-hover:text-white transition-colors" />
+                      )}
+                      <span className="font-body text-white/40 group-hover:text-white text-xs transition-colors">
+                        {importing ? "Загружаю..." : "Загрузить Excel"}
+                      </span>
+                      <input
+                        ref={fileInputRef}
+                        type="file"
+                        accept=".xlsx,.xls"
+                        className="hidden"
+                        onChange={handleExcelUpload}
+                      />
+                    </label>
+                  </div>
+                </div>
+                {importError && (
+                  <div className="mb-3 px-3 py-2 bg-brand-red/10 border border-brand-red/20 rounded-sm">
+                    <p className="font-body text-brand-red text-xs">{importError}</p>
+                  </div>
+                )}
+                {activeModels.length > 0 ? (
+                  <div className="rounded-sm border border-white/8 overflow-x-auto">
+                    <table className="w-full text-sm font-body">
+                      <thead>
+                        <tr className="bg-brand-red/10 border-b border-white/8">
+                          {activeCols.map((col) => (
+                            <th
+                              key={col.key}
+                              className="text-center px-3 py-2 text-white/50 text-[11px] tracking-wide font-normal leading-tight whitespace-nowrap"
+                            >
+                              {col.label}
+                            </th>
+                          ))}
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {activeModels.map((row, i) => (
+                          <tr
+                            key={i}
+                            className={`border-b border-white/5 hover:bg-white/3 transition-colors ${i % 2 === 0 ? "bg-card" : "bg-card/50"}`}
+                          >
+                            {activeCols.map((col) => (
+                              <td
+                                key={col.key}
+                                className={`px-3 py-2 text-[12px] leading-snug whitespace-nowrap text-center ${col.key === "model" || col.key === "col0" ? "text-white font-medium" : "text-white/65"}`}
+                              >
+                                {row[col.key] ?? "—"}
+                              </td>
+                            ))}
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                ) : (
+                  <div className="border border-white/8 rounded-sm px-4 py-8 text-center">
+                    <p className="font-body text-white/30 text-xs">
+                      Таблица моделей ещё не загружена. Добавьте Excel-файл, чтобы она появилась здесь.
+                    </p>
+                  </div>
+                )}
               </div>
 
               <button
