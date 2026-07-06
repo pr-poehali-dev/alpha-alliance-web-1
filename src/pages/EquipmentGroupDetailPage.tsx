@@ -29,10 +29,10 @@ const GROUP_DATA: Record<string, GroupData> = {
     title: "Домкраты и цилиндры",
     longDesc:
       "Широкая линейка гидравлических домкратов и силовых цилиндров для промышленного применения. Усилие от 5 до 1000 тонн. Рабочее давление до 70 МПа. Все изделия проходят выходной контроль и испытания давлением. Поставляем как стандартные модели из наличия, так и цилиндры, изготовленные по индивидуальному техзаданию.",
-    img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/8800c4b2-b6ca-421c-86be-3796f70ea8a5.png",
+    img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/b1565169-bee4-4393-8bce-c2327c181641.png",
     subgroups: [
       { id: "jacks-universal-single", title: "Домкраты универсальные односторонние", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/485e29e5-5249-47ac-a417-40816c5f7406.jpg" },
-      { id: "jacks-universal-double", title: "Домкраты универсальные двусторонние", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/7dba7048-3999-43ee-8787-8671ae4f1485.png" },
+      { id: "jacks-universal-double", title: "Домкраты универсальные двусторонние", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/02f22e0a-c381-4557-8a93-95e7ef3f7d62.jpg" },
       { id: "jacks-cargo-single", title: "Домкраты грузовые односторонние", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/430a7b08-5e64-479a-a866-73c737756668.png" },
       { id: "jacks-cargo-double", title: "Домкраты грузовые двусторонние", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/60553648-6bca-4c8e-8513-cd0482abf394.png" },
       { id: "jacks-universal-lock", title: "Домкраты универсальные с фиксирующей гайкой и гидрозамком" },
