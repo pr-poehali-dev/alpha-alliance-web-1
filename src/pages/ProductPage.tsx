@@ -273,6 +273,17 @@ const PRODUCT_DATA: Record<string, ProductData> = {
     modelTableCols: [],
     models: [],
   },
+  "jacks-low": {
+    title: "Домкраты низкие",
+    groupId: "jacks",
+    groupTitle: "Домкраты и цилиндры",
+    img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/64f0be77-a1f2-4304-8174-5f4d93f4517c.jpg",
+    description:
+      "— Малая высота домкратов позволяет использовать их в ограниченном пространстве, при монтаже и выверке тяжелого оборудования, для выравнивания пролетов мостов и т.д.;\n— Износостойкое покрытие, наносимое методом порошковой окраски, защищает корпус от коррозии и внешних воздействий;\n— По заказу изготавливаем домкраты грузоподъемностью до 600 тс.",
+    specs: [],
+    modelTableCols: [],
+    models: [],
+  },
 };
 
 function getParentGroupId(productId: string): string {
