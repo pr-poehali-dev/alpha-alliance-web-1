@@ -295,6 +295,17 @@ const PRODUCT_DATA: Record<string, ProductData> = {
     modelTableCols: [],
     models: [],
   },
+  "jacks-telescopic": {
+    title: "Домкраты телескопические",
+    groupId: "jacks",
+    groupTitle: "Домкраты и цилиндры",
+    img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/295b8e5d-2e2a-4cc3-a82c-a30ae176089d.jpg",
+    description:
+      "— Незаменим при подъеме груза на большую высоту;\n— Обеспечивает большую высоту подъема при сравнительно малых габаритах;\n— Предохранительный клапан в штоковой полости защищает цилиндр от превышения давления при недовключении полумуфты.",
+    specs: [],
+    modelTableCols: [],
+    models: [],
+  },
 };
 
 function getParentGroupId(productId: string): string {
