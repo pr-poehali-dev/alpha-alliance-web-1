@@ -196,6 +196,17 @@ const PRODUCT_DATA: Record<string, ProductData> = {
     modelTableCols: [],
     models: [],
   },
+  "jacks-steprise": {
+    title: "Домкраты ступенчатого подъема",
+    groupId: "jacks",
+    groupTitle: "Домкраты и цилиндры",
+    img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/f1301e0f-1499-4472-8c03-ab5b02ffc74a.jpg",
+    description:
+      "Уникальная система ступенчатого подъема позволяет поднимать груз на высоту, значительно превышающую ход штока, а также фиксировать его в поднятом положении длительный промежуток времени.\n\nДомкрат обеспечивает большую высоту подъема при сравнительно малых габаритах.\n\nДомкрат оснащен плавающей опорой, позволяющей снизить радиальные нагрузки на шток.",
+    specs: [],
+    modelTableCols: [],
+    models: [],
+  },
 };
 
 function getParentGroupId(productId: string): string {
