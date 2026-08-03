@@ -185,6 +185,17 @@ const PRODUCT_DATA: Record<string, ProductData> = {
     modelTableCols: [],
     models: [],
   },
+  "jacks-transformer": {
+    title: "Система для подпрессовки обмоток силовых трансформаторов",
+    groupId: "jacks",
+    groupTitle: "Домкраты и цилиндры",
+    img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/c6c3132c-356d-499f-8b41-b122122ccfeb.jpg",
+    description:
+      "Система предназначена для выполнения подпрессовки обмоток силовых трансформаторов при проведении ремонтных работ. Система соответствует требованиям и инструкциям по ремонту трансформаторов.\n\nСостав системы:\n— домкрат ДГ50П40С — 4 шт.;\n— рукава РВД4000 — 4 шт.;\n— кран многоходовой КМХ4 — 1 шт.;\n— полумуфта БРСД001 — 1 шт.;\n— адаптер с манометром МА100ВУ63 — 1 шт.;\n— рукав РВД2000 — 1 шт.;\n— насос НРГ-7035 — 1 шт.",
+    specs: [],
+    modelTableCols: [],
+    models: [],
+  },
 };
 
 function getParentGroupId(productId: string): string {
