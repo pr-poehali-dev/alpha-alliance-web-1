@@ -721,7 +721,7 @@ export default function ProductPage({ productId, onNavigate }: Props) {
 
             {/* Image + Description */}
             <div className="mb-10">
-              <div className="w-full max-w-[50%] mx-auto bg-white rounded-sm flex items-center justify-center overflow-hidden mb-6">
+              <div className={`w-full mx-auto bg-white rounded-sm flex items-center justify-center overflow-hidden mb-6 ${productId === "jacks-accessories-base-supports" ? "max-w-[65%]" : "max-w-[50%]"}`}>
                 {data.img ? (
                   <img
                     src={data.img}
