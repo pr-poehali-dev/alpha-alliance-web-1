@@ -41,6 +41,16 @@ interface ProductData {
 }
 
 const PRODUCT_DATA: Record<string, ProductData> = {
+  "pullers-universal": {
+    title: "Съемники универсальные",
+    groupId: "pullers",
+    groupTitle: "Съёмники",
+    img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/c84191b8-1de2-4cb9-bc8c-68d9669d68f7.png",
+    description: "— Два варианта сборки: для демонтажа деталей с помощью хомута и с помощью внутреннего захвата деталей, посаженных в отверстие;\n— Для контроля за давлением при работе внутренним захватом рекомендуется оснащать съемник манометром;",
+    specs: [],
+    modelTableCols: [],
+    models: [],
+  },
   "pullers-builtin-drive": {
     title: "Съемники со встроенным приводом",
     groupId: "pullers",
