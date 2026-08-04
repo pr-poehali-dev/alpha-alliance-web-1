@@ -90,7 +90,7 @@ export const GROUP_DATA: Record<string, GroupData> = {
       { id: "pullers-screw", title: "Съемники с винтовым приводом", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/a51dc22b-452b-4314-9373-5d1c1cc556f6.png" },
       { id: "pullers-hydraulic-trolley", title: "Съемники гидравлические подкатные", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/9154bca0-c064-4078-a48d-642e0dec52a1.png" },
       { id: "pullers-hydraulic", title: "Съемники гидравлические", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/1d955299-bc9f-4b03-9735-b1969e0ce908.png" },
-      { id: "pullers-hydraulic-centering", title: "Съемники гидравлические с приводом центрирования и захвата", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/1d955299-bc9f-4b03-9735-b1969e0ce908.png" },
+      { id: "pullers-hydraulic-centering", title: "Съемники гидравлические с приводом центрирования и захвата", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/fcc5cdbf-c5bb-4a56-82a7-4e4e5e970c52.png" },
       { id: "pullers-builtin-drive", title: "Съемники со встроенным приводом", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/3e9347a1-5cf8-4887-a25b-84dfb7b825e4.png" },
       { id: "pullers-universal", title: "Съемники универсальные", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/3cbf0896-803a-496e-80a1-be327e6a7469.png" },
       { id: "pullers-clamp-type", title: "Съемники-хомуты", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/3b80fce8-e738-4454-bb57-03b8c7f602b1.png" },
