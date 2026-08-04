@@ -41,6 +41,16 @@ interface ProductData {
 }
 
 const PRODUCT_DATA: Record<string, ProductData> = {
+  "pullers-hydraulic-trolley": {
+    title: "Съемники гидравлические подкатные",
+    groupId: "pullers",
+    groupTitle: "Съёмники",
+    img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/9154bca0-c064-4078-a48d-642e0dec52a1.png",
+    description: "— Съемники имеют два варианта сборки: 2-захватный и 3-захватный;\n— Гидравлическая система подъема с ножным приводом для легкой и точной фиксации положения съемника;\n— Самоцентрирующаяся конструкция позволяет лапам фиксировать объект равномерно и автоматически;\n— Легкая система управления лапами предотвращает соскальзывание лап со снимаемого объекта;\n— Съемник может быть отрегулирован по пяти позициям поднимания и опускания оси съемника для точного позиционирования;\n— Поворотные ролики тележки обеспечивают мобильность;\n— Встроенная электрическая насосная станция с 2-х позиционным распределителем.",
+    specs: [],
+    modelTableCols: [],
+    models: [],
+  },
   "pullers-screw": {
     title: "Съемники с винтовым приводом",
     groupId: "pullers",
@@ -472,6 +482,7 @@ const PRODUCT_DATA: Record<string, ProductData> = {
 };
 
 const NO_DESCRIPTION_PRODUCT_IDS = ["jacks-accessories-supports", "jacks-accessories-alu-supports"];
+const PUMP_SPECS_PRODUCT_IDS = ["pullers-hydraulic-trolley"];
 
 function getParentGroupId(productId: string): string {
   if (productId.startsWith("jacks-accessories")) return "jacks-accessories";
@@ -505,6 +516,13 @@ export default function ProductPage({ productId, onNavigate }: Props) {
   const [importError, setImportError] = useState("");
   const fileInputRef = useRef<HTMLInputElement>(null);
 
+  const pumpProductId = `${productId}-pump`;
+  const [importedPumpModels, setImportedPumpModels] = useState<ModelRow[]>([]);
+  const [importedPumpCols, setImportedPumpCols] = useState<ModelTableCol[]>([]);
+  const [importingPump, setImportingPump] = useState(false);
+  const [importPumpError, setImportPumpError] = useState("");
+  const pumpFileInputRef = useRef<HTMLInputElement>(null);
+
   // Загружаем данные с сервера при открытии страницы
   useEffect(() => {
     setLoading(true);
@@ -515,6 +533,15 @@ export default function ProductPage({ productId, onNavigate }: Props) {
       })
       .catch(() => {})
       .finally(() => setLoading(false));
+
+    if (PUMP_SPECS_PRODUCT_IDS.includes(productId)) {
+      fetch(`${API_URL}?product_id=${pumpProductId}`)
+        .then(r => r.json())
+        .then(d => {
+          if (d.cols?.length) { setImportedPumpCols(d.cols); setImportedPumpModels(d.models); }
+        })
+        .catch(() => {});
+    }
   }, [productId]);
 
   const handleExcelUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -564,6 +591,53 @@ export default function ProductPage({ productId, onNavigate }: Props) {
     }).catch(() => {});
     setImportedModels([]);
     setImportedCols([]);
+  };
+
+  const handlePumpExcelUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setImportingPump(true);
+    setImportPumpError("");
+    const reader = new FileReader();
+    reader.onload = async (ev) => {
+      try {
+        const wb = XLSX.read(ev.target?.result, { type: "array" });
+        const ws = wb.Sheets[wb.SheetNames[0]];
+        const rows: string[][] = XLSX.utils.sheet_to_json(ws, { header: 1, defval: "" });
+        if (rows.length < 2) { setImportPumpError("Файл пустой или не содержит данных"); setImportingPump(false); return; }
+        const oneLine = (v: unknown) => String(v ?? "").replace(/[\r\n]+/g, " ").trim();
+        const headers = rows[0].map((h) => oneLine(h)).filter(Boolean);
+        const cols: ModelTableCol[] = headers.map((h, i) => ({ key: `col${i}`, label: h }));
+        const models: ModelRow[] = rows.slice(1).filter(r => r.some(c => c !== "")).map((row) => {
+          const obj: ModelRow = { model: oneLine(row[0]) };
+          headers.forEach((_, i) => { obj[`col${i}`] = oneLine(row[i]); });
+          return obj;
+        });
+        const res = await fetch(API_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ product_id: pumpProductId, cols, models }),
+        });
+        if (!res.ok) throw new Error("server error");
+        setImportedPumpCols(cols);
+        setImportedPumpModels(models);
+      } catch {
+        setImportPumpError("Не удалось загрузить данные. Попробуйте ещё раз.");
+      }
+      setImportingPump(false);
+    };
+    reader.readAsArrayBuffer(file);
+    e.target.value = "";
+  };
+
+  const clearImportedPump = async () => {
+    await fetch(API_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ product_id: pumpProductId, cols: [], models: [] }),
+    }).catch(() => {});
+    setImportedPumpModels([]);
+    setImportedPumpCols([]);
   };
 
   const activeModels = importedModels.length > 0 ? importedModels : (data?.models ?? []);
@@ -900,6 +974,97 @@ export default function ProductPage({ productId, onNavigate }: Props) {
                 </table>
               </div>
             </div>
+
+            {/* Pump specs table */}
+            {PUMP_SPECS_PRODUCT_IDS.includes(productId) && (
+              <div className="mb-10">
+                <div className="flex items-center justify-between gap-3 mb-4 flex-wrap">
+                  <div className="flex items-center gap-3">
+                    <div className="w-6 h-px bg-brand-red" />
+                    <span className="font-body text-white/35 text-xs tracking-[0.25em] uppercase">Характеристики насосной станции для съемника</span>
+                    {importedPumpModels.length > 0 && (
+                      <span className="font-body text-brand-red text-[10px] border border-brand-red/30 px-2 py-0.5 rounded-sm">
+                        Данные из Excel
+                      </span>
+                    )}
+                  </div>
+                  <div className="flex items-center gap-2">
+                    {importedPumpModels.length > 0 && (
+                      <button
+                        onClick={clearImportedPump}
+                        className="font-body text-white/30 text-xs hover:text-white/60 transition-colors flex items-center gap-1"
+                      >
+                        <Icon name="RotateCcw" size={11} />
+                        Сбросить
+                      </button>
+                    )}
+                    <label className="inline-flex items-center gap-2 cursor-pointer border border-white/15 hover:border-white/35 px-3 py-1.5 rounded-sm transition-colors group">
+                      {importingPump ? (
+                        <Icon name="Loader" size={12} className="text-white/40 animate-spin" />
+                      ) : (
+                        <Icon name="Upload" size={12} className="text-white/40 group-hover:text-white transition-colors" />
+                      )}
+                      <span className="font-body text-white/40 group-hover:text-white text-xs transition-colors">
+                        {importingPump ? "Загружаю..." : "Загрузить Excel"}
+                      </span>
+                      <input
+                        ref={pumpFileInputRef}
+                        type="file"
+                        accept=".xlsx,.xls"
+                        className="hidden"
+                        onChange={handlePumpExcelUpload}
+                      />
+                    </label>
+                  </div>
+                </div>
+                {importPumpError && (
+                  <div className="mb-3 px-3 py-2 bg-brand-red/10 border border-brand-red/20 rounded-sm">
+                    <p className="font-body text-brand-red text-xs">{importPumpError}</p>
+                  </div>
+                )}
+                {importedPumpModels.length > 0 ? (
+                  <div className="rounded-sm border border-white/8 overflow-x-auto">
+                    <table className="w-full text-sm font-body">
+                      <thead>
+                        <tr className="bg-brand-red/10 border-b border-white/8">
+                          {importedPumpCols.map((col) => (
+                            <th
+                              key={col.key}
+                              className="text-center px-3 py-2 text-white/50 text-[11px] tracking-wide font-normal leading-tight whitespace-nowrap"
+                            >
+                              {col.label}
+                            </th>
+                          ))}
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {importedPumpModels.map((row, i) => (
+                          <tr
+                            key={i}
+                            className={`border-b border-white/5 hover:bg-white/3 transition-colors ${i % 2 === 0 ? "bg-card" : "bg-card/50"}`}
+                          >
+                            {importedPumpCols.map((col) => (
+                              <td
+                                key={col.key}
+                                className={`px-3 py-2 text-[12px] leading-snug whitespace-nowrap text-center ${col.key === "model" || col.key === "col0" ? "text-white font-medium" : "text-white/65"}`}
+                              >
+                                {row[col.key] ?? "—"}
+                              </td>
+                            ))}
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                ) : (
+                  <div className="border border-white/8 rounded-sm px-4 py-8 text-center">
+                    <p className="font-body text-white/30 text-xs">
+                      Таблица характеристик ещё не загружена. Добавьте Excel-файл, чтобы она появилась здесь.
+                    </p>
+                  </div>
+                )}
+              </div>
+            )}
 
             {/* CTA */}
             <div className="bg-brand-dark-2 border border-white/8 rounded-sm p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
