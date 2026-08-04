@@ -23,6 +23,7 @@ export interface GroupData {
   title: string;
   longDesc: string;
   img: string;
+  imgScale?: number;
   subgroups: Subgroup[];
   features: { icon: string; label: string }[];
 }
@@ -209,6 +210,7 @@ export const GROUP_DATA: Record<string, GroupData> = {
     longDesc:
       "Дополнительное оборудование для безопасной и удобной эксплуатации домкратов: предохранительные краны, гидрозамки, а также опоры различного назначения — стандартные, для алюминиевых домкратов и поддомкратные.",
     img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/17c680b8-72b3-419d-a331-7537d8497056.png",
+    imgScale: 0.95,
     subgroups: [
       { id: "jacks-accessories-valves", title: "Краны предохранительные", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/64fba162-c936-40a7-83aa-ca07f259a379.png" },
       { id: "jacks-accessories-locks", title: "Гидрозамки", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/f20b63ec-a18f-4840-b3e1-367fe82fe519.png" },
@@ -317,7 +319,12 @@ export default function EquipmentGroupDetailPage({ groupId, onNavigate }: Props)
                 </p>
               </div>
               <div className="bg-white rounded-sm overflow-hidden flex items-center justify-center h-72">
-                <img src={data.img} alt={data.title} className="w-full h-full object-contain p-1 scale-[1.19]" />
+                <img
+                  src={data.img}
+                  alt={data.title}
+                  className="w-full h-full object-contain p-1"
+                  style={{ transform: `scale(${data.imgScale ?? 1.19})` }}
+                />
               </div>
             </div>
 
