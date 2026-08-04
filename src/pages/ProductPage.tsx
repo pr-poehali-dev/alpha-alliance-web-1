@@ -383,6 +383,17 @@ const PRODUCT_DATA: Record<string, ProductData> = {
     modelTableCols: [],
     models: [],
   },
+  "jacks-accessories-valves": {
+    title: "Краны предохранительные",
+    groupId: "jacks-accessories",
+    groupTitle: "Принадлежности к домкратам",
+    img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/64fba162-c936-40a7-83aa-ca07f259a379.png",
+    description:
+      "Кран предохранительный (гидрозамок с ручным управлением) предназначен для удержания нагрузки гидроцилиндром.\n\nАвтоматически запирает рабочую полость гидроцилиндра после нагружения, вследствие чего гидроцилиндр может находиться под нагрузкой длительное время без самопроизвольного перемещения.",
+    specs: [],
+    modelTableCols: [],
+    models: [],
+  },
 };
 
 function getParentGroupId(productId: string): string {
