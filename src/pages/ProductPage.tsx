@@ -438,6 +438,17 @@ const PRODUCT_DATA: Record<string, ProductData> = {
     modelTableCols: [],
     models: [],
   },
+  "benders-electric": {
+    title: "Трубогибы с закрытой рамой с электроприводом",
+    groupId: "benders",
+    groupTitle: "Трубогибы",
+    img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/0675856e-97d5-4ce2-afe5-422c5cf1e263.png",
+    description:
+      "Предназначен для гибки водогазопроводных труб по ГОСТ 3262-75 в холодном состоянии.\n\n— Модель ТГ1Э1880 имеет установочные отверстия в основании для надежного стационарного крепления на фундаменте. Трубогиб оснащен встроенным насосом с электроприводом с напряжением питания 380В;\n— Снабжен тепловым реле, что позволяет предотвратить поломку в случае перегрева;\n— Комплектуется набором пуансонов в соответствии с диапазоном радиусов гибки;\n— Угол гиба — 90°.",
+    specs: [],
+    modelTableCols: [],
+    models: [],
+  },
 };
 
 const NO_DESCRIPTION_PRODUCT_IDS = ["jacks-accessories-supports", "jacks-accessories-alu-supports"];
