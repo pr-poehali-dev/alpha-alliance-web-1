@@ -427,6 +427,17 @@ const PRODUCT_DATA: Record<string, ProductData> = {
     modelTableCols: [],
     models: [],
   },
+  "benders-autonomous": {
+    title: "Трубогибы с закрытой рамой автономные",
+    groupId: "benders",
+    groupTitle: "Трубогибы",
+    img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/6d2de077-ef09-4b1e-9c94-06942ebc64be.png",
+    description:
+      "— Оснащены встроенными насосами с ручным приводом, что позволяет выполнять работы в условиях отсутствия источников питания;\n— Комплектуются набором пуансонов в соответствии с диапазоном радиусов гибки;\n— Угол гиба — 90°.",
+    specs: [],
+    modelTableCols: [],
+    models: [],
+  },
 };
 
 const NO_DESCRIPTION_PRODUCT_IDS = ["jacks-accessories-supports", "jacks-accessories-alu-supports"];
