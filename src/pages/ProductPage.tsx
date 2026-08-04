@@ -41,6 +41,16 @@ interface ProductData {
 }
 
 const PRODUCT_DATA: Record<string, ProductData> = {
+  "pullers-screw-centering": {
+    title: "Съемники с винтовым приводом и механизмом центрирования и захвата",
+    groupId: "pullers",
+    groupTitle: "Съёмники",
+    img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/84709ba9-cbcf-453d-b3b7-0735788f33ae.png",
+    description: "Предназначены для эффективного демонтажа деталей, посаженных с натягом, когда требуется незначительное усилие;\n— 2 варианта сборки: 2-захватные для работы в ограниченном пространстве, 3-захватные — для обеспечения надежного захвата;\n— Механизм центрирования обеспечивает простоту и удобство в работе, исключая перекосы и соскальзывание захватов со снимаемой детали.",
+    specs: [],
+    modelTableCols: [],
+    models: [],
+  },
   "jacks-universal-single": {
     title: "Домкраты универсальные односторонние",
     groupId: "jacks",
