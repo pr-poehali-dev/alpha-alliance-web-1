@@ -557,14 +557,18 @@ export default function ProductPage({ productId, onNavigate }: Props) {
                   )}
                 </div>
 
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-6 h-px bg-brand-red" />
-                  <span className="font-body text-white/35 text-xs tracking-[0.25em] uppercase">Описание</span>
-                </div>
-                <p className="font-body text-white/65 text-sm leading-relaxed">
-                  Подробное описание и технические характеристики для этой позиции скоро появятся на сайте.
-                  Актуальную информацию и наличие уточняйте у наших менеджеров.
-                </p>
+                {productId !== "jacks-accessories-supports" && (
+                  <>
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-6 h-px bg-brand-red" />
+                      <span className="font-body text-white/35 text-xs tracking-[0.25em] uppercase">Описание</span>
+                    </div>
+                    <p className="font-body text-white/65 text-sm leading-relaxed">
+                      Подробное описание и технические характеристики для этой позиции скоро появятся на сайте.
+                      Актуальную информацию и наличие уточняйте у наших менеджеров.
+                    </p>
+                  </>
+                )}
               </div>
 
               {/* Model table */}
