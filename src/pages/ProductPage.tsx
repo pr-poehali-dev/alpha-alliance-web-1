@@ -41,6 +41,16 @@ interface ProductData {
 }
 
 const PRODUCT_DATA: Record<string, ProductData> = {
+  "pullers-hydraulic-centering": {
+    title: "Съемники гидравлические с приводом центрирования и захвата",
+    groupId: "pullers",
+    groupTitle: "Съёмники",
+    img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/458fb646-b346-4b3b-bb6b-b6d24ab28069.png",
+    description: "— Самоцентрирующаяся конструкция лап съемников обеспечивает фиксируемое положение захватов во всем диапазоне съема;\n— Модель СГ315 имеет возможность захвата за внутренний и наружный контур детали.",
+    specs: [],
+    modelTableCols: [],
+    models: [],
+  },
   "pullers-hydraulic": {
     title: "Съемники гидравлические",
     groupId: "pullers",
