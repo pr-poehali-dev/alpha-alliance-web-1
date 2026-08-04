@@ -41,6 +41,16 @@ interface ProductData {
 }
 
 const PRODUCT_DATA: Record<string, ProductData> = {
+  "pullers-screw": {
+    title: "Съемники с винтовым приводом",
+    groupId: "pullers",
+    groupTitle: "Съёмники",
+    img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/0b176d7e-a034-4522-8aaa-22454bfaae20.png",
+    description: "— Эффективно демонтируют детали, установленные с натягом;\n— Изготовлены из высококачественной закаленной стали;\n— Ограничительная рама направляет лапы и обеспечивает быструю установку, жесткий захват и повышенную безопасность, предотвращая соскальзывание лап со снимаемой детали.",
+    specs: [],
+    modelTableCols: [],
+    models: [],
+  },
   "pullers-screw-centering": {
     title: "Съемники с винтовым приводом и механизмом центрирования и захвата",
     groupId: "pullers",
