@@ -407,6 +407,8 @@ const PRODUCT_DATA: Record<string, ProductData> = {
   },
 };
 
+const NO_DESCRIPTION_PRODUCT_IDS = ["jacks-accessories-supports", "jacks-accessories-alu-supports"];
+
 function getParentGroupId(productId: string): string {
   if (productId.startsWith("jacks-accessories")) return "jacks-accessories";
   const prefix = productId.split("-")[0];
@@ -542,7 +544,7 @@ export default function ProductPage({ productId, onNavigate }: Props) {
 
               {/* Image */}
               <div className="mb-10">
-                <div className={`w-full mx-auto bg-white rounded-sm flex items-center justify-center overflow-hidden mb-6 ${productId === "jacks-accessories-supports" ? "max-w-[90%]" : "max-w-[50%]"}`}>
+                <div className={`w-full mx-auto bg-white rounded-sm flex items-center justify-center overflow-hidden mb-6 ${NO_DESCRIPTION_PRODUCT_IDS.includes(productId) ? "max-w-[90%]" : "max-w-[50%]"}`}>
                   {(subgroup?.img2 ?? subgroup?.img) ? (
                     <img
                       src={subgroup?.img2 ?? subgroup?.img}
@@ -557,7 +559,7 @@ export default function ProductPage({ productId, onNavigate }: Props) {
                   )}
                 </div>
 
-                {productId !== "jacks-accessories-supports" && (
+                {!NO_DESCRIPTION_PRODUCT_IDS.includes(productId) && (
                   <>
                     <div className="flex items-center gap-3 mb-4">
                       <div className="w-6 h-px bg-brand-red" />
