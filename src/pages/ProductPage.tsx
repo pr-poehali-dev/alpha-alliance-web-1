@@ -61,6 +61,16 @@ const PRODUCT_DATA: Record<string, ProductData> = {
     modelTableCols: [],
     models: [],
   },
+  "presses-hydraulic-horizontal": {
+    title: "Прессы гидравлические (горизонтальные)",
+    groupId: "presses",
+    groupTitle: "Прессы",
+    img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/d6c19389-e807-4f90-8251-2ac909084343.png",
+    description: "— Предназначен для распрессовки и запрессовки зубчатых колес, муфт, шкивов и барабанов различных устройств, используемых в различных отраслях промышленности в условиях ремонтных заводов.\nНасосная станция в комплект не входит",
+    specs: [],
+    modelTableCols: [],
+    models: [],
+  },
   "pullers-press-fitters": {
     title: "Напрессовщики-съемники",
     groupId: "pullers",
