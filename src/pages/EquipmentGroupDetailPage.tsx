@@ -148,9 +148,9 @@ export const GROUP_DATA: Record<string, GroupData> = {
       "Гидравлические трубогибы для холодного гнутья труб диаметром до 2 дюймов (DN50). Закрытая рама обеспечивает точный угол изгиба без деформации сечения. Ручные модели — для монтажных бригад без источника питания. Электрические — для высокой производительности на объекте. Автономные — для удалённых площадок.",
     img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/e750022d-9903-4995-b1ab-93ebc5631f42.png",
     subgroups: [
-      { id: "benders-manual", title: "Трубогибы гидравлические с закрытой рамой" },
-      { id: "benders-autonomous", title: "Трубогибы с закрытой рамой автономные" },
-      { id: "benders-electric", title: "Трубогибы с закрытой рамой с электроприводом" },
+      { id: "benders-manual", title: "Трубогибы гидравлические с закрытой рамой", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/864377b3-103a-4fba-b704-8163880d67ae.png" },
+      { id: "benders-autonomous", title: "Трубогибы с закрытой рамой автономные", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/f721997d-94e9-47f5-8b5b-d577029de748.png" },
+      { id: "benders-electric", title: "Трубогибы с закрытой рамой с электроприводом", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/9eb7dc65-a58b-466c-8113-b6a925889071.png" },
     ],
     features: [{ icon: "GitBranch", label: "До 2 дюймов (DN50)" }, { icon: "RotateCcw", label: "Закрытая рама" }, { icon: "Zap", label: "Ручной / эл. / авто" }, { icon: "Check", label: "Без деформации сечения" }],
   },
