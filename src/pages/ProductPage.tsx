@@ -416,6 +416,17 @@ const PRODUCT_DATA: Record<string, ProductData> = {
     modelTableCols: [],
     models: [],
   },
+  "benders-manual": {
+    title: "Трубогибы гидравлические с закрытой рамой",
+    groupId: "benders",
+    groupTitle: "Трубогибы",
+    img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/fcb88d3b-f090-4a15-9fb9-4a8dcac76976.png",
+    description:
+      "Предназначены для гибки водогазопроводных труб по ГОСТ 3262-75 в холодном состоянии.\n\n— Легкая и компактная конструкция из сплавов алюминия позволяет производить работы на месте монтажа трубопроводных и сантехнических систем;\n— Минимальное время подготовки трубогибов к работе;\n— Угол гиба — 90°;\n— Комплектуются набором пуансонов в соответствии с диапазоном радиусов гибки;\n— Для контроля точности гибки оснащены угловым индикатором.",
+    specs: [],
+    modelTableCols: [],
+    models: [],
+  },
 };
 
 const NO_DESCRIPTION_PRODUCT_IDS = ["jacks-accessories-supports", "jacks-accessories-alu-supports"];
