@@ -84,6 +84,7 @@ export const GROUP_DATA: Record<string, GroupData> = {
     longDesc:
       "Съёмники применяются при демонтаже подшипников, муфт, шестерён и других деталей, установленных с натягом. Гидравлические модели обеспечивают высокое усилие без ударных нагрузок. Механические — для лёгких и средних задач. Специальные подкатные варианты для работы на крупных валах и в стеснённых условиях.",
     img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/1b01ebed-c631-403d-9b53-8da1eabea048.png",
+    imgScale: 1.01,
     subgroups: [
       { id: "pullers-screw-centering", title: "Съемники с винтовым приводом и механизмом центрирования и захвата", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/84fcb081-cb83-480b-8a50-d61e44c0394b.png" },
       { id: "pullers-screw", title: "Съемники с винтовым приводом", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/a51dc22b-452b-4314-9373-5d1c1cc556f6.png" },
