@@ -386,6 +386,7 @@ const PRODUCT_DATA: Record<string, ProductData> = {
 };
 
 function getParentGroupId(productId: string): string {
+  if (productId.startsWith("jacks-accessories")) return "jacks-accessories";
   const prefix = productId.split("-")[0];
   const map: Record<string, string> = {
     jacks: "jacks",

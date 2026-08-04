@@ -27,6 +27,13 @@ export const HYDRAULIC_GROUPS: EquipmentGroup[] = [
     img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/9ca7d7e6-faca-45c4-b432-afbdd911487c.png",
   },
   {
+    id: "jacks-accessories",
+    title: "Принадлежности к домкратам",
+    desc: "Предохранительные краны, гидрозамки и опоры для безопасной эксплуатации домкратов.",
+    sub: "5 подгрупп: краны предохранительные, гидрозамки, опоры, опоры для алюминиевых домкратов, поддомкратные опоры.",
+    img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/a591ae0e-d3a9-483a-95d8-12c58164fa3e.jpg",
+  },
+  {
     id: "pumps",
     title: "Насосы и станции",
     desc: "Источники давления: ручные, ножные, пневматические, электрические, бензиновые, дизельные.",

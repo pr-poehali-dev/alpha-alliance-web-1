@@ -58,7 +58,6 @@ export const GROUP_DATA: Record<string, GroupData> = {
       { id: "cylinders-ear-70", title: "Цилиндры гидравлические с проушинами до 70 МПа", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/2781ae39-383a-4fea-9a1c-30801da4b531.jpg", img2: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/5fcd898d-8fd0-44c2-818e-f5d5d1bb4180.jpg" },
       { id: "jacks-cargo-trolley", title: "Домкраты грузовые подкатные", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/33311a12-dc80-4a32-9e09-c3e8a1fbf027.jpg", img2: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/39bbcda7-e4ac-4e8c-a830-d03dfbacdc21.jpg" },
       { id: "jacks-cargo-double-float", title: "Домкраты грузовые двусторонние с увеличенными плавающими опорами", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/9651b5e6-fc29-48f3-8ae1-4af173ec1795.jpg", img2: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/0ba222db-6e0c-483b-ae0b-581b9e0d7004.jpg" },
-      { id: "jacks-accessories", title: "Принадлежности к домкратам", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/a591ae0e-d3a9-483a-95d8-12c58164fa3e.jpg" },
     ],
     features: [{ icon: "Gauge", label: "До 70 МПа" }, { icon: "Weight", label: "5–1000 тонн" }, { icon: "Settings", label: "Индивидуальные заказы" }, { icon: "ShieldCheck", label: "Выходной контроль" }],
   },
@@ -204,6 +203,20 @@ export const GROUP_DATA: Record<string, GroupData> = {
       { id: "riklin-battery", title: "Аккумуляторный инструмент" },
     ],
     features: [{ icon: "DollarSign", label: "Экономичная серия" }, { icon: "Package", label: "Широкий ассортимент" }, { icon: "Battery", label: "Аккумуляторный инструмент" }, { icon: "Truck", label: "Грузоподъёмная техника" }],
+  },
+  "jacks-accessories": {
+    title: "Принадлежности к домкратам",
+    longDesc:
+      "Дополнительное оборудование для безопасной и удобной эксплуатации домкратов: предохранительные краны, гидрозамки, а также опоры различного назначения — стандартные, для алюминиевых домкратов и поддомкратные.",
+    img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/a591ae0e-d3a9-483a-95d8-12c58164fa3e.jpg",
+    subgroups: [
+      { id: "jacks-accessories-valves", title: "Краны предохранительные" },
+      { id: "jacks-accessories-locks", title: "Гидрозамки" },
+      { id: "jacks-accessories-supports", title: "Опоры" },
+      { id: "jacks-accessories-alu-supports", title: "Опоры для алюминиевых домкратов" },
+      { id: "jacks-accessories-base-supports", title: "Поддомкратные опоры" },
+    ],
+    features: [{ icon: "ShieldCheck", label: "Предохранительные краны" }, { icon: "Lock", label: "Гидрозамки" }, { icon: "CircleDot", label: "Опоры разных типов" }, { icon: "Settings", label: "Для алюминиевых домкратов" }],
   },
 };
 
