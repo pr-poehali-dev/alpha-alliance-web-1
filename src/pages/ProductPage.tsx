@@ -394,6 +394,17 @@ const PRODUCT_DATA: Record<string, ProductData> = {
     modelTableCols: [],
     models: [],
   },
+  "jacks-accessories-locks": {
+    title: "Гидрозамки",
+    groupId: "jacks-accessories",
+    groupTitle: "Принадлежности к домкратам",
+    img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/f20b63ec-a18f-4840-b3e1-367fe82fe519.png",
+    description:
+      "Гидрозамок с гидравлическим управлением, как и кран предохранительный, предназначен для удержания нагрузки гидроцилиндром.\n\nГидрозамок является устройством безопасности и должен устанавливаться на все гидроцилиндры, которые удерживаются под нагрузкой длительное время, на случай повреждения рукавов высокого давления.\n\nПрименим только для гидроцилиндров двойного действия. Открытие происходит автоматически управляющим сигналом гидравлической жидкости из полости возврата.",
+    specs: [],
+    modelTableCols: [],
+    models: [],
+  },
 };
 
 function getParentGroupId(productId: string): string {
