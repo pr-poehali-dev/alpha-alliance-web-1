@@ -216,7 +216,7 @@ export const GROUP_DATA: Record<string, GroupData> = {
       { id: "jacks-accessories-locks", title: "Гидрозамки", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/f20b63ec-a18f-4840-b3e1-367fe82fe519.png" },
       { id: "jacks-accessories-supports", title: "Опоры", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/b4fa6146-fd35-47fd-8d68-7ce4c9541265.png", img2: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/b43d805f-826b-40c6-8552-8ad84e20973e.png" },
       { id: "jacks-accessories-alu-supports", title: "Опоры для алюминиевых домкратов", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/5d0a25fc-b691-4f29-bb5b-c52329599627.png", img2: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/d5448656-28eb-43c4-9c58-300868aa27ac.png" },
-      { id: "jacks-accessories-base-supports", title: "Поддомкратные опоры", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/c975d5a6-a27d-49d7-ba8a-c9c85d84ace7.png" },
+      { id: "jacks-accessories-base-supports", title: "Поддомкратные опоры", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/c975d5a6-a27d-49d7-ba8a-c9c85d84ace7.png", img2: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/67febaa3-2f8e-446f-90f7-8956f7f8770c.png" },
     ],
     features: [{ icon: "ShieldCheck", label: "Предохранительные краны" }, { icon: "Lock", label: "Гидрозамки" }, { icon: "CircleDot", label: "Опоры разных типов" }, { icon: "Settings", label: "Для алюминиевых домкратов" }],
   },

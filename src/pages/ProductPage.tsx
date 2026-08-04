@@ -405,6 +405,17 @@ const PRODUCT_DATA: Record<string, ProductData> = {
     modelTableCols: [],
     models: [],
   },
+  "jacks-accessories-base-supports": {
+    title: "Поддомкратные опоры",
+    groupId: "jacks-accessories",
+    groupTitle: "Принадлежности к домкратам",
+    img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/67febaa3-2f8e-446f-90f7-8956f7f8770c.png",
+    description:
+      "Предназначены для создания прочной опорной поверхности и обеспечения устойчивости домкратов при их эксплуатации.",
+    specs: [],
+    modelTableCols: [],
+    models: [],
+  },
 };
 
 const NO_DESCRIPTION_PRODUCT_IDS = ["jacks-accessories-supports", "jacks-accessories-alu-supports"];
