@@ -70,6 +70,16 @@ const PRODUCT_DATA: Record<string, ProductData> = {
     modelTableCols: [],
     models: [],
   },
+  "presses-punch-sheet": {
+    title: "Прессы-перфораторы листовые",
+    groupId: "presses",
+    groupTitle: "Прессы",
+    img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/9581c5b1-fa6f-4cb9-b2fc-16971230b54d.png",
+    description: "Перфораторы листовые предназначены для пробивания отверстий в листовом материале диаметром до 114,7 мм с максимальной точностью. Пробивка отверстия занимает минимальное время. Для пропуска тяговой шпильки необходимо предварительно сверлить отверстие.\nВ комплект поставки входят рукав высокого давления 1 метр и ручной насос - 0,4 л.",
+    specs: [],
+    modelTableCols: [],
+    models: [],
+  },
   "presses-horizontal-heavy": {
     title: "Пресс гидравлический горизонтальный крупнотоннажный",
     groupId: "presses",
