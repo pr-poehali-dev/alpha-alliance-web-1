@@ -104,6 +104,7 @@ export const GROUP_DATA: Record<string, GroupData> = {
     longDesc:
       "Прессовое оборудование для правки, запрессовки, штамповки и монтажа деталей. Усилие от 10 до 200 тонн. Рамные прессы позволяют работать с крупногабаритными изделиями. Портативные гидравлические прессы для полевых условий. Кабельные прессы для опрессовки наконечников сечением до 400 мм².",
     img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/e086c588-cb03-4683-b155-f44e77dd3965.png",
+    imgScale: 1.0115,
     subgroups: [
       { id: "presses-hydraulic", title: "Прессы гидравлические", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/b7fd3e04-17ba-426b-9e09-2ff9ab5dadc2.png" },
       { id: "presses-jack-test", title: "Установки для испытания домкратов", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/5467b962-3bfa-4779-ac5d-f6fdfa701b9d.png" },
