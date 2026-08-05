@@ -160,6 +160,16 @@ const PRODUCT_DATA: Record<string, ProductData> = {
     modelTableCols: [],
     models: [],
   },
+  "threading-cassette": {
+    title: "Гайковерты гидравлические кассетные",
+    groupId: "threading",
+    groupTitle: "Оборудование для резьбы",
+    img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/6d36f472-ce43-4443-b679-89cd00c0d2bd.png",
+    description: "— Предназначены для завинчивания и отвинчивания гаек, болтов и других крепежных деталей больших диаметров, требующих значительное усилие;\n— Незаменимы при работе в ограниченном пространстве (фланцевые соединения), когда шпилька или болт значительно выступают над гайкой;\n— Быстросъемные кассеты легко устанавливаются и снимаются без применения инструментов;\n— Высокая точность поддержания заданного крутящего момента (±3%);\n— Шарнирный радиально-осевой подвод рабочей жидкости позволяет ориентировать рукава высокого давления в необходимом направлении;\n— По заказу комплектуются понижающими вставками согласно диапазону размеров гаек;\n— При работе с насосной станцией типа НЭА (со встроенным реле времени) возможна работа устройства в автоматическом режиме.",
+    specs: [],
+    modelTableCols: [],
+    models: [],
+  },
   "presses-lugs-sleeves-clamps": {
     title: "Прессы для опрессовки наконечников, гильз и зажимов",
     groupId: "presses",
@@ -1061,7 +1071,7 @@ export default function ProductPage({ productId, onNavigate }: Props) {
 
             {/* Image + Description */}
             <div className="mb-10">
-              <div className={`w-full mx-auto bg-white rounded-sm flex items-center justify-center overflow-hidden mb-6 ${productId === "jacks-accessories-base-supports" ? "max-w-[65%]" : productId === "benders-electric" ? "max-w-[75%]" : productId === "pullers-screw-centering" ? "max-w-[70%]" : productId === "pullers-screw" ? "max-w-[75%]" : productId === "pullers-hydraulic" ? "max-w-[75%]" : productId === "pullers-clamp-type" ? "max-w-[70%]" : productId === "pullers-clamp-builtin-drive" ? "max-w-[75%]" : productId === "pullers-press-fitters" ? "max-w-[75%]" : productId === "presses-hydraulic" ? "max-w-[75%]" : productId === "presses-jack-test" ? "max-w-[75%]" : productId === "presses-hydraulic-horizontal" ? "max-w-[75%]" : productId === "presses-horizontal-heavy" ? "max-w-[88%]" : productId === "presses-punch" ? "max-w-[75%]" : productId === "cutting-nutcutters" ? "max-w-[65%]" : productId === "cutting-pistol" ? "max-w-[70%]" : productId === "cutting-cable" ? "max-w-[70%]" : productId === "cutting-rope" ? "max-w-[70%]" : productId === "cutting-angle" ? "max-w-[70%]" : productId === "cutting-universal" ? "max-w-[75%]" : productId === "cutting-pipe-sheet" ? "max-w-[75%]" : "max-w-[50%]"}`}>
+              <div className={`w-full mx-auto bg-white rounded-sm flex items-center justify-center overflow-hidden mb-6 ${productId === "jacks-accessories-base-supports" ? "max-w-[65%]" : productId === "benders-electric" ? "max-w-[75%]" : productId === "pullers-screw-centering" ? "max-w-[70%]" : productId === "pullers-screw" ? "max-w-[75%]" : productId === "pullers-hydraulic" ? "max-w-[75%]" : productId === "pullers-clamp-type" ? "max-w-[70%]" : productId === "pullers-clamp-builtin-drive" ? "max-w-[75%]" : productId === "pullers-press-fitters" ? "max-w-[75%]" : productId === "presses-hydraulic" ? "max-w-[75%]" : productId === "presses-jack-test" ? "max-w-[75%]" : productId === "presses-hydraulic-horizontal" ? "max-w-[75%]" : productId === "presses-horizontal-heavy" ? "max-w-[88%]" : productId === "presses-punch" ? "max-w-[75%]" : productId === "cutting-nutcutters" ? "max-w-[65%]" : productId === "cutting-pistol" ? "max-w-[70%]" : productId === "cutting-cable" ? "max-w-[70%]" : productId === "cutting-rope" ? "max-w-[70%]" : productId === "cutting-angle" ? "max-w-[70%]" : productId === "cutting-universal" ? "max-w-[75%]" : productId === "cutting-pipe-sheet" ? "max-w-[75%]" : productId === "threading-cassette" ? "max-w-[75%]" : "max-w-[50%]"}`}>
                 {data.img ? (
                   <img
                     src={data.img}
