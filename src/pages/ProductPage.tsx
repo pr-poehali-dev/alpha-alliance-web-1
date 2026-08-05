@@ -130,6 +130,16 @@ const PRODUCT_DATA: Record<string, ProductData> = {
     modelTableCols: [],
     models: [],
   },
+  "cutting-angle": {
+    title: "Ножницы для резки уголка",
+    groupId: "cutting",
+    groupTitle: "Режущий инструмент",
+    img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/bb8ffc9c-72ff-444d-9106-126705ba7b57.png",
+    description: "— Ножницы предназначены для резки прокатной угловой равнополочной и неравнополочной стали по ГОСТ 8509 при выполнении строительных, монтажных, демонтажных, ремонтных и других видов работ;\n— Гильотинный принцип действия обеспечивает качественный и ровный срез;\n— Откидная скоба позволяет быстро поместить разрезаемый материал в зону резания.",
+    specs: [],
+    modelTableCols: [],
+    models: [],
+  },
   "presses-lugs-sleeves-clamps": {
     title: "Прессы для опрессовки наконечников, гильз и зажимов",
     groupId: "presses",
@@ -1031,7 +1041,7 @@ export default function ProductPage({ productId, onNavigate }: Props) {
 
             {/* Image + Description */}
             <div className="mb-10">
-              <div className={`w-full mx-auto bg-white rounded-sm flex items-center justify-center overflow-hidden mb-6 ${productId === "jacks-accessories-base-supports" ? "max-w-[65%]" : productId === "benders-electric" ? "max-w-[75%]" : productId === "pullers-screw-centering" ? "max-w-[70%]" : productId === "pullers-screw" ? "max-w-[75%]" : productId === "pullers-hydraulic" ? "max-w-[75%]" : productId === "pullers-clamp-type" ? "max-w-[70%]" : productId === "pullers-clamp-builtin-drive" ? "max-w-[75%]" : productId === "pullers-press-fitters" ? "max-w-[75%]" : productId === "presses-hydraulic" ? "max-w-[75%]" : productId === "presses-jack-test" ? "max-w-[75%]" : productId === "presses-hydraulic-horizontal" ? "max-w-[75%]" : productId === "presses-horizontal-heavy" ? "max-w-[88%]" : productId === "presses-punch" ? "max-w-[75%]" : productId === "cutting-nutcutters" ? "max-w-[65%]" : productId === "cutting-pistol" ? "max-w-[70%]" : productId === "cutting-cable" ? "max-w-[70%]" : productId === "cutting-rope" ? "max-w-[70%]" : "max-w-[50%]"}`}>
+              <div className={`w-full mx-auto bg-white rounded-sm flex items-center justify-center overflow-hidden mb-6 ${productId === "jacks-accessories-base-supports" ? "max-w-[65%]" : productId === "benders-electric" ? "max-w-[75%]" : productId === "pullers-screw-centering" ? "max-w-[70%]" : productId === "pullers-screw" ? "max-w-[75%]" : productId === "pullers-hydraulic" ? "max-w-[75%]" : productId === "pullers-clamp-type" ? "max-w-[70%]" : productId === "pullers-clamp-builtin-drive" ? "max-w-[75%]" : productId === "pullers-press-fitters" ? "max-w-[75%]" : productId === "presses-hydraulic" ? "max-w-[75%]" : productId === "presses-jack-test" ? "max-w-[75%]" : productId === "presses-hydraulic-horizontal" ? "max-w-[75%]" : productId === "presses-horizontal-heavy" ? "max-w-[88%]" : productId === "presses-punch" ? "max-w-[75%]" : productId === "cutting-nutcutters" ? "max-w-[65%]" : productId === "cutting-pistol" ? "max-w-[70%]" : productId === "cutting-cable" ? "max-w-[70%]" : productId === "cutting-rope" ? "max-w-[70%]" : productId === "cutting-angle" ? "max-w-[70%]" : "max-w-[50%]"}`}>
                 {data.img ? (
                   <img
                     src={data.img}
