@@ -325,6 +325,8 @@ export default function EquipmentGroupDetailPage({ groupId, onNavigate }: Props)
                 <img
                   src={data.img}
                   alt={data.title}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-contain p-1"
                   style={{ transform: `scale(${data.imgScale ?? 1.19})` }}
                 />
@@ -376,6 +378,8 @@ export default function EquipmentGroupDetailPage({ groupId, onNavigate }: Props)
                       <img
                         src={sub.img}
                         alt={sub.title}
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-500"
                       />
                     ) : (

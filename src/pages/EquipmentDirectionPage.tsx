@@ -90,6 +90,8 @@ export default function EquipmentDirectionPage({ directionId, onNavigate }: Prop
                         <img
                           src={g.img}
                           alt={g.title}
+                          loading="lazy"
+                          decoding="async"
                           className="max-w-full max-h-full w-auto h-auto object-contain transition-transform duration-500"
                           style={{ transform: `scale(${g.imgScale ?? 1})` }}
                           onMouseEnter={e => (e.currentTarget.style.transform = `scale(${(g.imgScale ?? 1) * 1.05})`)}

@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-import * as XLSX from "xlsx";
 import Icon from "@/components/ui/icon";
 import EquipmentSidebar from "@/components/EquipmentSidebar";
 import { GROUP_DATA } from "@/pages/EquipmentGroupDetailPage";
@@ -662,6 +661,7 @@ export default function ProductPage({ productId, onNavigate }: Props) {
     const reader = new FileReader();
     reader.onload = async (ev) => {
       try {
+        const XLSX = await import("xlsx");
         const wb = XLSX.read(ev.target?.result, { type: "array" });
         const ws = wb.Sheets[wb.SheetNames[0]];
         const rows: string[][] = XLSX.utils.sheet_to_json(ws, { header: 1, defval: "" });
@@ -711,6 +711,7 @@ export default function ProductPage({ productId, onNavigate }: Props) {
     const reader = new FileReader();
     reader.onload = async (ev) => {
       try {
+        const XLSX = await import("xlsx");
         const wb = XLSX.read(ev.target?.result, { type: "array" });
         const ws = wb.Sheets[wb.SheetNames[0]];
         const rows: string[][] = XLSX.utils.sheet_to_json(ws, { header: 1, defval: "" });
@@ -797,6 +798,8 @@ export default function ProductPage({ productId, onNavigate }: Props) {
                     <img
                       src={subgroup?.img2 ?? subgroup?.img}
                       alt={subgroup?.title}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-auto object-contain p-4"
                     />
                   ) : (
@@ -963,6 +966,8 @@ export default function ProductPage({ productId, onNavigate }: Props) {
                   <img
                     src={data.img}
                     alt={data.title}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-auto object-contain p-4"
                   />
                 ) : (

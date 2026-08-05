@@ -349,6 +349,8 @@ export default function HomePage({ onNavigate }: HomePageProps) {
                 <img
                   src={block.img}
                   alt=""
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover"
                 />
               </div>

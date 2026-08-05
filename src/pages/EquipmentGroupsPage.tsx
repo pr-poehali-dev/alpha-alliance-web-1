@@ -1,6 +1,6 @@
 import { useState, useMemo } from "react";
 import Icon from "@/components/ui/icon";
-import { DIRECTIONS, ALL_GROUPS } from "@/data/equipment";
+import { DIRECTIONS, ALL_GROUPS, type EquipmentGroup } from "@/data/equipment";
 
 interface Props {
   onNavigate: (page: string) => void;
@@ -171,7 +171,7 @@ export default function EquipmentGroupsPage({ onNavigate }: Props) {
 }
 
 interface GroupCardProps {
-  g: { id: string; title: string; desc: string; sub: string; img: string; imgFit?: "contain" | "cover" };
+  g: EquipmentGroup;
   index: number;
   onNavigate: (page: string) => void;
 }
@@ -186,6 +186,8 @@ function GroupCard({ g, index, onNavigate }: GroupCardProps) {
         <img
           src={g.img}
           alt={g.title}
+          loading="lazy"
+          decoding="async"
           className="max-w-full max-h-full w-auto h-auto object-contain transition-transform duration-500"
           style={{ transform: `scale(${g.imgScale ?? 1})` }}
           onMouseEnter={e => (e.currentTarget.style.transform = `scale(${(g.imgScale ?? 1) * 1.05})`)}

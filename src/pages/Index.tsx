@@ -1,18 +1,25 @@
-import { useState } from "react";
+import { useState, lazy, Suspense } from "react";
 import Layout from "@/components/Layout";
 import HomePage from "@/pages/HomePage";
-import AboutPage from "@/pages/AboutPage";
-import CatalogTechPage from "@/pages/CatalogTechPage";
-import CatalogEquipmentPage from "@/pages/CatalogEquipmentPage";
-import EquipmentGroupsPage from "@/pages/EquipmentGroupsPage";
-import EquipmentDirectionPage from "@/pages/EquipmentDirectionPage";
-import EquipmentGroupDetailPage from "@/pages/EquipmentGroupDetailPage";
-import ProductPage from "@/pages/ProductPage";
-import MetalworkPage from "@/pages/MetalworkPage";
-import EngineeringPage from "@/pages/EngineeringPage";
-import ContactsPage from "@/pages/ContactsPage";
-import AdminImportPage from "@/pages/AdminImportPage";
 import { DIRECTIONS } from "@/data/equipment";
+
+const AboutPage = lazy(() => import("@/pages/AboutPage"));
+const CatalogTechPage = lazy(() => import("@/pages/CatalogTechPage"));
+const CatalogEquipmentPage = lazy(() => import("@/pages/CatalogEquipmentPage"));
+const EquipmentGroupsPage = lazy(() => import("@/pages/EquipmentGroupsPage"));
+const EquipmentDirectionPage = lazy(() => import("@/pages/EquipmentDirectionPage"));
+const EquipmentGroupDetailPage = lazy(() => import("@/pages/EquipmentGroupDetailPage"));
+const ProductPage = lazy(() => import("@/pages/ProductPage"));
+const MetalworkPage = lazy(() => import("@/pages/MetalworkPage"));
+const EngineeringPage = lazy(() => import("@/pages/EngineeringPage"));
+const ContactsPage = lazy(() => import("@/pages/ContactsPage"));
+const AdminImportPage = lazy(() => import("@/pages/AdminImportPage"));
+
+const PageFallback = () => (
+  <div className="min-h-[60vh] flex items-center justify-center text-muted-foreground">
+    Загрузка...
+  </div>
+);
 
 const DIRECTION_IDS = DIRECTIONS.map((d) => d.id);
 const GROUP_IDS = DIRECTIONS.flatMap((d) => d.groups.map((g) => g.id));
@@ -21,7 +28,7 @@ interface PageProps {
   onNavigate: (p: string) => void;
 }
 
-const PAGE_MAP: Record<string, (props: PageProps) => JSX.Element> = {
+const PAGE_MAP: Record<string, React.ComponentType<PageProps>> = {
   home: HomePage,
   about: AboutPage,
   "catalog-tech": CatalogTechPage,
@@ -47,7 +54,9 @@ const Index = () => {
     if (DIRECTION_IDS.includes(dirId)) {
       return (
         <Layout activePage="equipment-groups" onNavigate={handleNavigate}>
-          <EquipmentDirectionPage directionId={dirId} onNavigate={handleNavigate} />
+          <Suspense fallback={<PageFallback />}>
+            <EquipmentDirectionPage directionId={dirId} onNavigate={handleNavigate} />
+          </Suspense>
         </Layout>
       );
     }
@@ -58,7 +67,9 @@ const Index = () => {
     const productId = activePage.replace("product-", "");
     return (
       <Layout activePage="equipment-groups" onNavigate={handleNavigate}>
-        <ProductPage productId={productId} onNavigate={handleNavigate} />
+        <Suspense fallback={<PageFallback />}>
+          <ProductPage productId={productId} onNavigate={handleNavigate} />
+        </Suspense>
       </Layout>
     );
   }
@@ -69,7 +80,9 @@ const Index = () => {
     if (GROUP_IDS.includes(groupId)) {
       return (
         <Layout activePage="equipment-groups" onNavigate={handleNavigate}>
-          <EquipmentGroupDetailPage groupId={groupId} onNavigate={handleNavigate} />
+          <Suspense fallback={<PageFallback />}>
+            <EquipmentGroupDetailPage groupId={groupId} onNavigate={handleNavigate} />
+          </Suspense>
         </Layout>
       );
     }
@@ -79,7 +92,9 @@ const Index = () => {
 
   return (
     <Layout activePage={activePage} onNavigate={handleNavigate}>
-      <PageComponent onNavigate={handleNavigate} />
+      <Suspense fallback={<PageFallback />}>
+        <PageComponent onNavigate={handleNavigate} />
+      </Suspense>
     </Layout>
   );
 };
