@@ -968,10 +968,22 @@ const PRODUCT_DATA: Record<string, ProductData> = {
     modelTableCols: [],
     models: [],
   },
+  "special-sling-press": {
+    title: "Опрессовщик стропов",
+    groupId: "special",
+    groupTitle: "Специальное оборудование",
+    img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/7fedf46d-8891-46f5-bfb2-87f6d71e9089.png",
+    description:
+      "Модель опрессовщика стропов ПС200 предназначена для опрессовки концов канатов диаметром от 4 до 20 мм алюминиевой втулкой, модель опресcовщика стропов ПС400 предназначена для опрессовки концов канатов диаметром от 6 до 36 мм алюминиевой втулкой.\n\nДля работы с опрессовщиком ПС200 рекомендуется станция НЭЭ-1,6И10Т1.\n\nДля опрессовщика ПС400 рекомендуется станция НЭЭ12/32-16/6И63Т2-Му. Пресс ПС400 рекомендуется комплектовать рукавами высокого давления* (РВД12,7.166.ХХХ (для рукава).0,18.13/13-90G1/2/G1/2-У1, 2 шт.)\n\nЛюбая другая насосная станция или рукава высокого давления должны дополнительно комплектоваться штуцерами и переходниками G1/2.\n\nВсе случаи комплектации опрессовщика не рекомендованной станцией необходимо согласовывать с производителем.",
+    specs: [],
+    modelTableCols: [],
+    models: [],
+  },
 };
 
 const NO_DESCRIPTION_PRODUCT_IDS = ["jacks-accessories-supports", "jacks-accessories-alu-supports"];
 const PUMP_SPECS_PRODUCT_IDS = ["pullers-hydraulic-trolley"];
+const MATRIX_SETS_PRODUCT_IDS = ["special-sling-press"];
 
 function getParentGroupId(productId: string): string {
   if (productId.startsWith("jacks-accessories")) return "jacks-accessories";
@@ -1012,6 +1024,13 @@ export default function ProductPage({ productId, onNavigate }: Props) {
   const [importPumpError, setImportPumpError] = useState("");
   const pumpFileInputRef = useRef<HTMLInputElement>(null);
 
+  const matrixProductId = `${productId}-matrix`;
+  const [importedMatrixModels, setImportedMatrixModels] = useState<ModelRow[]>([]);
+  const [importedMatrixCols, setImportedMatrixCols] = useState<ModelTableCol[]>([]);
+  const [importingMatrix, setImportingMatrix] = useState(false);
+  const [importMatrixError, setImportMatrixError] = useState("");
+  const matrixFileInputRef = useRef<HTMLInputElement>(null);
+
   // Загружаем данные с сервера при открытии страницы
   useEffect(() => {
     setLoading(true);
@@ -1028,6 +1047,15 @@ export default function ProductPage({ productId, onNavigate }: Props) {
         .then(r => r.json())
         .then(d => {
           if (d.cols?.length) { setImportedPumpCols(d.cols); setImportedPumpModels(d.models); }
+        })
+        .catch(() => {});
+    }
+
+    if (MATRIX_SETS_PRODUCT_IDS.includes(productId)) {
+      fetch(`${API_URL}?product_id=${matrixProductId}`)
+        .then(r => r.json())
+        .then(d => {
+          if (d.cols?.length) { setImportedMatrixCols(d.cols); setImportedMatrixModels(d.models); }
         })
         .catch(() => {});
     }
@@ -1129,6 +1157,54 @@ export default function ProductPage({ productId, onNavigate }: Props) {
     }).catch(() => {});
     setImportedPumpModels([]);
     setImportedPumpCols([]);
+  };
+
+  const handleMatrixExcelUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setImportingMatrix(true);
+    setImportMatrixError("");
+    const reader = new FileReader();
+    reader.onload = async (ev) => {
+      try {
+        const XLSX = await import("xlsx");
+        const wb = XLSX.read(ev.target?.result, { type: "array" });
+        const ws = wb.Sheets[wb.SheetNames[0]];
+        const rows: string[][] = XLSX.utils.sheet_to_json(ws, { header: 1, defval: "" });
+        if (rows.length < 2) { setImportMatrixError("Файл пустой или не содержит данных"); setImportingMatrix(false); return; }
+        const oneLine = (v: unknown) => String(v ?? "").replace(/[\r\n]+/g, " ").trim();
+        const headers = rows[0].map((h) => oneLine(h)).filter(Boolean);
+        const cols: ModelTableCol[] = headers.map((h, i) => ({ key: `col${i}`, label: h }));
+        const models: ModelRow[] = rows.slice(1).filter(r => r.some(c => c !== "")).map((row) => {
+          const obj: ModelRow = { model: oneLine(row[0]) };
+          headers.forEach((_, i) => { obj[`col${i}`] = oneLine(row[i]); });
+          return obj;
+        });
+        const res = await fetch(API_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ product_id: matrixProductId, cols, models }),
+        });
+        if (!res.ok) throw new Error("server error");
+        setImportedMatrixCols(cols);
+        setImportedMatrixModels(models);
+      } catch {
+        setImportMatrixError("Не удалось загрузить данные. Попробуйте ещё раз.");
+      }
+      setImportingMatrix(false);
+    };
+    reader.readAsArrayBuffer(file);
+    e.target.value = "";
+  };
+
+  const clearImportedMatrix = async () => {
+    await fetch(API_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ product_id: matrixProductId, cols: [], models: [] }),
+    }).catch(() => {});
+    setImportedMatrixModels([]);
+    setImportedMatrixCols([]);
   };
 
   const activeModels = importedModels.length > 0 ? importedModels : (data?.models ?? []);
@@ -1341,7 +1417,7 @@ export default function ProductPage({ productId, onNavigate }: Props) {
 
             {/* Image + Description */}
             <div className="mb-10">
-              <div className={`w-full mx-auto bg-white rounded-sm flex items-center justify-center overflow-hidden mb-6 ${productId === "jacks-accessories-base-supports" ? "max-w-[65%]" : productId === "benders-electric" ? "max-w-[75%]" : productId === "pullers-screw-centering" ? "max-w-[70%]" : productId === "pullers-screw" ? "max-w-[75%]" : productId === "pullers-hydraulic" ? "max-w-[75%]" : productId === "pullers-clamp-type" ? "max-w-[70%]" : productId === "pullers-clamp-builtin-drive" ? "max-w-[75%]" : productId === "pullers-press-fitters" ? "max-w-[75%]" : productId === "presses-hydraulic" ? "max-w-[75%]" : productId === "presses-jack-test" ? "max-w-[75%]" : productId === "presses-hydraulic-horizontal" ? "max-w-[75%]" : productId === "presses-horizontal-heavy" ? "max-w-[88%]" : productId === "presses-punch" ? "max-w-[75%]" : productId === "cutting-nutcutters" ? "max-w-[65%]" : productId === "cutting-pistol" ? "max-w-[70%]" : productId === "cutting-cable" ? "max-w-[70%]" : productId === "cutting-rope" ? "max-w-[70%]" : productId === "cutting-angle" ? "max-w-[70%]" : productId === "cutting-universal" ? "max-w-[75%]" : productId === "cutting-pipe-sheet" ? "max-w-[75%]" : productId === "threading-cassette" ? "max-w-[56%]" : productId === "threading-hydraulic" ? "max-w-[56%]" : productId === "threading-impact-sockets" ? "max-w-[65%]" : productId === "threading-tensors" ? "max-w-[33%]" : productId === "threading-multipliers" ? "max-w-[65%]" : productId === "special-balancers" ? "max-w-[65%]" : productId === "special-tensioner-cylinder" ? "max-w-[65%]" : productId === "special-tensioner-cable" ? "max-w-[65%]" : productId === "special-rail-transport" ? "max-w-[65%]" : productId === "special-ug600t" ? "max-w-[65%]" : productId === "special-ugrm" ? "max-w-[65%]" : productId === "special-ug100t" ? "max-w-[65%]" : productId === "special-bridge-push" ? "max-w-[65%]" : productId === "special-road-station-electric" ? "max-w-[38%]" : productId === "special-road-station-petrol" ? "max-w-[38%]" : productId === "special-crank-spreader" ? "max-w-[65%]" : productId === "special-oil-injector" ? "max-w-[65%]" : productId === "special-viscous-pump" ? "max-w-[65%]" : productId === "special-flange-spreader" ? "max-w-[65%]" : productId === "special-wedges" ? "max-w-[65%]" : productId === "special-kingpin-press" ? "max-w-[65%]" : productId === "special-track-pin-press" ? "max-w-[65%]" : productId === "special-pit-lift" ? "max-w-[65%]" : "max-w-[50%]"}`}>
+              <div className={`w-full mx-auto bg-white rounded-sm flex items-center justify-center overflow-hidden mb-6 ${productId === "jacks-accessories-base-supports" ? "max-w-[65%]" : productId === "benders-electric" ? "max-w-[75%]" : productId === "pullers-screw-centering" ? "max-w-[70%]" : productId === "pullers-screw" ? "max-w-[75%]" : productId === "pullers-hydraulic" ? "max-w-[75%]" : productId === "pullers-clamp-type" ? "max-w-[70%]" : productId === "pullers-clamp-builtin-drive" ? "max-w-[75%]" : productId === "pullers-press-fitters" ? "max-w-[75%]" : productId === "presses-hydraulic" ? "max-w-[75%]" : productId === "presses-jack-test" ? "max-w-[75%]" : productId === "presses-hydraulic-horizontal" ? "max-w-[75%]" : productId === "presses-horizontal-heavy" ? "max-w-[88%]" : productId === "presses-punch" ? "max-w-[75%]" : productId === "cutting-nutcutters" ? "max-w-[65%]" : productId === "cutting-pistol" ? "max-w-[70%]" : productId === "cutting-cable" ? "max-w-[70%]" : productId === "cutting-rope" ? "max-w-[70%]" : productId === "cutting-angle" ? "max-w-[70%]" : productId === "cutting-universal" ? "max-w-[75%]" : productId === "cutting-pipe-sheet" ? "max-w-[75%]" : productId === "threading-cassette" ? "max-w-[56%]" : productId === "threading-hydraulic" ? "max-w-[56%]" : productId === "threading-impact-sockets" ? "max-w-[65%]" : productId === "threading-tensors" ? "max-w-[33%]" : productId === "threading-multipliers" ? "max-w-[65%]" : productId === "special-balancers" ? "max-w-[65%]" : productId === "special-tensioner-cylinder" ? "max-w-[65%]" : productId === "special-tensioner-cable" ? "max-w-[65%]" : productId === "special-rail-transport" ? "max-w-[65%]" : productId === "special-ug600t" ? "max-w-[65%]" : productId === "special-ugrm" ? "max-w-[65%]" : productId === "special-ug100t" ? "max-w-[65%]" : productId === "special-bridge-push" ? "max-w-[65%]" : productId === "special-road-station-electric" ? "max-w-[38%]" : productId === "special-road-station-petrol" ? "max-w-[38%]" : productId === "special-pit-lift" ? "max-w-[65%]" : productId === "special-sling-press" ? "max-w-[65%]" : "max-w-[50%]"}`}>
                 {data.img ? (
                   <img
                     src={data.img}
@@ -1555,6 +1631,97 @@ export default function ProductPage({ productId, onNavigate }: Props) {
                   <div className="border border-white/8 rounded-sm px-4 py-8 text-center">
                     <p className="font-body text-white/30 text-xs">
                       Таблица характеристик ещё не загружена. Добавьте Excel-файл, чтобы она появилась здесь.
+                    </p>
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* Matrix sets table */}
+            {MATRIX_SETS_PRODUCT_IDS.includes(productId) && (
+              <div className="mb-10">
+                <div className="flex items-center justify-between gap-3 mb-4 flex-wrap">
+                  <div className="flex items-center gap-3">
+                    <div className="w-6 h-px bg-brand-red" />
+                    <span className="font-body text-white/35 text-xs tracking-[0.25em] uppercase">Комплекты матриц</span>
+                    {importedMatrixModels.length > 0 && (
+                      <span className="font-body text-brand-red text-[10px] border border-brand-red/30 px-2 py-0.5 rounded-sm">
+                        Данные из Excel
+                      </span>
+                    )}
+                  </div>
+                  <div className="flex items-center gap-2">
+                    {importedMatrixModels.length > 0 && (
+                      <button
+                        onClick={clearImportedMatrix}
+                        className="font-body text-white/30 text-xs hover:text-white/60 transition-colors flex items-center gap-1"
+                      >
+                        <Icon name="RotateCcw" size={11} />
+                        Сбросить
+                      </button>
+                    )}
+                    <label className="inline-flex items-center gap-2 cursor-pointer border border-white/15 hover:border-white/35 px-3 py-1.5 rounded-sm transition-colors group">
+                      {importingMatrix ? (
+                        <Icon name="Loader" size={12} className="text-white/40 animate-spin" />
+                      ) : (
+                        <Icon name="Upload" size={12} className="text-white/40 group-hover:text-white transition-colors" />
+                      )}
+                      <span className="font-body text-white/40 group-hover:text-white text-xs transition-colors">
+                        {importingMatrix ? "Загружаю..." : "Загрузить Excel"}
+                      </span>
+                      <input
+                        ref={matrixFileInputRef}
+                        type="file"
+                        accept=".xlsx,.xls"
+                        className="hidden"
+                        onChange={handleMatrixExcelUpload}
+                      />
+                    </label>
+                  </div>
+                </div>
+                {importMatrixError && (
+                  <div className="mb-3 px-3 py-2 bg-brand-red/10 border border-brand-red/20 rounded-sm">
+                    <p className="font-body text-brand-red text-xs">{importMatrixError}</p>
+                  </div>
+                )}
+                {importedMatrixModels.length > 0 ? (
+                  <div className="rounded-sm border border-white/8 overflow-x-auto">
+                    <table className="w-full text-sm font-body">
+                      <thead>
+                        <tr className="bg-brand-red/10 border-b border-white/8">
+                          {importedMatrixCols.map((col) => (
+                            <th
+                              key={col.key}
+                              className="text-center px-3 py-2 text-white/50 text-[11px] tracking-wide font-normal leading-tight whitespace-nowrap"
+                            >
+                              {col.label}
+                            </th>
+                          ))}
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {importedMatrixModels.map((row, i) => (
+                          <tr
+                            key={i}
+                            className={`border-b border-white/5 hover:bg-white/3 transition-colors ${i % 2 === 0 ? "bg-card" : "bg-card/50"}`}
+                          >
+                            {importedMatrixCols.map((col) => (
+                              <td
+                                key={col.key}
+                                className={`px-3 py-2 text-[12px] leading-snug whitespace-nowrap text-center ${col.key === "model" || col.key === "col0" ? "text-white font-medium" : "text-white/65"}`}
+                              >
+                                {row[col.key] ?? "—"}
+                              </td>
+                            ))}
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                ) : (
+                  <div className="border border-white/8 rounded-sm px-4 py-8 text-center">
+                    <p className="font-body text-white/30 text-xs">
+                      Таблица комплектов матриц ещё не загружена. Добавьте Excel-файл, чтобы она появилась здесь.
                     </p>
                   </div>
                 )}
