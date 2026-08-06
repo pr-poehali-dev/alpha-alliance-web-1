@@ -206,7 +206,7 @@ export const GROUP_DATA: Record<string, GroupData> = {
       { id: "special-pit-lift", title: "Подъемник подкатной для смотровых ям", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/246564c4-3ce2-4ea1-a5ee-f6be49c3e673.png" },
       { id: "special-sling-press", title: "Опрессовщик стропов", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/7b77ac40-e72e-4f38-9ba0-973c42f221e5.png" },
       { id: "special-sling-splice", title: "Установки для заплетки стропов", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/8828d6ca-1430-46c9-9f17-ff03dbd7b698.png", img2: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/e1ab5817-92d4-4350-a684-24eec82c2801.png" },
-      { id: "special-sling-test", title: "Установки для испытания стропов" },
+      { id: "special-sling-test", title: "Установки для испытания стропов", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/3f0306f9-0995-41f4-9e52-3ad6260966bc.png" },
     ],
     features: [{ icon: "Sliders", label: "Индивидуальные решения" }, { icon: "HardHat", label: "Строительство и монтаж" }, { icon: "ArrowRight", label: "ГНБ и бурение" }, { icon: "Scale", label: "Перемещение тяжеловесов" }],
   },
