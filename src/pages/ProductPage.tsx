@@ -836,6 +836,17 @@ const PRODUCT_DATA: Record<string, ProductData> = {
     modelTableCols: [],
     models: [],
   },
+  "special-road-station-electric": {
+    title: "Станции гидравлические для дорожно-строительного инструмента, с электроприводом",
+    groupId: "special",
+    groupTitle: "Специальное оборудование",
+    img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/58ec9bc1-a55f-4fe7-99b7-5d9f1e753630.png",
+    description:
+      "— Станции предназначены для создания давления и подачи гидравлической жидкости в гидроинструмент;\n— Возможность одновременного подключения одного или двух работающих гидроинструментов;\n— Компактная и прочная конструкция в стальной раме, удобный доступ ко всем органам гидростанции;\n— Объем гидравлического бака от 8 до 16 литров.",
+    specs: [],
+    modelTableCols: [],
+    models: [],
+  },
 };
 
 const NO_DESCRIPTION_PRODUCT_IDS = ["jacks-accessories-supports", "jacks-accessories-alu-supports"];
