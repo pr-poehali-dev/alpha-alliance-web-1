@@ -17,6 +17,8 @@ export interface Subgroup {
   img?: string;
   /** Основное фото для страницы товара */
   img2?: string;
+  /** Масштаб фото карточки подгруппы (по умолчанию 1) */
+  imgScale?: number;
 }
 
 export interface GroupData {
@@ -185,7 +187,7 @@ export const GROUP_DATA: Record<string, GroupData> = {
     imgScale: 1.0115,
     subgroups: [
       { id: "special-balancers", title: "Пружинные балансиры", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/1238002f-5367-4915-9e18-c90f2833033c.png" },
-      { id: "special-tensioner-cylinder", title: "Цилиндр силовой для натяжения пучковой арматуры", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/4839e1c2-a688-4a85-b773-f008adf086eb.png", img2: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/7c496b6a-b62c-4bd4-81fd-865d061d3585.png" },
+      { id: "special-tensioner-cylinder", title: "Цилиндр силовой для натяжения пучковой арматуры", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/4839e1c2-a688-4a85-b773-f008adf086eb.png", img2: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/7c496b6a-b62c-4bd4-81fd-865d061d3585.png", imgScale: 0.8 },
       { id: "special-tensioner-cable", title: "Натяжитель арматурного каната", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/7b430406-c24b-4fb1-8f54-de61102f6418.png" },
       { id: "special-rail-transport", title: "Установки гидравлические для перемещения тяжеловесного оборудования по рельсам", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/b66af608-db22-496e-9363-6c1b178b09f4.png", img2: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/1fcf76c1-ffd3-4a07-8fc5-224a92bd1411.png" },
       { id: "special-ug600t", title: "Установки гидравлические для бестраншейной прокладки труб (УГ600Т)", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/4552dec3-624c-42c0-92fa-565316f620ac.png", img2: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/9b77ce79-fcd7-47e9-bafb-9f705e00db7f.png" },
@@ -400,6 +402,7 @@ export default function EquipmentGroupDetailPage({ groupId, onNavigate }: Props)
                         loading="lazy"
                         decoding="async"
                         className="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-500"
+                        style={sub.imgScale ? { transform: `scale(${sub.imgScale})` } : undefined}
                       />
                     ) : (
                       <div className="flex flex-col items-center gap-2 text-black/15">
