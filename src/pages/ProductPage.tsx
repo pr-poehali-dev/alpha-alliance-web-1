@@ -759,6 +759,17 @@ const PRODUCT_DATA: Record<string, ProductData> = {
     modelTableCols: [],
     models: [],
   },
+  "special-tensioner-cylinder": {
+    title: "Цилиндр силовой для натяжения пучковой арматуры",
+    groupId: "special",
+    groupTitle: "Специальное оборудование",
+    img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/0de4c738-de3e-4565-8532-493321071cc4.png",
+    description:
+      "Предназначен для натяжения высокопрочной проволоки при армировании железобетонных балок, при ремонте и модернизации мостовых и гидротехнических сооружений, для усиления строительных конструкций. Управление натяжителем выполняется с насосной станции.\n\nЦилиндры силовые для натяжения высокопрочной проволоки производства «Энерпред» были использованы при строительстве надземной линии метро, общая протяженность которой 52,1 километра.\n\nВ стандартный комплект устройства для натяжения высокопрочной проволоки входит: цилиндр, насосная станция, рукава высокого давления.",
+    specs: [],
+    modelTableCols: [],
+    models: [],
+  },
 };
 
 const NO_DESCRIPTION_PRODUCT_IDS = ["jacks-accessories-supports", "jacks-accessories-alu-supports"];
@@ -1132,7 +1143,7 @@ export default function ProductPage({ productId, onNavigate }: Props) {
 
             {/* Image + Description */}
             <div className="mb-10">
-              <div className={`w-full mx-auto bg-white rounded-sm flex items-center justify-center overflow-hidden mb-6 ${productId === "jacks-accessories-base-supports" ? "max-w-[65%]" : productId === "benders-electric" ? "max-w-[75%]" : productId === "pullers-screw-centering" ? "max-w-[70%]" : productId === "pullers-screw" ? "max-w-[75%]" : productId === "pullers-hydraulic" ? "max-w-[75%]" : productId === "pullers-clamp-type" ? "max-w-[70%]" : productId === "pullers-clamp-builtin-drive" ? "max-w-[75%]" : productId === "pullers-press-fitters" ? "max-w-[75%]" : productId === "presses-hydraulic" ? "max-w-[75%]" : productId === "presses-jack-test" ? "max-w-[75%]" : productId === "presses-hydraulic-horizontal" ? "max-w-[75%]" : productId === "presses-horizontal-heavy" ? "max-w-[88%]" : productId === "presses-punch" ? "max-w-[75%]" : productId === "cutting-nutcutters" ? "max-w-[65%]" : productId === "cutting-pistol" ? "max-w-[70%]" : productId === "cutting-cable" ? "max-w-[70%]" : productId === "cutting-rope" ? "max-w-[70%]" : productId === "cutting-angle" ? "max-w-[70%]" : productId === "cutting-universal" ? "max-w-[75%]" : productId === "cutting-pipe-sheet" ? "max-w-[75%]" : productId === "threading-cassette" ? "max-w-[56%]" : productId === "threading-hydraulic" ? "max-w-[56%]" : productId === "threading-impact-sockets" ? "max-w-[65%]" : productId === "threading-tensors" ? "max-w-[33%]" : productId === "threading-multipliers" ? "max-w-[65%]" : productId === "special-balancers" ? "max-w-[65%]" : "max-w-[50%]"}`}>
+              <div className={`w-full mx-auto bg-white rounded-sm flex items-center justify-center overflow-hidden mb-6 ${productId === "jacks-accessories-base-supports" ? "max-w-[65%]" : productId === "benders-electric" ? "max-w-[75%]" : productId === "pullers-screw-centering" ? "max-w-[70%]" : productId === "pullers-screw" ? "max-w-[75%]" : productId === "pullers-hydraulic" ? "max-w-[75%]" : productId === "pullers-clamp-type" ? "max-w-[70%]" : productId === "pullers-clamp-builtin-drive" ? "max-w-[75%]" : productId === "pullers-press-fitters" ? "max-w-[75%]" : productId === "presses-hydraulic" ? "max-w-[75%]" : productId === "presses-jack-test" ? "max-w-[75%]" : productId === "presses-hydraulic-horizontal" ? "max-w-[75%]" : productId === "presses-horizontal-heavy" ? "max-w-[88%]" : productId === "presses-punch" ? "max-w-[75%]" : productId === "cutting-nutcutters" ? "max-w-[65%]" : productId === "cutting-pistol" ? "max-w-[70%]" : productId === "cutting-cable" ? "max-w-[70%]" : productId === "cutting-rope" ? "max-w-[70%]" : productId === "cutting-angle" ? "max-w-[70%]" : productId === "cutting-universal" ? "max-w-[75%]" : productId === "cutting-pipe-sheet" ? "max-w-[75%]" : productId === "threading-cassette" ? "max-w-[56%]" : productId === "threading-hydraulic" ? "max-w-[56%]" : productId === "threading-impact-sockets" ? "max-w-[65%]" : productId === "threading-tensors" ? "max-w-[33%]" : productId === "threading-multipliers" ? "max-w-[65%]" : productId === "special-balancers" ? "max-w-[65%]" : productId === "special-tensioner-cylinder" ? "max-w-[65%]" : "max-w-[50%]"}`}>
                 {data.img ? (
                   <img
                     src={data.img}
