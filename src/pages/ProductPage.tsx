@@ -74,6 +74,17 @@ const PRODUCT_DATA: Record<string, ProductData> = {
     modelTableCols: [],
     models: [],
   },
+  "rescue-avso-50": {
+    title: "Аварийно-восстановительное гидравлическое оборудование для постановки подвижного состава на рельсы (АВСО-50)",
+    groupId: "rescue",
+    groupTitle: "Спасение и ЖД",
+    img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/12612288-f6f2-4dd5-9b48-a514e1162c6a.png",
+    description:
+      "Комплект гидравлический из легких сплавов «АВСО» для постановки вагонов на рельсы (давление 50 МПа).\n\n1. Станция гидравлическая — устройство для создания давления и подачи масла в домкраты и цилиндры.\n2. Пульт управления — устройство для управления потоком гидравлической системы.\n3. Домкрат гидравлический — устройство подъема и опускания подвижного состава.\n4. Цилиндр перемещения — устройство для поперечного перемещения роликовой тележки по мостовой балке.\n5. Мостовая балка — устройство для установки на нее роликовой тележки, домкратов и цилиндров с целью подъема и перемещения подвижного состава.\n6. Роликовая тележка — устройство для поперечного перемещения подвижного состава по мостовой балке.\n7. Рукав высокого давления — устройство для соединения всех элементов гидравлической системы.\n\nОстальная информация по запросу.",
+    specs: [],
+    modelTableCols: [],
+    models: [],
+  },
   "presses-hydraulic": {
     title: "Прессы гидравлические",
     groupId: "presses",
@@ -1040,12 +1051,13 @@ const PRODUCT_DATA: Record<string, ProductData> = {
 const NO_DESCRIPTION_PRODUCT_IDS = ["jacks-accessories-supports", "jacks-accessories-alu-supports"];
 const PUMP_SPECS_PRODUCT_IDS = ["pullers-hydraulic-trolley"];
 const MATRIX_SETS_PRODUCT_IDS = ["special-sling-press"];
-const NO_MODEL_TABLE_PRODUCT_IDS = ["rescue-avso-30"];
+const NO_MODEL_TABLE_PRODUCT_IDS = ["rescue-avso-30", "rescue-avso-50"];
 
 const PRODUCT_IMG_WIDTH: Record<string, string> = {
   "rescue-krug-1s-am": "max-w-[65%]",
   "rescue-krug-2": "max-w-[65%]",
   "rescue-avso-30": "max-w-[65%]",
+  "rescue-avso-50": "max-w-[65%]",
   "jacks-accessories-base-supports": "max-w-[65%]",
   "benders-electric": "max-w-[75%]",
   "pullers-screw-centering": "max-w-[70%]",
