@@ -228,6 +228,17 @@ const PRODUCT_DATA: Record<string, ProductData> = {
     modelTableCols: [],
     models: [],
   },
+  "rescue-bushing-press": {
+    title: "Пресс для распрессовки втулок шарниров локомотивов",
+    groupId: "rescue",
+    groupTitle: "Спасение и ЖД",
+    img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/6297ab2a-5812-4e4f-8790-5d75310a6b86.png",
+    description:
+      "Пресс предназначен для распрессовки и запрессовки втулок шарниров локомотивов при ремонтных работах в депо.",
+    specs: [],
+    modelTableCols: [],
+    models: [],
+  },
   "presses-hydraulic": {
     title: "Прессы гидравлические",
     groupId: "presses",
@@ -1214,6 +1225,7 @@ const PRODUCT_IMG_WIDTH: Record<string, string> = {
   "rescue-loco-bogie-jack": "max-w-[65%]",
   "rescue-absorber-remover": "max-w-[65%]",
   "rescue-absorber-lifter": "max-w-[65%]",
+  "rescue-bushing-press": "max-w-[65%]",
   "jacks-accessories-base-supports": "max-w-[65%]",
   "benders-electric": "max-w-[75%]",
   "pullers-screw-centering": "max-w-[70%]",
