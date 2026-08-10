@@ -63,6 +63,17 @@ const PRODUCT_DATA: Record<string, ProductData> = {
     modelTableCols: [],
     models: [],
   },
+  "rescue-avso-30": {
+    title: "Гидравлическое оборудование для ведения аварийно-восстановительных работ на железнодорожном транспорте (АВСО-30)",
+    groupId: "rescue",
+    groupTitle: "Спасение и ЖД",
+    img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/ee5d3393-20e2-456c-90f4-e11654f379a0.png",
+    description:
+      "Комплект оборудования предназначен для проведения аварийно-восстановительных работ, подъема, перемещения, выравнивания и установки на рельсы вагонов и единиц подвижного состава поездов (давление 30 МПа).\n\nОсновные элементы системы:\n1. Станция гидравлическая — устройство для создания давления и подачи масла в домкраты и цилиндры.\n2. Пульт управления — устройство для управления потоком гидравлической системы.\n3. Домкрат гидравлический — устройство подъема и опускания подвижного состава.\n4. Цилиндр перемещения — устройство для поперечного перемещения роликовой тележки по мостовой балке.\n5. Мостовая балка — устройство для установки на нее роликовой тележки, домкратов и цилиндров с целью подъема и перемещения подвижного состава.\n6. Роликовая тележка — устройство для поперечного перемещения подвижного состава по мостовой балке.\n7. Рукав высокого давления — устройство для соединения всех элементов гидравлической системы.\n\nОстальная информация по запросу.",
+    specs: [],
+    modelTableCols: [],
+    models: [],
+  },
   "presses-hydraulic": {
     title: "Прессы гидравлические",
     groupId: "presses",
@@ -1029,10 +1040,12 @@ const PRODUCT_DATA: Record<string, ProductData> = {
 const NO_DESCRIPTION_PRODUCT_IDS = ["jacks-accessories-supports", "jacks-accessories-alu-supports"];
 const PUMP_SPECS_PRODUCT_IDS = ["pullers-hydraulic-trolley"];
 const MATRIX_SETS_PRODUCT_IDS = ["special-sling-press"];
+const NO_MODEL_TABLE_PRODUCT_IDS = ["rescue-avso-30"];
 
 const PRODUCT_IMG_WIDTH: Record<string, string> = {
   "rescue-krug-1s-am": "max-w-[65%]",
   "rescue-krug-2": "max-w-[65%]",
+  "rescue-avso-30": "max-w-[65%]",
   "jacks-accessories-base-supports": "max-w-[65%]",
   "benders-electric": "max-w-[75%]",
   "pullers-screw-centering": "max-w-[70%]",
@@ -1651,6 +1664,7 @@ export default function ProductPage({ productId, onNavigate }: Props) {
             )}
 
             {/* Model table */}
+            {!NO_MODEL_TABLE_PRODUCT_IDS.includes(productId) && (
             <div className="mb-10">
               <div className="flex items-center justify-between gap-3 mb-4 flex-wrap">
                 <div className="flex items-center gap-3">
@@ -1730,6 +1744,7 @@ export default function ProductPage({ productId, onNavigate }: Props) {
                 </table>
               </div>
             </div>
+            )}
 
             {/* Extra sections */}
             {(EXTRA_SECTIONS[productId] ?? []).map((sec) => (
