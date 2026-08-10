@@ -107,6 +107,17 @@ const PRODUCT_DATA: Record<string, ProductData> = {
     modelTableCols: [],
     models: [],
   },
+  "rescue-track-jacks": {
+    title: "Домкраты путевые",
+    groupId: "rescue",
+    groupTitle: "Спасение и ЖД",
+    img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/71f2202a-2bbd-4032-a8c3-9a1e1da263df.png",
+    description:
+      "Обеспечивают безопасное и быстрое поднятие рельсошпальной решетки и стрелочных переводов при среднем и капитальном ремонтах и при текущем содержании железнодорожного пути.\n\n— Модели грузоподъемностью 20 тс могут применяться для ведения работ на путях с железобетонными шпалами, а также для подъема подвижного состава и других объектов;\n— Серия ДЖА оснащена встроенным насосом, серия ДЖ работает от внешнего насоса;\n— Домкраты серии ДЖА...П... находятся в габарите «С», что дает возможность не убирать его при пропуске подвижного состава (при прохождении подвижного состава домкрат необходимо разгрузить, чтобы шток вернулся в исходное положение).",
+    specs: [],
+    modelTableCols: [],
+    models: [],
+  },
   "presses-hydraulic": {
     title: "Прессы гидравлические",
     groupId: "presses",
@@ -1082,6 +1093,7 @@ const PRODUCT_IMG_WIDTH: Record<string, string> = {
   "rescue-avso-50": "max-w-[65%]",
   "rescue-loco-trolley": "max-w-[65%]",
   "rescue-hatch-closer": "max-w-[65%]",
+  "rescue-track-jacks": "max-w-[65%]",
   "jacks-accessories-base-supports": "max-w-[65%]",
   "benders-electric": "max-w-[75%]",
   "pullers-screw-centering": "max-w-[70%]",
