@@ -1084,6 +1084,10 @@ interface ExtraSection {
 }
 
 const EXTRA_SECTIONS: Record<string, ExtraSection[]> = {
+  "rescue-krug-2": [
+    { id: "r300", title: "Насадка комбинированная Р-300", imgWidth: "max-w-[30%]" },
+    { id: "n20", title: "Ножницы Н-20", imgWidth: "max-w-[30%]" },
+  ],
   "rescue-krug-1s-am": [
     {
       id: "rb310",
@@ -1637,7 +1641,7 @@ export default function ProductPage({ productId, onNavigate }: Props) {
               <div className="flex items-center justify-between gap-3 mb-4 flex-wrap">
                 <div className="flex items-center gap-3">
                   <div className="w-6 h-px bg-brand-red" />
-                  <span className="font-body text-white/35 text-xs tracking-[0.25em] uppercase">{productId === "rescue-krug-1s-am" ? "Технические характеристики" : "Модельный ряд"}</span>
+                  <span className="font-body text-white/35 text-xs tracking-[0.25em] uppercase">{productId === "rescue-krug-1s-am" || productId === "rescue-krug-2" ? "Технические характеристики" : "Модельный ряд"}</span>
                   {importedModels.length > 0 && (
                     <span className="font-body text-brand-red text-[10px] border border-brand-red/30 px-2 py-0.5 rounded-sm">
                       Данные из Excel
