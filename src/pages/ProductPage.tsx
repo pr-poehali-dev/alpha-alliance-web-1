@@ -217,6 +217,17 @@ const PRODUCT_DATA: Record<string, ProductData> = {
     modelTableCols: [],
     models: [],
   },
+  "rescue-absorber-lifter": {
+    title: "Приспособления для подъема поглощающего устройства локомотивов",
+    groupId: "rescue",
+    groupTitle: "Спасение и ЖД",
+    img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/9025e065-03a5-4bf5-9830-fec2346dd24a.png",
+    description:
+      "УППА2 предназначена для монтажа-демонтажа поглощающих аппаратов локомотивов. Установка позволяет проводить технические исследования и ремонт поглощающих аппаратов.\n\nДля перемещения по рельсам рама установки имеет колеса с фиксаторами для предотвращения несанкционированного перемещения приспособления. Данная установка укомплектована быстроразъемным соединением (полумуфтой) для подключения внешнего насоса или насосной станции.\n\n* По Вашему техническому заданию можем разработать модель для других локомотивов.",
+    specs: [],
+    modelTableCols: [],
+    models: [],
+  },
   "presses-hydraulic": {
     title: "Прессы гидравлические",
     groupId: "presses",
@@ -1202,6 +1213,7 @@ const PRODUCT_IMG_WIDTH: Record<string, string> = {
   "rescue-mobile-jack": "max-w-[65%]",
   "rescue-loco-bogie-jack": "max-w-[65%]",
   "rescue-absorber-remover": "max-w-[65%]",
+  "rescue-absorber-lifter": "max-w-[65%]",
   "jacks-accessories-base-supports": "max-w-[65%]",
   "benders-electric": "max-w-[75%]",
   "pullers-screw-centering": "max-w-[70%]",
