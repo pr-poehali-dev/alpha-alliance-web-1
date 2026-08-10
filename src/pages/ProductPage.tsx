@@ -140,6 +140,17 @@ const PRODUCT_DATA: Record<string, ProductData> = {
     modelTableCols: [],
     models: [],
   },
+  "rescue-rail-align": {
+    title: "Рихтовщики гидравлические путевые",
+    groupId: "rescue",
+    groupTitle: "Спасение и ЖД",
+    img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/e9fd7e31-f45c-4b03-8012-f1680afa298d.png",
+    description:
+      "Предназначен для рихтовки рельсошпальной решетки и стрелочных переводов, уложенных на деревянных и железобетонных шпалах, при ремонтах и текущем содержании железнодорожного пути.\n\nРихтовщик исключает необходимость предварительного рыхления балласта у торцов шпал и отрытие его в шпальных ящиках. Для увеличения устойчивости на рыхлом грунте на сошку установлена съемная опорная плита.",
+    specs: [],
+    modelTableCols: [],
+    models: [],
+  },
   "presses-hydraulic": {
     title: "Прессы гидравлические",
     groupId: "presses",
@@ -1118,6 +1129,7 @@ const PRODUCT_IMG_WIDTH: Record<string, string> = {
   "rescue-track-jacks": "max-w-[65%]",
   "rescue-rail-tensioning": "max-w-[65%]",
   "rescue-joint-spreader": "max-w-[65%]",
+  "rescue-rail-align": "max-w-[65%]",
   "jacks-accessories-base-supports": "max-w-[65%]",
   "benders-electric": "max-w-[75%]",
   "pullers-screw-centering": "max-w-[70%]",
