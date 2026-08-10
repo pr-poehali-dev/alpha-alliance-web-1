@@ -151,6 +151,17 @@ const PRODUCT_DATA: Record<string, ProductData> = {
     modelTableCols: [],
     models: [],
   },
+  "rescue-alu-trolley-jacks": {
+    title: "Домкраты алюминиевые подкатные",
+    groupId: "rescue",
+    groupTitle: "Спасение и ЖД",
+    img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/d651a0fa-3178-4043-9a9f-4056c4e871b4.png",
+    description:
+      "Подкатной автономный алюминиевый домкрат серии ДА с винтом-удлинителем используется в ремонтно-восстановительных работах в локомотивно-вагонных депо и при выполнении монтажно-демонтажных, ремонтных работ в различных отраслях промышленности.\n\nПреимущества подкатных домкратов:\n— Автономность;\n— Плавающая опора для снижения радиальной нагрузки на домкрат;\n— Эксклюзивная конструкция винта-удлинителя с большим ходом;\n— Выполнен из высокопрочного легкого сплава, благодаря чему легок и мобилен.",
+    specs: [],
+    modelTableCols: [],
+    models: [],
+  },
   "presses-hydraulic": {
     title: "Прессы гидравлические",
     groupId: "presses",
@@ -1130,6 +1141,7 @@ const PRODUCT_IMG_WIDTH: Record<string, string> = {
   "rescue-rail-tensioning": "max-w-[65%]",
   "rescue-joint-spreader": "max-w-[65%]",
   "rescue-rail-align": "max-w-[65%]",
+  "rescue-alu-trolley-jacks": "max-w-[65%]",
   "jacks-accessories-base-supports": "max-w-[65%]",
   "benders-electric": "max-w-[75%]",
   "pullers-screw-centering": "max-w-[70%]",
