@@ -99,7 +99,7 @@ export default function ProductExtraSection({ sectionId, title, img, imgWidth = 
 
   return (
     <div className="mb-10">
-      <div className={`w-full mx-auto bg-white rounded-sm flex items-center justify-center overflow-hidden mb-6 ${imgWidth}`}>
+      <div className={`w-full mr-auto bg-white rounded-sm flex items-center justify-center overflow-hidden mb-6 ${imgWidth}`}>
         {img ? (
           <img src={img} alt={title} loading="lazy" decoding="async" className="w-full h-auto object-contain p-4" />
         ) : (
