@@ -171,9 +171,7 @@ export const GROUP_DATA: Record<string, GroupData> = {
     imgScale: 1.0115,
     subgroups: [
       { id: "rescue-krug-1s-am", title: "КРУГ-1С, КРУГ-АМ", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/c5424ed3-12f4-4af0-93a6-0146e119ef85.png" },
-      { id: "rescue-krug-2m", title: "КРУГ-2М", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/6ff180dc-7f8b-435c-b1dd-781594f2bfed.png" },
-      { id: "rescue-krug-2s", title: "КРУГ-2С", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/577f4b26-af2c-4f4f-ba47-55e621d1eb35.png" },
-      { id: "rescue-krug-2vs", title: "КРУГ-2ВС", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/6d1117e7-cf24-4f48-9edf-4f0d19957387.png" },
+      { id: "rescue-krug-2", title: "КРУГ-2", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/e6e83e04-cdff-4083-ba41-125f87880af5.png" },
       { id: "rescue-avso-30", title: "Гидравлическое оборудование для ведения аварийно-восстановительных работ на железнодорожном транспорте (АВСО-30)", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/8b09db55-e7e7-4917-b066-8e9b01bed7d0.png" },
       { id: "rescue-avso-50", title: "Аварийно-восстановительное гидравлическое оборудование для постановки подвижного состава на рельсы (АВСО-50)", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/dbbc6c0e-bc42-4dd4-b903-e82057dcf18f.png" },
       { id: "rescue-loco-trolley", title: "Тележка для транспортировки локомотивов", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/0d013d27-7998-4450-a6e2-fee8bcb09d1c.png" },
