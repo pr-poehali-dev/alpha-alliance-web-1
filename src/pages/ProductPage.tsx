@@ -129,6 +129,17 @@ const PRODUCT_DATA: Record<string, ProductData> = {
     modelTableCols: [],
     models: [],
   },
+  "rescue-joint-spreader": {
+    title: "Разгонщики рельсовых стыковых зазоров",
+    groupId: "rescue",
+    groupTitle: "Спасение и ЖД",
+    img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/1991407d-f2de-4dce-9839-48483e5599ab.png",
+    description:
+      "Предназначен для продольной сдвижки рельсов или рельсовых плетей для восстановления нормальных зазоров между рельсами, нарушенных в результате угона пути подвижным составом.\n\nРазгонщик свободно перемещается по рельсам с помощью специальных колес до следующего стыка, что позволяет работать быстро и легко.",
+    specs: [],
+    modelTableCols: [],
+    models: [],
+  },
   "presses-hydraulic": {
     title: "Прессы гидравлические",
     groupId: "presses",
@@ -1106,6 +1117,7 @@ const PRODUCT_IMG_WIDTH: Record<string, string> = {
   "rescue-hatch-closer": "max-w-[65%]",
   "rescue-track-jacks": "max-w-[65%]",
   "rescue-rail-tensioning": "max-w-[65%]",
+  "rescue-joint-spreader": "max-w-[65%]",
   "jacks-accessories-base-supports": "max-w-[65%]",
   "benders-electric": "max-w-[75%]",
   "pullers-screw-centering": "max-w-[70%]",
