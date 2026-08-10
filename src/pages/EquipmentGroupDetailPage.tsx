@@ -185,7 +185,7 @@ export const GROUP_DATA: Record<string, GroupData> = {
     longDesc:
       "Специализированное оборудование для аварийно-спасательных работ и обслуживания железнодорожного пути. Комплект КРУГ — для АСР при ДТП и техногенных авариях. Комплект АВСО — для аварийно-восстановительных служб РЖД. Рихтовщики и разгонщики — для сдвига рельсов в боковом направлении. Рельсогибы — для точной правки геометрии пути.",
     img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/15332f38-0f6d-4cc7-9734-d6d61beda309.jpg",
-    imgScale: 0.8598,
+    imgScale: 1.0115,
     subgroups: [
       { id: "rescue-krug-1s-am", title: "КРУГ-1С, КРУГ-АМ", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/c5424ed3-12f4-4af0-93a6-0146e119ef85.png" },
       { id: "rescue-krug-2", title: "КРУГ-2", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/e6e83e04-cdff-4083-ba41-125f87880af5.png" },
