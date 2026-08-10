@@ -1077,7 +1077,7 @@ const EXTRA_SECTIONS: Record<string, ExtraSection[]> = {
       id: "rb310",
       title: "Разжим большой РБ-310",
       img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/6c2f0f27-80a3-4e32-8852-db7cd0ee223b.png",
-      imgWidth: "max-w-[50%]",
+      imgWidth: "max-w-[30%]",
       description:
         "Разжим большой РБ-310 предназначен для расширения зазоров и деформации различных конструкций, перемещения и поднятия грузов и т.п.\nРифленая поверхность наконечников предотвращает скольжение груза.",
     },
@@ -1085,7 +1085,7 @@ const EXTRA_SECTIONS: Record<string, ExtraSection[]> = {
       id: "r120",
       title: "Разжим Р-120",
       img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/cee92f27-b80b-4a17-aaf3-debdef3b7c34.png",
-      imgWidth: "max-w-[50%]",
+      imgWidth: "max-w-[30%]",
       description:
         "Разжим Р-120. Специальная форма рычагов позволяет перемещать, раздвигать и приподнимать различные предметы при незначительном зазоре между опорой и грузом, работать в труднодоступных местах, обеспечивая большое усилие.",
     },
@@ -1093,7 +1093,7 @@ const EXTRA_SECTIONS: Record<string, ExtraSection[]> = {
       id: "ru120",
       title: "Разжим угловой РУ-120",
       img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/c853a78b-bc5d-45e7-94d1-8e4f6b2a2ca3.png",
-      imgWidth: "max-w-[50%]",
+      imgWidth: "max-w-[30%]",
       description:
         "Разжим угловой РУ-120. Угловая конструкция предпочтительна при выполнении специфических операций в труднодоступных местах (вскрытие металлических дверей, приподнятие лежащих грузов в узком пространстве и т.п.).",
     },
@@ -1101,7 +1101,7 @@ const EXTRA_SECTIONS: Record<string, ExtraSection[]> = {
       id: "n16",
       title: "Ножницы Н-16",
       img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/13c8b724-0aa9-428b-96c5-b6263af82de5.png",
-      imgWidth: "max-w-[50%]",
+      imgWidth: "max-w-[30%]",
       description:
         "Ножницы Н-16, как и кусачки, используются в качестве режущего инструмента, обеспечивая большее усилие реза. Предназначены для резки арматуры, проволоки, прутков из металла.",
     },
@@ -1109,7 +1109,7 @@ const EXTRA_SECTIONS: Record<string, ExtraSection[]> = {
       id: "k16",
       title: "Кусачки К-16",
       img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/fa915f62-294c-494d-9274-f2969c82cb50.png",
-      imgWidth: "max-w-[50%]",
+      imgWidth: "max-w-[30%]",
       description:
         "Кусачки К-16 предназначены для резки болтов, замков, круглой стали, цепей, металлических прутков, арматуры, труб, проволоки и т.п.",
     },
@@ -1117,7 +1117,7 @@ const EXTRA_SECTIONS: Record<string, ExtraSection[]> = {
       id: "nl5",
       title: "Ножницы листовые НЛ-5",
       img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/e42313ad-2486-4275-b1d8-1c6ab80935e8.png",
-      imgWidth: "max-w-[50%]",
+      imgWidth: "max-w-[30%]",
       description:
         "Ножницы листовые НЛ-5 используются в качестве режущего инструмента, обеспечивая большее усилие резания. Предназначены для резки металлических листов.",
     },
@@ -1125,7 +1125,7 @@ const EXTRA_SECTIONS: Record<string, ExtraSection[]> = {
       id: "nsv",
       title: "Приспособление для страгивания вагонов (НСВ)",
       img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/16f09d31-570c-4cf0-b625-cf65e9be4495.png",
-      imgWidth: "max-w-[50%]",
+      imgWidth: "max-w-[30%]",
       description:
         "Приспособление для страгивания вагонов (НСВ) служит упором для рычага при страгивании вагонов с помощью разжима большого (РБ-310).",
     },
@@ -1133,7 +1133,7 @@ const EXTRA_SECTIONS: Record<string, ExtraSection[]> = {
       id: "accessories",
       title: "Принадлежности к КРУГ-1С, КРУГ-АМ",
       img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/6e047f48-5030-426a-b954-0df4882a66ac.png",
-      imgWidth: "max-w-[70%]",
+      imgWidth: "max-w-[42%]",
       description:
         "По желанию заказчика комплекты КРУГ-1С и КРУГ-АМ могут быть укомплектованы клином механическим К-270 и удлинителем рукоятки У-140.\nКлин позволяет расширить мелкие зазоры между препятствиями.\nУдлинитель дает возможность при необходимости удерживать КРУГ в более удобном положении.",
     },
