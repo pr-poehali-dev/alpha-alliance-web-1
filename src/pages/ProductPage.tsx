@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import Icon from "@/components/ui/icon";
 import EquipmentSidebar from "@/components/EquipmentSidebar";
+import ProductExtraSection from "@/components/ProductExtraSection";
 import { GROUP_DATA } from "@/pages/EquipmentGroupDetailPage";
 
 interface Props {
@@ -40,6 +41,17 @@ interface ProductData {
 }
 
 const PRODUCT_DATA: Record<string, ProductData> = {
+  "rescue-krug-1s-am": {
+    title: "КРУГ-1С, КРУГ-АМ",
+    groupId: "rescue",
+    groupTitle: "Спасение и ЖД",
+    img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/c5424ed3-12f4-4af0-93a6-0146e119ef85.png",
+    description:
+      "КРУГ используется в спасательных, аварийно-восстановительных, ремонтно-строительных, монтажно-демонтажных, а также специальных работах. Многофункциональный аварийно-спасательный инструмент КРУГ не требует внешнего источника давления (насоса либо насосной стации), аккумулятора или электричества.\nЗапатентованное «байонетное» соединение, которое (в отличие от резьбового) позволяет мгновенно (3 сек.) сменить рабочую насадку для выполнения новой задачи и фиксировать насадки в 4 рабочих положениях.\n\n— Компактность, мобильность, автономность и легкий вес\n— Может использоваться в ограниченном пространстве (в узких коридорах, под завалами и в любых других стеснённых условиях)\n— Качество и простота конструкции обеспечивают стабильную работу на долгие годы без необходимости затрат на обслуживание и ремонт\n— С 2004 года стоит на вооружении МЧС России.\n\nВ состав силового модуля входят насос с ручным приводом и гидроцилиндр одностороннего действия.\nВстроенный в корпус насос, рукоятка которого выведена наружу, обеспечивает необходимое давление.\nВстроенный гидравлический привод обеспечивает надежное функционирование позволяя производить работу в удобном для оператора положении и быстрый возврат рабочих насадок в исходное положение.\nВстроенный насос поставляется заправленным гидравлической жидкостью. Для удобства работы модуль силовой снабжен плечевым ремнем.\n\nВ КРУГ-1С входят:\n— КРУГ-1 (силовой модуль);\n— РБ-310 (разжим большой);\n— Р-120 (разжим малый);\n— РУ-120 (разжим угловой);\n— К-16 (кусачки);\n— Н-16 (ножницы).\n\nВ КРУГ-АМ входят:\n— КРУГ-1 (силовой модуль);\n— РБ-310 (разжим большой);\n— Р-120 (разжим малый);\n— РУ-120 (разжим угловой);\n— К-16 (кусачки);\n— Н-16 (ножницы);\n— НЛ-5 (ножницы листовые);\n— НСВ (приспособление для страгивания вагонов).",
+    specs: [],
+    modelTableCols: [],
+    models: [],
+  },
   "presses-hydraulic": {
     title: "Прессы гидравлические",
     groupId: "presses",
@@ -1007,6 +1019,70 @@ const NO_DESCRIPTION_PRODUCT_IDS = ["jacks-accessories-supports", "jacks-accesso
 const PUMP_SPECS_PRODUCT_IDS = ["pullers-hydraulic-trolley"];
 const MATRIX_SETS_PRODUCT_IDS = ["special-sling-press"];
 
+const PRODUCT_IMG_WIDTH: Record<string, string> = {
+  "rescue-krug-1s-am": "max-w-[65%]",
+  "jacks-accessories-base-supports": "max-w-[65%]",
+  "benders-electric": "max-w-[75%]",
+  "pullers-screw-centering": "max-w-[70%]",
+  "pullers-screw": "max-w-[75%]",
+  "pullers-hydraulic": "max-w-[75%]",
+  "pullers-clamp-type": "max-w-[70%]",
+  "pullers-clamp-builtin-drive": "max-w-[75%]",
+  "pullers-press-fitters": "max-w-[75%]",
+  "presses-hydraulic": "max-w-[75%]",
+  "presses-jack-test": "max-w-[75%]",
+  "presses-hydraulic-horizontal": "max-w-[75%]",
+  "presses-horizontal-heavy": "max-w-[88%]",
+  "presses-punch": "max-w-[75%]",
+  "cutting-nutcutters": "max-w-[65%]",
+  "cutting-pistol": "max-w-[70%]",
+  "cutting-cable": "max-w-[70%]",
+  "cutting-rope": "max-w-[70%]",
+  "cutting-angle": "max-w-[70%]",
+  "cutting-universal": "max-w-[75%]",
+  "cutting-pipe-sheet": "max-w-[75%]",
+  "threading-cassette": "max-w-[56%]",
+  "threading-hydraulic": "max-w-[56%]",
+  "threading-impact-sockets": "max-w-[65%]",
+  "threading-tensors": "max-w-[33%]",
+  "threading-multipliers": "max-w-[65%]",
+  "special-balancers": "max-w-[65%]",
+  "special-tensioner-cylinder": "max-w-[65%]",
+  "special-tensioner-cable": "max-w-[65%]",
+  "special-rail-transport": "max-w-[65%]",
+  "special-ug600t": "max-w-[65%]",
+  "special-ugrm": "max-w-[65%]",
+  "special-ug100t": "max-w-[65%]",
+  "special-bridge-push": "max-w-[65%]",
+  "special-road-station-electric": "max-w-[38%]",
+  "special-road-station-petrol": "max-w-[38%]",
+  "special-pit-lift": "max-w-[65%]",
+  "special-sling-press": "max-w-[65%]",
+  "special-sling-splice": "max-w-[65%]",
+  "special-sling-test": "max-w-[65%]",
+};
+
+
+interface ExtraSection {
+  id: string;
+  title: string;
+  img?: string;
+  imgWidth?: string;
+  description?: string;
+}
+
+const EXTRA_SECTIONS: Record<string, ExtraSection[]> = {
+  "rescue-krug-1s-am": [
+    { id: "rb310", title: "Разжим большой РБ-310", imgWidth: "max-w-[50%]" },
+    { id: "r120", title: "Разжим Р-120", imgWidth: "max-w-[50%]" },
+    { id: "ru120", title: "Разжим угловой РУ-120", imgWidth: "max-w-[50%]" },
+    { id: "n16", title: "Ножницы Н-16", imgWidth: "max-w-[50%]" },
+    { id: "k16", title: "Кусачки К-16", imgWidth: "max-w-[50%]" },
+    { id: "nsv", title: "Приспособление для страгивания вагонов (НСВ)", imgWidth: "max-w-[50%]" },
+    { id: "accessories", title: "Принадлежности к КРУГ-1С, КРУГ-АМ", imgWidth: "max-w-[50%]" },
+  ],
+};
+
 function getParentGroupId(productId: string): string {
   if (productId.startsWith("jacks-accessories")) return "jacks-accessories";
   const prefix = productId.split("-")[0];
@@ -1439,7 +1515,7 @@ export default function ProductPage({ productId, onNavigate }: Props) {
 
             {/* Image + Description */}
             <div className="mb-10">
-              <div className={`w-full mx-auto bg-white rounded-sm flex items-center justify-center overflow-hidden mb-6 ${productId === "jacks-accessories-base-supports" ? "max-w-[65%]" : productId === "benders-electric" ? "max-w-[75%]" : productId === "pullers-screw-centering" ? "max-w-[70%]" : productId === "pullers-screw" ? "max-w-[75%]" : productId === "pullers-hydraulic" ? "max-w-[75%]" : productId === "pullers-clamp-type" ? "max-w-[70%]" : productId === "pullers-clamp-builtin-drive" ? "max-w-[75%]" : productId === "pullers-press-fitters" ? "max-w-[75%]" : productId === "presses-hydraulic" ? "max-w-[75%]" : productId === "presses-jack-test" ? "max-w-[75%]" : productId === "presses-hydraulic-horizontal" ? "max-w-[75%]" : productId === "presses-horizontal-heavy" ? "max-w-[88%]" : productId === "presses-punch" ? "max-w-[75%]" : productId === "cutting-nutcutters" ? "max-w-[65%]" : productId === "cutting-pistol" ? "max-w-[70%]" : productId === "cutting-cable" ? "max-w-[70%]" : productId === "cutting-rope" ? "max-w-[70%]" : productId === "cutting-angle" ? "max-w-[70%]" : productId === "cutting-universal" ? "max-w-[75%]" : productId === "cutting-pipe-sheet" ? "max-w-[75%]" : productId === "threading-cassette" ? "max-w-[56%]" : productId === "threading-hydraulic" ? "max-w-[56%]" : productId === "threading-impact-sockets" ? "max-w-[65%]" : productId === "threading-tensors" ? "max-w-[33%]" : productId === "threading-multipliers" ? "max-w-[65%]" : productId === "special-balancers" ? "max-w-[65%]" : productId === "special-tensioner-cylinder" ? "max-w-[65%]" : productId === "special-tensioner-cable" ? "max-w-[65%]" : productId === "special-rail-transport" ? "max-w-[65%]" : productId === "special-ug600t" ? "max-w-[65%]" : productId === "special-ugrm" ? "max-w-[65%]" : productId === "special-ug100t" ? "max-w-[65%]" : productId === "special-bridge-push" ? "max-w-[65%]" : productId === "special-road-station-electric" ? "max-w-[38%]" : productId === "special-road-station-petrol" ? "max-w-[38%]" : productId === "special-pit-lift" ? "max-w-[65%]" : productId === "special-sling-press" ? "max-w-[65%]" : productId === "special-sling-splice" ? "max-w-[65%]" : productId === "special-sling-test" ? "max-w-[65%]" : "max-w-[50%]"}`}>
+              <div className={`w-full mx-auto bg-white rounded-sm flex items-center justify-center overflow-hidden mb-6 ${PRODUCT_IMG_WIDTH[productId] ?? "max-w-[50%]"}`}>
                 {data.img ? (
                   <img
                     src={data.img}
@@ -1567,6 +1643,18 @@ export default function ProductPage({ productId, onNavigate }: Props) {
                 </table>
               </div>
             </div>
+
+            {/* Extra sections */}
+            {(EXTRA_SECTIONS[productId] ?? []).map((sec) => (
+              <ProductExtraSection
+                key={sec.id}
+                sectionId={`${productId}-${sec.id}`}
+                title={sec.title}
+                img={sec.img}
+                imgWidth={sec.imgWidth}
+                description={sec.description}
+              />
+            ))}
 
             {/* Pump specs table */}
             {PUMP_SPECS_PRODUCT_IDS.includes(productId) && (
