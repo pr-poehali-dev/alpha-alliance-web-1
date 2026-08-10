@@ -162,6 +162,17 @@ const PRODUCT_DATA: Record<string, ProductData> = {
     modelTableCols: [],
     models: [],
   },
+  "rescue-railbender": {
+    title: "Рельсогиб гидравлический",
+    groupId: "rescue",
+    groupTitle: "Спасение и ЖД",
+    img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/850c2298-8d81-465c-b4a0-136b3d0d2332.png",
+    description:
+      "Предназначен для гиба рельсов непосредственно на месте их укладки по необходимому профилю (на станционных участках, карьерах, горных выработках).\n\n— Минимальный радиус гиба — 3 м;\n— Сверхпрочная сварная металлическая рама;\n— Оснащен ручками для переноски;\n— Гибка производится одним универсальным пуансоном.",
+    specs: [],
+    modelTableCols: [],
+    models: [],
+  },
   "presses-hydraulic": {
     title: "Прессы гидравлические",
     groupId: "presses",
@@ -1142,6 +1153,7 @@ const PRODUCT_IMG_WIDTH: Record<string, string> = {
   "rescue-joint-spreader": "max-w-[65%]",
   "rescue-rail-align": "max-w-[65%]",
   "rescue-alu-trolley-jacks": "max-w-[65%]",
+  "rescue-railbender": "max-w-[65%]",
   "jacks-accessories-base-supports": "max-w-[65%]",
   "benders-electric": "max-w-[75%]",
   "pullers-screw-centering": "max-w-[70%]",
