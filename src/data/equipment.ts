@@ -91,13 +91,6 @@ export const HYDRAULIC_GROUPS: EquipmentGroup[] = [
     img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/bf9e6c6b-0aa9-4ea6-87f1-8a1833d7165b.png",
     imgScale: 1.3,
   },
-  {
-    id: "riklin",
-    title: "РиКлайн (эконом)",
-    desc: "Экономичная линейка: домкраты, насосные станции, магнитные захваты, тележки, столы, краны, штабелёры, аккумуляторный инструмент.",
-    sub: "",
-    img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/9ca7d7e6-faca-45c4-b432-afbdd911487c.png",
-  },
 ];
 
 export const DIRECTIONS: EquipmentDirection[] = [
