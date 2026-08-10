@@ -52,6 +52,17 @@ const PRODUCT_DATA: Record<string, ProductData> = {
     modelTableCols: [],
     models: [],
   },
+  "rescue-krug-2": {
+    title: "КРУГ-2",
+    groupId: "rescue",
+    groupTitle: "Спасение и ЖД",
+    img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/e6e83e04-cdff-4083-ba41-125f87880af5.png",
+    description:
+      "Для оперативного выполнения различных работ в труднодоступных местах, в чрезвычайных ситуациях, комплектуется двумя быстросменными насадками: Р-300 — для раздвижения, поднятия предметов; Н-20 — для резки.\nКомплект предназначен для ведения аварийно-спасательных и монтажно-демонтажных работ.",
+    specs: [],
+    modelTableCols: [],
+    models: [],
+  },
   "presses-hydraulic": {
     title: "Прессы гидравлические",
     groupId: "presses",
@@ -1021,6 +1032,7 @@ const MATRIX_SETS_PRODUCT_IDS = ["special-sling-press"];
 
 const PRODUCT_IMG_WIDTH: Record<string, string> = {
   "rescue-krug-1s-am": "max-w-[65%]",
+  "rescue-krug-2": "max-w-[65%]",
   "jacks-accessories-base-supports": "max-w-[65%]",
   "benders-electric": "max-w-[75%]",
   "pullers-screw-centering": "max-w-[70%]",
