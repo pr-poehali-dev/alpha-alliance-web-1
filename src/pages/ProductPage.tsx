@@ -1089,7 +1089,7 @@ const EXTRA_SECTIONS: Record<string, ExtraSection[]> = {
       id: "r300",
       title: "Насадка комбинированная Р-300",
       img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/1247dacd-345d-4f82-bbee-e42e75ccad33.png",
-      imgWidth: "max-w-[30%]",
+      imgWidth: "max-w-[18%]",
       description:
         "Насадка комбинированная Р-300 позволяет перемещать, раздвигать и приподнимать различные предметы при незначительном зазоре между опорой и грузом, работать в труднодоступных местах, обеспечивая большее усилие.\nРаботает в двух направлениях — резак-разжим, стягивание-подъём.",
     },
@@ -1097,7 +1097,7 @@ const EXTRA_SECTIONS: Record<string, ExtraSection[]> = {
       id: "n20",
       title: "Ножницы Н-20",
       img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/7f0ed287-8d91-4196-b612-ec0abf0f7ceb.png",
-      imgWidth: "max-w-[30%]",
+      imgWidth: "max-w-[18%]",
       description:
         "Ножницы Н-20 используются в качестве режущего инструмента, обеспечивая большее усилие реза.\nПредназначены для резки прутков из металла, автомобильных стоек, рулевых колонок автомобиля.",
     },
