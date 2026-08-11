@@ -229,23 +229,6 @@ export const GROUP_DATA: Record<string, GroupData> = {
     ],
     features: [{ icon: "Sliders", label: "Индивидуальные решения" }, { icon: "HardHat", label: "Строительство и монтаж" }, { icon: "ArrowRight", label: "ГНБ и бурение" }, { icon: "Scale", label: "Перемещение тяжеловесов" }],
   },
-  riklin: {
-    title: "РиКлайн (эконом)",
-    longDesc:
-      "Серия РиКлайн — доступное оборудование для малого и среднего производства, авторемонта, строительства. Соотношение цена/качество оптимизировано для сервисных мастерских и производственных участков с небольшой интенсивностью использования. Широкий ассортимент: от ручных домкратов до аккумуляторного инструмента.",
-    img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/9ca7d7e6-faca-45c4-b432-afbdd911487c.png",
-    subgroups: [
-      { id: "riklin-jacks", title: "Домкраты РиКлайн" },
-      { id: "riklin-pumps", title: "Насосные станции РиКлайн" },
-      { id: "riklin-magnets", title: "Магнитные захваты" },
-      { id: "riklin-trolleys", title: "Грузовые тележки" },
-      { id: "riklin-tables", title: "Подъёмные столы" },
-      { id: "riklin-cranes", title: "Краны-манипуляторы" },
-      { id: "riklin-stackers", title: "Штабелёры" },
-      { id: "riklin-battery", title: "Аккумуляторный инструмент" },
-    ],
-    features: [{ icon: "DollarSign", label: "Экономичная серия" }, { icon: "Package", label: "Широкий ассортимент" }, { icon: "Battery", label: "Аккумуляторный инструмент" }, { icon: "Truck", label: "Грузоподъёмная техника" }],
-  },
   "jacks-accessories": {
     title: "Принадлежности к домкратам",
     longDesc:

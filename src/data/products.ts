@@ -1653,7 +1653,6 @@ export function getParentGroupId(productId: string): string {
     benders: "benders",
     rescue: "rescue",
     special: "special",
-    riklin: "riklin",
   };
   return map[prefix] ?? "jacks";
 }
