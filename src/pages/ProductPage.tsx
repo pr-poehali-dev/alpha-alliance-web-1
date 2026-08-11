@@ -249,6 +249,17 @@ const PRODUCT_DATA: Record<string, ProductData> = {
     modelTableCols: [],
     models: [],
   },
+  "pumps-diesel-solenoid": {
+    title: "Гидравлическая станция с дизельным приводом с электромагнитным распределителем",
+    groupId: "pumps",
+    groupTitle: "Насосы и станции",
+    img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/904a5179-05bf-4184-b65e-0287345db239.png",
+    description:
+      "Серии НДР...И... — оснащаются электромагнитным трехпозиционным гидрораспределителем серии «И», который работает в режиме «рабочий ход — удержание — возврат».",
+    specs: [],
+    modelTableCols: [],
+    models: [],
+  },
   "rescue-krug-1s-am": {
     title: "КРУГ-1С, КРУГ-АМ",
     groupId: "rescue",
@@ -1435,6 +1446,7 @@ const PRODUCT_IMG_WIDTH: Record<string, string> = {
   "pumps-petrol-manual-valve": "max-w-[65%]",
   "pumps-petrol-solenoid": "max-w-[65%]",
   "pumps-diesel-manual-valve": "max-w-[91%]",
+  "pumps-diesel-solenoid": "max-w-[65%]",
   "rescue-krug-1s-am": "max-w-[65%]",
   "rescue-krug-2": "max-w-[65%]",
   "rescue-avso-30": "max-w-[65%]",
