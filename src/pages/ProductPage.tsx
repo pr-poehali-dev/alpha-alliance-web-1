@@ -74,6 +74,17 @@ const PRODUCT_DATA: Record<string, ProductData> = {
     modelTableCols: [],
     models: [],
   },
+  "pumps-hand-hydraulic-return": {
+    title: "Насосы ручные гидравлические для работы оборудования с гидравлическим возвратом",
+    groupId: "pumps",
+    groupTitle: "Насосы и станции",
+    img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/0b14e3bb-98ee-407b-8eaa-50047df7b800.png",
+    description:
+      "— Модели НРГ...Р оснащены встроенными гидрораспределителями, позволяющими работать с инструментом двустороннего действия.",
+    specs: [],
+    modelTableCols: [],
+    models: [],
+  },
   "rescue-krug-1s-am": {
     title: "КРУГ-1С, КРУГ-АМ",
     groupId: "rescue",
@@ -1244,6 +1255,7 @@ const PRODUCT_IMG_WIDTH: Record<string, string> = {
   "pumps-foot": "max-w-[65%]",
   "pumps-pneumo": "max-w-[65%]",
   "pumps-hand-spring-return": "max-w-[65%]",
+  "pumps-hand-hydraulic-return": "max-w-[65%]",
   "rescue-krug-1s-am": "max-w-[65%]",
   "rescue-krug-2": "max-w-[65%]",
   "rescue-avso-30": "max-w-[65%]",
