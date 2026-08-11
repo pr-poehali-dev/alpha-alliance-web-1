@@ -228,6 +228,16 @@ const PRODUCT_DATA: Record<string, ProductData> = {
     modelTableCols: [],
     models: [],
   },
+  "pumps-petrol-solenoid": {
+    title: "Гидравлическая станция с бензоприводом с электромагнитным распределителем",
+    groupId: "pumps",
+    groupTitle: "Насосы и станции",
+    img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/7f086cc0-5ab9-42f5-9971-f33dd6d30ff6.png",
+    description: "",
+    specs: [],
+    modelTableCols: [],
+    models: [],
+  },
   "rescue-krug-1s-am": {
     title: "КРУГ-1С, КРУГ-АМ",
     groupId: "rescue",
@@ -1389,7 +1399,7 @@ const PRODUCT_DATA: Record<string, ProductData> = {
   },
 };
 
-const NO_DESCRIPTION_PRODUCT_IDS = ["jacks-accessories-supports", "jacks-accessories-alu-supports"];
+const NO_DESCRIPTION_PRODUCT_IDS = ["jacks-accessories-supports", "jacks-accessories-alu-supports", "pumps-petrol-solenoid"];
 const PUMP_SPECS_PRODUCT_IDS = ["pullers-hydraulic-trolley"];
 const MATRIX_SETS_PRODUCT_IDS = ["special-sling-press"];
 const NO_MODEL_TABLE_PRODUCT_IDS = ["rescue-avso-30", "rescue-avso-50"];
@@ -1412,6 +1422,7 @@ const PRODUCT_IMG_WIDTH: Record<string, string> = {
   "pumps-explosion-proof": "max-w-[65%]",
   "pumps-petrol-relief-valve": "max-w-[45%]",
   "pumps-petrol-manual-valve": "max-w-[65%]",
+  "pumps-petrol-solenoid": "max-w-[65%]",
   "rescue-krug-1s-am": "max-w-[65%]",
   "rescue-krug-2": "max-w-[65%]",
   "rescue-avso-30": "max-w-[65%]",
