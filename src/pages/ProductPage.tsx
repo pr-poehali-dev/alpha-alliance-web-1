@@ -129,6 +129,17 @@ const PRODUCT_DATA: Record<string, ProductData> = {
     modelTableCols: [],
     models: [],
   },
+  "pumps-compact-12-manual": {
+    title: "Компактные 1/2-ступенчатые насосные станции, с ручным управлением",
+    groupId: "pumps",
+    groupTitle: "Насосы и станции",
+    img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/985ef3d1-dadd-4b88-ab67-c5fc03a0c786.png",
+    description:
+      "Подробное описание и технические характеристики для этой позиции скоро появятся на сайте. Актуальную информацию и наличие уточняйте у наших менеджеров.",
+    specs: [],
+    modelTableCols: [],
+    models: [],
+  },
   "rescue-krug-1s-am": {
     title: "КРУГ-1С, КРУГ-АМ",
     groupId: "rescue",
@@ -1304,6 +1315,7 @@ const PRODUCT_IMG_WIDTH: Record<string, string> = {
   "pumps-compact-petrol": "max-w-[65%]",
   "pumps-compact-electric": "max-w-[65%]",
   "pumps-compact-12-solenoid": "max-w-[65%]",
+  "pumps-compact-12-manual": "max-w-[65%]",
   "rescue-krug-1s-am": "max-w-[65%]",
   "rescue-krug-2": "max-w-[65%]",
   "rescue-avso-30": "max-w-[65%]",
