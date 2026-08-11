@@ -107,6 +107,17 @@ const PRODUCT_DATA: Record<string, ProductData> = {
     modelTableCols: [],
     models: [],
   },
+  "pumps-compact-electric": {
+    title: "Компактные насосные станции с электроприводом",
+    groupId: "pumps",
+    groupTitle: "Насосы и станции",
+    img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/616fdd6a-949f-41af-bf9d-0ad2b00a08d7.png",
+    description:
+      "Компактные насосные станции серии НЭР идеально подходят для домкратов, цилиндров и гидравлического инструмента малого и среднегабаритного размера, одно- и двухстороннего действия.\n\nОдноступенчатая подача гидравлического радиально-поршневого насоса.\n\nРучное управление гидравлическим потоком.\n\nПредохранительный клапан защищает от превышения рабочего давления в гидравлической системе.\n\nСиловой кабель для подключения в электрическую сеть, длиной 2 м.\n\nПрочные стальные баки низкой конструкции с оптимальным объемом масла.\n\nКомпактная конструкция и легкий вес, удобная рукоятка для переноски.",
+    specs: [],
+    modelTableCols: [],
+    models: [],
+  },
   "rescue-krug-1s-am": {
     title: "КРУГ-1С, КРУГ-АМ",
     groupId: "rescue",
@@ -1280,6 +1291,7 @@ const PRODUCT_IMG_WIDTH: Record<string, string> = {
   "pumps-hand-hydraulic-return": "max-w-[65%]",
   "pumps-compact-2stage": "max-w-[65%]",
   "pumps-compact-petrol": "max-w-[65%]",
+  "pumps-compact-electric": "max-w-[65%]",
   "rescue-krug-1s-am": "max-w-[65%]",
   "rescue-krug-2": "max-w-[65%]",
   "rescue-avso-30": "max-w-[65%]",
