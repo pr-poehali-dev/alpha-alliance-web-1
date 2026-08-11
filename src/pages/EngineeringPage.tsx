@@ -183,7 +183,7 @@ export default function EngineeringPage({ onNavigate }: EngineeringPageProps) {
                   <Icon name="ArrowRight" size={14} />
                 </button>
                 <a
-                  href="tel:+7XXXXXXXXXX"
+                  href="tel:+79293132080"
                   className="btn-outline-white w-full py-3 text-xs rounded-sm flex items-center justify-center gap-2"
                 >
                   <Icon name="Phone" size={14} />

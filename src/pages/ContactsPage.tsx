@@ -73,7 +73,7 @@ export default function ContactsPage(_: ContactsPageProps) {
     {
       icon: "Phone",
       title: "Телефон",
-      details: ["+7 913 199 29 34", "+7 902 961 99 18"],
+      details: ["+7 (929) 313-20-80", "+7 902 961 99 18"],
       type: "phone" as const,
     },
     {

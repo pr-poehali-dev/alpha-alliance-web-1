@@ -44,9 +44,9 @@ export default function Layout({ children, activePage, onNavigate }: LayoutProps
       >
         {/* Top contact bar */}
         <div className="hidden md:flex items-center justify-end gap-6 border-b border-white/8 py-2 px-4 md:px-8">
-          <a href="tel:+79131992934" className="flex items-center gap-1.5 text-white/50 hover:text-white transition-colors">
+          <a href="tel:+79293132080" className="flex items-center gap-1.5 text-white/50 hover:text-white transition-colors">
             <Icon name="Phone" size={12} />
-            <span className="font-body text-xs">+7 913 199 29 34</span>
+            <span className="font-body text-xs">+7 (929) 313-20-80</span>
           </a>
           <a href="mailto:alfaallianse-info@mail.ru" className="flex items-center gap-1.5 text-white/50 hover:text-white transition-colors">
             <Icon name="Mail" size={12} />
