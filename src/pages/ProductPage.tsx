@@ -52,6 +52,17 @@ const PRODUCT_DATA: Record<string, ProductData> = {
     modelTableCols: [],
     models: [],
   },
+  "pumps-pneumo": {
+    title: "Насос гидравлический с пневматическим приводом",
+    groupId: "pumps",
+    groupTitle: "Насосы и станции",
+    img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/414ba672-1347-4fb7-98ee-e6a2c9d0cd58.png",
+    description:
+      "Насос гидравлический с пневматическим приводом предназначен для нагнетания гидравлической жидкости под давлением в поршневые полости рабочих механизмов для выполнения их функций.\n— Компактный размер;\n— Высокая производительность.",
+    specs: [],
+    modelTableCols: [],
+    models: [],
+  },
   "rescue-krug-1s-am": {
     title: "КРУГ-1С, КРУГ-АМ",
     groupId: "rescue",
@@ -1220,6 +1231,7 @@ const NO_MODEL_TABLE_PRODUCT_IDS = ["rescue-avso-30", "rescue-avso-50"];
 
 const PRODUCT_IMG_WIDTH: Record<string, string> = {
   "pumps-foot": "max-w-[65%]",
+  "pumps-pneumo": "max-w-[65%]",
   "rescue-krug-1s-am": "max-w-[65%]",
   "rescue-krug-2": "max-w-[65%]",
   "rescue-avso-30": "max-w-[65%]",
