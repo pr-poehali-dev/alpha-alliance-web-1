@@ -271,6 +271,17 @@ const PRODUCT_DATA: Record<string, ProductData> = {
     modelTableCols: [],
     models: [],
   },
+  "pumps-pneumo-manual-valve": {
+    title: "Гидравлическая станция с пневмоприводом с ручным распределителем",
+    groupId: "pumps",
+    groupTitle: "Насосы и станции",
+    img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/95ad415d-6026-4b32-9f78-ecced09152cd.png",
+    description:
+      "Ручной трехпозиционный распределитель серии «И» (модель ГР-3ИР-1) работает в режиме «рабочий ход — удержание — возврат» (домкраты, гидроцилиндры, трубогибы, прессы и т.п.).",
+    specs: [],
+    modelTableCols: [],
+    models: [],
+  },
   "rescue-krug-1s-am": {
     title: "КРУГ-1С, КРУГ-АМ",
     groupId: "rescue",
@@ -1459,6 +1470,7 @@ const PRODUCT_IMG_WIDTH: Record<string, string> = {
   "pumps-diesel-manual-valve": "max-w-[91%]",
   "pumps-diesel-solenoid": "max-w-[65%]",
   "pumps-pneumo-relief-valve": "max-w-[65%]",
+  "pumps-pneumo-manual-valve": "max-w-[45%]",
   "rescue-krug-1s-am": "max-w-[65%]",
   "rescue-krug-2": "max-w-[65%]",
   "rescue-avso-30": "max-w-[65%]",
