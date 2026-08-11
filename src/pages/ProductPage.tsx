@@ -1434,7 +1434,7 @@ const PRODUCT_IMG_WIDTH: Record<string, string> = {
   "pumps-petrol-relief-valve": "max-w-[45%]",
   "pumps-petrol-manual-valve": "max-w-[65%]",
   "pumps-petrol-solenoid": "max-w-[65%]",
-  "pumps-diesel-manual-valve": "max-w-[65%]",
+  "pumps-diesel-manual-valve": "max-w-[91%]",
   "rescue-krug-1s-am": "max-w-[65%]",
   "rescue-krug-2": "max-w-[65%]",
   "rescue-avso-30": "max-w-[65%]",
