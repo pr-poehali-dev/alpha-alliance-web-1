@@ -1399,7 +1399,7 @@ const PRODUCT_IMG_WIDTH: Record<string, string> = {
   "pumps-solenoid-auto": "max-w-[65%]",
   "pumps-multiflow": "max-w-[33%]",
   "pumps-explosion-proof": "max-w-[65%]",
-  "pumps-petrol-relief-valve": "max-w-[33%]",
+  "pumps-petrol-relief-valve": "max-w-[45%]",
   "rescue-krug-1s-am": "max-w-[65%]",
   "rescue-krug-2": "max-w-[65%]",
   "rescue-avso-30": "max-w-[65%]",
