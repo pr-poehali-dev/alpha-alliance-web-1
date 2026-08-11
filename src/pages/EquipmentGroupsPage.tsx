@@ -1,6 +1,20 @@
 import { useState, useMemo } from "react";
 import Icon from "@/components/ui/icon";
-import { DIRECTIONS, ALL_GROUPS, type EquipmentGroup } from "@/data/equipment";
+import { DIRECTIONS } from "@/data/equipment";
+import { GROUP_DATA } from "@/data/groups";
+
+const ALL_PRODUCTS = Object.entries(GROUP_DATA).flatMap(([groupId, g]) =>
+  g.subgroups.map((s) => ({
+    id: s.id,
+    title: s.title,
+    img: s.img,
+    imgScale: s.imgScale,
+    groupId,
+    groupTitle: g.title,
+  }))
+);
+
+type ProductCardItem = (typeof ALL_PRODUCTS)[number];
 
 interface Props {
   onNavigate: (page: string) => void;
@@ -12,11 +26,10 @@ export default function EquipmentGroupsPage({ onNavigate }: Props) {
   const searchResults = useMemo(() => {
     const q = search.trim().toLowerCase();
     if (!q) return [];
-    return ALL_GROUPS.filter(
+    return ALL_PRODUCTS.filter(
       (item) =>
         item.title.toLowerCase().includes(q) ||
-        item.desc.toLowerCase().includes(q) ||
-        item.sub.toLowerCase().includes(q)
+        item.groupTitle.toLowerCase().includes(q)
     );
   }, [search]);
 
@@ -88,7 +101,7 @@ export default function EquipmentGroupsPage({ onNavigate }: Props) {
             ) : (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
                 {searchResults.map((g, i) => (
-                  <GroupCard key={g.id} g={g} index={i} onNavigate={onNavigate} />
+                  <ProductCard key={g.id} g={g} index={i} onNavigate={onNavigate} />
                 ))}
               </div>
             )}
@@ -170,43 +183,42 @@ export default function EquipmentGroupsPage({ onNavigate }: Props) {
   );
 }
 
-interface GroupCardProps {
-  g: EquipmentGroup;
+interface ProductCardProps {
+  g: ProductCardItem;
   index: number;
   onNavigate: (page: string) => void;
 }
 
-function GroupCard({ g, index, onNavigate }: GroupCardProps) {
+function ProductCard({ g, index, onNavigate }: ProductCardProps) {
   return (
     <button
-      onClick={() => onNavigate(`equipment-group-${g.id}`)}
+      onClick={() => onNavigate(`product-${g.id}`)}
       className="group text-left bg-card border border-white/8 rounded-sm overflow-hidden hover:border-brand-red/60 transition-all duration-300 hover:-translate-y-0.5 flex flex-col"
     >
       <div className="relative h-48 bg-white overflow-hidden flex items-center justify-center p-3">
-        <img
-          src={g.img}
-          alt={g.title}
-          loading="lazy"
-          decoding="async"
-          className="max-w-full max-h-full w-auto h-auto object-contain transition-transform duration-500"
-          style={{ transform: `scale(${g.imgScale ?? 1})` }}
-          onMouseEnter={e => (e.currentTarget.style.transform = `scale(${(g.imgScale ?? 1) * 1.05})`)}
-          onMouseLeave={e => (e.currentTarget.style.transform = `scale(${g.imgScale ?? 1})`)}
-        />
+        {g.img ? (
+          <img
+            src={g.img}
+            alt={g.title}
+            loading="lazy"
+            decoding="async"
+            className="max-w-full max-h-full w-auto h-auto object-contain transition-transform duration-500 group-hover:scale-105"
+            style={{ transform: `scale(${g.imgScale ?? 1})` }}
+          />
+        ) : (
+          <Icon name="ImageOff" size={28} className="text-black/15" />
+        )}
         <div className="absolute top-3 left-3 w-6 h-6 bg-brand-red flex items-center justify-center">
           <span className="font-display text-white text-[10px] font-bold">
             {String(index + 1).padStart(2, "0")}
           </span>
         </div>
       </div>
-      <div className="p-4">
-        <h3 className="font-display text-white text-base tracking-wide mb-1.5 group-hover:text-brand-red-light transition-colors">
+      <div className="p-4 flex-1 flex flex-col">
+        <p className="font-body text-white/30 text-[10px] tracking-[0.2em] uppercase mb-1.5">{g.groupTitle}</p>
+        <h3 className="font-display text-white text-base tracking-wide leading-snug group-hover:text-brand-red-light transition-colors">
           {g.title}
         </h3>
-        <p className="font-body text-white/45 text-xs leading-relaxed line-clamp-2 mb-1">{g.desc}</p>
-        {g.sub && (
-          <p className="font-body text-white/25 text-xs leading-relaxed line-clamp-1">{g.sub}</p>
-        )}
         <div className="mt-3 flex items-center gap-1.5 text-brand-red text-[10px] font-body tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity">
           <span>Подробнее</span>
           <span>→</span>
