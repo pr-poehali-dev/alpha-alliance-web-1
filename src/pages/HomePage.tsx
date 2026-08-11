@@ -30,7 +30,7 @@ interface HomePageProps {
 
 export default function HomePage({ onNavigate }: HomePageProps) {
   const [modalOpen, setModalOpen] = useState(false);
-  const [form, setForm] = useState({ name: "", phone: "+7 " });
+  const [form, setForm] = useState({ name: "", phone: "+7 ", email: "", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const [copied, setCopied] = useState(false);
@@ -72,7 +72,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       });
-      if (res.ok) { setStatus("success"); setForm({ name: "", phone: "+7 " }); }
+      if (res.ok) { setStatus("success"); setForm({ name: "", phone: "+7 ", email: "", message: "" }); }
       else setStatus("error");
     } catch { setStatus("error"); }
     finally { setIsSubmitting(false); }
@@ -81,7 +81,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
   const handleClose = () => {
     setModalOpen(false);
     setStatus("idle");
-    setForm({ name: "", phone: "+7 " });
+    setForm({ name: "", phone: "+7 ", email: "", message: "" });
   };
 
   const handleCopyEmail = () => {
@@ -148,6 +148,24 @@ export default function HomePage({ onNavigate }: HomePageProps) {
                     onChange={handlePhoneChange}
                     placeholder="+7 XXX XXX XX XX"
                     className="w-full bg-background border border-white/15 text-white font-body text-sm px-4 py-3 rounded-sm focus:outline-none focus:border-brand-red transition-colors placeholder:text-white/25"
+                  />
+                </div>
+                <div>
+                  <label className="font-body text-white/40 text-xs tracking-[0.15em] uppercase block mb-2">Почта</label>
+                  <input
+                    type="email" value={form.email}
+                    onChange={(e) => setForm({ ...form, email: e.target.value })}
+                    placeholder="mail@company.ru"
+                    className="w-full bg-background border border-white/15 text-white font-body text-sm px-4 py-3 rounded-sm focus:outline-none focus:border-brand-red transition-colors placeholder:text-white/25"
+                  />
+                </div>
+                <div>
+                  <label className="font-body text-white/40 text-xs tracking-[0.15em] uppercase block mb-2">Описание</label>
+                  <textarea
+                    value={form.message} rows={3}
+                    onChange={(e) => setForm({ ...form, message: e.target.value })}
+                    placeholder="Кратко опишите задачу"
+                    className="w-full bg-background border border-white/15 text-white font-body text-sm px-4 py-3 rounded-sm focus:outline-none focus:border-brand-red transition-colors placeholder:text-white/25 resize-none"
                   />
                 </div>
                 <button

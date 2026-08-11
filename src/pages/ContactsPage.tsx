@@ -7,7 +7,7 @@ interface ContactsPageProps {
 }
 
 export default function ContactsPage(_: ContactsPageProps) {
-  const [form, setForm] = useState({ name: "", phone: "+7 " });
+  const [form, setForm] = useState({ name: "", phone: "+7 ", email: "", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
   const [copiedContact, setCopiedContact] = useState<string | null>(null);
@@ -44,7 +44,7 @@ export default function ContactsPage(_: ContactsPageProps) {
       });
       if (res.ok) {
         setSubmitStatus("success");
-        setForm({ name: "", phone: "+7 " });
+        setForm({ name: "", phone: "+7 ", email: "", message: "" });
       } else {
         setSubmitStatus("error");
       }
@@ -220,6 +220,26 @@ export default function ContactsPage(_: ContactsPageProps) {
                         onChange={handlePhoneChange}
                         placeholder="+7 XXX XXX XX XX"
                         className="w-full bg-background border border-white/15 text-white font-body text-sm px-4 py-3 rounded-sm focus:outline-none focus:border-brand-red transition-colors placeholder:text-white/25"
+                      />
+                    </div>
+                    <div>
+                      <label className="font-body text-white/50 text-xs tracking-[0.15em] uppercase block mb-2">Почта</label>
+                      <input
+                        type="email"
+                        value={form.email}
+                        onChange={(e) => setForm({ ...form, email: e.target.value })}
+                        placeholder="mail@company.ru"
+                        className="w-full bg-background border border-white/15 text-white font-body text-sm px-4 py-3 rounded-sm focus:outline-none focus:border-brand-red transition-colors placeholder:text-white/25"
+                      />
+                    </div>
+                    <div>
+                      <label className="font-body text-white/50 text-xs tracking-[0.15em] uppercase block mb-2">Описание</label>
+                      <textarea
+                        value={form.message}
+                        rows={4}
+                        onChange={(e) => setForm({ ...form, message: e.target.value })}
+                        placeholder="Кратко опишите задачу"
+                        className="w-full bg-background border border-white/15 text-white font-body text-sm px-4 py-3 rounded-sm focus:outline-none focus:border-brand-red transition-colors placeholder:text-white/25 resize-none"
                       />
                     </div>
                     <button

@@ -24,6 +24,8 @@ def handler(event: dict, context) -> dict:
     body = json.loads(event.get('body', '{}'))
     name = body.get('name', '').strip()
     phone = body.get('phone', '').strip()
+    email = body.get('email', '').strip()
+    message = body.get('message', '').strip()
 
     if not name or not phone:
         return {
@@ -41,6 +43,9 @@ def handler(event: dict, context) -> dict:
     msg['From'] = sender
     msg['To'] = recipient
 
+    email_row = f'<tr><td style="padding: 10px; border: 1px solid #ddd; background: #f9f9f9; font-weight: bold;">Почта</td><td style="padding: 10px; border: 1px solid #ddd;">{email}</td></tr>' if email else ''
+    message_row = f'<tr><td style="padding: 10px; border: 1px solid #ddd; background: #f9f9f9; font-weight: bold;">Описание</td><td style="padding: 10px; border: 1px solid #ddd;">{message}</td></tr>' if message else ''
+
     html = f"""
     <html>
     <body style="font-family: Arial, sans-serif; color: #333; max-width: 600px;">
@@ -54,6 +59,8 @@ def handler(event: dict, context) -> dict:
                 <td style="padding: 10px; border: 1px solid #ddd; background: #f9f9f9; font-weight: bold;">Телефон</td>
                 <td style="padding: 10px; border: 1px solid #ddd;">{phone}</td>
             </tr>
+            {email_row}
+            {message_row}
         </table>
     </body>
     </html>
