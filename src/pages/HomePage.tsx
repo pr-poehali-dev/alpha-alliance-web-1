@@ -11,7 +11,7 @@ const HERO_SLIDES = [
   "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/files/15015ea2-6f69-4189-a0b9-c69f9a87367e.jpg",
 ];
 const EQUIP_IMG = "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/files/39cb964f-b88b-47b1-b891-3fd32f0d40f6.jpg";
-const TECH_IMG = "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/files/db76b761-b73c-4d89-b50f-7744cedf0178.jpg";
+const TECH_IMG = "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/5e31cf08-c6be-4a39-96cf-7bd76fa48970.png";
 const METAL_IMG = "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/f5c0bde0-cb00-429c-a7e8-fbe11e9850e3.png";
 const ROBOT_IMG = "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/7214c4b5-398c-4ca6-970a-a48f5f4a8d58.jpg";
 
