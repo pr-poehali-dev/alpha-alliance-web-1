@@ -41,6 +41,17 @@ interface ProductData {
 }
 
 const PRODUCT_DATA: Record<string, ProductData> = {
+  "pumps-foot": {
+    title: "Насосы гидравлические с ножным приводом",
+    groupId: "pumps",
+    groupTitle: "Насосы и станции",
+    img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/ef8f021e-34e2-4276-a920-e043b9fac0b0.png",
+    description:
+      "— Надежный источник давления для гидравлического инструмента, независимый от внешнего источника питания;\n— Имеет возможность работы с гидроинструментом двухстороннего действия, имеющим встроенный гидрораспределитель.",
+    specs: [],
+    modelTableCols: [],
+    models: [],
+  },
   "rescue-krug-1s-am": {
     title: "КРУГ-1С, КРУГ-АМ",
     groupId: "rescue",
@@ -1208,6 +1219,7 @@ const MATRIX_SETS_PRODUCT_IDS = ["special-sling-press"];
 const NO_MODEL_TABLE_PRODUCT_IDS = ["rescue-avso-30", "rescue-avso-50"];
 
 const PRODUCT_IMG_WIDTH: Record<string, string> = {
+  "pumps-foot": "max-w-[65%]",
   "rescue-krug-1s-am": "max-w-[65%]",
   "rescue-krug-2": "max-w-[65%]",
   "rescue-avso-30": "max-w-[65%]",
