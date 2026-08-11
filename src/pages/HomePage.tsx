@@ -283,7 +283,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
       ].map((block, idx) => (
         <section
           key={idx}
-          className="py-16 relative overflow-hidden border-t border-white/10"
+          className="py-16 relative overflow-hidden border-t-2 border-brand-red"
         >
           <div className={`absolute inset-0 ${idx % 2 === 0 ? "bg-black/80" : "bg-black/65"}`} />
           <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8">
