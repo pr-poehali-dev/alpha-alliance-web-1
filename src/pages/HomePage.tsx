@@ -292,7 +292,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
           title: <><span>Оборудование для</span><br /><span>металлообработки</span></>,
           desc: "Газопламенные, плазменные и лазерные станки для листового и профильного проката. Труборезы и балкорезы для промышленных предприятий.",
           btnText: "Каталог оборудования",
-          btnPage: "equipment-groups",
+          btnPage: "equipment-direction-metalwork",
           imgLeft: true,
         },
         {
