@@ -202,7 +202,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 animate-fade-up opacity-0-init delay-300">
               <button
-                onClick={() => onNavigate("catalog-equipment")}
+                onClick={() => onNavigate("equipment-groups")}
                 className="btn-primary px-8 py-4 text-sm rounded-sm"
               >
                 Каталог оборудования
@@ -259,7 +259,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
           title: <><span>Гидравлика</span><br /><span>и насосы</span></>,
           desc: "Полный спектр гидравлического и насосного оборудования для предприятий добывающей, строительной и перерабатывающей промышленности.",
           btnText: "Каталог оборудования",
-          btnPage: "catalog-equipment",
+          btnPage: "equipment-groups",
           imgLeft: false,
         },
         {
@@ -268,7 +268,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
           title: <><span>Оборудование для</span><br /><span>металлообработки</span></>,
           desc: "Газопламенные, плазменные и лазерные станки для листового и профильного проката. Труборезы и балкорезы для промышленных предприятий.",
           btnText: "Каталог оборудования",
-          btnPage: "catalog-equipment",
+          btnPage: "equipment-groups",
           imgLeft: true,
         },
         {
