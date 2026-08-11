@@ -162,6 +162,17 @@ const PRODUCT_DATA: Record<string, ProductData> = {
     modelTableCols: [],
     models: [],
   },
+  "pumps-solenoid-valve": {
+    title: "С электромагнитным распределителем",
+    groupId: "pumps",
+    groupTitle: "Насосы и станции",
+    img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/3f547508-0770-4cd4-955e-3229fa30fd6d.png",
+    description:
+      "Станции серии НЭЭ — это комплектация для ручного дистанционного управления. Оснащены виброустойчивым манометром, предохранительным клапаном, регулировочным клапаном давления, силовым кабелем 2 м с разъемом вилка-розетка, пультом дистанционного управления с кабелем 4 м, работающим на безопасном напряжении 24 В, обеспечивающим управление двигателем (пуск-стоп) и электромагнитным гидрораспределителем.\n\nЭлектромагнитный двухпозиционный гидрораспределитель серии «Г» (модель ГЭ-2ГР-1) работает в режиме «рабочий ход — возврат», без удержания под нагрузкой (гайковерты, режущий инструмент, съемники, трубогибы, прессы и т.д.).",
+    specs: [],
+    modelTableCols: [],
+    models: [],
+  },
   "rescue-krug-1s-am": {
     title: "КРУГ-1С, КРУГ-АМ",
     groupId: "rescue",
@@ -1340,6 +1351,7 @@ const PRODUCT_IMG_WIDTH: Record<string, string> = {
   "pumps-compact-12-manual": "max-w-[65%]",
   "pumps-manual-relief-valve": "max-w-[65%]",
   "pumps-manual-valve": "max-w-[65%]",
+  "pumps-solenoid-valve": "max-w-[65%]",
   "rescue-krug-1s-am": "max-w-[65%]",
   "rescue-krug-2": "max-w-[65%]",
   "rescue-avso-30": "max-w-[65%]",
