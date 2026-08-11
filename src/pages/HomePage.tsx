@@ -226,6 +226,12 @@ export default function HomePage({ onNavigate }: HomePageProps) {
                 Каталог оборудования
               </button>
               <button
+                onClick={() => onNavigate("catalog-tech")}
+                className="btn-primary px-8 py-4 text-sm rounded-sm"
+              >
+                Каталог спецтехники
+              </button>
+              <button
                 onClick={() => setModalOpen(true)}
                 className="btn-outline-white px-8 py-4 text-sm rounded-sm"
               >
