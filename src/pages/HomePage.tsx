@@ -301,7 +301,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
           title: <><span>Роботы и</span><br /><span>роботизированные</span><br /><span>решения</span></>,
           desc: "Роботизация сварочных, гибочных, упаковочных и логистических процессов. Комплексная автоматизация производства под ключ.",
           btnText: "Узнать подробнее",
-          btnPage: "catalog-equipment",
+          btnPage: "equipment-direction-robots",
           imgLeft: false,
         },
       ].map((block, idx) => (
