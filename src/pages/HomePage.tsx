@@ -92,7 +92,18 @@ export default function HomePage({ onNavigate }: HomePageProps) {
   };
 
   return (
-    <div>
+    <div className="relative">
+      {/* Единый фон страницы */}
+      <div className="fixed inset-0 -z-0 pointer-events-none">
+        {HERO_SLIDES.map((src, i) => (
+          <div
+            key={src}
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000"
+            style={{ backgroundImage: `url(${src})`, opacity: i === slideIndex ? 1 : 0 }}
+          />
+        ))}
+      </div>
+      <div className="relative z-10">
       {/* Modal */}
       {modalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
@@ -174,17 +185,6 @@ export default function HomePage({ onNavigate }: HomePageProps) {
 
       {/* HERO */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
-        {/* Background slideshow */}
-        {HERO_SLIDES.map((src, i) => (
-          <div
-            key={src}
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000"
-            style={{
-              backgroundImage: `url(${src})`,
-              opacity: i === slideIndex ? 1 : 0,
-            }}
-          />
-        ))}
         <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/30" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
         {/* Red accent line */}
@@ -243,15 +243,6 @@ export default function HomePage({ onNavigate }: HomePageProps) {
       </section>
 
       {/* SPLIT SECTIONS */}
-      <div className="relative overflow-hidden">
-        {HERO_SLIDES.map((slide, si) => (
-          <div
-            key={slide}
-            className="absolute inset-0 bg-cover bg-center bg-fixed transition-opacity duration-1000"
-            style={{ backgroundImage: `url(${slide})`, opacity: si === slideIndex ? 1 : 0 }}
-          />
-        ))}
-        <div className="relative z-10">
       {[
         {
           img: TECH_IMG,
@@ -329,8 +320,6 @@ export default function HomePage({ onNavigate }: HomePageProps) {
           </div>
         </section>
       ))}
-        </div>
-      </div>
 
       {/* CTA BANNER */}
       <section className="py-20 bg-brand-red relative overflow-hidden">
@@ -354,6 +343,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
           </button>
         </div>
       </section>
+      </div>
     </div>
   );
 }
