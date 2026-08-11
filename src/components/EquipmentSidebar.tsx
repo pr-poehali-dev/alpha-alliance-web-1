@@ -11,15 +11,6 @@ interface Props {
 export default function EquipmentSidebar({ activeDirectionId, activeGroupId, onNavigate }: Props) {
   const [openDir, setOpenDir] = useState<string>(activeDirectionId);
 
-  const toggleDir = (id: string) => {
-    const dir = DIRECTIONS.find((d) => d.id === id);
-    if (dir && !dir.comingSoon && dir.groups.length > 0) {
-      setOpenDir(openDir === id ? "" : id);
-    } else if (!dir?.comingSoon) {
-      onNavigate(`equipment-direction-${id}`);
-    }
-  };
-
   return (
     <aside className="w-64 shrink-0">
       <div className="sticky top-24">

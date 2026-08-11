@@ -3,10 +3,10 @@ import Icon from "@/components/ui/icon";
 import func2url from "../../backend/func2url.json";
 
 interface ContactsPageProps {
-  onNavigate: (page: string) => void;
+  onNavigate?: (page: string) => void;
 }
 
-export default function ContactsPage({ onNavigate }: ContactsPageProps) {
+export default function ContactsPage(_: ContactsPageProps) {
   const [form, setForm] = useState({ name: "", phone: "+7 " });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
