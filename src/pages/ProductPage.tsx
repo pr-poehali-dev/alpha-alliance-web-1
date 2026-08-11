@@ -2026,15 +2026,19 @@ export default function ProductPage({ productId, onNavigate }: Props) {
                   </div>
                 )}
               </div>
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-6 h-px bg-brand-red" />
-                <span className="font-body text-white/35 text-xs tracking-[0.25em] uppercase">Описание</span>
-              </div>
-              <div className="font-body text-white/65 text-sm leading-relaxed">
-                {data.description.split("\n").map((line, i) => (
-                  <p key={i} className={line === "" ? "mt-3" : "mb-1"}>{line}</p>
-                ))}
-              </div>
+              {data.description && !NO_DESCRIPTION_PRODUCT_IDS.includes(productId) && (
+                <>
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-6 h-px bg-brand-red" />
+                    <span className="font-body text-white/35 text-xs tracking-[0.25em] uppercase">Описание</span>
+                  </div>
+                  <div className="font-body text-white/65 text-sm leading-relaxed">
+                    {data.description.split("\n").map((line, i) => (
+                      <p key={i} className={line === "" ? "mt-3" : "mb-1"}>{line}</p>
+                    ))}
+                  </div>
+                </>
+              )}
             </div>
 
             {/* Tech specs */}
