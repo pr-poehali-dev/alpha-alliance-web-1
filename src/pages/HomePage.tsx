@@ -198,7 +198,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
               и спецтехника
             </h1>
             <p className="font-body text-white/65 text-base md:text-lg leading-relaxed mb-10 max-w-xl animate-fade-up opacity-0-init delay-200">
-              Поставка гидравлики, насосного оборудования, спецтехники и грузоподъёмных механизмов, станков термической резки, роботизированных комплексов для промышленных предприятий России
+              Поставка гидравлического, насосного оборудования, спецтехники и грузоподъёмных механизмов, станков термической резки, роботизированных комплексов для промышленных предприятий России
             </p>
             <div className="flex flex-col sm:flex-row gap-4 animate-fade-up opacity-0-init delay-300">
               <button
@@ -243,6 +243,15 @@ export default function HomePage({ onNavigate }: HomePageProps) {
       </section>
 
       {/* SPLIT SECTIONS */}
+      <div className="relative overflow-hidden">
+        {HERO_SLIDES.map((slide, si) => (
+          <div
+            key={slide}
+            className="absolute inset-0 bg-cover bg-center bg-fixed transition-opacity duration-1000"
+            style={{ backgroundImage: `url(${slide})`, opacity: si === slideIndex ? 1 : 0 }}
+          />
+        ))}
+        <div className="relative z-10">
       {[
         {
           img: TECH_IMG,
@@ -284,12 +293,6 @@ export default function HomePage({ onNavigate }: HomePageProps) {
         <section
           key={idx}
           className="py-16 relative overflow-hidden border-t border-white/10"
-          style={{
-            backgroundImage: `url(${HERO_IMG})`,
-            backgroundAttachment: "fixed",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
         >
           <div className={`absolute inset-0 ${idx % 2 === 0 ? "bg-black/80" : "bg-black/65"}`} />
           <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8">
@@ -326,6 +329,8 @@ export default function HomePage({ onNavigate }: HomePageProps) {
           </div>
         </section>
       ))}
+        </div>
+      </div>
 
       {/* CTA BANNER */}
       <section className="py-20 bg-brand-red relative overflow-hidden">
