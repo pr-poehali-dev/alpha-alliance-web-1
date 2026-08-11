@@ -12,7 +12,7 @@ const HERO_SLIDES = [
 ];
 const EQUIP_IMG = "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/e57d7dec-178a-45dd-b756-896c9e35b987.png";
 const TECH_IMG = "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/5e31cf08-c6be-4a39-96cf-7bd76fa48970.png";
-const METAL_IMG = "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/f5c0bde0-cb00-429c-a7e8-fbe11e9850e3.png";
+const METAL_IMG = "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/c1d23e72-0ce0-47a1-8693-85ab4d252165.jpg";
 const ROBOT_IMG = "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/7214c4b5-398c-4ca6-970a-a48f5f4a8d58.jpg";
 
 const STATS = [
