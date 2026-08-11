@@ -277,7 +277,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
           title: <><span>Гидравлика</span><br /><span>и насосы</span></>,
           desc: "Полный спектр гидравлического и насосного оборудования для предприятий добывающей, строительной и перерабатывающей промышленности.",
           btnText: "Каталог оборудования",
-          btnPage: "equipment-groups",
+          btnPage: "equipment-direction-hydraulics",
           imgLeft: false,
         },
         {
