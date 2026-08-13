@@ -98,7 +98,7 @@ export const HORIZONTAL_PUMP_GROUP: EquipmentGroup = {
   title: "Горизонтальные центробежные насосы",
   desc: "Горизонтальные центробежные насосы для перекачивания воды и технических жидкостей в промышленных системах.",
   sub: "Подбор по подаче, напору и характеру среды.",
-  img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/files/63aaa95b-4412-40a0-b027-8fc3c5d9aeca.jpg",
+  img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/98321a03-892e-4405-a012-f55cb07e7d11.png",
 };
 
 export const PUMP_GROUPS: EquipmentGroup[] = [
