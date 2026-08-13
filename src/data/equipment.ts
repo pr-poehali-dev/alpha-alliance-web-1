@@ -99,7 +99,7 @@ export const PUMP_GROUPS: EquipmentGroup[] = [
     title: "Вертикальные турбинные насосы",
     desc: "Вертикальные многоступенчатые турбинные насосы для водозаборов, скважин, систем пожаротушения и промышленного водоснабжения.",
     sub: "Подбор по подаче, напору и глубине погружения.",
-    img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/files/68c9eedd-a51d-4410-b2ca-c84b71a8cb01.jpg",
+    img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/16883dab-82c3-457e-99f6-e63a62d62c75.png",
   },
 ];
 
