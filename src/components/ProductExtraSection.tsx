@@ -19,9 +19,10 @@ interface Props {
   img?: string;
   imgWidth?: string;
   description?: string;
+  caption?: string;
 }
 
-export default function ProductExtraSection({ sectionId, title, img, imgWidth = "max-w-[50%]", description }: Props) {
+export default function ProductExtraSection({ sectionId, title, img, imgWidth = "max-w-[50%]", description, caption }: Props) {
   const [cols, setCols] = useState<Col[]>([]);
   const [models, setModels] = useState<Row[]>([]);
   const [importing, setImporting] = useState(false);
@@ -99,6 +100,9 @@ export default function ProductExtraSection({ sectionId, title, img, imgWidth = 
 
   return (
     <div className="mb-10">
+      {caption && (
+        <p className="font-display text-white text-lg tracking-wide mb-3">{caption}</p>
+      )}
       <div className={`w-full mr-auto bg-white rounded-sm flex items-center justify-center overflow-hidden mb-6 ${imgWidth}`}>
         {img ? (
           <img src={img} alt={title} loading="lazy" decoding="async" className="w-full h-auto object-contain p-4" />

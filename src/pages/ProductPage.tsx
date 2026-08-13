@@ -576,6 +576,7 @@ export default function ProductPage({ productId, onNavigate }: Props) {
                 img={sec.img}
                 imgWidth={sec.imgWidth}
                 description={sec.description}
+                caption={sec.caption}
               />
             ))}
 

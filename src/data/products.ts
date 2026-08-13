@@ -1562,6 +1562,7 @@ export interface ExtraSection {
   img?: string;
   imgWidth?: string;
   description?: string;
+  caption?: string;
 }
 
 export const EXTRA_SECTIONS: Record<string, ExtraSection[]> = {
@@ -1569,6 +1570,7 @@ export const EXTRA_SECTIONS: Record<string, ExtraSection[]> = {
     {
       id: "closed-shaft",
       title: "Исполнение с закрытым приводным валом",
+      caption: "Исполнение с закрытым приводным валом",
       img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/7a2158be-9f7f-438e-9476-1f2c816666d0.png",
       imgWidth: "max-w-[55%]",
       description:
@@ -1577,6 +1579,7 @@ export const EXTRA_SECTIONS: Record<string, ExtraSection[]> = {
     {
       id: "open-shaft",
       title: "Исполнение с открытым приводным валом",
+      caption: "Исполнение с открытым приводным валом",
       img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/47833547-9885-4e20-8253-4bfe426ebe36.png",
       imgWidth: "max-w-[55%]",
       description:
