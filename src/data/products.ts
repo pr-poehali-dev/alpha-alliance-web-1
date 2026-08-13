@@ -1599,6 +1599,20 @@ export interface DescriptionImage {
 }
 
 export const DESCRIPTION_IMAGES: Record<string, DescriptionImage[]> = {
+  "self-balancing-multistage": [
+    {
+      caption: "Центробежный насос, вид в разрезе",
+      img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/cdce799e-2b1b-4660-9e5f-1b7415c8821c.png",
+      imgWidth: "max-w-full",
+      text: "Секционная конструкция ротора: всасывающая, средняя и разгрузочная ступени, направляющие аппараты, втулки дросселя, подшипниковые узлы и уплотнительные элементы.",
+    },
+    {
+      caption: "Монтажная схема оборудования",
+      img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/7c821574-8788-4866-8cf7-b7663e0a51ac.png",
+      imgWidth: "max-w-full",
+      text: "Типовая схема обвязки насосного агрегата: двигатель, манометр и вакуумметр, выпускной и всасывающий трубопроводы, запорный и обратный клапаны, компенсатор, переходная труба, сетчатый фильтр.",
+    },
+  ],
   "vtp-lc": [
     {
       caption: "Исполнение с закрытым приводным валом",
