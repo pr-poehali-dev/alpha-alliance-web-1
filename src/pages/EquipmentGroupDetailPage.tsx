@@ -154,6 +154,13 @@ export default function EquipmentGroupDetailPage({ groupId, onNavigate }: Props)
                 </div>
               )}
             </div>
+            {data.subgroups.length === 0 && (
+              <div className="border border-white/8 rounded-sm p-12 text-center bg-card mb-8">
+                <Icon name="Clock" size={34} className="text-white/10 mx-auto mb-3" />
+                <p className="font-display text-white/40 text-lg tracking-wide mb-1">Каталог моделей готовится</p>
+                <p className="font-body text-white/25 text-sm">Напишите нам — подберём модель под ваши параметры</p>
+              </div>
+            )}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-8">
               {data.subgroups.map((sub, i) => (
                 <button

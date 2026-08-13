@@ -93,6 +93,16 @@ export const HYDRAULIC_GROUPS: EquipmentGroup[] = [
   },
 ];
 
+export const PUMP_GROUPS: EquipmentGroup[] = [
+  {
+    id: "vertical-turbine-pumps",
+    title: "Вертикальные турбинные насосы",
+    desc: "Вертикальные многоступенчатые турбинные насосы для водозаборов, скважин, систем пожаротушения и промышленного водоснабжения.",
+    sub: "Подбор по подаче, напору и глубине погружения.",
+    img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/files/68c9eedd-a51d-4410-b2ca-c84b71a8cb01.jpg",
+  },
+];
+
 export const DIRECTIONS: EquipmentDirection[] = [
   {
     id: "hydraulics",
@@ -106,8 +116,7 @@ export const DIRECTIONS: EquipmentDirection[] = [
     title: "Насосное оборудование",
     icon: "Gauge",
     desc: "Центробежные, вихревые, шестерённые, плунжерные насосы. Насосные агрегаты и станции для промышленных систем.",
-    groups: [],
-    comingSoon: true,
+    groups: PUMP_GROUPS,
   },
   {
     id: "lifting",
