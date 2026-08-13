@@ -26,7 +26,7 @@ export const GROUP_DATA: Record<string, GroupData> = {
     img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/977a230a-263b-46cc-875b-376db0a45407.png",
     imgScale: 1,
     subgroups: [
-      { id: "vtp-lc", title: "Вертикальные турбинные насосы серии LC", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/0d725186-7305-4e12-b554-8f29967488a5.png", img2: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/0d725186-7305-4e12-b554-8f29967488a5.png" },
+      { id: "vtp-lc", title: "Вертикальные турбинные насосы серии LC", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/770a76de-8396-4f8a-9223-b2f9d6e89110.png", img2: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/770a76de-8396-4f8a-9223-b2f9d6e89110.png" },
     ],
     features: [
       { icon: "Gauge", label: "Высокий напор" },
