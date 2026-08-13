@@ -93,6 +93,14 @@ export const HYDRAULIC_GROUPS: EquipmentGroup[] = [
   },
 ];
 
+export const HORIZONTAL_PUMP_GROUP: EquipmentGroup = {
+  id: "horizontal-centrifugal-pumps",
+  title: "Горизонтальные центробежные насосы",
+  desc: "Горизонтальные центробежные насосы для перекачивания воды и технических жидкостей в промышленных системах.",
+  sub: "Подбор по подаче, напору и характеру среды.",
+  img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/files/63aaa95b-4412-40a0-b027-8fc3c5d9aeca.jpg",
+};
+
 export const PUMP_GROUPS: EquipmentGroup[] = [
   {
     id: "vertical-turbine-pumps",
@@ -101,6 +109,7 @@ export const PUMP_GROUPS: EquipmentGroup[] = [
     sub: "Подбор по подаче, напору и глубине погружения.",
     img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/977a230a-263b-46cc-875b-376db0a45407.png",
   },
+  HORIZONTAL_PUMP_GROUP,
 ];
 
 export const DIRECTIONS: EquipmentDirection[] = [
