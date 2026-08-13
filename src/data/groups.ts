@@ -23,7 +23,7 @@ export const GROUP_DATA: Record<string, GroupData> = {
     title: "Вертикальные турбинные насосы",
     longDesc:
       "Вертикальные турбинные насосы предназначены для подъёма воды из скважин, водозаборных сооружений, резервуаров и открытых источников. Многоступенчатая конструкция обеспечивает высокий напор при компактной площади установки. Применяются в системах промышленного и хозяйственно-питьевого водоснабжения, пожаротушения, орошения и на объектах энергетики. Подбираем модель под конкретные параметры подачи, напора и глубины.",
-    img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/16883dab-82c3-457e-99f6-e63a62d62c75.png",
+    img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/977a230a-263b-46cc-875b-376db0a45407.png",
     imgScale: 1,
     subgroups: [
       { id: "vtp-lc", title: "Вертикальные турбинные насосы серии LC", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/16883dab-82c3-457e-99f6-e63a62d62c75.png", img2: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/16883dab-82c3-457e-99f6-e63a62d62c75.png" },
