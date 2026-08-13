@@ -366,7 +366,7 @@ export default function ProductPage({ productId, onNavigate }: Props) {
                             {activeCols.map((col) => (
                               <td
                                 key={col.key}
-                                className={`px-3 py-2 text-[12px] leading-snug whitespace-nowrap text-center ${col.key === "model" || col.key === "col0" ? "text-white font-medium" : "text-white/65"}`}
+                                className={`px-3 py-2 text-[12px] leading-snug ${col.key === "purpose" ? "text-left whitespace-normal" : "text-center whitespace-nowrap"} ${col.key === "model" || col.key === "col0" ? "text-white font-medium" : "text-white/65"}`}
                               >
                                 {row[col.key] ?? "—"}
                               </td>
