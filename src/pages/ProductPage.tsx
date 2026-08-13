@@ -11,6 +11,7 @@ import {
   NO_MODEL_TABLE_PRODUCT_IDS,
   PRODUCT_IMG_WIDTH,
   EXTRA_SECTIONS,
+  DESCRIPTION_IMAGES,
   getParentGroupId,
 } from "@/data/products";
 import type { ModelRow, ModelTableCol } from "@/data/products";
@@ -461,6 +462,18 @@ export default function ProductPage({ productId, onNavigate }: Props) {
                   </div>
                 </>
               )}
+
+              {(DESCRIPTION_IMAGES[productId] ?? []).map((di) => (
+                <div key={di.caption} className="mt-8">
+                  <p className="font-display text-white text-lg tracking-wide mb-3">{di.caption}</p>
+                  <div className={`w-full mr-auto bg-white rounded-sm flex items-center justify-center overflow-hidden mb-4 ${di.imgWidth ?? "max-w-[55%]"}`}>
+                    <img src={di.img} alt={di.caption} loading="lazy" decoding="async" className="w-full h-auto object-contain p-4" />
+                  </div>
+                  {di.text && (
+                    <p className="font-body text-white/65 text-sm leading-relaxed">{di.text}</p>
+                  )}
+                </div>
+              ))}
             </div>
 
             {/* Tech specs */}
