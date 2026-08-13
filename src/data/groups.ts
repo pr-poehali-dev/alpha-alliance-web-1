@@ -25,7 +25,9 @@ export const GROUP_DATA: Record<string, GroupData> = {
       "Горизонтальные центробежные насосы применяются для перекачивания чистой воды, технических и слабоагрессивных жидкостей в системах водоснабжения, отопления, охлаждения, пожаротушения и технологических линиях промышленных предприятий. Горизонтальная компоновка обеспечивает простое обслуживание и удобный доступ к проточной части. Материалы корпуса, рабочего колеса и уплотнений подбираются под свойства перекачиваемой среды.",
     img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/files/63aaa95b-4412-40a0-b027-8fc3c5d9aeca.jpg",
     imgScale: 1,
-    subgroups: [],
+    subgroups: [
+      { id: "self-balancing-multistage", title: "Самобалансирующийся многоступенчатый центробежный насос", img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/b8312883-0fc4-4c20-ba02-0098abc0c809.png", img2: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/b8312883-0fc4-4c20-ba02-0098abc0c809.png" },
+    ],
     features: [
       { icon: "Gauge", label: "Широкий диапазон напоров" },
       { icon: "Droplets", label: "Вода и техжидкости" },

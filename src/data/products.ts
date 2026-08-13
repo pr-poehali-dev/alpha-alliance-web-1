@@ -30,6 +30,17 @@ export interface ProductData {
 }
 
 export const PRODUCT_DATA: Record<string, ProductData> = {
+  "self-balancing-multistage": {
+    title: "Самобалансирующийся многоступенчатый центробежный насос",
+    groupId: "horizontal-centrifugal-pumps",
+    groupTitle: "Горизонтальные центробежные насосы",
+    img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/b8312883-0fc4-4c20-ba02-0098abc0c809.png",
+    description:
+      "Многоступенчатый центробежный насос горизонтального исполнения с самобалансирующейся конструкцией ротора: осевые усилия уравновешиваются внутри насоса, что снижает нагрузку на подшипники и увеличивает срок службы.\n— Многоступенчатая проточная часть обеспечивает высокий напор;\n— Применяется в системах водоснабжения, пожаротушения, котельных, в горнодобывающей и металлургической промышленности;\n— Насос и электродвигатель смонтированы на общей раме, привод через муфту;\n— Материалы проточной части и уплотнений подбираются под свойства перекачиваемой среды.",
+    specs: [],
+    modelTableCols: [],
+    models: [],
+  },
   "vtp-lc": {
     title: "Вертикальные турбинные насосы серии LC",
     groupId: "vertical-turbine-pumps",
@@ -1477,6 +1488,7 @@ export const MATRIX_SETS_PRODUCT_IDS = ["special-sling-press"];
 export const NO_MODEL_TABLE_PRODUCT_IDS = ["rescue-avso-30", "rescue-avso-50"];
 
 export const PRODUCT_IMG_WIDTH: Record<string, string> = {
+  "self-balancing-multistage": "max-w-[62%]",
   "vtp-lc": "max-w-[38%]",
   "pumps-foot": "max-w-[65%]",
   "pumps-pneumo": "max-w-[65%]",
