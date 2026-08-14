@@ -56,7 +56,7 @@ export default function EngineeringPage({ onNavigate }: EngineeringPageProps) {
   return (
     <div>
       {/* Hero */}
-      <section className="pt-32 pb-20 bg-background border-b border-white/8 relative overflow-hidden">
+      <section className="pt-32 pb-10 bg-background border-b border-white/8 relative overflow-hidden">
         <div className="absolute left-0 top-0 bottom-0 w-1 bg-brand-red" />
         <div className="absolute right-8 top-32 opacity-5">
           <Icon name="Cpu" size={320} className="text-white" />
@@ -76,7 +76,7 @@ export default function EngineeringPage({ onNavigate }: EngineeringPageProps) {
       </section>
 
       {/* Services */}
-      <section className="py-20 bg-brand-dark-2">
+      <section className="pt-12 pb-20 bg-brand-dark-2">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-4">
