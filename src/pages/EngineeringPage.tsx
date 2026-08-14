@@ -136,33 +136,17 @@ export default function EngineeringPage({ onNavigate }: EngineeringPageProps) {
         </div>
       </section>
 
-      {/* Why us */}
-      <section className="py-20 bg-brand-dark-2 border-t border-white/8">
-        <div className="max-w-7xl mx-auto px-4 md:px-8">
-          <div className="max-w-xl mx-auto">
-            <div className="bg-brand-red/10 border border-brand-red/25 p-8 rounded-sm">
-              <h3 className="font-display text-white text-2xl tracking-wide mb-4">Обсудить проект?</h3>
-              <p className="font-body text-white/55 text-sm leading-relaxed mb-6">
-                Расскажите о задаче — наш инженер свяжется с вами, изучит техническое задание и предложит оптимальное решение.
-              </p>
-              <div className="space-y-3">
-                <button
-                  onClick={() => onNavigate("contacts")}
-                  className="btn-primary w-full py-3 text-xs rounded-sm flex items-center justify-center gap-2"
-                >
-                  Оставить заявку
-                  <Icon name="ArrowRight" size={14} />
-                </button>
-                <a
-                  href="tel:+79293132080"
-                  className="btn-outline-white w-full py-3 text-xs rounded-sm flex items-center justify-center gap-2"
-                >
-                  <Icon name="Phone" size={14} />
-                  Позвонить
-                </a>
-              </div>
-            </div>
-          </div>
+      {/* CTA */}
+      <section className="py-16 bg-brand-dark-2 border-t border-white/8">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 text-center">
+          <h2 className="font-display text-3xl text-white tracking-wide mb-4">Нужна консультация?</h2>
+          <p className="font-body text-white/50 text-sm mb-8">Поможем подобрать оборудование под вашу задачу</p>
+          <button
+            onClick={() => onNavigate("contacts")}
+            className="btn-primary px-8 py-4 text-sm rounded-sm inline-flex items-center gap-2"
+          >
+            Связаться с нами
+          </button>
         </div>
       </section>
     </div>
