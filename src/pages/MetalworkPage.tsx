@@ -18,10 +18,10 @@ export default function MetalworkPage({ onNavigate }: MetalworkPageProps) {
   return (
     <div>
       {/* Hero */}
-      <section className="pt-32 pb-8 bg-background relative overflow-hidden">
+      <section className="pt-32 pb-14 bg-background border-b border-white/8 relative overflow-hidden">
         <div className="absolute left-0 top-0 bottom-0 w-1 bg-brand-red" />
-        <div className="absolute right-8 top-1/2 -translate-y-1/2 opacity-5 pointer-events-none hidden lg:block">
-          <Icon name="Settings" size={200} className="text-white" />
+        <div className="absolute right-8 top-32 opacity-5">
+          <Icon name="Settings" size={320} className="text-white" />
         </div>
         <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
           <div className="flex items-center gap-3 mb-6">
@@ -38,7 +38,7 @@ export default function MetalworkPage({ onNavigate }: MetalworkPageProps) {
       </section>
 
       {/* Categories */}
-      <section className="pt-8 pb-16 bg-background">
+      <section className="py-16 bg-background">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="mb-8">
             <div className="flex items-center gap-3 mb-4">
