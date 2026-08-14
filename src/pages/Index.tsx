@@ -11,6 +11,7 @@ const EquipmentDirectionPage = lazy(() => import("@/pages/EquipmentDirectionPage
 const EquipmentGroupDetailPage = lazy(() => import("@/pages/EquipmentGroupDetailPage"));
 const ProductPage = lazy(() => import("@/pages/ProductPage"));
 const MetalworkPage = lazy(() => import("@/pages/MetalworkPage"));
+const MetalworkCategoryPage = lazy(() => import("@/pages/MetalworkCategoryPage"));
 const EngineeringPage = lazy(() => import("@/pages/EngineeringPage"));
 const ContactsPage = lazy(() => import("@/pages/ContactsPage"));
 const AdminImportPage = lazy(() => import("@/pages/AdminImportPage"));
@@ -60,6 +61,18 @@ const Index = () => {
         </Layout>
       );
     }
+  }
+
+  // Metalwork category page: metalwork-category-{id}
+  if (activePage.startsWith("metalwork-category-")) {
+    const catId = activePage.replace("metalwork-category-", "");
+    return (
+      <Layout activePage="metalwork" onNavigate={handleNavigate}>
+        <Suspense fallback={<PageFallback />}>
+          <MetalworkCategoryPage categoryId={catId} onNavigate={handleNavigate} />
+        </Suspense>
+      </Layout>
+    );
   }
 
   // Product page: product-{id}
