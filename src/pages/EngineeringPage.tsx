@@ -69,16 +69,9 @@ export default function EngineeringPage({ onNavigate }: EngineeringPageProps) {
           <h1 className="font-display text-5xl md:text-6xl xl:text-7xl text-white tracking-wide leading-none mb-6">
             Инжиниринг
           </h1>
-          <p className="font-body text-white/60 text-base leading-relaxed max-w-2xl mb-10">
+          <p className="font-body text-white/60 text-base leading-relaxed max-w-2xl">
             Комплексные инжиниринговые услуги, от технического аудита до полного сопровождения проекта.
           </p>
-          <button
-            onClick={() => onNavigate("contacts")}
-            className="btn-primary px-8 py-4 text-xs rounded-sm inline-flex items-center gap-2"
-          >
-            <Icon name="MessageSquare" size={14} />
-            Обсудить проект
-          </button>
         </div>
       </section>
 
