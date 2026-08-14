@@ -8,7 +8,10 @@ interface MetalworkCategoryCardProps {
 }
 
 export default function MetalworkCategoryCard({ cat, onNavigate }: MetalworkCategoryCardProps) {
-  const images = cat.gallery.map((g) => g.img);
+  const images =
+    cat.gallery.length > 0
+      ? cat.gallery.map((g) => g.img)
+      : (cat.directions ?? []).map((d) => d.img);
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
 
