@@ -128,7 +128,7 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
   return (
     <div>
       {/* Hero */}
-      <section className="pt-32 pb-20 bg-background border-b border-white/8 relative overflow-hidden">
+      <section className="pt-32 pb-14 bg-background border-b border-white/8 relative overflow-hidden">
         <div className="absolute left-0 top-0 bottom-0 w-1 bg-brand-red" />
         <div className="absolute right-0 top-0 w-px h-full bg-white/5" />
         <div className="max-w-7xl mx-auto px-4 md:px-8">
@@ -136,32 +136,16 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
             <div className="w-8 h-px bg-brand-red" />
             <span className="font-body text-white/40 text-xs tracking-[0.25em] uppercase">О компании</span>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="flex items-center">
-              <h1 className="font-display text-3xl md:text-4xl lg:text-5xl text-white tracking-wide leading-none mb-0 whitespace-nowrap">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
+            <div>
+              <h1 className="font-display text-3xl md:text-4xl lg:text-5xl text-white tracking-wide leading-tight mb-0">
                 ООО «Альфа Альянс»
               </h1>
             </div>
             <div>
-              <p className="font-body text-white/65 text-base leading-relaxed mb-6">
+              <p className="font-body text-white/65 text-base leading-relaxed">
                 Компания работает на рынке промышленного оборудования с 2013 года. За это время мы реализовали более 200 проектов по оснащению предприятий разных отраслей. Головной офис компании располагается на территории города Красноярск.
               </p>
-              <div className="flex items-center gap-6">
-                <div>
-                  <div className="font-display text-brand-red text-4xl font-bold">200+</div>
-                  <div className="font-body text-white/40 text-xs tracking-widest uppercase mt-1">проектов</div>
-                </div>
-                <div className="w-px h-12 bg-white/15" />
-                <div>
-                  <div className="font-display text-brand-red text-4xl font-bold">13</div>
-                  <div className="font-body text-white/40 text-xs tracking-widest uppercase mt-1">лет опыта</div>
-                </div>
-                <div className="w-px h-12 bg-white/15" />
-                <div>
-                  <div className="font-display text-brand-red text-4xl font-bold">10</div>
-                  <div className="font-body text-white/40 text-xs tracking-widest uppercase mt-1">направлений</div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
