@@ -84,13 +84,22 @@ export default function Layout({ children, activePage, onNavigate }: LayoutProps
               ))}
             </nav>
 
-            {/* Burger */}
-            <button
-              className="lg:hidden text-white p-1"
-              onClick={() => setMenuOpen(!menuOpen)}
-            >
-              <Icon name={menuOpen ? "X" : "Menu"} size={22} />
-            </button>
+            {/* Mobile phone + Burger */}
+            <div className="lg:hidden flex items-center gap-1">
+              <a
+                href="tel:+79293132080"
+                className="flex items-center justify-center w-9 h-9 bg-brand-red/15 border border-brand-red/30 text-brand-red rounded-sm active:bg-brand-red/25 transition-colors"
+                aria-label="Позвонить"
+              >
+                <Icon name="Phone" size={16} />
+              </a>
+              <button
+                className="text-white p-1"
+                onClick={() => setMenuOpen(!menuOpen)}
+              >
+                <Icon name={menuOpen ? "X" : "Menu"} size={22} />
+              </button>
+            </div>
           </div>
         </div>
 
@@ -111,6 +120,13 @@ export default function Layout({ children, activePage, onNavigate }: LayoutProps
                   {item.label}
                 </button>
               ))}
+              <a
+                href="tel:+79293132080"
+                className="flex items-center justify-center gap-2 mt-4 py-3 px-4 bg-brand-red text-white font-body text-sm tracking-[0.1em] uppercase rounded-sm"
+              >
+                <Icon name="Phone" size={14} />
+                +7 (929) 313-20-80
+              </a>
             </nav>
           </div>
         )}
