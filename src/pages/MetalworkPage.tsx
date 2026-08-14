@@ -81,6 +81,22 @@ export default function MetalworkPage({ onNavigate }: MetalworkPageProps) {
           </div>
         </div>
       </section>
+
+      {/* CTA */}
+      <section className="py-16 bg-background border-t border-white/8">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 text-center">
+          <h2 className="font-display text-3xl text-white tracking-wide mb-4">Нужна консультация?</h2>
+          <p className="font-body text-white/50 text-sm mb-8">
+            Отправьте чертежи или техническое задание — подготовим расчёт стоимости
+          </p>
+          <button
+            onClick={() => onNavigate("contacts")}
+            className="btn-primary px-8 py-4 text-sm rounded-sm inline-flex items-center gap-2"
+          >
+            Связаться с нами
+          </button>
+        </div>
+      </section>
     </div>
   );
 }
