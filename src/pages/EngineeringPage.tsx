@@ -2,40 +2,48 @@ import Icon from "@/components/ui/icon";
 
 const SERVICES = [
   {
-    icon: "Cpu",
-    title: "Проектирование гидросистем",
-    desc: "Разработка гидравлических схем, подбор компонентов, расчёт параметров систем для любого оборудования.",
-    tags: ["Гидравлика", "Проект"],
-  },
-  {
-    icon: "Activity",
-    title: "Диагностика и аудит",
-    desc: "Техническая диагностика существующего оборудования, выявление узких мест, рекомендации по модернизации.",
-    tags: ["Аудит", "Диагностика"],
-  },
-  {
-    icon: "RefreshCw",
-    title: "Модернизация оборудования",
-    desc: "Замена устаревших гидравлических и насосных систем на современные энергоэффективные решения.",
-    tags: ["Модернизация"],
-  },
-  {
     icon: "Settings",
-    title: "Шеф-монтаж и пуско-наладка",
-    desc: "Техническое сопровождение монтажа, настройка, тестирование и сдача систем в эксплуатацию.",
-    tags: ["Монтаж", "Наладка"],
+    title: "Подбор технологического оборудования",
+    desc: "Комплексный анализ производственных задач и подбор оптимального оборудования для вашего предприятия",
+    features: [
+      "Анализ технологических процессов",
+      "Подбор оборудования под задачи",
+      "Расчет производительности",
+      "Оптимизация бюджета",
+    ],
   },
   {
-    icon: "BookOpen",
-    title: "Техническая документация",
-    desc: "Разработка регламентов обслуживания, инструкций, технических паспортов оборудования.",
-    tags: ["Документация"],
+    icon: "Lightbulb",
+    title: "Разработка технических решений",
+    desc: "Проектирование и разработка индивидуальных технических решений для сложных производственных задач",
+    features: [
+      "Инженерные расчеты",
+      "Техническая документация",
+      "Моделирование процессов",
+      "Внедрение решений",
+    ],
   },
   {
-    icon: "GraduationCap",
-    title: "Обучение персонала",
-    desc: "Инструктаж технического персонала по эксплуатации, техническому обслуживанию и ремонту оборудования.",
-    tags: ["Обучение"],
+    icon: "Wrench",
+    title: "Модернизация производства",
+    desc: "Анализ текущих производственных процессов и разработка решений по их оптимизации и модернизации",
+    features: [
+      "Аудит производства",
+      "Выявление узких мест",
+      "План модернизации",
+      "Сопровождение внедрения",
+    ],
+  },
+  {
+    icon: "Database",
+    title: "Автоматизация процессов",
+    desc: "Разработка систем автоматизации для повышения эффективности производства и снижения затрат",
+    features: [
+      "Системы управления",
+      "Интеграция оборудования",
+      "Диспетчеризация",
+      "Обучение персонала",
+    ],
   },
 ];
 
@@ -99,21 +107,22 @@ export default function EngineeringPage({ onNavigate }: EngineeringPageProps) {
           <div className="mb-12">
             <h2 className="font-display text-4xl text-white tracking-wide">Инжиниринговые услуги</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {SERVICES.map((service) => (
-              <div key={service.title} className="bg-card border border-white/8 p-6 rounded-sm card-hover group">
-                <div className="w-12 h-12 bg-brand-red/15 border border-brand-red/30 flex items-center justify-center mb-5 group-hover:bg-brand-red/25 transition-colors">
-                  <Icon name={service.icon as never} size={20} className="text-brand-red" />
+              <div key={service.title} className="bg-card border border-white/8 p-8 rounded-sm card-hover group">
+                <div className="w-14 h-14 bg-brand-red/15 border border-brand-red/30 flex items-center justify-center mb-6 rounded-sm group-hover:bg-brand-red/25 transition-colors">
+                  <Icon name={service.icon as never} size={24} className="text-brand-red" />
                 </div>
-                <div className="flex flex-wrap gap-2 mb-3">
-                  {service.tags.map((tag) => (
-                    <span key={tag} className="font-body text-[10px] tracking-wider uppercase text-white/35 bg-white/5 px-2 py-0.5 rounded-sm">
-                      {tag}
-                    </span>
+                <h3 className="font-display text-white text-2xl tracking-wide mb-3">{service.title}</h3>
+                <p className="font-body text-white/50 text-sm leading-relaxed mb-6">{service.desc}</p>
+                <ul className="space-y-2.5">
+                  {service.features.map((f) => (
+                    <li key={f} className="flex items-start gap-3">
+                      <Icon name="Check" size={16} className="text-brand-red shrink-0 mt-0.5" />
+                      <span className="font-body text-white/70 text-sm leading-snug">{f}</span>
+                    </li>
                   ))}
-                </div>
-                <h3 className="font-display text-white text-xl tracking-wide mb-3">{service.title}</h3>
-                <p className="font-body text-white/50 text-sm leading-relaxed">{service.desc}</p>
+                </ul>
               </div>
             ))}
           </div>
