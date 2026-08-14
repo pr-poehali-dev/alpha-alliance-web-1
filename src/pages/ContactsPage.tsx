@@ -330,7 +330,7 @@ export default function ContactsPage(_: ContactsPageProps) {
           </div>
           <div className="rounded-sm overflow-hidden border border-white/8">
             <iframe
-              src="https://yandex.ru/map-widget/v1/?ll=92.895538%2C56.025895&z=17&pt=92.895538,56.025895,pm2rdm"
+              src="https://yandex.ru/map-widget/v1/?ll=92.894245%2C56.046288&z=17&pt=92.894245,56.046288,pm2rdm"
               width="100%"
               height="500"
               frameBorder="0"
