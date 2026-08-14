@@ -88,10 +88,13 @@ export default function EngineeringPage({ onNavigate }: EngineeringPageProps) {
           <div className="mb-12">
             <h2 className="font-display text-4xl text-white tracking-wide">Отрасли, в которых мы работаем</h2>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
+          <div className="flex flex-wrap justify-center gap-3">
             {INDUSTRIES.map((ind) => (
-              <div key={ind.name} className="bg-card border border-white/8 p-5 text-center card-hover rounded-sm">
-                <div className="w-10 h-10 bg-brand-red/15 border border-brand-red/30 flex items-center justify-center mx-auto mb-3">
+              <div
+                key={ind.name}
+                className="w-[calc(50%-0.375rem)] md:w-[calc(33.333%-0.5rem)] lg:w-[calc(20%-0.6rem)] bg-card border border-white/8 p-5 text-center card-hover rounded-sm flex flex-col items-center justify-start"
+              >
+                <div className="w-10 h-10 bg-brand-red/15 border border-brand-red/30 flex items-center justify-center mb-3 shrink-0">
                   <Icon name={ind.icon as never} size={16} className="text-brand-red" />
                 </div>
                 <p className="font-body text-white/65 text-base leading-snug">{ind.name}</p>
