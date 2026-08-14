@@ -70,15 +70,8 @@ export default function EngineeringPage({ onNavigate }: EngineeringPageProps) {
             Инжиниринг
           </h1>
           <p className="font-body text-white/60 text-base leading-relaxed max-w-2xl mb-10">
-            Комплексные инжиниринговые услуги в области промышленной гидравлики, насосного оборудования и механических систем. От технического аудита до полного сопровождения проекта.
+            Комплексные инжиниринговые услуги, от технического аудита до полного сопровождения проекта.
           </p>
-          <div className="flex flex-wrap gap-4 mb-10">
-            {["Проектирование", "Диагностика", "Модернизация", "Монтаж"].map((tag) => (
-              <span key={tag} className="font-body text-xs tracking-[0.15em] uppercase px-4 py-2 border border-brand-red/40 text-brand-red/90 rounded-sm">
-                {tag}
-              </span>
-            ))}
-          </div>
           <button
             onClick={() => onNavigate("contacts")}
             className="btn-primary px-8 py-4 text-xs rounded-sm inline-flex items-center gap-2"
