@@ -392,7 +392,7 @@ export const METALWORK_CATEGORIES: MetalworkCategory[] = [
     specs: [
       { label: "Оборудование", value: "3- и 5-осевые обрабатывающие центры с ЧПУ" },
       { label: "Максимальные размеры заготовок", value: "2000 × 800 × 600 мм" },
-      { label: "Точность позиционирования", value: "±0,005 мм" },
+      { label: "Точность позиционирования", value: "±0,05 мм" },
       { label: "Программное обеспечение", value: "SolidWorks, Mastercam, Siemens NX" },
       { label: "Стандарты", value: "ГОСТ 26645-85, ISO 2768, DIN 4766" },
     ],
