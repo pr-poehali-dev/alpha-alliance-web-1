@@ -16,11 +16,11 @@ export default function ContactsPage(_: ContactsPageProps) {
   const formatPhone = (value: string) => {
     const digits = value.replace(/\D/g, "");
     if (digits.length <= 1) return "+7 ";
-    let f = "+7";
-    if (digits.length > 1) f += " " + digits.slice(1, 4);
+    let f = "+7 (" + digits.slice(1, 4);
+    if (digits.length >= 4) f += ")";
     if (digits.length > 4) f += " " + digits.slice(4, 7);
-    if (digits.length > 7) f += " " + digits.slice(7, 9);
-    if (digits.length > 9) f += " " + digits.slice(9, 11);
+    if (digits.length > 7) f += "-" + digits.slice(7, 9);
+    if (digits.length > 9) f += "-" + digits.slice(9, 11);
     return f;
   };
 
@@ -73,7 +73,7 @@ export default function ContactsPage(_: ContactsPageProps) {
     {
       icon: "Phone",
       title: "Телефон",
-      details: ["+7 (929) 313-20-80", "+7 902 961 99 18"],
+      details: ["+7 (929) 313-20-80", "+7 (902) 961-99-18"],
       type: "phone" as const,
     },
     {
@@ -183,7 +183,7 @@ export default function ContactsPage(_: ContactsPageProps) {
                 <h2 className="font-display text-3xl text-white tracking-wide mb-2">Оставьте заявку</h2>
                 <p className="font-body text-white/50 text-sm">Наш специалист свяжется с вами в ближайшее время</p>
               </div>
-              <div className="bg-card border border-white/8 p-8 rounded-sm">
+              <div className="bg-card border border-white/8 p-8 rounded-sm flex-1 flex flex-col justify-center">
                 {submitStatus === "success" ? (
                   <div className="flex flex-col items-center justify-center py-12 text-center">
                     <div className="w-16 h-16 bg-brand-red/20 border border-brand-red/40 flex items-center justify-center mb-5 rounded-sm">
@@ -218,28 +218,8 @@ export default function ContactsPage(_: ContactsPageProps) {
                         type="tel"
                         value={form.phone}
                         onChange={handlePhoneChange}
-                        placeholder="+7 XXX XXX XX XX"
+                        placeholder="+7 (XXX) XXX-XX-XX"
                         className="w-full bg-background border border-white/15 text-white font-body text-sm px-4 py-3 rounded-sm focus:outline-none focus:border-brand-red transition-colors placeholder:text-white/25"
-                      />
-                    </div>
-                    <div>
-                      <label className="font-body text-white/50 text-xs tracking-[0.15em] uppercase block mb-2">Почта</label>
-                      <input
-                        type="email"
-                        value={form.email}
-                        onChange={(e) => setForm({ ...form, email: e.target.value })}
-                        placeholder="mail@company.ru"
-                        className="w-full bg-background border border-white/15 text-white font-body text-sm px-4 py-3 rounded-sm focus:outline-none focus:border-brand-red transition-colors placeholder:text-white/25"
-                      />
-                    </div>
-                    <div>
-                      <label className="font-body text-white/50 text-xs tracking-[0.15em] uppercase block mb-2">Описание</label>
-                      <textarea
-                        value={form.message}
-                        rows={4}
-                        onChange={(e) => setForm({ ...form, message: e.target.value })}
-                        placeholder="Кратко опишите задачу"
-                        className="w-full bg-background border border-white/15 text-white font-body text-sm px-4 py-3 rounded-sm focus:outline-none focus:border-brand-red transition-colors placeholder:text-white/25 resize-none"
                       />
                     </div>
                     <button
