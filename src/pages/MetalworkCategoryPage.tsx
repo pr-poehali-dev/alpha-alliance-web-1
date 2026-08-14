@@ -87,6 +87,56 @@ export default function MetalworkCategoryPage({ categoryId, onNavigate }: Metalw
         </div>
       </section>
 
+      {/* Ключевые направления */}
+      {cat.directions && cat.directions.length > 0 && (
+        <section className="py-16 bg-brand-dark-2 border-t border-white/8">
+          <div className="max-w-7xl mx-auto px-4 md:px-8">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-8 h-px bg-brand-red" />
+              <span className="font-body text-white/40 text-xs tracking-[0.25em] uppercase">Что мы делаем</span>
+            </div>
+            <h2 className="font-display text-3xl text-white tracking-wide mb-8">Наши ключевые направления</h2>
+            <div className="space-y-6">
+              {cat.directions.map((d, i) => (
+                <div
+                  key={d.title}
+                  className="bg-card border border-white/8 rounded-sm overflow-hidden grid grid-cols-1 lg:grid-cols-2"
+                >
+                  <div className={`aspect-[4/3] lg:aspect-auto lg:min-h-[300px] bg-brand-dark-2 ${i % 2 ? "lg:order-2" : ""}`}>
+                    <img
+                      src={d.img}
+                      alt={d.title}
+                      loading="lazy"
+                      decoding="async"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="p-6 md:p-8 flex flex-col justify-center">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-10 h-10 bg-brand-red/15 border border-brand-red/30 flex items-center justify-center shrink-0">
+                        <Icon name={d.icon as never} size={18} className="text-brand-red" />
+                      </div>
+                      <h3 className="font-display text-white text-xl tracking-wide leading-snug">{d.title}</h3>
+                    </div>
+                    <p className="font-body text-white/55 text-sm leading-relaxed mb-5">{d.text}</p>
+                    {d.params && (
+                      <div className="space-y-3">
+                        {d.params.map((prm) => (
+                          <div key={prm.label} className="border-l-2 border-brand-red pl-3">
+                            <p className="font-body text-brand-red text-xs tracking-wide mb-0.5">{prm.label}</p>
+                            <p className="font-body text-white/60 text-sm leading-relaxed">{prm.value}</p>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Технические характеристики */}
       {cat.specs.length > 0 && (
         <section className="py-16 bg-brand-dark-2 border-t border-white/8">
