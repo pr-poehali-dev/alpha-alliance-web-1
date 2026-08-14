@@ -28,9 +28,8 @@ export default function MetalworkPage({ onNavigate }: MetalworkPageProps) {
             <div className="w-8 h-px bg-brand-red" />
             <span className="font-body text-white/40 text-xs tracking-[0.25em] uppercase">Услуги</span>
           </div>
-          <h1 className="font-display text-4xl md:text-5xl xl:text-6xl text-white tracking-wide leading-tight mb-6">
-            Изготовление<br />
-            <span className="text-brand-red">металлоконструкций</span>
+          <h1 className="font-display text-2xl sm:text-3xl md:text-4xl xl:text-5xl text-white tracking-wide leading-tight mb-6 md:whitespace-nowrap">
+            Изготовление <span className="text-brand-red">металлоконструкций</span>
           </h1>
           <p className="font-body text-white/60 text-base leading-relaxed max-w-xl mb-8">
             Полный цикл производства металлоконструкций — от разработки проекта до монтажа на объекте. Работаем по чертежам заказчика и собственному проектированию.
