@@ -1,5 +1,12 @@
 import Icon from "@/components/ui/icon";
 import { METALWORK_CATEGORIES } from "@/data/metalwork";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const STEPS = [
   { step: "01", title: "Получение задания", desc: "Принимаем чертежи, ТУ или техническое задание." },
@@ -59,25 +66,45 @@ export default function MetalworkPage({ onNavigate }: MetalworkPageProps) {
               Выберите направление — на странице категории собрано описание работ и примеры выполненных проектов.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {METALWORK_CATEGORIES.map((cat) => (
-              <button
-                key={cat.id}
-                onClick={() => onNavigate(`metalwork-category-${cat.id}`)}
-                className="bg-card border border-white/8 p-6 rounded-sm card-hover text-left flex flex-col"
-              >
-                <div className="w-10 h-10 bg-brand-red/15 border border-brand-red/30 flex items-center justify-center mb-4">
-                  <Icon name={cat.icon as never} size={18} className="text-brand-red" />
-                </div>
-                <h3 className="font-display text-white text-lg tracking-wide mb-2">{cat.title}</h3>
-                <p className="font-body text-white/50 text-sm leading-relaxed mb-4">{cat.short}</p>
-                <span className="font-body text-brand-red text-xs tracking-wide inline-flex items-center gap-2 mt-auto">
-                  Подробнее
-                  <Icon name="ArrowRight" size={12} />
-                </span>
-              </button>
-            ))}
-          </div>
+          <Carousel opts={{ align: "start", loop: true }} className="w-full">
+            <CarouselContent className="-ml-4">
+              {METALWORK_CATEGORIES.map((cat) => {
+                const cover = cat.img ?? cat.gallery[0]?.img;
+                return (
+                  <CarouselItem key={cat.id} className="pl-4 sm:basis-1/2 lg:basis-1/3">
+                    <button
+                      onClick={() => onNavigate(`metalwork-category-${cat.id}`)}
+                      className="bg-card border border-white/8 rounded-sm card-hover text-left flex flex-col overflow-hidden w-full h-full"
+                    >
+                      <div className="aspect-[4/3] w-full bg-brand-dark-2 overflow-hidden flex items-center justify-center">
+                        {cover ? (
+                          <img
+                            src={cover}
+                            alt={cat.title}
+                            loading="lazy"
+                            decoding="async"
+                            className="w-full h-full object-cover"
+                          />
+                        ) : (
+                          <Icon name={cat.icon as never} size={48} className="text-white/15" />
+                        )}
+                      </div>
+                      <div className="p-6 flex flex-col flex-1">
+                        <h3 className="font-display text-white text-lg tracking-wide mb-2">{cat.title}</h3>
+                        <p className="font-body text-white/50 text-sm leading-relaxed mb-4">{cat.short}</p>
+                        <span className="font-body text-brand-red text-xs tracking-wide inline-flex items-center gap-2 mt-auto">
+                          Подробнее
+                          <Icon name="ArrowRight" size={12} />
+                        </span>
+                      </div>
+                    </button>
+                  </CarouselItem>
+                );
+              })}
+            </CarouselContent>
+            <CarouselPrevious className="hidden md:flex -left-4 bg-card border-white/15 text-white hover:bg-brand-red hover:text-white" />
+            <CarouselNext className="hidden md:flex -right-4 bg-card border-white/15 text-white hover:bg-brand-red hover:text-white" />
+          </Carousel>
         </div>
       </section>
 
