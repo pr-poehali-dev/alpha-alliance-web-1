@@ -1,6 +1,7 @@
 export interface MetalworkGalleryItem {
   img: string;
   caption?: string;
+  fit?: "cover" | "contain";
 }
 
 export interface MetalworkCategory {
@@ -37,7 +38,7 @@ export const METALWORK_CATEGORIES: MetalworkCategory[] = [
       { img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/6ed447ce-a2e2-45d6-bb74-e5a17898c438.jpg", caption: "Производство закладных деталей" },
       { img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/89c0a4f8-ac9d-4971-9260-3692f28c16c9.jpg", caption: "Пластина с приваренными арматурными выпусками" },
       { img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/2a948da0-dc3f-4bcc-88fe-989358798f82.jpg", caption: "Партия закладных деталей на складе" },
-      { img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/e8f9918f-891d-4381-b618-4241b1b91e9a.jpg", caption: "Закладные детали серии 1.400-15, выпуск 0 и выпуск 1: МН 101 — МН 795" },
+      { img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/e8f9918f-891d-4381-b618-4241b1b91e9a.jpg", caption: "Закладные детали серии 1.400-15, выпуск 0 и выпуск 1: МН 101 — МН 795", fit: "contain" },
     ],
     applications: [
       "Промышленное и гражданское строительство",
