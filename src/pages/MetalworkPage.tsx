@@ -18,7 +18,7 @@ export default function MetalworkPage({ onNavigate }: MetalworkPageProps) {
   return (
     <div>
       {/* Hero */}
-      <section className="pt-32 pb-20 bg-background border-b border-white/8 relative overflow-hidden">
+      <section className="pt-32 pb-12 bg-background border-b border-white/8 relative overflow-hidden">
         <div className="absolute left-0 top-0 bottom-0 w-1 bg-brand-red" />
         <div className="absolute right-8 top-32 opacity-5">
           <Icon name="Settings" size={320} className="text-white" />
@@ -32,7 +32,7 @@ export default function MetalworkPage({ onNavigate }: MetalworkPageProps) {
             Изготовление<br />
             <span className="text-brand-red">металлоконструкций</span>
           </h1>
-          <p className="font-body text-white/60 text-base leading-relaxed max-w-xl mb-10">
+          <p className="font-body text-white/60 text-base leading-relaxed max-w-xl mb-8">
             Полный цикл производства металлоконструкций — от разработки проекта до монтажа на объекте. Работаем по чертежам заказчика и собственному проектированию.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
@@ -48,9 +48,9 @@ export default function MetalworkPage({ onNavigate }: MetalworkPageProps) {
       </section>
 
       {/* Categories */}
-      <section className="py-20 bg-background border-t border-white/8">
+      <section className="pt-12 pb-16 bg-background">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
-          <div className="mb-12">
+          <div className="mb-8">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-8 h-px bg-brand-red" />
               <span className="font-body text-white/40 text-xs tracking-[0.25em] uppercase">Направления</span>
