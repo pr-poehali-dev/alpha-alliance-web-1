@@ -44,7 +44,6 @@ const INDUSTRIES = [
   { icon: "Flame", name: "Нефтяная и газовая отрасль" },
   { icon: "Zap", name: "Электроэнергетика" },
   { icon: "Factory", name: "Металлургия" },
-  { icon: "TreePine", name: "Лесная промышленность" },
   { icon: "Construction", name: "Строительство" },
 ];
 
@@ -85,7 +84,7 @@ export default function EngineeringPage({ onNavigate }: EngineeringPageProps) {
             </div>
             <h2 className="font-display text-4xl text-white tracking-wide">Отрасли, в которых мы работаем</h2>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
             {INDUSTRIES.map((ind) => (
               <div key={ind.name} className="bg-card border border-white/8 p-5 text-center card-hover rounded-sm">
                 <div className="w-10 h-10 bg-brand-red/15 border border-brand-red/30 flex items-center justify-center mx-auto mb-3">
