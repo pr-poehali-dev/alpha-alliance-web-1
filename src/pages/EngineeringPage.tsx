@@ -78,10 +78,6 @@ export default function EngineeringPage({ onNavigate }: EngineeringPageProps) {
       <section className="pt-12 pb-20 bg-brand-dark-2">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="mb-12">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-8 h-px bg-brand-red" />
-              <span className="font-body text-white/40 text-xs tracking-[0.25em] uppercase">Компетенции</span>
-            </div>
             <h2 className="font-display text-4xl text-white tracking-wide">Отрасли, в которых мы работаем</h2>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
@@ -101,10 +97,6 @@ export default function EngineeringPage({ onNavigate }: EngineeringPageProps) {
       <section className="py-20 bg-background border-t border-white/8">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="mb-12">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-8 h-px bg-brand-red" />
-              <span className="font-body text-white/40 text-xs tracking-[0.25em] uppercase">Компетенции</span>
-            </div>
             <h2 className="font-display text-4xl text-white tracking-wide">Инжиниринговые услуги</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
