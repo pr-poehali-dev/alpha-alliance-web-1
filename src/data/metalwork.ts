@@ -165,7 +165,7 @@ export const METALWORK_CATEGORIES: MetalworkCategory[] = [
       { img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/a8b1e6c7-45f6-4745-9011-4a36babf8357.jpg", caption: "Парковые опоры освещения" },
       { img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/b8eff584-b6f8-4595-be17-b26b7ab4d966.jpg", caption: "Замена натриевых светильников на светодиодные" },
       { img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/178bc67a-a90f-4e87-a319-1afea1217bea.jpg", caption: "Освещение трассы и транспортной развязки" },
-      { img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/d43a2e03-d071-49eb-a28e-87ec6294de09.jpeg", caption: "Двухрожковый кронштейн со светильниками" },
+      { img: "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/bucket/8967ffc0-4c81-4517-95da-2a20dddfc30a.jpg", caption: "Консольный светильник на опоре освещения" },
     ],
     applications: [
       "Автомагистрали и региональные дороги",
