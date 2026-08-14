@@ -56,7 +56,8 @@ export default function MetalworkCategoryPage({ categoryId, onNavigate }: Metalw
                       alt={g.caption ?? cat.title}
                       loading="lazy"
                       decoding="async"
-                      className={`w-full h-full ${g.fit === "contain" ? "object-contain p-2" : "object-cover"}`}
+                      style={g.scale ? { transform: `scale(${g.scale})` } : undefined}
+                      className={`w-full h-full ${g.fit === "contain" || g.scale ? "object-contain p-2" : "object-cover"}`}
                     />
                   </div>
                   {g.caption && (
