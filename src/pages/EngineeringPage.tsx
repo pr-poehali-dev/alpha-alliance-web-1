@@ -80,7 +80,7 @@ export default function EngineeringPage({ onNavigate }: EngineeringPageProps) {
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-8 h-px bg-brand-red" />
-              <span className="font-body text-white/40 text-xs tracking-[0.25em] uppercase">Опыт работы</span>
+              <span className="font-body text-white/40 text-xs tracking-[0.25em] uppercase">Компетенции</span>
             </div>
             <h2 className="font-display text-4xl text-white tracking-wide">Отрасли, в которых мы работаем</h2>
           </div>
@@ -90,7 +90,7 @@ export default function EngineeringPage({ onNavigate }: EngineeringPageProps) {
                 <div className="w-10 h-10 bg-brand-red/15 border border-brand-red/30 flex items-center justify-center mx-auto mb-3">
                   <Icon name={ind.icon as never} size={16} className="text-brand-red" />
                 </div>
-                <p className="font-body text-white/65 text-xs leading-snug">{ind.name}</p>
+                <p className="font-body text-white/65 text-base leading-snug">{ind.name}</p>
               </div>
             ))}
           </div>
