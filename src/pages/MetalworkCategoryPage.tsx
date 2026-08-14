@@ -24,7 +24,8 @@ export default function MetalworkCategoryPage({ categoryId, onNavigate }: Metalw
 
   return (
     <div>
-      <section className="pt-32 pb-14 bg-background border-b border-white/8 relative overflow-hidden">
+      {/* Название */}
+      <section className="pt-32 pb-12 bg-background border-b border-white/8 relative overflow-hidden">
         <div className="absolute left-0 top-0 bottom-0 w-1 bg-brand-red" />
         <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
           <button
@@ -47,48 +48,116 @@ export default function MetalworkCategoryPage({ categoryId, onNavigate }: Metalw
         </div>
       </section>
 
-      <section className="py-16 bg-brand-dark-2">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-3 gap-10">
-          <div className="lg:col-span-2">
-            <h2 className="font-display text-2xl text-white tracking-wide mb-5">Описание</h2>
-            <div className="font-body text-white/65 text-sm leading-relaxed space-y-3">
-              {cat.description.split("\n").map((line, i) => (
-                <p key={i}>{line}</p>
+      {/* Картинки */}
+      {cat.gallery.length > 0 && (
+        <section className="py-12 bg-brand-dark-2 border-b border-white/8">
+          <div className="max-w-7xl mx-auto px-4 md:px-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {cat.gallery.map((g, i) => (
+                <figure key={i} className="bg-card border border-white/8 rounded-sm overflow-hidden">
+                  <img
+                    src={g.img}
+                    alt={g.caption ?? cat.title}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-auto object-contain bg-white"
+                  />
+                  {g.caption && (
+                    <figcaption className="font-body text-white/50 text-xs p-3 border-t border-white/8">
+                      {g.caption}
+                    </figcaption>
+                  )}
+                </figure>
               ))}
             </div>
-
-            {cat.gallery.length > 0 && (
-              <div className="mt-12">
-                <h2 className="font-display text-2xl text-white tracking-wide mb-5">Фотографии работ</h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {cat.gallery.map((g, i) => (
-                    <figure key={i} className="bg-card border border-white/8 rounded-sm overflow-hidden">
-                      <img src={g.img} alt={g.caption ?? cat.title} loading="lazy" decoding="async" className="w-full h-auto object-contain bg-white" />
-                      {g.caption && (
-                        <figcaption className="font-body text-white/50 text-xs p-3 border-t border-white/8">{g.caption}</figcaption>
-                      )}
-                    </figure>
-                  ))}
-                </div>
-              </div>
-            )}
           </div>
+        </section>
+      )}
 
-          <div className="space-y-4">
-            {cat.bullets.length > 0 && (
-              <div className="bg-card border border-white/8 p-6 rounded-sm">
-                <h3 className="font-display text-white text-lg tracking-wide mb-4">Ключевое</h3>
-                <div className="space-y-3">
-                  {cat.bullets.map((b) => (
-                    <div key={b} className="flex items-start gap-3">
-                      <Icon name="Check" size={14} className="text-brand-red mt-0.5 shrink-0" />
-                      <span className="font-body text-white/65 text-sm leading-relaxed">{b}</span>
-                    </div>
-                  ))}
+      {/* Описание */}
+      <section className="py-16 bg-background">
+        <div className="max-w-7xl mx-auto px-4 md:px-8">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-8 h-px bg-brand-red" />
+            <span className="font-body text-white/40 text-xs tracking-[0.25em] uppercase">Описание</span>
+          </div>
+          <h2 className="font-display text-3xl text-white tracking-wide mb-6">О направлении</h2>
+          <div className="font-body text-white/65 text-sm leading-relaxed space-y-3 max-w-4xl">
+            {cat.description.split("\n").map((line, i) => (
+              <p key={i}>{line}</p>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Область применения */}
+      {cat.applications.length > 0 && (
+        <section className="py-16 bg-brand-dark-2 border-t border-white/8">
+          <div className="max-w-7xl mx-auto px-4 md:px-8">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-8 h-px bg-brand-red" />
+              <span className="font-body text-white/40 text-xs tracking-[0.25em] uppercase">Применение</span>
+            </div>
+            <h2 className="font-display text-3xl text-white tracking-wide mb-8">Область применения</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {cat.applications.map((a) => (
+                <div key={a} className="bg-card border border-white/8 p-5 rounded-sm flex items-start gap-3">
+                  <Icon name="Check" size={14} className="text-brand-red mt-0.5 shrink-0" />
+                  <span className="font-body text-white/70 text-sm leading-relaxed">{a}</span>
                 </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Преимущества */}
+      {cat.advantages.length > 0 && (
+        <section className="py-16 bg-background border-t border-white/8">
+          <div className="max-w-7xl mx-auto px-4 md:px-8">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-8 h-px bg-brand-red" />
+              <span className="font-body text-white/40 text-xs tracking-[0.25em] uppercase">Почему мы</span>
+            </div>
+            <h2 className="font-display text-3xl text-white tracking-wide mb-8">Преимущества наших решений</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {cat.advantages.map((adv) => (
+                <div key={adv.title} className="bg-card border border-white/8 p-6 rounded-sm card-hover">
+                  <div className="w-10 h-10 bg-brand-red/15 border border-brand-red/30 flex items-center justify-center mb-4">
+                    <Icon name={adv.icon as never} size={18} className="text-brand-red" />
+                  </div>
+                  <h3 className="font-display text-white text-base tracking-wide mb-2">{adv.title}</h3>
+                  <p className="font-body text-white/50 text-sm leading-relaxed">{adv.text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Технические характеристики */}
+      {cat.specs.length > 0 && (
+        <section className="py-16 bg-brand-dark-2 border-t border-white/8">
+          <div className="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-3 gap-10">
+            <div className="lg:col-span-2">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-8 h-px bg-brand-red" />
+                <span className="font-body text-white/40 text-xs tracking-[0.25em] uppercase">Параметры</span>
               </div>
-            )}
-            <div className="bg-brand-red/10 border border-brand-red/20 p-6 rounded-sm">
+              <h2 className="font-display text-3xl text-white tracking-wide mb-8">Технические характеристики</h2>
+              <div className="border border-white/8 rounded-sm overflow-hidden">
+                {cat.specs.map((s, i) => (
+                  <div
+                    key={s.label}
+                    className={`grid grid-cols-1 sm:grid-cols-2 gap-1 sm:gap-4 px-5 py-3 ${i % 2 ? "bg-card" : "bg-background"}`}
+                  >
+                    <span className="font-body text-white/45 text-sm">{s.label}</span>
+                    <span className="font-body text-white text-sm">{s.value}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="bg-brand-red/10 border border-brand-red/20 p-6 rounded-sm self-start">
               <Icon name="FileCheck" size={28} className="text-brand-red mb-4" />
               <h3 className="font-display text-white text-xl tracking-wide mb-3">Нужен расчёт?</h3>
               <p className="font-body text-white/55 text-sm leading-relaxed mb-5">
@@ -103,9 +172,10 @@ export default function MetalworkCategoryPage({ categoryId, onNavigate }: Metalw
               </button>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
+      {/* Другие услуги */}
       <section className="py-16 bg-background border-t border-white/8">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <h2 className="font-display text-2xl text-white tracking-wide mb-6">Другие услуги</h2>
