@@ -55,12 +55,36 @@ export default function ContactsPage(_: ContactsPageProps) {
     }
   };
 
+  const showCopied = (text: string, e: React.MouseEvent) => {
+    setTooltipPosition({ x: e.clientX, y: e.clientY });
+    setCopiedContact(text);
+    setTimeout(() => setCopiedContact(null), 2000);
+  };
+
   const handleCopy = (text: string, e: React.MouseEvent) => {
-    navigator.clipboard.writeText(text).then(() => {
-      setTooltipPosition({ x: e.clientX, y: e.clientY });
-      setCopiedContact(text);
-      setTimeout(() => setCopiedContact(null), 3000);
-    });
+    if (navigator.clipboard?.writeText) {
+      navigator.clipboard.writeText(text).then(
+        () => showCopied(text, e),
+        () => fallbackCopy(text, e),
+      );
+    } else {
+      fallbackCopy(text, e);
+    }
+  };
+
+  const fallbackCopy = (text: string, e: React.MouseEvent) => {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.style.position = "fixed";
+    ta.style.opacity = "0";
+    document.body.appendChild(ta);
+    ta.select();
+    try {
+      document.execCommand("copy");
+      showCopied(text, e);
+    } finally {
+      document.body.removeChild(ta);
+    }
   };
 
   const contactCards = [
