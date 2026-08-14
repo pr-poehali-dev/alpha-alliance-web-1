@@ -251,7 +251,7 @@ export default function ContactsPage(_: ContactsPageProps) {
                 </div>
                 <div>
                   <div className="font-body text-white/40 text-xs tracking-wide uppercase mb-1">Адрес</div>
-                  <div className="font-body text-white text-base">660020, Красноярский край,<br />г. Красноярск, ул. Дудинская, д. 5</div>
+                  <div className="font-body text-white text-base">660077, Красноярский край,<br />г. Красноярск, ул. Батурина, д. 38, кв. 23</div>
                 </div>
               </div>
 
