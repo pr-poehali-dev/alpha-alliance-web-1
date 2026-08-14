@@ -139,29 +139,7 @@ export default function EngineeringPage({ onNavigate }: EngineeringPageProps) {
       {/* Why us */}
       <section className="py-20 bg-brand-dark-2 border-t border-white/8">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-8 h-px bg-brand-red" />
-                <span className="font-body text-white/40 text-xs tracking-[0.25em] uppercase">Преимущества</span>
-              </div>
-              <h2 className="font-display text-4xl text-white tracking-wide mb-8">Почему выбирают нас</h2>
-              <div className="space-y-5">
-                {[
-                  { icon: "Clock", text: "Более 13 лет опыта в промышленном инжиниринге" },
-                  { icon: "Users", text: "Команда сертифицированных инженеров-механиков и гидравликов" },
-                  { icon: "Briefcase", text: "Реализовано более 200 проектов на крупнейших предприятиях России" },
-                  { icon: "CheckCircle", text: "Полный цикл — от проектирования до сдачи объекта в эксплуатацию" },
-                ].map((item) => (
-                  <div key={item.text} className="flex items-start gap-4">
-                    <div className="w-8 h-8 bg-brand-red/15 border border-brand-red/30 flex items-center justify-center shrink-0 mt-0.5">
-                      <Icon name={item.icon as never} size={14} className="text-brand-red" />
-                    </div>
-                    <p className="font-body text-white/70 text-sm leading-relaxed">{item.text}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
+          <div className="max-w-xl mx-auto">
             <div className="bg-brand-red/10 border border-brand-red/25 p-8 rounded-sm">
               <h3 className="font-display text-white text-2xl tracking-wide mb-4">Обсудить проект?</h3>
               <p className="font-body text-white/55 text-sm leading-relaxed mb-6">
