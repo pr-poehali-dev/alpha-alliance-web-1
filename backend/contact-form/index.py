@@ -1,6 +1,7 @@
 import json
 import smtplib
 import os
+from datetime import datetime, timezone, timedelta
 # redeploy
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
@@ -26,6 +27,9 @@ def handler(event: dict, context) -> dict:
     phone = body.get('phone', '').strip()
     email = body.get('email', '').strip()
     message = body.get('message', '').strip()
+    consent = bool(body.get('consent'))
+    source_ip = event.get('requestContext', {}).get('identity', {}).get('sourceIp', '')
+    consent_time = datetime.now(timezone(timedelta(hours=7))).strftime('%d.%m.%Y %H:%M (Красноярск)')
 
     if not name or not phone:
         return {
@@ -44,6 +48,7 @@ def handler(event: dict, context) -> dict:
     msg['To'] = recipient
 
     email_row = f'<tr><td style="padding: 10px; border: 1px solid #ddd; background: #f9f9f9; font-weight: bold;">Почта</td><td style="padding: 10px; border: 1px solid #ddd;">{email}</td></tr>' if email else ''
+    consent_row = f'<tr><td style="padding: 10px; border: 1px solid #ddd; background: #f9f9f9; font-weight: bold;">Согласие на обработку ПДн</td><td style="padding: 10px; border: 1px solid #ddd;">Дано {consent_time}, IP {source_ip}</td></tr>' if consent else '<tr><td style="padding: 10px; border: 1px solid #ddd; background: #f9f9f9; font-weight: bold;">Согласие на обработку ПДн</td><td style="padding: 10px; border: 1px solid #ddd; color: #c0392b;">Не зафиксировано</td></tr>'
     message_row = f'<tr><td style="padding: 10px; border: 1px solid #ddd; background: #f9f9f9; font-weight: bold;">Описание</td><td style="padding: 10px; border: 1px solid #ddd;">{message}</td></tr>' if message else ''
 
     html = f"""
@@ -61,6 +66,7 @@ def handler(event: dict, context) -> dict:
             </tr>
             {email_row}
             {message_row}
+            {consent_row}
         </table>
     </body>
     </html>

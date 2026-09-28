@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Icon from "@/components/ui/icon";
+import ConsentCheckbox from "@/components/ConsentCheckbox";
 import func2url from "../../backend/func2url.json";
 
 const HERO_IMG = "https://cdn.poehali.dev/projects/1c53d09f-5a4e-4fbb-836d-36559c58ab56/files/6d1e745a-50bf-4647-ae03-3b755e4ae85a.jpg";
@@ -35,6 +36,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const [copied, setCopied] = useState(false);
   const [slideIndex, setSlideIndex] = useState(0);
+  const [consent, setConsent] = useState(false);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -70,9 +72,9 @@ export default function HomePage({ onNavigate }: HomePageProps) {
       const res = await fetch(func2url["contact-form"], {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, consent: true }),
       });
-      if (res.ok) { setStatus("success"); setForm({ name: "", phone: "+7 ", email: "", message: "" }); }
+      if (res.ok) { setStatus("success"); setForm({ name: "", phone: "+7 ", email: "", message: "" }); setConsent(false); }
       else setStatus("error");
     } catch { setStatus("error"); }
     finally { setIsSubmitting(false); }
@@ -81,7 +83,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
   const handleClose = () => {
     setModalOpen(false);
     setStatus("idle");
-    setForm({ name: "", phone: "+7 ", email: "", message: "" });
+    setForm({ name: "", phone: "+7 ", email: "", message: "" }); setConsent(false);
   };
 
   const handleCopyEmail = () => {
@@ -168,16 +170,14 @@ export default function HomePage({ onNavigate }: HomePageProps) {
                     className="w-full bg-background border border-white/15 text-white font-body text-sm px-4 py-3 rounded-sm focus:outline-none focus:border-brand-red transition-colors placeholder:text-white/25 resize-none"
                   />
                 </div>
+                <ConsentCheckbox checked={consent} onChange={setConsent} onNavigate={onNavigate} />
                 <button
-                  type="submit" disabled={isSubmitting}
-                  className="btn-primary w-full py-4 text-sm rounded-sm flex items-center justify-center gap-2"
+                  type="submit" disabled={isSubmitting || !consent}
+                  className="btn-primary w-full py-4 text-sm rounded-sm flex items-center justify-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed"
                 >
                   <Icon name="Send" size={15} />
                   {isSubmitting ? "Отправка..." : "Отправить заявку"}
                 </button>
-                <p className="font-body text-white/20 text-xs text-center">
-                  Нажимая кнопку, вы соглашаетесь на обработку персональных данных
-                </p>
 
                 <div className="border-t border-white/8 pt-4">
                   <p className="font-body text-white/40 text-xs text-center mb-2">либо пришлите запрос на почту</p>

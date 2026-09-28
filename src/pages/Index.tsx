@@ -15,6 +15,8 @@ const MetalworkCategoryPage = lazy(() => import("@/pages/MetalworkCategoryPage")
 const EngineeringPage = lazy(() => import("@/pages/EngineeringPage"));
 const ContactsPage = lazy(() => import("@/pages/ContactsPage"));
 const AdminImportPage = lazy(() => import("@/pages/AdminImportPage"));
+const PrivacyPolicyPage = lazy(() => import("@/pages/PrivacyPolicyPage"));
+const ConsentPage = lazy(() => import("@/pages/ConsentPage"));
 
 const PageFallback = () => (
   <div className="min-h-[60vh] flex items-center justify-center text-muted-foreground">
@@ -39,6 +41,8 @@ const PAGE_MAP: Record<string, React.ComponentType<PageProps>> = {
   engineering: EngineeringPage,
   contacts: ContactsPage,
   "admin-import": AdminImportPage,
+  privacy: PrivacyPolicyPage,
+  consent: ConsentPage,
 };
 
 const Index = () => {

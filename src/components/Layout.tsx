@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Icon from "@/components/ui/icon";
 import FloatingContact from "@/components/FloatingContact";
+import CookieBanner from "@/components/CookieBanner";
 
 const NAV_ITEMS = [
   { id: "home", label: "Главная" },
@@ -136,11 +137,39 @@ export default function Layout({ children, activePage, onNavigate }: LayoutProps
       <main>{children}</main>
 
       {/* Floating contact button — hidden on contacts page */}
-      {activePage !== "contacts" && <FloatingContact />}
+      {activePage !== "contacts" && <FloatingContact onNavigate={onNavigate} />}
 
       {/* Footer */}
       <footer className="bg-brand-dark-2 border-t border-white/10 py-8">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 pb-6 mb-6 border-b border-white/8">
+            <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+              <button onClick={() => handleNav("privacy")} className="font-body text-white/50 hover:text-white text-xs transition-colors text-left">
+                Политика обработки персональных данных
+              </button>
+              <button onClick={() => handleNav("consent")} className="font-body text-white/50 hover:text-white text-xs transition-colors text-left">
+                Согласие на обработку данных
+              </button>
+              <button onClick={() => handleNav("contacts")} className="font-body text-white/50 hover:text-white text-xs transition-colors text-left">
+                Контакты
+              </button>
+            </div>
+            <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+              <a href="tel:+79293132080" className="flex items-center gap-1.5 text-white/50 hover:text-white transition-colors">
+                <Icon name="Phone" size={12} />
+                <span className="font-body text-xs">+7 (929) 313-20-80</span>
+              </a>
+              <a href="mailto:alfaallianse-info@mail.ru" className="flex items-center gap-1.5 text-white/50 hover:text-white transition-colors">
+                <Icon name="Mail" size={12} />
+                <span className="font-body text-xs">alfaallianse-info@mail.ru</span>
+              </a>
+            </div>
+          </div>
+          <div className="mb-4">
+            <p className="font-body text-white/40 text-xs leading-relaxed">
+              ООО «Альфа Альянс» · ИНН 2465302921 · КПП 246501001 · ОГРН 1132468063331 · 660077, Красноярский край, г. Красноярск, ул. Батурина, д. 38, кв. 23
+            </p>
+          </div>
           <div>
             <p className="font-body text-white/20 text-[11px] leading-relaxed">
               © «Альфа Альянс», 2013–2026. Настоящий сайт является объектом авторского права, исключительные права на использование которого принадлежат ООО «Альфа Альянс». Копирование, размножение, распространение, перепечатка (целиком или частично), или иное использование материала без письменного разрешения автора не допускается. Любое нарушение прав автора будет преследоваться на основе российского и международного законодательства. Свободное и безвозмездное использование произведений, входящих в состав настоящего сайта, ограничено использованием в личных целях и использованием в случаях, прямо указанных в законодательстве РФ. Использование произведений, входящих в состав настоящего сайта, на основании законодательства РФ не допускается. Нарушение вышеуказанных положений является нарушением авторских прав и влечет наступление гражданской, административной и уголовной ответственности в соответствии с действующим законодательством (статья 1299 ГК РФ).
@@ -148,6 +177,8 @@ export default function Layout({ children, activePage, onNavigate }: LayoutProps
           </div>
         </div>
       </footer>
+
+      <CookieBanner onNavigate={onNavigate} />
     </div>
   );
 }

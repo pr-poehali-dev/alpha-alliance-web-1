@@ -1,17 +1,19 @@
 import { useState } from "react";
 import Icon from "@/components/ui/icon";
+import ConsentCheckbox from "@/components/ConsentCheckbox";
 import func2url from "../../backend/func2url.json";
 
 interface ContactsPageProps {
   onNavigate?: (page: string) => void;
 }
 
-export default function ContactsPage(_: ContactsPageProps) {
+export default function ContactsPage({ onNavigate }: ContactsPageProps) {
   const [form, setForm] = useState({ name: "", phone: "+7 ", email: "", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
   const [copiedContact, setCopiedContact] = useState<string | null>(null);
   const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 });
+  const [consent, setConsent] = useState(false);
 
   const formatPhone = (value: string) => {
     const digits = value.replace(/\D/g, "");
@@ -40,11 +42,11 @@ export default function ContactsPage(_: ContactsPageProps) {
       const res = await fetch(func2url["contact-form"], {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, consent: true }),
       });
       if (res.ok) {
         setSubmitStatus("success");
-        setForm({ name: "", phone: "+7 ", email: "", message: "" });
+        setForm({ name: "", phone: "+7 ", email: "", message: "" }); setConsent(false);
       } else {
         setSubmitStatus("error");
       }
@@ -246,17 +248,15 @@ export default function ContactsPage(_: ContactsPageProps) {
                         className="w-full bg-background border border-white/15 text-white font-body text-sm px-4 py-3 rounded-sm focus:outline-none focus:border-brand-red transition-colors placeholder:text-white/25"
                       />
                     </div>
+                    <ConsentCheckbox checked={consent} onChange={setConsent} onNavigate={onNavigate} />
                     <button
                       type="submit"
-                      disabled={isSubmitting}
-                      className="btn-primary w-full py-4 text-sm rounded-sm flex items-center justify-center gap-2"
+                      disabled={isSubmitting || !consent}
+                      className="btn-primary w-full py-4 text-sm rounded-sm flex items-center justify-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed"
                     >
                       <Icon name="Send" size={15} />
                       {isSubmitting ? "Отправка..." : "Отправить заявку"}
                     </button>
-                    <p className="font-body text-white/25 text-xs text-center">
-                      Нажимая кнопку, вы соглашаетесь на обработку персональных данных
-                    </p>
                   </form>
                 )}
               </div>
