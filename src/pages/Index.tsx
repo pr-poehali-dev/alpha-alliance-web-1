@@ -17,6 +17,7 @@ const ContactsPage = lazy(() => import("@/pages/ContactsPage"));
 const AdminImportPage = lazy(() => import("@/pages/AdminImportPage"));
 const PrivacyPolicyPage = lazy(() => import("@/pages/PrivacyPolicyPage"));
 const ConsentPage = lazy(() => import("@/pages/ConsentPage"));
+const LegalDocsPage = lazy(() => import("@/pages/LegalDocsPage"));
 
 const PageFallback = () => (
   <div className="min-h-[60vh] flex items-center justify-center text-muted-foreground">
@@ -43,6 +44,7 @@ const PAGE_MAP: Record<string, React.ComponentType<PageProps>> = {
   "admin-import": AdminImportPage,
   privacy: PrivacyPolicyPage,
   consent: ConsentPage,
+  "legal-docs": LegalDocsPage,
 };
 
 const Index = () => {
